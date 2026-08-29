@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="20.2.7.0" Ref="0" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v20.2, Version=20.2.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="Report1" PageColor="255,251,213,181" Margins="100, 100, 113, 106" PaperKind="A4" PageWidth="827" PageHeight="1169" Version="20.2" Font="Arial, 9.75pt">
+  <Parameters>
+    <Item1 Ref="2" Description="afa_no" ValueInfo="PIG2/D/004/2/21/21" Name="afa" />
+  </Parameters>
+  <CalculatedFields>
+    <Item1 Ref="3" Name="calculatedField1" />
+    <Item2 Ref="4" Name="AFABalance" Expression="[Budget_Amt]-[Act_This]-[AMT]" DataMember="V_Print_AFA" />
+  </CalculatedFields>
+  <Bands>
+    <Item1 Ref="5" ControlType="TopMarginBand" Name="TopMargin" HeightF="113.129913" Font="Arial, 12pt">
+      <Controls>
+        <Item1 Ref="6" ControlType="XRLine" Name="line8" LineDirection="Vertical" SizeF="4.47921753,92.5624847" LocationFloat="614.1876,19.0000057" />
+        <Item2 Ref="7" ControlType="XRLine" Name="line7" LineDirection="Vertical" SizeF="4.47921753,92.5624847" LocationFloat="488.1876,20.0000057" />
+        <Item3 Ref="8" ControlType="XRLine" Name="line6" LineDirection="Vertical" SizeF="4.47921753,92.5624847" LocationFloat="348.1876,19.0000057" />
+        <Item4 Ref="9" ControlType="XRLine" Name="line5" LineDirection="Vertical" SizeF="4.47921753,92.5624847" LocationFloat="7.87501526,18.3382435" />
+        <Item5 Ref="10" ControlType="XRLine" Name="line4" SizeF="607.125,2.083332" LocationFloat="9.87501,109.42157" />
+        <Item6 Ref="11" ControlType="XRLabel" Name="label15" Multiline="true" Text="label15" SizeF="100,23" LocationFloat="492.7292,87.90073" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="12" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AFA_DATE]" />
+          </ExpressionBindings>
+        </Item6>
+        <Item7 Ref="13" ControlType="XRLabel" Name="label14" Text="Date:" SizeF="113.194443,20.3958282" LocationFloat="492.729218,67.5049" Padding="2,2,0,0,100" />
+        <Item8 Ref="14" ControlType="XRLabel" Name="label13" Multiline="true" Text="label13" SizeF="100,23" LocationFloat="355.9166,87.90073" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="15" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Site_lokasi]" />
+          </ExpressionBindings>
+        </Item8>
+        <Item9 Ref="16" ControlType="XRLabel" Name="label12" Text="Location:" SizeF="113.194443,20.3958282" LocationFloat="355.916656,67.5049" Padding="2,2,0,0,100" />
+        <Item10 Ref="17" ControlType="XRLabel" Name="label11" Multiline="true" Text="label11" SizeF="156.770859,23" LocationFloat="178.416733,87.90073" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="18" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[ALOKASI_DESC]" />
+          </ExpressionBindings>
+        </Item10>
+        <Item11 Ref="19" ControlType="XRLabel" Name="label10" Text="Required By:" SizeF="113.194443,20.3958282" LocationFloat="178.416779,67.5049" Padding="2,2,0,0,100" />
+        <Item12 Ref="20" ControlType="XRLabel" Name="label9" Text="Submitted By:" SizeF="113.194443,20.3958282" LocationFloat="12.8750153,67.7341" Padding="2,2,0,0,100" />
+        <Item13 Ref="21" ControlType="XRLabel" Name="label8" Text="Approved Date:" SizeF="123.270813,20.39583" LocationFloat="492.7292,22.42158" Padding="2,2,0,0,100" />
+        <Item14 Ref="22" ControlType="XRLabel" Name="label7" Multiline="true" Text="label7" SizeF="131.7709,22.9999962" LocationFloat="355.9166,42.81741" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="23" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AFA_APPROVAL_DATE]" />
+          </ExpressionBindings>
+        </Item14>
+        <Item15 Ref="24" ControlType="XRLabel" Name="label6" Text="Dept. Finance:" SizeF="113.020905,20.39583" LocationFloat="355.916626,22.42158" Padding="2,2,0,0,100" />
+        <Item16 Ref="25" ControlType="XRLine" Name="line3" LineDirection="Vertical" SizeF="4.47921753,92.5624847" LocationFloat="173.937439,18.3382435" />
+        <Item17 Ref="26" ControlType="XRLabel" Name="label5" Multiline="true" Text="label5" SizeF="156.770813,22.9999962" LocationFloat="178.416779,42.81741" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="27" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AFA_NO_APPROVAL]" />
+          </ExpressionBindings>
+        </Item17>
+        <Item18 Ref="28" ControlType="XRLabel" Name="label4" Text="Approval:" SizeF="100,20.39583" LocationFloat="178.416672,22.42158" Padding="2,2,0,0,100" />
+        <Item19 Ref="29" ControlType="XRLine" Name="line2" SizeF="607.125,2.083332" LocationFloat="9.87501,65.42157" />
+        <Item20 Ref="30" ControlType="XRLine" Name="line1" SizeF="607.125,2.083334" LocationFloat="9.87501,18.3382435" />
+        <Item21 Ref="31" ControlType="XRLabel" Name="label3" Text="REf. Reg:" SizeF="100,20.39583" LocationFloat="12.8750153,22.42158" Padding="2,2,0,0,100" />
+        <Item22 Ref="32" ControlType="XRLabel" Name="label2" Multiline="true" Text="label2" SizeF="158.333328,24.9166718" LocationFloat="12.8750153,42.81741" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="33" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AFA_NO]" />
+          </ExpressionBindings>
+        </Item22>
+        <Item23 Ref="34" ControlType="XRLabel" Name="label1" Multiline="true" Text="APPLICATION FOR APPROVAL" TextAlignment="TopCenter" SizeF="625,17.0000076" LocationFloat="0,0" Padding="2,2,0,0,100">
+          <StylePriority Ref="35" UseTextAlignment="false" />
+        </Item23>
+      </Controls>
+      <StylePriority Ref="36" UseFont="false" />
+    </Item1>
+    <Item2 Ref="37" ControlType="DetailBand" Name="Detail" HeightF="214.590286">
+      <Controls>
+        <Item1 Ref="38" ControlType="XRLabel" Name="label34" Multiline="true" Text="label34" TextAlignment="TopRight" SizeF="161.055618,20.3958282" LocationFloat="189.611191,193.798569" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="39" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AMT]" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="40" ControlType="XRLabel" Name="label35" Text="USD." SizeF="37.29631,20.395813" LocationFloat="152.3149,193.798569" Padding="2,2,0,0,100" />
+        <Item3 Ref="41" ControlType="XRLabel" Name="label30" Multiline="true" Text="label30" SizeF="354.1272,20.3958282" LocationFloat="151.814957,173.798615" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="42" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[SCHEDULE]" />
+          </ExpressionBindings>
+        </Item3>
+        <Item4 Ref="43" ControlType="XRLabel" Name="label33" Text=":" SizeF="11.9282837,20.3958282" LocationFloat="134.3866,193.798569" Padding="2,2,0,0,100" />
+        <Item5 Ref="44" ControlType="XRLabel" Name="label32" Text=":" SizeF="11.9282837,20.3958282" LocationFloat="134.3866,173.798615" Padding="2,2,0,0,100" />
+        <Item6 Ref="45" ControlType="XRLabel" Name="label31" Text="ESTIMATED COST" SizeF="126.511581,20.3958282" LocationFloat="7.87501764,194.194458" Padding="2,2,0,0,100" />
+        <Item7 Ref="46" ControlType="XRLabel" Name="label29" Text="Scheduled " SizeF="80.794014,20.3958282" LocationFloat="8.000002,173.798615" Padding="2,2,0,0,100" />
+        <Item8 Ref="47" ControlType="XRLabel" Name="label28" Multiline="true" AutoWidth="true" Text="label28" SizeF="596.048645,123.694435" LocationFloat="7.87501764,50.10417" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="48" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[NOTETEXT]" />
+          </ExpressionBindings>
+        </Item8>
+        <Item9 Ref="49" ControlType="XRLabel" Name="label27" Multiline="true" Text="label27" SizeF="93.73657,22.9999981" LocationFloat="520.4511,19.3541126" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="50" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[DateApp_Dir]" />
+          </ExpressionBindings>
+        </Item9>
+        <Item10 Ref="51" ControlType="XRLabel" Name="label26" Multiline="true" Text="label26" SizeF="81.48129,22.9999981" LocationFloat="438.969757,19.3541126" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="52" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[App_Dir]" />
+          </ExpressionBindings>
+        </Item10>
+        <Item11 Ref="53" ControlType="XRLabel" Name="label25" Multiline="true" Text="label25" SizeF="93.73639,19.3541374" LocationFloat="520.4511,0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="54" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Nama_Dir]" />
+          </ExpressionBindings>
+        </Item11>
+        <Item12 Ref="55" ControlType="XRLabel" Name="label24" Multiline="true" Text="label24" SizeF="81.48135,19.3541374" LocationFloat="438.969757,0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="56" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Jab_Dir]" />
+          </ExpressionBindings>
+        </Item12>
+        <Item13 Ref="57" ControlType="XRLabel" Name="label23" Multiline="true" Text="label23" SizeF="100,23" LocationFloat="320.951416,19.354147" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="58" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[DateApp_Supp]" />
+          </ExpressionBindings>
+        </Item13>
+        <Item14 Ref="59" ControlType="XRLabel" Name="label22" Multiline="true" Text="label22" SizeF="100,23" LocationFloat="220.951416,19.354147" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="60" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[App_Supp]" />
+          </ExpressionBindings>
+        </Item14>
+        <Item15 Ref="61" ControlType="XRLabel" Name="label21" Multiline="true" Text="label21" SizeF="113.31012,19.3541565" LocationFloat="319.180481,0" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="62" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Nama_SUpp]" />
+          </ExpressionBindings>
+        </Item15>
+        <Item16 Ref="63" ControlType="XRLabel" Name="label20" Multiline="true" Text="label20" SizeF="100,17.2708378" LocationFloat="220.951416,2.083319" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="64" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Jab_Supp]" />
+          </ExpressionBindings>
+        </Item16>
+        <Item17 Ref="65" ControlType="XRLine" Name="line14" LineDirection="Vertical" SizeF="4.479218,48.02083" LocationFloat="614.1876,0" />
+        <Item18 Ref="66" ControlType="XRLine" Name="line13" LineDirection="Vertical" SizeF="4.479218,48.02083" LocationFloat="433.4906,0" />
+        <Item19 Ref="67" ControlType="XRLine" Name="line12" LineDirection="Vertical" SizeF="4.479218,48.02083" LocationFloat="214.472214,2.08333659" />
+        <Item20 Ref="68" ControlType="XRLine" Name="line11" LineDirection="Vertical" SizeF="4.479218,50.1041641" LocationFloat="7.87501764,0" />
+        <Item21 Ref="69" ControlType="XRLabel" Name="label19" Multiline="true" Text="label19" SizeF="100.000008,22.9999981" LocationFloat="112.875023,19.354147" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="70" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[DateApp_Auth]" />
+          </ExpressionBindings>
+        </Item21>
+        <Item22 Ref="71" ControlType="XRLabel" Name="label18" Multiline="true" Text="label18" SizeF="100,23" LocationFloat="12.8750162,19.3541527" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="72" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[App_Auth]" />
+          </ExpressionBindings>
+        </Item22>
+        <Item23 Ref="73" ControlType="XRLabel" Name="label17" Multiline="true" Text="label17" SizeF="100.000008,17.2708321" LocationFloat="112.875015,2.083333" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="74" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Nama_Auth]" />
+          </ExpressionBindings>
+        </Item23>
+        <Item24 Ref="75" ControlType="XRLabel" Name="label16" Multiline="true" Text="label16" SizeF="100,17.2708321" LocationFloat="12.8750143,2.083333" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="76" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Jab_Auth]" />
+          </ExpressionBindings>
+        </Item24>
+        <Item25 Ref="77" ControlType="XRLine" Name="line10" SizeF="607.125,2.083332" LocationFloat="9.999997,48.0208321" />
+        <Item26 Ref="78" ControlType="XRLine" Name="line9" SizeF="607.125,2.083332" LocationFloat="9.875011,0" />
+      </Controls>
+    </Item2>
+    <Item3 Ref="79" ControlType="BottomMarginBand" Name="BottomMargin" HeightF="105.669838">
+      <Controls>
+        <Item1 Ref="80" ControlType="XRLabel" Name="label55" Multiline="true" Text="label55" SizeF="118.069435,18.3337135" LocationFloat="8.000018,62.81927" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="81" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Budget_DateApp]" />
+          </ExpressionBindings>
+        </Item1>
+        <Item2 Ref="82" ControlType="XRLabel" Name="label54" Multiline="true" Text="label54" TextAlignment="TopCenter" SizeF="105.000023,17.7916565" LocationFloat="7.87499332,45.0276" Padding="2,2,0,0,100">
+          <ExpressionBindings>
+            <Item1 Ref="83" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Budget_App]" />
+          </ExpressionBindings>
+          <StylePriority Ref="84" UseTextAlignment="false" />
+        </Item2>
+        <Item3 Ref="85" ControlType="XRLabel" Name="label53" Text="( F&amp;A )" TextAlignment="TopCenter" SizeF="105.000008,16.344902" LocationFloat="7.87499332,81.15297" Padding="2,2,0,0,100">
+          <StylePriority Ref="86" UseTextAlignment="false" />
+        </Item3>
+        <Item4 Ref="87" ControlType="XRLabel" Name="label52" Text="Budget Control" SizeF="105.000008,16.344902" LocationFloat="7.875,16.3449173" Padding="2,2,0,0,100" />
+        <Item5 Ref="88" ControlType="XRLabel" Name="label51" Text="Checked By," SizeF="105.000008,16.344902" LocationFloat="7.875,0" Padding="2,2,0,0,100" />
+      </Controls>
+    </Item3>
+    <Item4 Ref="89" ControlType="DetailReportBand" Name="DetailReport" Level="0">
+      <Bands>
+        <Item1 Ref="90" ControlType="DetailBand" Name="Detail1" HeightF="101.057953">
+          <Controls>
+            <Item1 Ref="91" ControlType="XRLabel" Name="label50" Multiline="true" Text="label50" SizeF="129.715347,19.9120712" LocationFloat="220.951431,81.14588" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="92" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AFABalance]" />
+              </ExpressionBindings>
+            </Item1>
+            <Item2 Ref="93" ControlType="XRLabel" Name="label49" TextFormatString="{0:#.00}" Multiline="true" Text="label49" TextAlignment="TopRight" SizeF="129.715347,16.3448944" LocationFloat="220.951431,64.8009644" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="94" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[AMT]" />
+              </ExpressionBindings>
+            </Item2>
+            <Item3 Ref="95" ControlType="XRLabel" Name="label48" TextFormatString="{0:#.00}" Multiline="true" Text="label48" TextAlignment="TopRight" SizeF="129.715347,17.3958244" LocationFloat="220.951431,47.4051323" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="96" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Act_This]" />
+              </ExpressionBindings>
+            </Item3>
+            <Item4 Ref="97" ControlType="XRLabel" Name="label47" TextFormatString="{0:#.00}" Multiline="true" Text="label47" TextAlignment="TopRight" SizeF="129.715347,16.3449059" LocationFloat="220.951431,32.11113" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="98" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[Budget_Amt]" />
+              </ExpressionBindings>
+            </Item4>
+            <Item5 Ref="99" ControlType="XRLabel" Name="label46" Text=": USD" SizeF="41.26848,17.3958168" LocationFloat="178.416779,81.14588" Padding="2,2,0,0,100" />
+            <Item6 Ref="100" ControlType="XRLabel" Name="label45" Text=": USD" SizeF="41.26848,17.3958168" LocationFloat="178.416779,63.75005" Padding="2,2,0,0,100" />
+            <Item7 Ref="101" ControlType="XRLabel" Name="label44" Text=": USD" SizeF="41.2684937,16.344902" LocationFloat="177.9374,47.4051323" Padding="2,2,0,0,100" />
+            <Item8 Ref="102" ControlType="XRLabel" Name="label43" Text=": USD" SizeF="41.2684937,15.2939873" LocationFloat="177.682953,32.11113" Padding="2,2,0,0,100" />
+            <Item9 Ref="103" ControlType="XRLabel" Name="label42" Text="Balance" SizeF="92.946785,15.7661991" LocationFloat="8.000002,81.14588" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="104" UseFont="false" />
+            </Item9>
+            <Item10 Ref="105" ControlType="XRLabel" Name="label41" Text="This Application" SizeF="163.333344,16.344902" LocationFloat="7.875,64.8009644" Padding="2,2,0,0,100" />
+            <Item11 Ref="106" ControlType="XRLabel" Name="label40" Text="Actual Up This Application" SizeF="163.333344,16.344902" LocationFloat="7.875,48.4560471" Padding="2,2,0,0,100" />
+            <Item12 Ref="107" ControlType="XRLabel" Name="label39" Text="Budget Amount" SizeF="105.000008,16.344902" LocationFloat="7.87501764,32.11113" Padding="2,2,0,0,100" />
+            <Item13 Ref="108" ControlType="XRLabel" Name="label38" Text="Yearly Budget" SizeF="92.946785,16.344902" LocationFloat="8.000002,15.7662125" Padding="2,2,0,0,100" />
+            <Item14 Ref="109" ControlType="XRLabel" Name="label37" Text="Budget Item :" SizeF="92.946785,15.7661991" LocationFloat="8.000002,0" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100">
+              <StylePriority Ref="110" UseFont="false" />
+            </Item14>
+            <Item15 Ref="111" ControlType="XRLabel" Name="label36" Multiline="true" Text="label36" SizeF="320.004669,15.7662039" LocationFloat="100.946785,0" Font="Arial, 9.75pt, style=Bold" Padding="2,2,0,0,100">
+              <ExpressionBindings>
+                <Item1 Ref="112" EventName="BeforePrint" PropertyName="Text" Expression="[V_Print_AFA].[ALOKASI_DESC]" />
+              </ExpressionBindings>
+              <StylePriority Ref="113" UseFont="false" />
+            </Item15>
+          </Controls>
+        </Item1>
+      </Bands>
+    </Item4>
+  </Bands>
+  <DesignerOptions Ref="114" ShowPrintingWarnings="false" />
+  <ComponentStorage>
+    <Item1 Ref="115" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v20.2" Name="sqlDataSource1" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0ic3FsRGF0YVNvdXJjZTEiPjxDb25uZWN0aW9uIE5hbWU9ImxvY2FsaG9zdF9BRkFTWVNfQ29ubmVjdGlvbiIgUHJvdmlkZXJLZXk9Ik1TU3FsU2VydmVyIj48UGFyYW1ldGVycz48UGFyYW1ldGVyIE5hbWU9InNlcnZlciIgVmFsdWU9IjE5Mi4xNjguMTcxLjIzOCIgLz48UGFyYW1ldGVyIE5hbWU9ImRhdGFiYXNlIiBWYWx1ZT0iQUZBU1lTIiAvPjxQYXJhbWV0ZXIgTmFtZT0idXNlSW50ZWdyYXRlZFNlY3VyaXR5IiBWYWx1ZT0iRmFsc2UiIC8+PFBhcmFtZXRlciBOYW1lPSJyZWFkIG9ubHkiIFZhbHVlPSIxIiAvPjxQYXJhbWV0ZXIgTmFtZT0iZ2VuZXJhdGVDb25uZWN0aW9uSGVscGVyIiBWYWx1ZT0iZmFsc2UiIC8+PFBhcmFtZXRlciBOYW1lPSJ1c2VyaWQiIFZhbHVlPSIiIC8+PFBhcmFtZXRlciBOYW1lPSJwYXNzd29yZCIgVmFsdWU9IiIgLz48L1BhcmFtZXRlcnM+PC9Db25uZWN0aW9uPjxRdWVyeSBUeXBlPSJTZWxlY3RRdWVyeSIgTmFtZT0iVl9QcmludF9BRkEiPjxUYWJsZXM+PFRhYmxlIE5hbWU9IlZfUHJpbnRfQUZBIiAvPjwvVGFibGVzPjxDb2x1bW5zPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBRkFfVFlQRSIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQUZBX05PIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJCVURHRVRfWUVBUiIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQlVER0VUX1JFViIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQ09TVF9DRU5URVIiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkNPTlRSQUNUIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBRkFfREFURSIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iRklOQU5DRV9EQVRFIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBRkFfTk9fQVBQUk9WQUwiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFGQV9BUFBST1ZBTF9EQVRFIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBRkFfUEVSX0ZST00iIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFGQV9QRVJfVE8iIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFTU0VUIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJOT1RFVEVYVCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iREFURUNSRUFURSIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iU1RTIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJTQ0hFRFVMRSIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iUEMiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IlVTRVJJRCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQXR0aCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQ0NfRGVzYyIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iU2l0ZV9sb2thc2kiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9Ik5JS19BdXRoIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJOYW1hX0F1dGgiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkphYl9BdXRoIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJOSUtfU3VwcCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iTmFtYV9TVXBwIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJKYWJfU3VwcCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iTklLX0RpciIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iTmFtYV9EaXIiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkphYl9EaXIiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFwcF9BdXRoIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBcHBfRGlyIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBcHBfU3VwcCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iRGF0ZUFwcF9TdXBwIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJEYXRlQXBwX0F1dGgiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkRhdGVBcHBfRGlyIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJCdWRnZXRfQW10IiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBY3RfVGhpc19BcHAiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFjdF9UaGlzIiAvPjxDb2x1bW4gVGFibGU9IlZfUHJpbnRfQUZBIiBOYW1lPSJBTE9LQVNJX0RFU0MiIC8+PENvbHVtbiBUYWJsZT0iVl9QcmludF9BRkEiIE5hbWU9IkFNVCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQnVkZ2V0X0FwcCIgLz48Q29sdW1uIFRhYmxlPSJWX1ByaW50X0FGQSIgTmFtZT0iQnVkZ2V0X0RhdGVBcHAiIC8+PC9Db2x1bW5zPjwvUXVlcnk+PFJlc3VsdFNjaGVtYT48RGF0YVNldCBOYW1lPSJzcWxEYXRhU291cmNlMSI+PFZpZXcgTmFtZT0iVl9QcmludF9BRkEiPjxGaWVsZCBOYW1lPSJBRkFfVFlQRSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJBRkFfTk8iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQlVER0VUX1lFQVIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQlVER0VUX1JFViIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDT1NUX0NFTlRFUiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDT05UUkFDVCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJBRkFfREFURSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJGSU5BTkNFX0RBVEUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQUZBX05PX0FQUFJPVkFMIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFGQV9BUFBST1ZBTF9EQVRFIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFGQV9QRVJfRlJPTSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IkFGQV9QRVJfVE8iIFR5cGU9IkRhdGVUaW1lIiAvPjxGaWVsZCBOYW1lPSJBU1NFVCIgVHlwZT0iQ2hhciIgLz48RmllbGQgTmFtZT0iTk9URVRFWFQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iREFURUNSRUFURSIgVHlwZT0iRGF0ZVRpbWUiIC8+PEZpZWxkIE5hbWU9IlNUUyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJTQ0hFRFVMRSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJQQyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJVU0VSSUQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQXR0aCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDQ19EZXNjIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlNpdGVfbG9rYXNpIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5JS19BdXRoIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9Ik5hbWFfQXV0aCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJKYWJfQXV0aCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOSUtfU3VwcCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOYW1hX1NVcHAiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSmFiX1N1cHAiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iTklLX0RpciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOYW1hX0RpciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJKYWJfRGlyIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFwcF9BdXRoIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkFwcF9EaXIiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQXBwX1N1cHAiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iRGF0ZUFwcF9TdXBwIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkRhdGVBcHBfQXV0aCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEYXRlQXBwX0RpciIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJCdWRnZXRfQW10IiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJBY3RfVGhpc19BcHAiIFR5cGU9IkRlY2ltYWwiIC8+PEZpZWxkIE5hbWU9IkFjdF9UaGlzIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJBTE9LQVNJX0RFU0MiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQU1UIiBUeXBlPSJEZWNpbWFsIiAvPjxGaWVsZCBOYW1lPSJCdWRnZXRfQXBwIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IkJ1ZGdldF9EYXRlQXBwIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjwvRGF0YVNldD48L1Jlc3VsdFNjaGVtYT48Q29ubmVjdGlvbk9wdGlvbnMgQ2xvc2VDb25uZWN0aW9uPSJ0cnVlIiAvPjwvU3FsRGF0YVNvdXJjZT4=" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

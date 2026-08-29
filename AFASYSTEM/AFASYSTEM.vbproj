@@ -1,0 +1,493 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7B39B8DF-1DAA-41E4-BC67-306D631BE670}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>AFASYSTEM.My.MyApplication</StartupObject>
+    <RootNamespace>AFASYSTEM</RootNamespace>
+    <AssemblyName>AFASYSTEM</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>AFASYSTEM.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>AFASYSTEM.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>dunlopnew.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bytescout.PDFViewer, Version=3.30.0.1241, Culture=neutral, PublicKeyToken=f7dd1bd9d40a50eb, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.BonusSkins.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Charts.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.Desktop.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Drawing.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Data.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v25.1.UI, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataVisualization.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Diagram.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Docs.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Images.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Office.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v25.1.Drawing, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.PivotGrid.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v25.1.Export, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v25.1.Extensions, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Spreadsheet.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v25.1.UI, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v25.1.Extensions, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v25.1.Wizard, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDiagram.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGauges.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraGrid.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraNavBar.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPdfViewer.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPivotGrid.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v25.1.CodeCompletion, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v25.1.Extensions, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraRichEdit.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v25.1.Core.Desktop, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraSpreadsheet.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraTreeList.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraWizard.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>bin\Debug\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Configuration">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Deployment">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing.Design">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Remoting">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="UIAutomationClient">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClassKoneksi.vb" />
+    <Compile Include="FormFluMenu.Designer.vb">
+      <DependentUpon>FormFluMenu.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormFluMenu.vb" />
+    <Compile Include="FormSc.Designer.vb">
+      <DependentUpon>FormSc.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FormSc.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="XtraFormAddInf.Designer.vb">
+      <DependentUpon>XtraFormAddInf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAddInf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAddUser.Designer.vb">
+      <DependentUpon>XtraFormAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAEntry.Designer.vb">
+      <DependentUpon>XtraFormAFAEntry.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAEntry.vb" />
+    <Compile Include="XtraFormAFAHistory.Designer.vb">
+      <DependentUpon>XtraFormAFAHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAHistory.vb" />
+    <Compile Include="XtraFormAppOwner.Designer.vb">
+      <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAppOwner.vb" />
+    <Compile Include="XtraFormApproval.Designer.vb">
+      <DependentUpon>XtraFormApproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormApproval.vb" />
+    <Compile Include="XtraFormAttch.Designer.vb">
+      <DependentUpon>XtraFormAttch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAttch.vb" />
+    <Compile Include="XtraFormChangPwd.Designer.vb">
+      <DependentUpon>XtraFormChangPwd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormChangPwd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormDownloadNote.Designer.vb">
+      <DependentUpon>XtraFormDownloadNote.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormDownloadNote.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormEmailConfigure.Designer.vb">
+      <DependentUpon>XtraFormEmailConfigure.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormEmailConfigure.vb" />
+    <Compile Include="XtraFormListAFAAO.Designer.vb">
+      <DependentUpon>XtraFormListAFAAO.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormListAFAAO.vb" />
+    <Compile Include="XtraFormLogin.Designer.vb">
+      <DependentUpon>XtraFormLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormMonitoring.Designer.vb">
+      <DependentUpon>XtraFormMonitoring.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormMonitoring.vb" />
+    <Compile Include="XtraFormPdf.Designer.vb">
+      <DependentUpon>XtraFormPdf.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormPdf.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormReport.Designer.vb">
+      <DependentUpon>XtraFormReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormRptHistoryAFA.Designer.vb">
+      <DependentUpon>XtraFormRptHistoryAFA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormRptHistoryAFA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormSendNoteBudget.Designer.vb">
+      <DependentUpon>XtraFormSendNoteBudget.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSendNoteBudget.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormSendPwd.Designer.vb">
+      <DependentUpon>XtraFormSendPwd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSendPwd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormSignature.Designer.vb">
+      <DependentUpon>XtraFormSignature.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSignature.vb" />
+    <Compile Include="XtraFormSignatureNew.Designer.vb">
+      <DependentUpon>XtraFormSignatureNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSignatureNew.vb" />
+    <Compile Include="XtraFormSkipAfa.Designer.vb">
+      <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSkipAfa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormUnApp.Designer.vb">
+      <DependentUpon>XtraFormUnApp.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormUnApp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormViewAfa.Designer.vb">
+      <DependentUpon>XtraFormViewAfa.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormViewAfa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormViewPDF.Designer.vb">
+      <DependentUpon>XtraFormViewPDF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormViewPDF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormViewRpt.Designer.vb">
+      <DependentUpon>XtraFormViewRpt.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormViewRpt.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormvViewDocQA.Designer.vb">
+      <DependentUpon>XtraFormvViewDocQA.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormvViewDocQA.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFromUser.Designer.vb">
+      <DependentUpon>XtraFromUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFromUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PDFRPT.Designer.vb">
+      <DependentUpon>PDFRPT.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PDFRPT.vb">
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FormFluMenu.resx">
+      <DependentUpon>FormFluMenu.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSc.resx">
+      <DependentUpon>FormSc.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAddInf.resx">
+      <DependentUpon>XtraFormAddInf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAddUser.resx">
+      <DependentUpon>XtraFormAddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAEntry.resx">
+      <DependentUpon>XtraFormAFAEntry.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAHistory.resx">
+      <DependentUpon>XtraFormAFAHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAppOwner.resx">
+      <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormApproval.resx">
+      <DependentUpon>XtraFormApproval.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAttch.resx">
+      <DependentUpon>XtraFormAttch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormChangPwd.resx">
+      <DependentUpon>XtraFormChangPwd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormDownloadNote.resx">
+      <DependentUpon>XtraFormDownloadNote.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormEmailConfigure.resx">
+      <DependentUpon>XtraFormEmailConfigure.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormListAFAAO.resx">
+      <DependentUpon>XtraFormListAFAAO.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormLogin.resx">
+      <DependentUpon>XtraFormLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormMonitoring.resx">
+      <DependentUpon>XtraFormMonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormPdf.resx">
+      <DependentUpon>XtraFormPdf.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormReport.resx">
+      <DependentUpon>XtraFormReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormRptHistoryAFA.resx">
+      <DependentUpon>XtraFormRptHistoryAFA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSendNoteBudget.resx">
+      <DependentUpon>XtraFormSendNoteBudget.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSendPwd.resx">
+      <DependentUpon>XtraFormSendPwd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSignature.resx">
+      <DependentUpon>XtraFormSignature.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSignatureNew.resx">
+      <DependentUpon>XtraFormSignatureNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSkipAfa.resx">
+      <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormUnApp.resx">
+      <DependentUpon>XtraFormUnApp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormViewAfa.resx">
+      <DependentUpon>XtraFormViewAfa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormViewPDF.resx">
+      <DependentUpon>XtraFormViewPDF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormViewRpt.resx">
+      <DependentUpon>XtraFormViewRpt.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormvViewDocQA.resx">
+      <DependentUpon>XtraFormvViewDocQA.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFromUser.resx">
+      <DependentUpon>XtraFromUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PDFRPT.resx">
+      <DependentUpon>PDFRPT.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="afaRPT.repx" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="dunlopnew.ico" />
+    <Content Include="icondunlop.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <ItemGroup>
+    <Analyzer Include="C:\Program Files\DevExpress 25.1\Components\Offline Packages\devexpress.data\25.1.5\analyzers\dotnet\DevExpress.Generator.dll" Visible="false" Condition="Exists('C:\Program Files\DevExpress 25.1\Components\Offline Packages\devexpress.data\25.1.5\analyzers\dotnet\DevExpress.Generator.dll')" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,35 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build output
+AFASYSTEM/bin/
+AFASYSTEM/obj/
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.tmp
+*.temp
+
+# Build/debug artifacts
+*.pdb
+*.cache
+*.log
+
+# Visual Studio test results
+TestResults/
+*.trx
+
+# ReSharper
+_ReSharper*/
+*.DotSettings.user
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
