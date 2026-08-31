@@ -451,11 +451,19 @@ Public Class FormFluMenu
     End Sub
 
     Private Sub AceDepartmentCode_Click(sender As Object, e As EventArgs) Handles AceDepartmentCode.Click
-
+        XtraFormDepartment.TopLevel = False
+        XtraFormDepartment.Parent = PanelControl1
+        XtraFormDepartment.Dock = DockStyle.Fill
+        XtraFormDepartment.Show()
+        XtraFormDepartment.BringToFront()
     End Sub
 
     Private Sub AceUserDepartment_Click(sender As Object, e As EventArgs) Handles AceUserDepartment.Click
-
+        XtraFormUserDepartments.TopLevel = False
+        XtraFormUserDepartments.Parent = PanelControl1
+        XtraFormUserDepartments.Dock = DockStyle.Fill
+        XtraFormUserDepartments.Show()
+        XtraFormUserDepartments.BringToFront()
     End Sub
 
     Private Sub AFAEformDonInf_Click(sender As Object, e As EventArgs) Handles AFAEformDonInf.Click

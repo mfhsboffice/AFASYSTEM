@@ -131,12 +131,12 @@ Partial Class FormFluMenu
         Me.Other_regulation = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.others_Guiance_Drafter = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.others_Guiance_Approval = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator10 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.Tools_Admin = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.PanelControl1 = New DevExpress.XtraEditors.PanelControl()
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AccordionControlSeparator10 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -861,6 +861,10 @@ Partial Class FormFluMenu
         Me.others_Guiance_Approval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.others_Guiance_Approval.Text = "Approval"
         '
+        'AccordionControlSeparator10
+        '
+        Me.AccordionControlSeparator10.Name = "AccordionControlSeparator10"
+        '
         'Tools_Admin
         '
         Me.Tools_Admin.ImageOptions.Image = CType(resources.GetObject("Tools_Admin.ImageOptions.Image"), System.Drawing.Image)
@@ -900,10 +904,6 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Name = "AccordionControlElement29"
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
-        '
-        'AccordionControlSeparator10
-        '
-        Me.AccordionControlSeparator10.Name = "AccordionControlSeparator10"
         '
         'FormFluMenu
         '

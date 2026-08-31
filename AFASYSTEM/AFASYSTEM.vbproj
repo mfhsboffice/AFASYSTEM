@@ -231,6 +231,7 @@
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
+    <Compile Include="Services\UserDepartmentService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
       <DependentUpon>XtraFormAddInf.vb</DependentUpon>
     </Compile>
@@ -327,6 +328,12 @@
     <Compile Include="XtraFormChangPwd.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormDepartment.Designer.vb">
+      <DependentUpon>XtraFormDepartment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormDepartment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormDownloadNote.Designer.vb">
       <DependentUpon>XtraFormDownloadNote.vb</DependentUpon>
     </Compile>
@@ -409,6 +416,12 @@
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormUnApp.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormUserDepartments.Designer.vb">
+      <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormUserDepartments.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormViewAfa.Designer.vb">
@@ -510,6 +523,9 @@
     <EmbeddedResource Include="XtraFormChangPwd.resx">
       <DependentUpon>XtraFormChangPwd.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormDepartment.resx">
+      <DependentUpon>XtraFormDepartment.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFormDownloadNote.resx">
       <DependentUpon>XtraFormDownloadNote.vb</DependentUpon>
     </EmbeddedResource>
@@ -551,6 +567,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUnApp.resx">
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormUserDepartments.resx">
+      <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormViewAfa.resx">
       <DependentUpon>XtraFormViewAfa.vb</DependentUpon>
