@@ -61,6 +61,7 @@
     <Reference Include="DevExpress.Charts.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.CodeParser.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.Desktop.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dialogs.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Drawing.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.DataAccess.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -89,6 +90,7 @@
     <Reference Include="DevExpress.XtraCharts.v25.1.Extensions, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraCharts.v25.1.Wizard, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraDiagram.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraDialogs.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGauges.v25.1.Core, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraGrid.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -198,7 +200,9 @@
     <Compile Include="FormFluMenu.Designer.vb">
       <DependentUpon>FormFluMenu.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormFluMenu.vb" />
+    <Compile Include="FormFluMenu.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FormSc.Designer.vb">
       <DependentUpon>FormSc.vb</DependentUpon>
     </Compile>
@@ -221,6 +225,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="Services\AFAAdditionalBudgetService.vb" />
+    <Compile Include="Services\AFADisposalService.vb" />
+    <Compile Include="Services\AFADonationService.vb" />
+    <Compile Include="Services\GeneralService.vb" />
+    <Compile Include="Services\AFAInformationService.vb" />
+    <Compile Include="Services\AFAReclassBudgetService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
       <DependentUpon>XtraFormAddInf.vb</DependentUpon>
     </Compile>
@@ -233,26 +243,84 @@
     <Compile Include="XtraFormAddUser.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormAFAAddEForm.Designer.vb">
+      <DependentUpon>XtraFormAFAAddEForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAAddEForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAAddSign.Designer.vb">
+      <DependentUpon>XtraFormAFAAddSign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAAddSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFABreEForm.Designer.vb">
+      <DependentUpon>XtraFormAFABreEForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFABreEForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFABreSign.Designer.vb">
+      <DependentUpon>XtraFormAFABreSign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFABreSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFADaaEForm.Designer.vb">
+      <DependentUpon>XtraFormAFADaaEForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFADaaEForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFADaaSign.Designer.vb">
+      <DependentUpon>XtraFormAFADaaSign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFADaaSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAFAEntry.Designer.vb">
       <DependentUpon>XtraFormAFAEntry.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormAFAEntry.vb" />
+    <Compile Include="XtraFormAFAEntry.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAFAHistory.Designer.vb">
       <DependentUpon>XtraFormAFAHistory.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormAFAHistory.vb" />
+    <Compile Include="XtraFormAFAHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAInfEF.Designer.vb">
+      <DependentUpon>XtraFormAFAInfEF.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAInfEF.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAInfSign.Designer.vb">
+      <DependentUpon>XtraFormAFAInfSign.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAInfSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAppOwner.Designer.vb">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormAppOwner.vb" />
+    <Compile Include="XtraFormAppOwner.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormApproval.Designer.vb">
       <DependentUpon>XtraFormApproval.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormApproval.vb" />
+    <Compile Include="XtraFormApproval.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAttch.Designer.vb">
       <DependentUpon>XtraFormAttch.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormAttch.vb" />
+    <Compile Include="XtraFormAttch.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormChangPwd.Designer.vb">
       <DependentUpon>XtraFormChangPwd.vb</DependentUpon>
     </Compile>
@@ -268,11 +336,15 @@
     <Compile Include="XtraFormEmailConfigure.Designer.vb">
       <DependentUpon>XtraFormEmailConfigure.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormEmailConfigure.vb" />
+    <Compile Include="XtraFormEmailConfigure.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormListAFAAO.Designer.vb">
       <DependentUpon>XtraFormListAFAAO.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormListAFAAO.vb" />
+    <Compile Include="XtraFormListAFAAO.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormLogin.Designer.vb">
       <DependentUpon>XtraFormLogin.vb</DependentUpon>
     </Compile>
@@ -282,7 +354,9 @@
     <Compile Include="XtraFormMonitoring.Designer.vb">
       <DependentUpon>XtraFormMonitoring.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormMonitoring.vb" />
+    <Compile Include="XtraFormMonitoring.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormPdf.Designer.vb">
       <DependentUpon>XtraFormPdf.vb</DependentUpon>
     </Compile>
@@ -316,11 +390,15 @@
     <Compile Include="XtraFormSignature.Designer.vb">
       <DependentUpon>XtraFormSignature.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormSignature.vb" />
+    <Compile Include="XtraFormSignature.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormSignatureNew.Designer.vb">
       <DependentUpon>XtraFormSignatureNew.vb</DependentUpon>
     </Compile>
-    <Compile Include="XtraFormSignatureNew.vb" />
+    <Compile Include="XtraFormSignatureNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormSkipAfa.Designer.vb">
       <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
     </Compile>
@@ -390,11 +468,35 @@
     <EmbeddedResource Include="XtraFormAddUser.resx">
       <DependentUpon>XtraFormAddUser.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAAddEForm.resx">
+      <DependentUpon>XtraFormAFAAddEForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAAddSign.resx">
+      <DependentUpon>XtraFormAFAAddSign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFABreEForm.resx">
+      <DependentUpon>XtraFormAFABreEForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFABreSign.resx">
+      <DependentUpon>XtraFormAFABreSign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFADaaEForm.resx">
+      <DependentUpon>XtraFormAFADaaEForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFADaaSign.resx">
+      <DependentUpon>XtraFormAFADaaSign.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFAEntry.resx">
       <DependentUpon>XtraFormAFAEntry.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFAHistory.resx">
       <DependentUpon>XtraFormAFAHistory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAInfEF.resx">
+      <DependentUpon>XtraFormAFAInfEF.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAInfSign.resx">
+      <DependentUpon>XtraFormAFAInfSign.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAppOwner.resx">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
@@ -484,7 +586,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dunlopnew.ico" />
-    <Content Include="icondunlop.ico" />
+    <None Include="icondunlop.ico" />
+    <None Include="Resources\AFASYS-2026-08-31-011326.png" />
+    <None Include="Resources\book-guide-handbook-svgrepo-com.svg" />
+    <None Include="Resources\customizegrid_32x32.png" />
+    <None Include="Resources\signature.svg" />
+    <None Include="Resources\education-form.svg" />
+    <None Include="Resources\publicfix_32x32.png" />
+    <None Include="Resources\bo_statemachine.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <ItemGroup>

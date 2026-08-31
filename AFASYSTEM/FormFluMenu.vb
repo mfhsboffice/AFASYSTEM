@@ -422,15 +422,7 @@ Public Class FormFluMenu
         XtraFormvViewDocQA.open()
         XtraFormvViewDocQA.Show()
         XtraFormvViewDocQA.BringToFront()
-
-
-
-
-
     End Sub
-
-
-
 
 
 
@@ -458,8 +450,76 @@ Public Class FormFluMenu
         XtraFormListAFAAO.BringToFront()
     End Sub
 
-    Private Sub RibbonControl1_Click(sender As Object, e As EventArgs) Handles RibbonControl1.Click
+    Private Sub AceDepartmentCode_Click(sender As Object, e As EventArgs) Handles AceDepartmentCode.Click
 
+    End Sub
+
+    Private Sub AceUserDepartment_Click(sender As Object, e As EventArgs) Handles AceUserDepartment.Click
+
+    End Sub
+
+    Private Sub AFAEformDonInf_Click(sender As Object, e As EventArgs) Handles AFAEformDonInf.Click
+        XtraFormAFAInfEF.TopLevel = False
+        XtraFormAFAInfEF.Parent = PanelControl1
+        XtraFormAFAInfEF.Dock = DockStyle.Fill
+        XtraFormAFAInfEF.Show()
+        XtraFormAFAInfEF.BringToFront()
+    End Sub
+
+    Private Sub AFASignatureDonInf_Click(sender As Object, e As EventArgs) Handles AFASignatureDonInf.Click
+        XtraFormAFAInfSign.TopLevel = False
+        XtraFormAFAInfSign.Parent = PanelControl1
+        XtraFormAFAInfSign.Dock = DockStyle.Fill
+        XtraFormAFAInfSign.Show()
+        XtraFormAFAInfSign.BringToFront()
+    End Sub
+
+    Private Sub AFAEformDisposal_Click(sender As Object, e As EventArgs) Handles AFAEformDisposal.Click
+        XtraFormAFADaaEForm.TopLevel = False
+        XtraFormAFADaaEForm.Parent = PanelControl1
+        XtraFormAFADaaEForm.Dock = DockStyle.Fill
+        XtraFormAFADaaEForm.Show()
+        XtraFormAFADaaEForm.BringToFront()
+    End Sub
+
+    Private Sub AFASignatureDisposal_Click(sender As Object, e As EventArgs) Handles AFASignatureDisposal.Click
+        XtraFormAFADaaSign.TopLevel = False
+        XtraFormAFADaaSign.Parent = PanelControl1
+        XtraFormAFADaaSign.Dock = DockStyle.Fill
+        XtraFormAFADaaSign.Show()
+        XtraFormAFADaaSign.BringToFront()
+    End Sub
+
+    Private Sub AFAEformReclassBudget_Click(sender As Object, e As EventArgs) Handles AFAEformReclassBudget.Click
+        XtraFormAFABreEForm.TopLevel = False
+        XtraFormAFABreEForm.Parent = PanelControl1
+        XtraFormAFABreEForm.Dock = DockStyle.Fill
+        XtraFormAFABreEForm.Show()
+        XtraFormAFABreEForm.BringToFront()
+    End Sub
+
+    Private Sub AFASignatureReclassBudget_Click(sender As Object, e As EventArgs) Handles AFASignatureReclassBudget.Click
+        XtraFormAFABreSign.TopLevel = False
+        XtraFormAFABreSign.Parent = PanelControl1
+        XtraFormAFABreSign.Dock = DockStyle.Fill
+        XtraFormAFABreSign.Show()
+        XtraFormAFABreSign.BringToFront()
+    End Sub
+
+    Private Sub AFAEformAddBudget_Click(sender As Object, e As EventArgs) Handles AFAEformAddBudget.Click
+        XtraFormAFAAddEForm.TopLevel = False
+        XtraFormAFAAddEForm.Parent = PanelControl1
+        XtraFormAFAAddEForm.Dock = DockStyle.Fill
+        XtraFormAFAAddEForm.Show()
+        XtraFormAFAAddEForm.BringToFront()
+    End Sub
+
+    Private Sub AFASignatureAddBudget_Click(sender As Object, e As EventArgs) Handles AFASignatureAddBudget.Click
+        XtraFormAFAAddSign.TopLevel = False
+        XtraFormAFAAddSign.Parent = PanelControl1
+        XtraFormAFAAddSign.Dock = DockStyle.Fill
+        XtraFormAFAAddSign.Show()
+        XtraFormAFAAddSign.BringToFront()
     End Sub
 
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
