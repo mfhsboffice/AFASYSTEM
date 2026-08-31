@@ -46,6 +46,8 @@ Partial Class XtraFormAFAInfSign
         Me.LciScheduleFrom = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleTo = New DevExpress.XtraLayout.LayoutControlItem()
         Me.XtraOpenFileDialogFile = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
+        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.LciPriority = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.TextEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -68,10 +70,13 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.ComboBoxEdit1)
         Me.LayoutControl1.Controls.Add(Me.TextEditScheduleTo)
         Me.LayoutControl1.Controls.Add(Me.TextEditScheduleFrom)
         Me.LayoutControl1.Controls.Add(Me.BtnViewAFA)
@@ -211,8 +216,7 @@ Partial Class XtraFormAFAInfSign
         '
         Me.TextEditAfaNo.Location = New System.Drawing.Point(12, 28)
         Me.TextEditAfaNo.Name = "TextEditAfaNo"
-        Me.TextEditAfaNo.Properties.ReadOnly = True
-        Me.TextEditAfaNo.Size = New System.Drawing.Size(664, 20)
+        Me.TextEditAfaNo.Size = New System.Drawing.Size(330, 20)
         Me.TextEditAfaNo.StyleController = Me.LayoutControl1
         Me.TextEditAfaNo.TabIndex = 4
         '
@@ -220,7 +224,7 @@ Partial Class XtraFormAFAInfSign
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnExit, Me.LciBtnSend, Me.LciBtnViewAFA, Me.LciScheduleFrom, Me.LciScheduleTo})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnExit, Me.LciBtnSend, Me.LciBtnViewAFA, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(688, 435)
         Me.Root.TextVisible = False
@@ -230,7 +234,7 @@ Partial Class XtraFormAFAInfSign
         Me.LciAfaNo.Control = Me.TextEditAfaNo
         Me.LciAfaNo.Location = New System.Drawing.Point(0, 0)
         Me.LciAfaNo.Name = "LciAfaNo"
-        Me.LciAfaNo.Size = New System.Drawing.Size(668, 40)
+        Me.LciAfaNo.Size = New System.Drawing.Size(334, 40)
         Me.LciAfaNo.Text = "No.AFA"
         Me.LciAfaNo.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAfaNo.TextSize = New System.Drawing.Size(76, 13)
@@ -329,6 +333,25 @@ Partial Class XtraFormAFAInfSign
         '
         Me.XtraOpenFileDialogFile.FileName = "XtraOpenFileDialog1"
         '
+        'ComboBoxEdit1
+        '
+        Me.ComboBoxEdit1.Location = New System.Drawing.Point(346, 28)
+        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
+        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.ComboBoxEdit1.Size = New System.Drawing.Size(330, 20)
+        Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
+        Me.ComboBoxEdit1.TabIndex = 17
+        '
+        'LciPriority
+        '
+        Me.LciPriority.Control = Me.ComboBoxEdit1
+        Me.LciPriority.Location = New System.Drawing.Point(334, 0)
+        Me.LciPriority.Name = "LciPriority"
+        Me.LciPriority.Size = New System.Drawing.Size(334, 40)
+        Me.LciPriority.Text = "Priority"
+        Me.LciPriority.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciPriority.TextSize = New System.Drawing.Size(76, 13)
+        '
         'XtraFormAFAInfSign
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -337,7 +360,7 @@ Partial Class XtraFormAFAInfSign
         Me.Controls.Add(Me.LayoutControl1)
         Me.IconOptions.Image = Global.AFASYSTEM.My.Resources.Resources.icondunlop
         Me.Name = "XtraFormAFAInfSign"
-        Me.Text = "Signature AFA Donation or Information"
+        Me.Text = "Signature AFA Information"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.TextEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -360,6 +383,8 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -390,4 +415,6 @@ Partial Class XtraFormAFAInfSign
     Friend WithEvents TextEditScheduleFrom As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciScheduleFrom As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciScheduleTo As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents LciPriority As DevExpress.XtraLayout.LayoutControlItem
 End Class
