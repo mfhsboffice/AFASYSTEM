@@ -22,6 +22,8 @@ Partial Class XtraFormAFAInfEF
         Me.components = New System.ComponentModel.Container()
         Me.BehaviorManager1 = New DevExpress.Utils.Behaviors.BehaviorManager(Me.components)
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.TextEditBudgetYear = New DevExpress.XtraEditors.TextEdit()
+        Me.SelectCurrency = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.DateEditScheduleTo = New DevExpress.XtraEditors.DateEdit()
         Me.DateEditScheduleFrom = New DevExpress.XtraEditors.DateEdit()
         Me.TextEditCaptionCover = New DevExpress.XtraEditors.TextEdit()
@@ -49,9 +51,13 @@ Partial Class XtraFormAFAInfEF
         Me.LciBgExp = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleFrom = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleTo = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciCurrency = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SelectCurrency.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEditScheduleTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEditScheduleFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -79,10 +85,14 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciBgExp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciCurrency, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.TextEditBudgetYear)
+        Me.LayoutControl1.Controls.Add(Me.SelectCurrency)
         Me.LayoutControl1.Controls.Add(Me.DateEditScheduleTo)
         Me.LayoutControl1.Controls.Add(Me.DateEditScheduleFrom)
         Me.LayoutControl1.Controls.Add(Me.TextEditCaptionCover)
@@ -104,6 +114,24 @@ Partial Class XtraFormAFAInfEF
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'TextEditBudgetYear
+        '
+        Me.TextEditBudgetYear.Location = New System.Drawing.Point(470, 340)
+        Me.TextEditBudgetYear.Name = "TextEditBudgetYear"
+        Me.TextEditBudgetYear.Size = New System.Drawing.Size(455, 20)
+        Me.TextEditBudgetYear.StyleController = Me.LayoutControl1
+        Me.TextEditBudgetYear.TabIndex = 18
+        '
+        'SelectCurrency
+        '
+        Me.SelectCurrency.Location = New System.Drawing.Point(470, 380)
+        Me.SelectCurrency.Name = "SelectCurrency"
+        Me.SelectCurrency.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectCurrency.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.SelectCurrency.Size = New System.Drawing.Size(455, 20)
+        Me.SelectCurrency.StyleController = Me.LayoutControl1
+        Me.SelectCurrency.TabIndex = 17
+        '
         'DateEditScheduleTo
         '
         Me.DateEditScheduleTo.EditValue = Nothing
@@ -111,6 +139,7 @@ Partial Class XtraFormAFAInfEF
         Me.DateEditScheduleTo.Name = "DateEditScheduleTo"
         Me.DateEditScheduleTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEditScheduleTo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEditScheduleTo.Size = New System.Drawing.Size(455, 20)
         Me.DateEditScheduleTo.StyleController = Me.LayoutControl1
         Me.DateEditScheduleTo.TabIndex = 16
@@ -122,6 +151,7 @@ Partial Class XtraFormAFAInfEF
         Me.DateEditScheduleFrom.Name = "DateEditScheduleFrom"
         Me.DateEditScheduleFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleFrom.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEditScheduleFrom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEditScheduleFrom.Size = New System.Drawing.Size(454, 20)
         Me.DateEditScheduleFrom.StyleController = Me.LayoutControl1
         Me.DateEditScheduleFrom.TabIndex = 15
@@ -130,7 +160,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.TextEditCaptionCover.Location = New System.Drawing.Point(12, 340)
         Me.TextEditCaptionCover.Name = "TextEditCaptionCover"
-        Me.TextEditCaptionCover.Size = New System.Drawing.Size(913, 20)
+        Me.TextEditCaptionCover.Size = New System.Drawing.Size(454, 20)
         Me.TextEditCaptionCover.StyleController = Me.LayoutControl1
         Me.TextEditCaptionCover.TabIndex = 14
         '
@@ -164,7 +194,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.TextEditEstimateCost.Location = New System.Drawing.Point(12, 380)
         Me.TextEditEstimateCost.Name = "TextEditEstimateCost"
-        Me.TextEditEstimateCost.Size = New System.Drawing.Size(913, 20)
+        Me.TextEditEstimateCost.Size = New System.Drawing.Size(454, 20)
         Me.TextEditEstimateCost.StyleController = Me.LayoutControl1
         Me.TextEditEstimateCost.TabIndex = 11
         '
@@ -206,6 +236,7 @@ Partial Class XtraFormAFAInfEF
         Me.SelectType.Location = New System.Drawing.Point(620, 28)
         Me.SelectType.Name = "SelectType"
         Me.SelectType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.SelectType.Size = New System.Drawing.Size(305, 20)
         Me.SelectType.StyleController = Me.LayoutControl1
         Me.SelectType.TabIndex = 6
@@ -234,7 +265,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciCaptionCover, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciCaptionCover, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciCurrency, Me.LayoutControlItem1})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(937, 440)
         Me.Root.TextVisible = False
@@ -304,7 +335,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciEstimateCost.Control = Me.TextEditEstimateCost
         Me.LciEstimateCost.Location = New System.Drawing.Point(0, 352)
         Me.LciEstimateCost.Name = "LciEstimateCost"
-        Me.LciEstimateCost.Size = New System.Drawing.Size(917, 40)
+        Me.LciEstimateCost.Size = New System.Drawing.Size(458, 40)
         Me.LciEstimateCost.Text = "Estimate Cost"
         Me.LciEstimateCost.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciEstimateCost.TextSize = New System.Drawing.Size(138, 13)
@@ -330,7 +361,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciCaptionCover.Control = Me.TextEditCaptionCover
         Me.LciCaptionCover.Location = New System.Drawing.Point(0, 312)
         Me.LciCaptionCover.Name = "LciCaptionCover"
-        Me.LciCaptionCover.Size = New System.Drawing.Size(917, 40)
+        Me.LciCaptionCover.Size = New System.Drawing.Size(458, 40)
         Me.LciCaptionCover.Text = "Caption Cover"
         Me.LciCaptionCover.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciCaptionCover.TextSize = New System.Drawing.Size(138, 13)
@@ -365,6 +396,26 @@ Partial Class XtraFormAFAInfEF
         Me.LciScheduleTo.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciScheduleTo.TextSize = New System.Drawing.Size(138, 13)
         '
+        'LciCurrency
+        '
+        Me.LciCurrency.Control = Me.SelectCurrency
+        Me.LciCurrency.Location = New System.Drawing.Point(458, 352)
+        Me.LciCurrency.Name = "LciCurrency"
+        Me.LciCurrency.Size = New System.Drawing.Size(459, 40)
+        Me.LciCurrency.Text = "Currency"
+        Me.LciCurrency.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciCurrency.TextSize = New System.Drawing.Size(138, 13)
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.TextEditBudgetYear
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(458, 312)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(459, 40)
+        Me.LayoutControlItem1.Text = "Budget Year"
+        Me.LayoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(138, 13)
+        '
         'XtraFormAFAInfEF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -377,6 +428,8 @@ Partial Class XtraFormAFAInfEF
         CType(Me.BehaviorManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SelectCurrency.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEditScheduleTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEditScheduleFrom.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -404,6 +457,8 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciBgExp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciCurrency, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -437,4 +492,8 @@ Partial Class XtraFormAFAInfEF
     Friend WithEvents DateEditScheduleFrom As DevExpress.XtraEditors.DateEdit
     Friend WithEvents LciScheduleFrom As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciScheduleTo As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents SelectCurrency As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents LciCurrency As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents TextEditBudgetYear As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
 End Class

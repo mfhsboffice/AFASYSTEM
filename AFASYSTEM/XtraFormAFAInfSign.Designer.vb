@@ -21,6 +21,7 @@ Partial Class XtraFormAFAInfSign
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.TextEditScheduleTo = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditScheduleFrom = New DevExpress.XtraEditors.TextEdit()
         Me.BtnViewAFA = New DevExpress.XtraEditors.SimpleButton()
@@ -45,11 +46,11 @@ Partial Class XtraFormAFAInfSign
         Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleFrom = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleTo = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.XtraOpenFileDialogFile = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
-        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LciPriority = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.XtraOpenFileDialogFile = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditScheduleFrom.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ButtonEditAttachment2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -70,7 +71,6 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,25 +92,35 @@ Partial Class XtraFormAFAInfSign
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.Root
-        Me.LayoutControl1.Size = New System.Drawing.Size(688, 435)
+        Me.LayoutControl1.Size = New System.Drawing.Size(897, 546)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'ComboBoxEdit1
+        '
+        Me.ComboBoxEdit1.Location = New System.Drawing.Point(453, 35)
+        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
+        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.ComboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.ComboBoxEdit1.Size = New System.Drawing.Size(429, 20)
+        Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
+        Me.ComboBoxEdit1.TabIndex = 17
+        '
         'TextEditScheduleTo
         '
-        Me.TextEditScheduleTo.Location = New System.Drawing.Point(346, 68)
+        Me.TextEditScheduleTo.Location = New System.Drawing.Point(453, 85)
         Me.TextEditScheduleTo.Name = "TextEditScheduleTo"
         Me.TextEditScheduleTo.Properties.ReadOnly = True
-        Me.TextEditScheduleTo.Size = New System.Drawing.Size(330, 20)
+        Me.TextEditScheduleTo.Size = New System.Drawing.Size(429, 20)
         Me.TextEditScheduleTo.StyleController = Me.LayoutControl1
         Me.TextEditScheduleTo.TabIndex = 16
         '
         'TextEditScheduleFrom
         '
-        Me.TextEditScheduleFrom.Location = New System.Drawing.Point(12, 68)
+        Me.TextEditScheduleFrom.Location = New System.Drawing.Point(15, 85)
         Me.TextEditScheduleFrom.Name = "TextEditScheduleFrom"
         Me.TextEditScheduleFrom.Properties.ReadOnly = True
-        Me.TextEditScheduleFrom.Size = New System.Drawing.Size(330, 20)
+        Me.TextEditScheduleFrom.Size = New System.Drawing.Size(428, 20)
         Me.TextEditScheduleFrom.StyleController = Me.LayoutControl1
         Me.TextEditScheduleFrom.TabIndex = 15
         '
@@ -120,9 +130,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnViewAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnViewAFA.Appearance.Options.UseBackColor = True
         Me.BtnViewAFA.Appearance.Options.UseFont = True
-        Me.BtnViewAFA.Location = New System.Drawing.Point(12, 399)
+        Me.BtnViewAFA.Location = New System.Drawing.Point(12, 510)
         Me.BtnViewAFA.Name = "BtnViewAFA"
-        Me.BtnViewAFA.Size = New System.Drawing.Size(170, 24)
+        Me.BtnViewAFA.Size = New System.Drawing.Size(224, 24)
         Me.BtnViewAFA.StyleController = Me.LayoutControl1
         Me.BtnViewAFA.TabIndex = 14
         Me.BtnViewAFA.Text = "View AFA"
@@ -133,9 +143,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnSend.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSend.Appearance.Options.UseBackColor = True
         Me.BtnSend.Appearance.Options.UseFont = True
-        Me.BtnSend.Location = New System.Drawing.Point(186, 399)
+        Me.BtnSend.Location = New System.Drawing.Point(240, 510)
         Me.BtnSend.Name = "BtnSend"
-        Me.BtnSend.Size = New System.Drawing.Size(151, 24)
+        Me.BtnSend.Size = New System.Drawing.Size(200, 24)
         Me.BtnSend.StyleController = Me.LayoutControl1
         Me.BtnSend.TabIndex = 13
         Me.BtnSend.Text = "Send"
@@ -146,9 +156,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
-        Me.BtnExit.Location = New System.Drawing.Point(341, 399)
+        Me.BtnExit.Location = New System.Drawing.Point(444, 510)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(163, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(215, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 12
         Me.BtnExit.Text = "Exit"
@@ -159,37 +169,37 @@ Partial Class XtraFormAFAInfSign
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(508, 399)
+        Me.BtnSave.Location = New System.Drawing.Point(663, 510)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(168, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(222, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 11
         Me.BtnSave.Text = "Save"
         '
         'ButtonEditAttachment2
         '
-        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(341, 375)
+        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(447, 483)
         Me.ButtonEditAttachment2.Name = "ButtonEditAttachment2"
         Me.ButtonEditAttachment2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(335, 20)
+        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(435, 20)
         Me.ButtonEditAttachment2.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment2.TabIndex = 10
         '
         'ButtonEditAttachment1
         '
-        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(12, 375)
+        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(15, 483)
         Me.ButtonEditAttachment1.Name = "ButtonEditAttachment1"
         Me.ButtonEditAttachment1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(325, 20)
+        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(422, 20)
         Me.ButtonEditAttachment1.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment1.TabIndex = 9
         '
         'GridControlSignature
         '
-        Me.GridControlSignature.Location = New System.Drawing.Point(12, 132)
+        Me.GridControlSignature.Location = New System.Drawing.Point(12, 162)
         Me.GridControlSignature.MainView = Me.GridViewSignature
         Me.GridControlSignature.Name = "GridControlSignature"
-        Me.GridControlSignature.Size = New System.Drawing.Size(664, 223)
+        Me.GridControlSignature.Size = New System.Drawing.Size(873, 294)
         Me.GridControlSignature.TabIndex = 8
         Me.GridControlSignature.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewSignature})
         '
@@ -200,7 +210,7 @@ Partial Class XtraFormAFAInfSign
         '
         'TextEditEstimateCost
         '
-        Me.TextEditEstimateCost.Location = New System.Drawing.Point(12, 108)
+        Me.TextEditEstimateCost.Location = New System.Drawing.Point(15, 135)
         Me.TextEditEstimateCost.Name = "TextEditEstimateCost"
         Me.TextEditEstimateCost.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditEstimateCost.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -208,15 +218,15 @@ Partial Class XtraFormAFAInfSign
         Me.TextEditEstimateCost.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditEstimateCost.Properties.ReadOnly = True
         Me.TextEditEstimateCost.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditEstimateCost.Size = New System.Drawing.Size(664, 20)
+        Me.TextEditEstimateCost.Size = New System.Drawing.Size(867, 20)
         Me.TextEditEstimateCost.StyleController = Me.LayoutControl1
         Me.TextEditEstimateCost.TabIndex = 7
         '
         'TextEditAfaNo
         '
-        Me.TextEditAfaNo.Location = New System.Drawing.Point(12, 28)
+        Me.TextEditAfaNo.Location = New System.Drawing.Point(15, 35)
         Me.TextEditAfaNo.Name = "TextEditAfaNo"
-        Me.TextEditAfaNo.Size = New System.Drawing.Size(330, 20)
+        Me.TextEditAfaNo.Size = New System.Drawing.Size(428, 20)
         Me.TextEditAfaNo.StyleController = Me.LayoutControl1
         Me.TextEditAfaNo.TabIndex = 4
         '
@@ -226,143 +236,156 @@ Partial Class XtraFormAFAInfSign
         Me.Root.GroupBordersVisible = False
         Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnExit, Me.LciBtnSend, Me.LciBtnViewAFA, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority})
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(688, 435)
+        Me.Root.Size = New System.Drawing.Size(897, 546)
         Me.Root.TextVisible = False
         '
         'LciAfaNo
         '
+        Me.LciAfaNo.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAfaNo.AppearanceItemCaption.Options.UseFont = True
         Me.LciAfaNo.Control = Me.TextEditAfaNo
         Me.LciAfaNo.Location = New System.Drawing.Point(0, 0)
         Me.LciAfaNo.Name = "LciAfaNo"
-        Me.LciAfaNo.Size = New System.Drawing.Size(334, 40)
+        Me.LciAfaNo.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAfaNo.Size = New System.Drawing.Size(438, 50)
         Me.LciAfaNo.Text = "No.AFA"
         Me.LciAfaNo.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAfaNo.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciAfaNo.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciEstimateCost
         '
+        Me.LciEstimateCost.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciEstimateCost.AppearanceItemCaption.Options.UseFont = True
         Me.LciEstimateCost.Control = Me.TextEditEstimateCost
-        Me.LciEstimateCost.Location = New System.Drawing.Point(0, 80)
+        Me.LciEstimateCost.Location = New System.Drawing.Point(0, 100)
         Me.LciEstimateCost.Name = "LciEstimateCost"
-        Me.LciEstimateCost.Size = New System.Drawing.Size(668, 40)
+        Me.LciEstimateCost.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciEstimateCost.Size = New System.Drawing.Size(877, 50)
         Me.LciEstimateCost.Text = "Estimate Cost"
         Me.LciEstimateCost.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciEstimateCost.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciEstimateCost.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciGridSignature
         '
         Me.LciGridSignature.Control = Me.GridControlSignature
-        Me.LciGridSignature.Location = New System.Drawing.Point(0, 120)
+        Me.LciGridSignature.Location = New System.Drawing.Point(0, 150)
         Me.LciGridSignature.Name = "LciGridSignature"
-        Me.LciGridSignature.Size = New System.Drawing.Size(668, 227)
+        Me.LciGridSignature.Size = New System.Drawing.Size(877, 298)
         Me.LciGridSignature.TextVisible = False
         '
         'LciAttachment1
         '
+        Me.LciAttachment1.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAttachment1.AppearanceItemCaption.Options.UseFont = True
         Me.LciAttachment1.Control = Me.ButtonEditAttachment1
-        Me.LciAttachment1.Location = New System.Drawing.Point(0, 347)
+        Me.LciAttachment1.Location = New System.Drawing.Point(0, 448)
         Me.LciAttachment1.Name = "LciAttachment1"
-        Me.LciAttachment1.Size = New System.Drawing.Size(329, 40)
+        Me.LciAttachment1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAttachment1.Size = New System.Drawing.Size(432, 50)
         Me.LciAttachment1.Text = "Attachment 1"
         Me.LciAttachment1.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAttachment1.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciAttachment1.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciAttachment2
         '
+        Me.LciAttachment2.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAttachment2.AppearanceItemCaption.Options.UseFont = True
         Me.LciAttachment2.Control = Me.ButtonEditAttachment2
-        Me.LciAttachment2.Location = New System.Drawing.Point(329, 347)
+        Me.LciAttachment2.Location = New System.Drawing.Point(432, 448)
         Me.LciAttachment2.Name = "LciAttachment2"
-        Me.LciAttachment2.Size = New System.Drawing.Size(339, 40)
+        Me.LciAttachment2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAttachment2.Size = New System.Drawing.Size(445, 50)
         Me.LciAttachment2.Text = "Attachment 2"
         Me.LciAttachment2.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAttachment2.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciAttachment2.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(496, 387)
+        Me.LciBtnSave.Location = New System.Drawing.Point(651, 498)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(172, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(226, 28)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnExit
         '
         Me.LciBtnExit.Control = Me.BtnExit
-        Me.LciBtnExit.Location = New System.Drawing.Point(329, 387)
+        Me.LciBtnExit.Location = New System.Drawing.Point(432, 498)
         Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(167, 28)
+        Me.LciBtnExit.Size = New System.Drawing.Size(219, 28)
         Me.LciBtnExit.TextVisible = False
         '
         'LciBtnSend
         '
         Me.LciBtnSend.Control = Me.BtnSend
-        Me.LciBtnSend.Location = New System.Drawing.Point(174, 387)
+        Me.LciBtnSend.Location = New System.Drawing.Point(228, 498)
         Me.LciBtnSend.Name = "LciBtnSend"
-        Me.LciBtnSend.Size = New System.Drawing.Size(155, 28)
+        Me.LciBtnSend.Size = New System.Drawing.Size(204, 28)
         Me.LciBtnSend.TextVisible = False
         '
         'LciBtnViewAFA
         '
         Me.LciBtnViewAFA.Control = Me.BtnViewAFA
-        Me.LciBtnViewAFA.Location = New System.Drawing.Point(0, 387)
+        Me.LciBtnViewAFA.Location = New System.Drawing.Point(0, 498)
         Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
-        Me.LciBtnViewAFA.Size = New System.Drawing.Size(174, 28)
+        Me.LciBtnViewAFA.Size = New System.Drawing.Size(228, 28)
         Me.LciBtnViewAFA.TextVisible = False
         '
         'LciScheduleFrom
         '
+        Me.LciScheduleFrom.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciScheduleFrom.AppearanceItemCaption.Options.UseFont = True
         Me.LciScheduleFrom.Control = Me.TextEditScheduleFrom
-        Me.LciScheduleFrom.Location = New System.Drawing.Point(0, 40)
+        Me.LciScheduleFrom.Location = New System.Drawing.Point(0, 50)
         Me.LciScheduleFrom.Name = "LciScheduleFrom"
-        Me.LciScheduleFrom.Size = New System.Drawing.Size(334, 40)
+        Me.LciScheduleFrom.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciScheduleFrom.Size = New System.Drawing.Size(438, 50)
         Me.LciScheduleFrom.Text = "Schedule From"
         Me.LciScheduleFrom.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciScheduleFrom.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciScheduleFrom.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciScheduleTo
         '
+        Me.LciScheduleTo.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciScheduleTo.AppearanceItemCaption.Options.UseFont = True
         Me.LciScheduleTo.Control = Me.TextEditScheduleTo
-        Me.LciScheduleTo.Location = New System.Drawing.Point(334, 40)
+        Me.LciScheduleTo.Location = New System.Drawing.Point(438, 50)
         Me.LciScheduleTo.Name = "LciScheduleTo"
-        Me.LciScheduleTo.Size = New System.Drawing.Size(334, 40)
+        Me.LciScheduleTo.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciScheduleTo.Size = New System.Drawing.Size(439, 50)
         Me.LciScheduleTo.Text = "Schedule To"
         Me.LciScheduleTo.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciScheduleTo.TextSize = New System.Drawing.Size(76, 13)
+        Me.LciScheduleTo.TextSize = New System.Drawing.Size(91, 17)
+        '
+        'LciPriority
+        '
+        Me.LciPriority.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciPriority.AppearanceItemCaption.Options.UseFont = True
+        Me.LciPriority.Control = Me.ComboBoxEdit1
+        Me.LciPriority.Location = New System.Drawing.Point(438, 0)
+        Me.LciPriority.Name = "LciPriority"
+        Me.LciPriority.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciPriority.Size = New System.Drawing.Size(439, 50)
+        Me.LciPriority.Text = "Priority"
+        Me.LciPriority.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciPriority.TextSize = New System.Drawing.Size(91, 17)
         '
         'XtraOpenFileDialogFile
         '
         Me.XtraOpenFileDialogFile.FileName = "XtraOpenFileDialog1"
         '
-        'ComboBoxEdit1
-        '
-        Me.ComboBoxEdit1.Location = New System.Drawing.Point(346, 28)
-        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
-        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.ComboBoxEdit1.Size = New System.Drawing.Size(330, 20)
-        Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
-        Me.ComboBoxEdit1.TabIndex = 17
-        '
-        'LciPriority
-        '
-        Me.LciPriority.Control = Me.ComboBoxEdit1
-        Me.LciPriority.Location = New System.Drawing.Point(334, 0)
-        Me.LciPriority.Name = "LciPriority"
-        Me.LciPriority.Size = New System.Drawing.Size(334, 40)
-        Me.LciPriority.Text = "Priority"
-        Me.LciPriority.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciPriority.TextSize = New System.Drawing.Size(76, 13)
-        '
         'XtraFormAFAInfSign
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(688, 435)
+        Me.ClientSize = New System.Drawing.Size(897, 546)
         Me.Controls.Add(Me.LayoutControl1)
         Me.IconOptions.Image = Global.AFASYSTEM.My.Resources.Resources.icondunlop
         Me.Name = "XtraFormAFAInfSign"
         Me.Text = "Signature AFA Information"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditScheduleFrom.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ButtonEditAttachment2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -383,7 +406,6 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

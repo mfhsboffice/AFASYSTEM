@@ -227,7 +227,7 @@
     </Compile>
     <Compile Include="Services\AFAAdditionalBudgetService.vb" />
     <Compile Include="Services\AFADisposalService.vb" />
-    <Compile Include="Services\AFADonationService.vb" />
+    <Compile Include="Services\AFASignatureService.vb" />
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
