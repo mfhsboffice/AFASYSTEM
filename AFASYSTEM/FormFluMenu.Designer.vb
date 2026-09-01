@@ -650,6 +650,7 @@ Partial Class FormFluMenu
         'Trans_AFAEntry
         '
         Me.Trans_AFAEntry.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AccordionControlElement11, Me.AccordionControlElement12, Me.AccordionControlElement14, Me.AccordionControlElement15, Me.AccordionControlElement13})
+        Me.Trans_AFAEntry.Expanded = True
         Me.Trans_AFAEntry.ImageOptions.Image = CType(resources.GetObject("Trans_AFAEntry.ImageOptions.Image"), System.Drawing.Image)
         Me.Trans_AFAEntry.Name = "Trans_AFAEntry"
         Me.Trans_AFAEntry.Text = "AFA ENTRY"
@@ -677,6 +678,7 @@ Partial Class FormFluMenu
         'AccordionControlElement12
         '
         Me.AccordionControlElement12.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AFAEformDonInf, Me.AFASignatureDonInf})
+        Me.AccordionControlElement12.Expanded = True
         Me.AccordionControlElement12.Name = "AccordionControlElement12"
         Me.AccordionControlElement12.Text = "Information"
         '
@@ -699,6 +701,7 @@ Partial Class FormFluMenu
         'AccordionControlElement14
         '
         Me.AccordionControlElement14.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AFAEformDisposal, Me.AFASignatureDisposal})
+        Me.AccordionControlElement14.Expanded = True
         Me.AccordionControlElement14.Name = "AccordionControlElement14"
         Me.AccordionControlElement14.Text = "Disposal"
         '

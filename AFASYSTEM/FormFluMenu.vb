@@ -118,8 +118,8 @@ Public Class FormFluMenu
     Sub isilink()
         tblDept = Proses.ExecuteQuery("SELECT [Sett]  FROM [AFASYS].[dbo].[AFA_CONFIG] where [Type]='Server'")
         If tblDept.Rows.Count > 0 Then
-            btnlink.Caption = Trim(tblDept.Rows(0).Item(0).ToString)
-
+            'btnlink.Caption = Trim(tblDept.Rows(0).Item(0).ToString)
+            btnlink.Caption = "D:\project\AFA\TestUpload"
         End If
 
 

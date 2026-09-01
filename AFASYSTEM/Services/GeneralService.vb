@@ -122,7 +122,6 @@ Public Class GeneralService
         Return dt
     End Function
 
-    ''' <summary>Revisi anggaran untuk satu tahun. Kolom: BUDGET_REV.</summary>
     Public Function GetBudgetRevisions(ByVal budgetYear As String) As DataTable
         Dim sql As String =
             "SELECT DISTINCT B_REV AS BUDGET_REV " &
@@ -134,7 +133,6 @@ Public Class GeneralService
         Return ExecuteQuery(sql, prm)
     End Function
 
-    ''' <summary>Mata uang yang punya kurs. Kolom: CURCODE.</summary>
     Public Function GetCurrencies(Optional ByVal useCache As Boolean = True) As DataTable
         If useCache AndAlso _cacheCurrency IsNot Nothing Then Return _cacheCurrency
 
