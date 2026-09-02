@@ -130,9 +130,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnViewAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnViewAFA.Appearance.Options.UseBackColor = True
         Me.BtnViewAFA.Appearance.Options.UseFont = True
-        Me.BtnViewAFA.Location = New System.Drawing.Point(12, 510)
+        Me.BtnViewAFA.Location = New System.Drawing.Point(444, 510)
         Me.BtnViewAFA.Name = "BtnViewAFA"
-        Me.BtnViewAFA.Size = New System.Drawing.Size(224, 24)
+        Me.BtnViewAFA.Size = New System.Drawing.Size(215, 24)
         Me.BtnViewAFA.StyleController = Me.LayoutControl1
         Me.BtnViewAFA.TabIndex = 14
         Me.BtnViewAFA.Text = "View AFA"
@@ -143,9 +143,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnSend.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSend.Appearance.Options.UseBackColor = True
         Me.BtnSend.Appearance.Options.UseFont = True
-        Me.BtnSend.Location = New System.Drawing.Point(240, 510)
+        Me.BtnSend.Location = New System.Drawing.Point(228, 510)
         Me.BtnSend.Name = "BtnSend"
-        Me.BtnSend.Size = New System.Drawing.Size(200, 24)
+        Me.BtnSend.Size = New System.Drawing.Size(212, 24)
         Me.BtnSend.StyleController = Me.LayoutControl1
         Me.BtnSend.TabIndex = 13
         Me.BtnSend.Text = "Send"
@@ -156,9 +156,9 @@ Partial Class XtraFormAFAInfSign
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
-        Me.BtnExit.Location = New System.Drawing.Point(444, 510)
+        Me.BtnExit.Location = New System.Drawing.Point(12, 510)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(215, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(212, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 12
         Me.BtnExit.Text = "Exit"
@@ -234,7 +234,7 @@ Partial Class XtraFormAFAInfSign
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnExit, Me.LciBtnSend, Me.LciBtnViewAFA, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnSend, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority, Me.LciBtnViewAFA, Me.LciBtnExit})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(897, 546)
         Me.Root.TextVisible = False
@@ -310,25 +310,25 @@ Partial Class XtraFormAFAInfSign
         'LciBtnExit
         '
         Me.LciBtnExit.Control = Me.BtnExit
-        Me.LciBtnExit.Location = New System.Drawing.Point(432, 498)
+        Me.LciBtnExit.Location = New System.Drawing.Point(0, 498)
         Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(219, 28)
+        Me.LciBtnExit.Size = New System.Drawing.Size(216, 28)
         Me.LciBtnExit.TextVisible = False
         '
         'LciBtnSend
         '
         Me.LciBtnSend.Control = Me.BtnSend
-        Me.LciBtnSend.Location = New System.Drawing.Point(228, 498)
+        Me.LciBtnSend.Location = New System.Drawing.Point(216, 498)
         Me.LciBtnSend.Name = "LciBtnSend"
-        Me.LciBtnSend.Size = New System.Drawing.Size(204, 28)
+        Me.LciBtnSend.Size = New System.Drawing.Size(216, 28)
         Me.LciBtnSend.TextVisible = False
         '
         'LciBtnViewAFA
         '
         Me.LciBtnViewAFA.Control = Me.BtnViewAFA
-        Me.LciBtnViewAFA.Location = New System.Drawing.Point(0, 498)
+        Me.LciBtnViewAFA.Location = New System.Drawing.Point(432, 498)
         Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
-        Me.LciBtnViewAFA.Size = New System.Drawing.Size(228, 28)
+        Me.LciBtnViewAFA.Size = New System.Drawing.Size(219, 28)
         Me.LciBtnViewAFA.TextVisible = False
         '
         'LciScheduleFrom

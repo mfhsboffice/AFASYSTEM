@@ -26,7 +26,7 @@ Public Class XtraFormAFAInfSign
     Private Const MaxSlot As Integer = 10
 
     Private ReadOnly _nik As String = Trim(FormFluMenu.btnuserid.Caption)
-    Private ReadOnly _pc As String = System.Net.Dns.GetHostName()
+    Private ReadOnly _pc As String = Net.Dns.GetHostName()
 
 #Region "Form"
 
@@ -87,7 +87,7 @@ Public Class XtraFormAFAInfSign
 
         lookup.DataSource = source
         lookup.DisplayMember = "NAMA"
-        lookup.ValueMember = "NAMA"
+        lookup.ValueMember = "NIK"
         lookup.NullText = ""
         lookup.PopulateColumns()
 
@@ -114,7 +114,7 @@ Public Class XtraFormAFAInfSign
         With GridViewSignature
             If .Columns.Count = 0 Then Return
 
-            For Each hidden As String In New String() {"Auth_NIK", "Supp_NIK", "Dir_NIK",
+            For Each hidden As String In New String() {"Authorized", "Supporting", "Direct",
                                                         "Sts_Auth", "Sts_Supp", "Sts_Dir",
                                                         "App_Auth", "App_Supp", "App_Dir"}
                 If .Columns(hidden) IsNot Nothing Then .Columns(hidden).Visible = False
@@ -126,11 +126,11 @@ Public Class XtraFormAFAInfSign
                 .Columns("Urut").OptionsColumn.AllowEdit = False
             End If
 
-            ConfigureApproverColumn("Authorized", "Authorized", 200, _dtAuth)
+            ConfigureApproverColumn("Auth_NIK", "Authorized", 200, _dtAuth)
             ConfigurePositionColumn("Auth_Jab", "Auth_Jab", 140)
-            ConfigureApproverColumn("Supporting", "Supporting", 200, _dtSupp)
+            ConfigureApproverColumn("Supp_NIK", "Supporting", 200, _dtSupp)
             ConfigurePositionColumn("Supp_Jab", "Supp_Jab", 140)
-            ConfigureApproverColumn("Direct", "Direct", 200, _dtDir)
+            ConfigureApproverColumn("Dir_NIK", "Direct", 200, _dtDir)
             ConfigurePositionColumn("Dir_Jab", "Dir_Jab", 140)
         End With
     End Sub
@@ -513,30 +513,28 @@ Public Class XtraFormAFAInfSign
                                                    Handles GridViewSignature.CellValueChanged
         If e.Column Is Nothing Then Return
 
-        Dim nikField As String, jabField As String
+        Dim jabField As String
         Dim source As DataTable
 
         Select Case e.Column.FieldName
-            Case "Authorized" : nikField = "Auth_NIK" : jabField = "Auth_Jab" : source = _dtAuth
-            Case "Supporting" : nikField = "Supp_NIK" : jabField = "Supp_Jab" : source = _dtSupp
-            Case "Direct" : nikField = "Dir_NIK" : jabField = "Dir_Jab" : source = _dtDir
+            Case "Auth_NIK" : jabField = "Auth_Jab" : source = _dtAuth
+            Case "Supp_NIK" : jabField = "Supp_Jab" : source = _dtSupp
+            Case "Dir_NIK" : jabField = "Dir_Jab" : source = _dtDir
             Case Else : Return
         End Select
 
         Dim chosen As String = Convert.ToString(e.Value).Trim()
 
         If chosen = "" Then
-            GridViewSignature.SetRowCellValue(e.RowHandle, nikField, "")
             GridViewSignature.SetRowCellValue(e.RowHandle, jabField, "")
             Return
         End If
 
         If source Is Nothing Then Return
 
-        Dim rows() As DataRow = source.Select("NAMA = '" & chosen.Replace("'", "''") & "'")
+        Dim rows() As DataRow = source.Select("NIK = '" & chosen.Replace("'", "''") & "'")
         If rows.Length = 0 Then Return
 
-        GridViewSignature.SetRowCellValue(e.RowHandle, nikField, Convert.ToString(rows(0)("NIK")))
         GridViewSignature.SetRowCellValue(e.RowHandle, jabField, Convert.ToString(rows(0)("JAB")))
     End Sub
 
@@ -551,9 +549,9 @@ Public Class XtraFormAFAInfSign
         Dim stsField As String
 
         Select Case col.FieldName
-            Case "Authorized" : stsField = "Sts_Auth"
-            Case "Supporting" : stsField = "Sts_Supp"
-            Case "Direct" : stsField = "Sts_Dir"
+            Case "Auth_NIK" : stsField = "Sts_Auth"
+            Case "Supp_NIK" : stsField = "Sts_Supp"
+            Case "Dir_NIK" : stsField = "Sts_Dir"
             Case Else : Return
         End Select
 
@@ -569,9 +567,9 @@ Public Class XtraFormAFAInfSign
         Dim stsField As String
 
         Select Case e.Column.FieldName
-            Case "Authorized", "Auth_Jab" : stsField = "Sts_Auth"
-            Case "Supporting", "Supp_Jab" : stsField = "Sts_Supp"
-            Case "Direct", "Dir_Jab" : stsField = "Sts_Dir"
+            Case "Auth_NIK", "Auth_Jab" : stsField = "Sts_Auth"
+            Case "Supp_NIK", "Supp_Jab" : stsField = "Sts_Supp"
+            Case "Dir_NIK", "Dir_Jab" : stsField = "Sts_Dir"
             Case Else : Return
         End Select
 
