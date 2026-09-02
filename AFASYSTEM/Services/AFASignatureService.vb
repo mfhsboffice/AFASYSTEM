@@ -181,4 +181,15 @@ Public Class AFASignatureService
 
         Return ExecuteQuery(sql, New List(Of Object))
     End Function
+    Public Function GetDisposalFigures(ByVal afaNo As String) As DataTable
+        Dim sql As String =
+            "SELECT TOP 1 SUB_TYPE, ACQUISITION, ACCUM_DEPRECIATION, " &
+            "       BOOK_VALUE, RESELL_VALUE, PROFIT_LOSS " &
+            "FROM   dbo.AFA_NON_IFS_DAA " &
+            "WHERE  AFA_NO = ? " &
+            "ORDER  BY SEQ"
+
+        Dim prm As New List(Of Object) From {afaNo}
+        Return ExecuteQuery(sql, prm)
+    End Function
 End Class

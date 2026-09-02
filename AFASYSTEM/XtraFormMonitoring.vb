@@ -158,12 +158,20 @@ Public Class XtraFormMonitoring
     Private Sub HistoryAFA_Click(sender As Object, e As EventArgs)
         FormFluMenu.mnhistory()
     End Sub
-    Private Sub gridView1_ShowGridMenu(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.GridMenuEventArgs) Handles GridView1.ShowGridMenu
+    Private Sub GridView1_PopupMenuShowing(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs) Handles GridView1.PopupMenuShowing
         Dim view As GridView = TryCast(sender, GridView)
-        e.Menu.Items.Clear()
-        e.Menu.Items.Add(New DXMenuItem(view.GetRowCellValue(view.FocusedRowHandle, view.FocusedColumn).ToString()))
-
+        If e.MenuType = GridMenuType.Row AndAlso e.Menu IsNot Nothing Then
+            e.Menu.Items.Clear()
+            Dim value As Object = view.GetRowCellValue(
+            view.FocusedRowHandle,
+            view.FocusedColumn
+        )
+            e.Menu.Items.Add(
+            New DXMenuItem(If(value Is Nothing, "", value.ToString()))
+        )
+        End If
     End Sub
+
 
 
     Sub isitext()

@@ -196,6 +196,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AfaMasterReport.Designer.vb">
+      <DependentUpon>AfaMasterReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AfaMasterReport.vb">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ClassKoneksi.vb" />
     <Compile Include="FormFluMenu.Designer.vb">
       <DependentUpon>FormFluMenu.vb</DependentUpon>
@@ -462,6 +468,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AfaMasterReport.resx">
+      <DependentUpon>AfaMasterReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormFluMenu.resx">
       <DependentUpon>FormFluMenu.vb</DependentUpon>
     </EmbeddedResource>

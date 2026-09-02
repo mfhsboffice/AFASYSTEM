@@ -678,7 +678,6 @@ Partial Class FormFluMenu
         'AccordionControlElement12
         '
         Me.AccordionControlElement12.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AFAEformDonInf, Me.AFASignatureDonInf})
-        Me.AccordionControlElement12.Expanded = True
         Me.AccordionControlElement12.Name = "AccordionControlElement12"
         Me.AccordionControlElement12.Text = "Information"
         '
@@ -701,7 +700,6 @@ Partial Class FormFluMenu
         'AccordionControlElement14
         '
         Me.AccordionControlElement14.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AFAEformDisposal, Me.AFASignatureDisposal})
-        Me.AccordionControlElement14.Expanded = True
         Me.AccordionControlElement14.Name = "AccordionControlElement14"
         Me.AccordionControlElement14.Text = "Disposal"
         '
