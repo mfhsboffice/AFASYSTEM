@@ -10,15 +10,20 @@ Public Class XtraFormUserDepartments
 
     Private _dtList As DataTable
     Private _dtDepartment As DataTable
+    Private _dtUsers As DataTable
+
     Private _selectedNik As String = String.Empty
+    Private _isEditMode As Boolean = False
 
 #Region "Form Lifecycle"
 
     Private Sub XtraFormUserDepartments_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.Text = "User Department Mapping"
         SetupGrid()
+        LoadEmployeeCombo()
         LoadDepartmentCombo()
         LoadList()
+        SetMode(isEditing:=False)
     End Sub
 
 #End Region
@@ -30,6 +35,23 @@ Public Class XtraFormUserDepartments
             .OptionsBehavior.Editable = False
             .FocusRectStyle = DrawFocusRectStyle.RowFocus
         End With
+    End Sub
+
+
+    Private Sub LoadEmployeeCombo()
+        _dtUsers = _general.GetActiveUsers()
+
+        ComboBoxEdit1.Properties.Items.Clear()
+
+        If _dtUsers Is Nothing OrElse _dtUsers.Rows.Count = 0 Then
+            XtraMessageBox.Show("The user list is empty or failed to load." & vbCrLf & _general.LastErrorMessage,
+                                "User Department", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        For Each row As DataRow In _dtUsers.Rows
+            ComboBoxEdit1.Properties.Items.Add(Convert.ToString(row("DISPLAY_NAME")))
+        Next
     End Sub
 
     Private Sub LoadDepartmentCombo()
@@ -104,7 +126,6 @@ Public Class XtraFormUserDepartments
         End With
     End Sub
 
-    ''' <summary>Clears all checked items in the combo box.</summary>
     Private Sub UncheckAllDepartments()
         For i As Integer = 0 To CheckedComboDepartments.Properties.Items.Count - 1
             CheckedComboDepartments.Properties.Items(i).CheckState = CheckState.Unchecked
@@ -112,7 +133,6 @@ Public Class XtraFormUserDepartments
         CheckedComboDepartments.Refresh()
     End Sub
 
-    ''' <summary>Checks the departments associated with the selected user.</summary>
     Private Sub LoadUserDepartments(ByVal nik As String)
         UncheckAllDepartments()
 
@@ -134,7 +154,6 @@ Public Class XtraFormUserDepartments
         CheckedComboDepartments.Refresh()
     End Sub
 
-    ''' <summary>Returns checked DEPT_IDs as a comma-separated string for SP parameters.</summary>
     Private Function GetCheckedDeptIds() As String
         Dim sb As New StringBuilder()
 
@@ -149,66 +168,73 @@ Public Class XtraFormUserDepartments
         Return sb.ToString()
     End Function
 
+    ''' <summary>Selects the combo item matching a NIK, or clears the combo if none does.</summary>
+    Private Sub SelectEmployeeByNik(ByVal nik As String)
+        If _dtUsers Is Nothing Then Return
+
+        Dim rows() As DataRow = _dtUsers.Select("NIK = '" & nik.Replace("'", "''") & "'")
+
+        If rows.Length = 0 Then
+            ComboBoxEdit1.SelectedIndex = -1
+            Return
+        End If
+
+        Dim display As String = Convert.ToString(rows(0)("DISPLAY_NAME"))
+        ComboBoxEdit1.SelectedIndex = ComboBoxEdit1.Properties.Items.IndexOf(display)
+    End Sub
+
+    ''' <summary>NIK behind whichever item is currently chosen in the combo.</summary>
+    Private Function GetSelectedNik() As String
+        If ComboBoxEdit1.SelectedIndex < 0 Then Return String.Empty
+        If _dtUsers Is Nothing OrElse ComboBoxEdit1.SelectedIndex >= _dtUsers.Rows.Count Then Return String.Empty
+
+        Return Convert.ToString(_dtUsers.Rows(ComboBoxEdit1.SelectedIndex)("NIK"))
+    End Function
+
     Private Sub ClearInput()
         _selectedNik = String.Empty
-        TextEditNik.Text = String.Empty
-        TextEditName.Text = String.Empty
+        ComboBoxEdit1.SelectedIndex = -1
         UncheckAllDepartments()
-        TextEditNik.Focus()
+        SetMode(isEditing:=False)
+        ComboBoxEdit1.Focus()
+    End Sub
+
+    ''' <summary>
+    ''' Switches the form between adding a new mapping and updating one
+    ''' loaded by double-click. The button caption is the only visible
+    ''' difference - Save performs the same upsert either way.
+    ''' </summary>
+    Private Sub SetMode(ByVal isEditing As Boolean)
+        _isEditMode = isEditing
+        BtnSaveUpdate.Text = If(isEditing, "Update", "Save")
     End Sub
 
 #End Region
 
 #Region "Event Handlers"
 
-    Private Sub GridViewUserDepartments_FocusedRowChanged(sender As Object,
-                                                          e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) _
-                                                          Handles GridViewUserDepartments.FocusedRowChanged
-        If e.FocusedRowHandle < 0 Then Return
+    Private Sub GridViewUserDepartments_DoubleClick(sender As Object, e As EventArgs) _
+            Handles GridViewUserDepartments.DoubleClick
+        Dim rowHandle As Integer = GridViewUserDepartments.FocusedRowHandle
+        If rowHandle < 0 Then Return
 
-        Dim row As DataRowView = TryCast(GridViewUserDepartments.GetRow(e.FocusedRowHandle), DataRowView)
+        Dim row As DataRowView = TryCast(GridViewUserDepartments.GetRow(rowHandle), DataRowView)
         If row Is Nothing Then Return
 
         _selectedNik = Convert.ToString(row("NIK")).Trim()
-        TextEditNik.Text = _selectedNik
-        TextEditName.Text = Convert.ToString(row("NAMA"))
 
+        SelectEmployeeByNik(_selectedNik)
         LoadUserDepartments(_selectedNik)
-    End Sub
-
-    ''' <summary>Automatically fills the Name field after NIK is entered.</summary>
-    Private Sub TextEditNik_Leave(sender As Object, e As EventArgs) Handles TextEditNik.Leave
-        Dim nik As String = TextEditNik.Text.Trim()
-
-        ' Penggunaan String.IsNullOrEmpty lebih aman dan bersih dibanding = ""
-        If String.IsNullOrEmpty(nik) Then
-            TextEditName.Text = String.Empty
-            Return
-        End If
-
-        Dim employeeName As String = _general.GetEmployeeName(nik)
-
-        If String.IsNullOrEmpty(employeeName) Then
-            TextEditName.Text = String.Empty
-            ' Menggunakan String Interpolation ($"") agar lebih mudah dibaca
-            XtraMessageBox.Show($"NIK '{nik}' was not found in the employee master data.",
-                                "User Department", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            TextEditNik.Focus()
-            Return
-        End If
-
-        TextEditName.Text = employeeName
-        _selectedNik = nik
-        LoadUserDepartments(nik)
+        SetMode(isEditing:=True)
     End Sub
 
     Private Sub BtnSaveUpdate_Click(sender As Object, e As EventArgs) Handles BtnSaveUpdate.Click
-        Dim nik As String = TextEditNik.Text.Trim()
+        Dim nik As String = GetSelectedNik()
 
         If String.IsNullOrEmpty(nik) Then
-            XtraMessageBox.Show("NIK is required.", "Validation Error",
+            XtraMessageBox.Show("Please choose an employee from the list.", "Validation Error",
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            TextEditNik.Focus()
+            ComboBoxEdit1.Focus()
             Return
         End If
 
@@ -221,15 +247,15 @@ Public Class XtraFormUserDepartments
             Return
         End If
 
-        If XtraMessageBox.Show($"Save mapping for NIK '{nik}'?", "Confirmation",
+        Dim verb As String = If(_isEditMode, "Update", "Save")
+
+        If XtraMessageBox.Show($"{verb} mapping for {ComboBoxEdit1.Text}?", "Confirmation",
                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) <> DialogResult.OK Then
             Return
         End If
 
         Cursor.Current = Cursors.WaitCursor
         Try
-            ' Catatan Migrasi: Jika Anda sudah menerapkan class UserSession, 
-            ' ubah baris di bawah ini menjadi: Dim nikUser As String = UserSession.UserId
             Dim nikUser As String = Trim(FormFluMenu.btnuserid.Caption)
             Dim pcName As String = System.Net.Dns.GetHostName()
 
@@ -255,6 +281,7 @@ Public Class XtraFormUserDepartments
 
     Private Sub BtnRefresh_Click(sender As Object, e As EventArgs) Handles BtnRefresh.Click
         GeneralService.ClearCache()
+        LoadEmployeeCombo()
         LoadDepartmentCombo()
         LoadList()
         ClearInput()

@@ -530,6 +530,14 @@ Public Class FormFluMenu
         XtraFormAFAAddSign.BringToFront()
     End Sub
 
+    Private Sub AceUnconfiguredDocuments_Click(sender As Object, e As EventArgs) Handles AceUnconfiguredDocuments.Click
+        XtraFormUnconfiguredDocuments.TopLevel = False
+        XtraFormUnconfiguredDocuments.Parent = PanelControl1
+        XtraFormUnconfiguredDocuments.Dock = DockStyle.Fill
+        XtraFormUnconfiguredDocuments.Show()
+        XtraFormUnconfiguredDocuments.BringToFront()
+    End Sub
+
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
         tuutpkabeh()
         Me.Close()

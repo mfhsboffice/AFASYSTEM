@@ -237,6 +237,7 @@
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
+    <Compile Include="Services\UnconfiguredDocumentsService.vb" />
     <Compile Include="Services\UserDepartmentService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
       <DependentUpon>XtraFormAddInf.vb</DependentUpon>
@@ -424,6 +425,12 @@
     <Compile Include="XtraFormUnApp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormUnconfiguredDocuments.Designer.vb">
+      <DependentUpon>XtraFormUnconfiguredDocuments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormUnconfiguredDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormUserDepartments.Designer.vb">
       <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>
     </Compile>
@@ -576,6 +583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUnApp.resx">
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormUnconfiguredDocuments.resx">
+      <DependentUpon>XtraFormUnconfiguredDocuments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUserDepartments.resx">
       <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>

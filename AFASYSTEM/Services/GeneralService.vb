@@ -40,7 +40,6 @@ Public Class GeneralService
 #End Region
 
 #Region "Department"
-
     Public Function GetDepartments(Optional ByVal useCache As Boolean = True) As DataTable
         If useCache AndAlso _cacheDepartment IsNot Nothing Then Return _cacheDepartment
 
@@ -49,7 +48,7 @@ Public Class GeneralService
             "       DEPT_NAME + ' (' + PREFIX + ')' AS DISPLAY_NAME " &
             "FROM   dbo.AFA_DEPARTMENT " &
             "WHERE  IS_ACTIVE = 1 " &
-            "ORDER  BY DEPT_NAME ASC"
+            "ORDER  BY DEPT_NAME"
 
         Dim dt As DataTable = ExecuteQuery(sql, NoParam)
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then _cacheDepartment = dt
@@ -67,6 +66,7 @@ Public Class GeneralService
         Dim prm As New List(Of Object) From {nik}
         Return ExecuteQuery(sql, prm)
     End Function
+
     Public Function GetDepartmentPrefix(ByVal deptId As Integer) As String
         Dim sql As String = "SELECT PREFIX FROM dbo.AFA_DEPARTMENT WHERE DEPT_ID = ?"
         Dim prm As New List(Of Object) From {deptId}
@@ -92,6 +92,7 @@ Public Class GeneralService
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then _cacheAfaType = dt
         Return dt
     End Function
+
     Public Function GetSubTypes(ByVal afaType As String,
                                 Optional ByVal useCache As Boolean = True) As DataTable
         Dim key As String = If(afaType, String.Empty).ToUpperInvariant()
@@ -108,6 +109,7 @@ Public Class GeneralService
 #End Region
 
 #Region "Budget Year & Currency"
+
     Public Function GetBudgetYears(Optional ByVal useCache As Boolean = True) As DataTable
         If useCache AndAlso _cacheBudgetYear IsNot Nothing Then Return _cacheBudgetYear
 
@@ -146,6 +148,7 @@ Public Class GeneralService
         If dt IsNot Nothing AndAlso dt.Rows.Count > 0 Then _cacheCurrency = dt
         Return dt
     End Function
+
     Public Function GetJpyFactor(ByVal budgetYear As String,
                                  ByVal budgetRev As String,
                                  ByVal curCode As String) As Decimal?
@@ -212,6 +215,26 @@ Public Class GeneralService
 
         If dt Is Nothing OrElse dt.Rows.Count = 0 Then Return String.Empty
         Return Convert.ToString(dt.Rows(0)(0))
+    End Function
+
+#End Region
+
+#Region "Application Users"
+    ''' <summary>
+    ''' Active application users, for pickers where a NIK must be chosen
+    ''' from a list rather than typed.
+    '''
+    ''' Goes through a stored procedure rather than inline SQL, like
+    ''' every other read in this module. The procedure also owns the
+    ''' collation handling needed to join User_H to master_employee -
+    ''' that used to live here and broke when the two tables turned out
+    ''' to have different default collations.
+    '''
+    ''' Columns: NIK, NAMA, JABATAN, DISPLAY_NAME ("Name - NIK - Position").
+    ''' </summary>
+    Public Function GetActiveUsers() As DataTable
+        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetActiveUsers_Proc",
+                                           New Dictionary(Of String, Object))
     End Function
 
 #End Region
