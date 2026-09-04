@@ -20,29 +20,29 @@ Partial Class XtraFormDepartment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
-        Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
+        Me.BtnRefresh = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnSaveUpdate = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnExit = New DevExpress.XtraEditors.SimpleButton()
+        Me.TextEditDepartmentCode = New DevExpress.XtraEditors.TextEdit()
+        Me.TextEditDepartmentName = New DevExpress.XtraEditors.TextEdit()
         Me.GridControlDepartment = New DevExpress.XtraGrid.GridControl()
         Me.GridViewDepartment = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.TextEditDepartmentName = New DevExpress.XtraEditors.TextEdit()
         Me.LciDepartmentName = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.TextEditDepartmentCode = New DevExpress.XtraEditors.TextEdit()
         Me.LciDepartmentCode = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.BtnExit = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.BtnSaveUpdate = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.BtnRefresh = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEditDepartmentCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEditDepartmentName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControlDepartment, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridViewDepartment, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEditDepartmentName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciDepartmentName, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEditDepartmentCode.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciDepartmentCode, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,14 +65,60 @@ Partial Class XtraFormDepartment
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
-        'Root
+        'BtnRefresh
         '
-        Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
-        Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LciDepartmentName, Me.LciDepartmentCode, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
-        Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(777, 420)
-        Me.Root.TextVisible = False
+        Me.BtnRefresh.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
+        Me.BtnRefresh.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnRefresh.Appearance.Options.UseBackColor = True
+        Me.BtnRefresh.Appearance.Options.UseFont = True
+        Me.BtnRefresh.Location = New System.Drawing.Point(12, 384)
+        Me.BtnRefresh.Name = "BtnRefresh"
+        Me.BtnRefresh.Size = New System.Drawing.Size(753, 24)
+        Me.BtnRefresh.StyleController = Me.LayoutControl1
+        Me.BtnRefresh.TabIndex = 9
+        Me.BtnRefresh.Text = "Load"
+        '
+        'BtnSaveUpdate
+        '
+        Me.BtnSaveUpdate.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary
+        Me.BtnSaveUpdate.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnSaveUpdate.Appearance.Options.UseBackColor = True
+        Me.BtnSaveUpdate.Appearance.Options.UseFont = True
+        Me.BtnSaveUpdate.Location = New System.Drawing.Point(390, 56)
+        Me.BtnSaveUpdate.Name = "BtnSaveUpdate"
+        Me.BtnSaveUpdate.Size = New System.Drawing.Size(375, 24)
+        Me.BtnSaveUpdate.StyleController = Me.LayoutControl1
+        Me.BtnSaveUpdate.TabIndex = 8
+        Me.BtnSaveUpdate.Text = "Save"
+        '
+        'BtnExit
+        '
+        Me.BtnExit.Appearance.BackColor = System.Drawing.Color.Gray
+        Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnExit.Appearance.Options.UseBackColor = True
+        Me.BtnExit.Appearance.Options.UseFont = True
+        Me.BtnExit.Location = New System.Drawing.Point(12, 56)
+        Me.BtnExit.Name = "BtnExit"
+        Me.BtnExit.Size = New System.Drawing.Size(374, 24)
+        Me.BtnExit.StyleController = Me.LayoutControl1
+        Me.BtnExit.TabIndex = 7
+        Me.BtnExit.Text = "Exit"
+        '
+        'TextEditDepartmentCode
+        '
+        Me.TextEditDepartmentCode.Location = New System.Drawing.Point(390, 32)
+        Me.TextEditDepartmentCode.Name = "TextEditDepartmentCode"
+        Me.TextEditDepartmentCode.Size = New System.Drawing.Size(375, 20)
+        Me.TextEditDepartmentCode.StyleController = Me.LayoutControl1
+        Me.TextEditDepartmentCode.TabIndex = 6
+        '
+        'TextEditDepartmentName
+        '
+        Me.TextEditDepartmentName.Location = New System.Drawing.Point(12, 32)
+        Me.TextEditDepartmentName.Name = "TextEditDepartmentName"
+        Me.TextEditDepartmentName.Size = New System.Drawing.Size(374, 20)
+        Me.TextEditDepartmentName.StyleController = Me.LayoutControl1
+        Me.TextEditDepartmentName.TabIndex = 5
         '
         'GridControlDepartment
         '
@@ -88,6 +134,15 @@ Partial Class XtraFormDepartment
         Me.GridViewDepartment.GridControl = Me.GridControlDepartment
         Me.GridViewDepartment.Name = "GridViewDepartment"
         '
+        'Root
+        '
+        Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
+        Me.Root.GroupBordersVisible = False
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LciDepartmentName, Me.LciDepartmentCode, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
+        Me.Root.Name = "Root"
+        Me.Root.Size = New System.Drawing.Size(777, 420)
+        Me.Root.TextVisible = False
+        '
         'LayoutControlItem1
         '
         Me.LayoutControlItem1.Control = Me.GridControlDepartment
@@ -95,14 +150,6 @@ Partial Class XtraFormDepartment
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Size = New System.Drawing.Size(757, 300)
         Me.LayoutControlItem1.TextVisible = False
-        '
-        'TextEditDepartmentName
-        '
-        Me.TextEditDepartmentName.Location = New System.Drawing.Point(12, 32)
-        Me.TextEditDepartmentName.Name = "TextEditDepartmentName"
-        Me.TextEditDepartmentName.Size = New System.Drawing.Size(374, 20)
-        Me.TextEditDepartmentName.StyleController = Me.LayoutControl1
-        Me.TextEditDepartmentName.TabIndex = 5
         '
         'LciDepartmentName
         '
@@ -116,14 +163,6 @@ Partial Class XtraFormDepartment
         Me.LciDepartmentName.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciDepartmentName.TextSize = New System.Drawing.Size(74, 17)
         '
-        'TextEditDepartmentCode
-        '
-        Me.TextEditDepartmentCode.Location = New System.Drawing.Point(390, 32)
-        Me.TextEditDepartmentCode.Name = "TextEditDepartmentCode"
-        Me.TextEditDepartmentCode.Size = New System.Drawing.Size(375, 20)
-        Me.TextEditDepartmentCode.StyleController = Me.LayoutControl1
-        Me.TextEditDepartmentCode.TabIndex = 6
-        '
         'LciDepartmentCode
         '
         Me.LciDepartmentCode.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -136,19 +175,6 @@ Partial Class XtraFormDepartment
         Me.LciDepartmentCode.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciDepartmentCode.TextSize = New System.Drawing.Size(74, 17)
         '
-        'BtnExit
-        '
-        Me.BtnExit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
-        Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnExit.Appearance.Options.UseBackColor = True
-        Me.BtnExit.Appearance.Options.UseFont = True
-        Me.BtnExit.Location = New System.Drawing.Point(12, 56)
-        Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(374, 24)
-        Me.BtnExit.StyleController = Me.LayoutControl1
-        Me.BtnExit.TabIndex = 7
-        Me.BtnExit.Text = "Exit"
-        '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.BtnExit
@@ -157,19 +183,6 @@ Partial Class XtraFormDepartment
         Me.LayoutControlItem2.Size = New System.Drawing.Size(378, 28)
         Me.LayoutControlItem2.TextVisible = False
         '
-        'BtnSaveUpdate
-        '
-        Me.BtnSaveUpdate.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary
-        Me.BtnSaveUpdate.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSaveUpdate.Appearance.Options.UseBackColor = True
-        Me.BtnSaveUpdate.Appearance.Options.UseFont = True
-        Me.BtnSaveUpdate.Location = New System.Drawing.Point(390, 56)
-        Me.BtnSaveUpdate.Name = "BtnSaveUpdate"
-        Me.BtnSaveUpdate.Size = New System.Drawing.Size(375, 24)
-        Me.BtnSaveUpdate.StyleController = Me.LayoutControl1
-        Me.BtnSaveUpdate.TabIndex = 8
-        Me.BtnSaveUpdate.Text = "Save"
-        '
         'LayoutControlItem3
         '
         Me.LayoutControlItem3.Control = Me.BtnSaveUpdate
@@ -177,19 +190,6 @@ Partial Class XtraFormDepartment
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(379, 28)
         Me.LayoutControlItem3.TextVisible = False
-        '
-        'BtnRefresh
-        '
-        Me.BtnRefresh.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
-        Me.BtnRefresh.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnRefresh.Appearance.Options.UseBackColor = True
-        Me.BtnRefresh.Appearance.Options.UseFont = True
-        Me.BtnRefresh.Location = New System.Drawing.Point(12, 384)
-        Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(753, 24)
-        Me.BtnRefresh.StyleController = Me.LayoutControl1
-        Me.BtnRefresh.TabIndex = 9
-        Me.BtnRefresh.Text = "Reload"
         '
         'LayoutControlItem4
         '
@@ -210,13 +210,13 @@ Partial Class XtraFormDepartment
         Me.Text = "XtraFormDepartment"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEditDepartmentCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEditDepartmentName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControlDepartment, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridViewDepartment, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEditDepartmentName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciDepartmentName, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEditDepartmentCode.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciDepartmentCode, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()

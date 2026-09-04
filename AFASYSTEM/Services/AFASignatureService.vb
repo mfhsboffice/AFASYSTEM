@@ -153,15 +153,6 @@ Public Class AFASignatureService
         Return ExecuteQuery(sql, prm)
     End Function
 
-
-    Public Function GetNodesGrid(ByVal afaNo As String, ByVal maxRow As Integer) As DataTable
-        Dim prm As New Dictionary(Of String, Object) From {
-            {"@AfaNo", afaNo},
-            {"@MaxRow", maxRow}
-        }
-        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetSignatureGrid_Proc", prm)
-    End Function
-
     Public Function GetApprovers(ByVal jenis As String) As DataTable
         Dim sql As String
 
@@ -181,6 +172,14 @@ Public Class AFASignatureService
 
         Return ExecuteQuery(sql, New List(Of Object))
     End Function
+    Public Function GetNodesGrid(ByVal afaNo As String, ByVal maxRow As Integer) As DataTable
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@AfaNo", afaNo},
+            {"@MaxRow", maxRow}
+        }
+        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetSignatureGrid_Proc", prm)
+    End Function
+
     Public Function GetDisposalFigures(ByVal afaNo As String) As DataTable
         Dim sql As String =
             "SELECT TOP 1 SUB_TYPE, ACQUISITION, ACCUM_DEPRECIATION, " &
@@ -192,4 +191,29 @@ Public Class AFASignatureService
         Dim prm As New List(Of Object) From {afaNo}
         Return ExecuteQuery(sql, prm)
     End Function
+
+    Public Function GetPendingApproval(ByVal nik As String) As DataTable
+        Dim prm As New Dictionary(Of String, Object) From {{"@Nik", nik}}
+        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetPendingApproval_Proc", prm)
+    End Function
+
+    Public Function ApproveMany(ByVal rows As IEnumerable(Of (AfaNo As String, Jenis As String)),
+                                ByVal nik As String,
+                                ByVal pc As String) As BulkApproveResult
+
+        Dim result As New BulkApproveResult()
+
+        For Each r In rows
+            result.TotalAttempted += 1
+
+            If Approve(r.AfaNo, r.Jenis, nik, pc, "APP", Nothing) Then
+                result.TotalSucceeded += 1
+            Else
+                result.Failures.Add(New BulkApproveFailure(r.AfaNo, LastErrorMessage))
+            End If
+        Next
+
+        Return result
+    End Function
+
 End Class

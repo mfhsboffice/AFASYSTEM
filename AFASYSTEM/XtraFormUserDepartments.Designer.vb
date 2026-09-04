@@ -20,6 +20,7 @@ Partial Class XtraFormUserDepartments
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.BtnRefresh = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnSaveUpdate = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnClear = New DevExpress.XtraEditors.SimpleButton()
@@ -32,10 +33,10 @@ Partial Class XtraFormUserDepartments
         Me.LciBtnClear = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnSave = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnRefresh = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LciEmployee = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.CheckedComboDepartments.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControlUserDepartments, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridViewUserDepartments, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,7 +46,6 @@ Partial Class XtraFormUserDepartments
         CType(Me.LciBtnClear, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnRefresh, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciEmployee, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -65,6 +65,15 @@ Partial Class XtraFormUserDepartments
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'ComboBoxEdit1
+        '
+        Me.ComboBoxEdit1.Location = New System.Drawing.Point(12, 32)
+        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
+        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.ComboBoxEdit1.Size = New System.Drawing.Size(734, 20)
+        Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
+        Me.ComboBoxEdit1.TabIndex = 11
+        '
         'BtnRefresh
         '
         Me.BtnRefresh.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
@@ -76,7 +85,7 @@ Partial Class XtraFormUserDepartments
         Me.BtnRefresh.Size = New System.Drawing.Size(734, 24)
         Me.BtnRefresh.StyleController = Me.LayoutControl1
         Me.BtnRefresh.TabIndex = 10
-        Me.BtnRefresh.Text = "Reload"
+        Me.BtnRefresh.Text = "Load"
         '
         'BtnSaveUpdate
         '
@@ -93,7 +102,7 @@ Partial Class XtraFormUserDepartments
         '
         'BtnClear
         '
-        Me.BtnClear.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnClear.Appearance.BackColor = System.Drawing.Color.Gray
         Me.BtnClear.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClear.Appearance.Options.UseBackColor = True
         Me.BtnClear.Appearance.Options.UseFont = True
@@ -124,6 +133,8 @@ Partial Class XtraFormUserDepartments
         '
         'GridViewUserDepartments
         '
+        Me.GridViewUserDepartments.Appearance.HeaderPanel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GridViewUserDepartments.Appearance.HeaderPanel.Options.UseFont = True
         Me.GridViewUserDepartments.GridControl = Me.GridControlUserDepartments
         Me.GridViewUserDepartments.Name = "GridViewUserDepartments"
         '
@@ -180,15 +191,6 @@ Partial Class XtraFormUserDepartments
         Me.LciBtnRefresh.Size = New System.Drawing.Size(738, 28)
         Me.LciBtnRefresh.TextVisible = False
         '
-        'ComboBoxEdit1
-        '
-        Me.ComboBoxEdit1.Location = New System.Drawing.Point(12, 32)
-        Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
-        Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.ComboBoxEdit1.Size = New System.Drawing.Size(734, 20)
-        Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
-        Me.ComboBoxEdit1.TabIndex = 11
-        '
         'LciEmployee
         '
         Me.LciEmployee.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -212,6 +214,7 @@ Partial Class XtraFormUserDepartments
         Me.Text = "User Department Mapping"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.CheckedComboDepartments.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControlUserDepartments, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridViewUserDepartments, System.ComponentModel.ISupportInitialize).EndInit()
@@ -221,7 +224,6 @@ Partial Class XtraFormUserDepartments
         CType(Me.LciBtnClear, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnRefresh, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciEmployee, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

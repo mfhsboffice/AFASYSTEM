@@ -52,9 +52,9 @@ Partial Class XtraFormAFADaaSign
         Me.LciAttachment2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnSave = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnSend = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciPriority = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.XtraOpenFileDialogFile = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -87,9 +87,9 @@ Partial Class XtraFormAFADaaSign
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -130,7 +130,7 @@ Partial Class XtraFormAFADaaSign
         '
         'BtnExit
         '
-        Me.BtnExit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnExit.Appearance.BackColor = System.Drawing.Color.Gray
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
@@ -156,16 +156,14 @@ Partial Class XtraFormAFADaaSign
         '
         'BtnSend
         '
-        Me.BtnSend.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning
         Me.BtnSend.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSend.Appearance.Options.UseBackColor = True
         Me.BtnSend.Appearance.Options.UseFont = True
         Me.BtnSend.Location = New System.Drawing.Point(211, 500)
         Me.BtnSend.Name = "BtnSend"
         Me.BtnSend.Size = New System.Drawing.Size(194, 24)
         Me.BtnSend.StyleController = Me.LayoutControl1
         Me.BtnSend.TabIndex = 16
-        Me.BtnSend.Text = "Send"
+        Me.BtnSend.Text = "Send to Email"
         '
         'BtnSave
         '
@@ -459,22 +457,6 @@ Partial Class XtraFormAFADaaSign
         Me.LciBtnSend.Size = New System.Drawing.Size(198, 28)
         Me.LciBtnSend.TextVisible = False
         '
-        'LciBtnViewAFA
-        '
-        Me.LciBtnViewAFA.Control = Me.BtnViewAFA
-        Me.LciBtnViewAFA.Location = New System.Drawing.Point(397, 488)
-        Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
-        Me.LciBtnViewAFA.Size = New System.Drawing.Size(198, 28)
-        Me.LciBtnViewAFA.TextVisible = False
-        '
-        'LciBtnExit
-        '
-        Me.LciBtnExit.Control = Me.BtnExit
-        Me.LciBtnExit.Location = New System.Drawing.Point(0, 488)
-        Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(199, 28)
-        Me.LciBtnExit.TextVisible = False
-        '
         'LciPriority
         '
         Me.LciPriority.Control = Me.SelectPriority
@@ -485,6 +467,22 @@ Partial Class XtraFormAFADaaSign
         Me.LciPriority.Text = "Priority"
         Me.LciPriority.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciPriority.TextSize = New System.Drawing.Size(105, 13)
+        '
+        'LciBtnExit
+        '
+        Me.LciBtnExit.Control = Me.BtnExit
+        Me.LciBtnExit.Location = New System.Drawing.Point(0, 488)
+        Me.LciBtnExit.Name = "LciBtnExit"
+        Me.LciBtnExit.Size = New System.Drawing.Size(199, 28)
+        Me.LciBtnExit.TextVisible = False
+        '
+        'LciBtnViewAFA
+        '
+        Me.LciBtnViewAFA.Control = Me.BtnViewAFA
+        Me.LciBtnViewAFA.Location = New System.Drawing.Point(397, 488)
+        Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
+        Me.LciBtnViewAFA.Size = New System.Drawing.Size(198, 28)
+        Me.LciBtnViewAFA.TextVisible = False
         '
         'XtraOpenFileDialogFile
         '
@@ -530,9 +528,9 @@ Partial Class XtraFormAFADaaSign
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
