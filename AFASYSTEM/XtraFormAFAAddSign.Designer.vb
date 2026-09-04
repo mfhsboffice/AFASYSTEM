@@ -47,9 +47,11 @@ Partial Class XtraFormAFAAddSign
         Me.LciAttachment1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciAttachment2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnSave = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBtnSend = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LciBtnSend = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.SelectPriority = New DevExpress.XtraEditors.ComboBoxEdit()
+        Me.LciPriority = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.ButtonEditAttachment2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -75,13 +77,16 @@ Partial Class XtraFormAFAAddSign
         CType(Me.LciAttachment1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.SelectPriority)
         Me.LayoutControl1.Controls.Add(Me.BtnSend)
         Me.LayoutControl1.Controls.Add(Me.BtnExit)
         Me.LayoutControl1.Controls.Add(Me.BtnViewAFA)
@@ -106,9 +111,7 @@ Partial Class XtraFormAFAAddSign
         '
         'BtnSend
         '
-        Me.BtnSend.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning
         Me.BtnSend.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnSend.Appearance.Options.UseBackColor = True
         Me.BtnSend.Appearance.Options.UseFont = True
         Me.BtnSend.Location = New System.Drawing.Point(233, 500)
         Me.BtnSend.Name = "BtnSend"
@@ -119,11 +122,11 @@ Partial Class XtraFormAFAAddSign
         '
         'BtnExit
         '
-        Me.BtnExit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnExit.Appearance.BackColor = System.Drawing.Color.Gray
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
-        Me.BtnExit.Location = New System.Drawing.Point(454, 500)
+        Me.BtnExit.Location = New System.Drawing.Point(12, 500)
         Me.BtnExit.Name = "BtnExit"
         Me.BtnExit.Size = New System.Drawing.Size(217, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
@@ -136,9 +139,9 @@ Partial Class XtraFormAFAAddSign
         Me.BtnViewAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnViewAFA.Appearance.Options.UseBackColor = True
         Me.BtnViewAFA.Appearance.Options.UseFont = True
-        Me.BtnViewAFA.Location = New System.Drawing.Point(12, 500)
+        Me.BtnViewAFA.Location = New System.Drawing.Point(454, 500)
         Me.BtnViewAFA.Name = "BtnViewAFA"
-        Me.BtnViewAFA.Size = New System.Drawing.Size(217, 24)
+        Me.BtnViewAFA.Size = New System.Drawing.Size(221, 24)
         Me.BtnViewAFA.StyleController = Me.LayoutControl1
         Me.BtnViewAFA.TabIndex = 17
         Me.BtnViewAFA.Text = "View AFA"
@@ -149,9 +152,9 @@ Partial Class XtraFormAFAAddSign
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(675, 500)
+        Me.BtnSave.Location = New System.Drawing.Point(679, 500)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(218, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(214, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 16
         Me.BtnSave.Text = "Save"
@@ -176,10 +179,10 @@ Partial Class XtraFormAFAAddSign
         '
         'GridControlSignature
         '
-        Me.GridControlSignature.Location = New System.Drawing.Point(12, 172)
+        Me.GridControlSignature.Location = New System.Drawing.Point(12, 173)
         Me.GridControlSignature.MainView = Me.GridViewSignature
         Me.GridControlSignature.Name = "GridControlSignature"
-        Me.GridControlSignature.Size = New System.Drawing.Size(881, 284)
+        Me.GridControlSignature.Size = New System.Drawing.Size(881, 283)
         Me.GridControlSignature.TabIndex = 13
         Me.GridControlSignature.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewSignature})
         '
@@ -190,7 +193,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditTotalAdditional
         '
-        Me.TextEditTotalAdditional.Location = New System.Drawing.Point(454, 148)
+        Me.TextEditTotalAdditional.Location = New System.Drawing.Point(454, 149)
         Me.TextEditTotalAdditional.Name = "TextEditTotalAdditional"
         Me.TextEditTotalAdditional.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditTotalAdditional.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -204,7 +207,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditShortage
         '
-        Me.TextEditShortage.Location = New System.Drawing.Point(12, 148)
+        Me.TextEditShortage.Location = New System.Drawing.Point(12, 149)
         Me.TextEditShortage.Name = "TextEditShortage"
         Me.TextEditShortage.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditShortage.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -218,7 +221,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditEstimation
         '
-        Me.TextEditEstimation.Location = New System.Drawing.Point(454, 108)
+        Me.TextEditEstimation.Location = New System.Drawing.Point(454, 109)
         Me.TextEditEstimation.Name = "TextEditEstimation"
         Me.TextEditEstimation.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditEstimation.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -232,7 +235,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditActualUp
         '
-        Me.TextEditActualUp.Location = New System.Drawing.Point(12, 108)
+        Me.TextEditActualUp.Location = New System.Drawing.Point(12, 109)
         Me.TextEditActualUp.Name = "TextEditActualUp"
         Me.TextEditActualUp.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditActualUp.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -246,7 +249,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditBudgetAmt
         '
-        Me.TextEditBudgetAmt.Location = New System.Drawing.Point(454, 68)
+        Me.TextEditBudgetAmt.Location = New System.Drawing.Point(454, 69)
         Me.TextEditBudgetAmt.Name = "TextEditBudgetAmt"
         Me.TextEditBudgetAmt.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditBudgetAmt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -260,7 +263,7 @@ Partial Class XtraFormAFAAddSign
         '
         'TextEditBudgetItem
         '
-        Me.TextEditBudgetItem.Location = New System.Drawing.Point(12, 68)
+        Me.TextEditBudgetItem.Location = New System.Drawing.Point(12, 69)
         Me.TextEditBudgetItem.Name = "TextEditBudgetItem"
         Me.TextEditBudgetItem.Properties.ReadOnly = True
         Me.TextEditBudgetItem.Size = New System.Drawing.Size(438, 20)
@@ -271,7 +274,7 @@ Partial Class XtraFormAFAAddSign
         '
         Me.TextEditAfaNo.Location = New System.Drawing.Point(12, 28)
         Me.TextEditAfaNo.Name = "TextEditAfaNo"
-        Me.TextEditAfaNo.Size = New System.Drawing.Size(881, 20)
+        Me.TextEditAfaNo.Size = New System.Drawing.Size(438, 20)
         Me.TextEditAfaNo.StyleController = Me.LayoutControl1
         Me.TextEditAfaNo.TabIndex = 4
         '
@@ -279,7 +282,7 @@ Partial Class XtraFormAFAAddSign
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciBudgetItem, Me.LciBudgetAmt, Me.LciActualUp, Me.LciEstimation, Me.LciShortage, Me.LciTotalAdditional, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnViewAFA, Me.LciBtnExit, Me.LciBtnSend})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciBudgetItem, Me.LciBudgetAmt, Me.LciActualUp, Me.LciEstimation, Me.LciShortage, Me.LciTotalAdditional, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnSend, Me.LciBtnViewAFA, Me.LciBtnExit, Me.LciPriority})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(905, 536)
         Me.Root.TextVisible = False
@@ -289,7 +292,7 @@ Partial Class XtraFormAFAAddSign
         Me.LciAfaNo.Control = Me.TextEditAfaNo
         Me.LciAfaNo.Location = New System.Drawing.Point(0, 0)
         Me.LciAfaNo.Name = "LciAfaNo"
-        Me.LciAfaNo.Size = New System.Drawing.Size(885, 40)
+        Me.LciAfaNo.Size = New System.Drawing.Size(442, 41)
         Me.LciAfaNo.Text = "No.AFA"
         Me.LciAfaNo.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAfaNo.TextSize = New System.Drawing.Size(167, 13)
@@ -297,7 +300,7 @@ Partial Class XtraFormAFAAddSign
         'LciBudgetItem
         '
         Me.LciBudgetItem.Control = Me.TextEditBudgetItem
-        Me.LciBudgetItem.Location = New System.Drawing.Point(0, 40)
+        Me.LciBudgetItem.Location = New System.Drawing.Point(0, 41)
         Me.LciBudgetItem.Name = "LciBudgetItem"
         Me.LciBudgetItem.Size = New System.Drawing.Size(442, 40)
         Me.LciBudgetItem.Text = "Budget Item"
@@ -307,7 +310,7 @@ Partial Class XtraFormAFAAddSign
         'LciBudgetAmt
         '
         Me.LciBudgetAmt.Control = Me.TextEditBudgetAmt
-        Me.LciBudgetAmt.Location = New System.Drawing.Point(442, 40)
+        Me.LciBudgetAmt.Location = New System.Drawing.Point(442, 41)
         Me.LciBudgetAmt.Name = "LciBudgetAmt"
         Me.LciBudgetAmt.Size = New System.Drawing.Size(443, 40)
         Me.LciBudgetAmt.Text = "Budget Amount"
@@ -317,7 +320,7 @@ Partial Class XtraFormAFAAddSign
         'LciActualUp
         '
         Me.LciActualUp.Control = Me.TextEditActualUp
-        Me.LciActualUp.Location = New System.Drawing.Point(0, 80)
+        Me.LciActualUp.Location = New System.Drawing.Point(0, 81)
         Me.LciActualUp.Name = "LciActualUp"
         Me.LciActualUp.Size = New System.Drawing.Size(442, 40)
         Me.LciActualUp.Text = "Actual Up To This Application"
@@ -327,7 +330,7 @@ Partial Class XtraFormAFAAddSign
         'LciEstimation
         '
         Me.LciEstimation.Control = Me.TextEditEstimation
-        Me.LciEstimation.Location = New System.Drawing.Point(442, 80)
+        Me.LciEstimation.Location = New System.Drawing.Point(442, 81)
         Me.LciEstimation.Name = "LciEstimation"
         Me.LciEstimation.Size = New System.Drawing.Size(443, 40)
         Me.LciEstimation.Text = "Estimation"
@@ -337,7 +340,7 @@ Partial Class XtraFormAFAAddSign
         'LciShortage
         '
         Me.LciShortage.Control = Me.TextEditShortage
-        Me.LciShortage.Location = New System.Drawing.Point(0, 120)
+        Me.LciShortage.Location = New System.Drawing.Point(0, 121)
         Me.LciShortage.Name = "LciShortage"
         Me.LciShortage.Size = New System.Drawing.Size(442, 40)
         Me.LciShortage.Text = "Shortage"
@@ -347,7 +350,7 @@ Partial Class XtraFormAFAAddSign
         'LciTotalAdditional
         '
         Me.LciTotalAdditional.Control = Me.TextEditTotalAdditional
-        Me.LciTotalAdditional.Location = New System.Drawing.Point(442, 120)
+        Me.LciTotalAdditional.Location = New System.Drawing.Point(442, 121)
         Me.LciTotalAdditional.Name = "LciTotalAdditional"
         Me.LciTotalAdditional.Size = New System.Drawing.Size(443, 40)
         Me.LciTotalAdditional.Text = "Total Amount Additional Budget"
@@ -357,9 +360,9 @@ Partial Class XtraFormAFAAddSign
         'LciGridSignature
         '
         Me.LciGridSignature.Control = Me.GridControlSignature
-        Me.LciGridSignature.Location = New System.Drawing.Point(0, 160)
+        Me.LciGridSignature.Location = New System.Drawing.Point(0, 161)
         Me.LciGridSignature.Name = "LciGridSignature"
-        Me.LciGridSignature.Size = New System.Drawing.Size(885, 288)
+        Me.LciGridSignature.Size = New System.Drawing.Size(885, 287)
         Me.LciGridSignature.TextVisible = False
         '
         'LciAttachment1
@@ -385,26 +388,10 @@ Partial Class XtraFormAFAAddSign
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(663, 488)
+        Me.LciBtnSave.Location = New System.Drawing.Point(667, 488)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(222, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(218, 28)
         Me.LciBtnSave.TextVisible = False
-        '
-        'LciBtnViewAFA
-        '
-        Me.LciBtnViewAFA.Control = Me.BtnViewAFA
-        Me.LciBtnViewAFA.Location = New System.Drawing.Point(0, 488)
-        Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
-        Me.LciBtnViewAFA.Size = New System.Drawing.Size(221, 28)
-        Me.LciBtnViewAFA.TextVisible = False
-        '
-        'LciBtnExit
-        '
-        Me.LciBtnExit.Control = Me.BtnExit
-        Me.LciBtnExit.Location = New System.Drawing.Point(442, 488)
-        Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(221, 28)
-        Me.LciBtnExit.TextVisible = False
         '
         'LciBtnSend
         '
@@ -413,6 +400,42 @@ Partial Class XtraFormAFAAddSign
         Me.LciBtnSend.Name = "LciBtnSend"
         Me.LciBtnSend.Size = New System.Drawing.Size(221, 28)
         Me.LciBtnSend.TextVisible = False
+        '
+        'LciBtnViewAFA
+        '
+        Me.LciBtnViewAFA.Control = Me.BtnViewAFA
+        Me.LciBtnViewAFA.Location = New System.Drawing.Point(442, 488)
+        Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
+        Me.LciBtnViewAFA.Size = New System.Drawing.Size(225, 28)
+        Me.LciBtnViewAFA.TextVisible = False
+        '
+        'LciBtnExit
+        '
+        Me.LciBtnExit.Control = Me.BtnExit
+        Me.LciBtnExit.Location = New System.Drawing.Point(0, 488)
+        Me.LciBtnExit.Name = "LciBtnExit"
+        Me.LciBtnExit.Size = New System.Drawing.Size(221, 28)
+        Me.LciBtnExit.TextVisible = False
+        '
+        'SelectPriority
+        '
+        Me.SelectPriority.Location = New System.Drawing.Point(454, 29)
+        Me.SelectPriority.Name = "SelectPriority"
+        Me.SelectPriority.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.SelectPriority.Size = New System.Drawing.Size(439, 20)
+        Me.SelectPriority.StyleController = Me.LayoutControl1
+        Me.SelectPriority.TabIndex = 20
+        '
+        'LciPriority
+        '
+        Me.LciPriority.Control = Me.SelectPriority
+        Me.LciPriority.Location = New System.Drawing.Point(442, 0)
+        Me.LciPriority.Name = "LciPriority"
+        Me.LciPriority.Size = New System.Drawing.Size(443, 41)
+        Me.LciPriority.Text = "Priority"
+        Me.LciPriority.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciPriority.TextSize = New System.Drawing.Size(167, 13)
         '
         'XtraFormAFAAddSign
         '
@@ -448,9 +471,11 @@ Partial Class XtraFormAFAAddSign
         CType(Me.LciAttachment1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LciBtnSend, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -486,4 +511,6 @@ Partial Class XtraFormAFAAddSign
     Friend WithEvents LciBtnViewAFA As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciBtnExit As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciBtnSend As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents SelectPriority As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents LciPriority As DevExpress.XtraLayout.LayoutControlItem
 End Class

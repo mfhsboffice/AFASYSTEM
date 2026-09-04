@@ -20,6 +20,8 @@ Partial Class XtraFormAFABreEForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.TextEditBudgetYear = New DevExpress.XtraEditors.TextEdit()
+        Me.TextEditBudgetRevision = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditTotalReclass = New DevExpress.XtraEditors.TextEdit()
         Me.BtnExit = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnSave = New DevExpress.XtraEditors.SimpleButton()
@@ -63,8 +65,12 @@ Partial Class XtraFormAFABreEForm
         Me.LciBtnSave = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciTotalReclass = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBudgetRev = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBudgetYear = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEditBudgetRevision.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditTotalReclass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditBalanceTarget.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditShortageSource.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,10 +114,14 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciTotalReclass, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.TextEditBudgetYear)
+        Me.LayoutControl1.Controls.Add(Me.TextEditBudgetRevision)
         Me.LayoutControl1.Controls.Add(Me.TextEditTotalReclass)
         Me.LayoutControl1.Controls.Add(Me.BtnExit)
         Me.LayoutControl1.Controls.Add(Me.BtnSave)
@@ -137,13 +147,29 @@ Partial Class XtraFormAFABreEForm
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = New System.Drawing.Rectangle(1266, 251, 650, 400)
         Me.LayoutControl1.Root = Me.Root
-        Me.LayoutControl1.Size = New System.Drawing.Size(855, 519)
+        Me.LayoutControl1.Size = New System.Drawing.Size(972, 737)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'TextEditBudgetYear
+        '
+        Me.TextEditBudgetYear.Location = New System.Drawing.Point(617, 123)
+        Me.TextEditBudgetYear.Name = "TextEditBudgetYear"
+        Me.TextEditBudgetYear.Size = New System.Drawing.Size(165, 20)
+        Me.TextEditBudgetYear.StyleController = Me.LayoutControl1
+        Me.TextEditBudgetYear.TabIndex = 27
+        '
+        'TextEditBudgetRevision
+        '
+        Me.TextEditBudgetRevision.Location = New System.Drawing.Point(792, 123)
+        Me.TextEditBudgetRevision.Name = "TextEditBudgetRevision"
+        Me.TextEditBudgetRevision.Size = New System.Drawing.Size(165, 20)
+        Me.TextEditBudgetRevision.StyleController = Me.LayoutControl1
+        Me.TextEditBudgetRevision.TabIndex = 26
+        '
         'TextEditTotalReclass
         '
-        Me.TextEditTotalReclass.Location = New System.Drawing.Point(12, 455)
+        Me.TextEditTotalReclass.Location = New System.Drawing.Point(15, 670)
         Me.TextEditTotalReclass.Name = "TextEditTotalReclass"
         Me.TextEditTotalReclass.Properties.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextEditTotalReclass.Properties.Appearance.Options.UseFont = True
@@ -153,19 +179,19 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditTotalReclass.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditTotalReclass.Properties.ReadOnly = True
         Me.TextEditTotalReclass.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditTotalReclass.Size = New System.Drawing.Size(831, 24)
+        Me.TextEditTotalReclass.Size = New System.Drawing.Size(942, 24)
         Me.TextEditTotalReclass.StyleController = Me.LayoutControl1
         Me.TextEditTotalReclass.TabIndex = 25
         '
         'BtnExit
         '
-        Me.BtnExit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnExit.Appearance.BackColor = System.Drawing.Color.Gray
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
-        Me.BtnExit.Location = New System.Drawing.Point(12, 483)
+        Me.BtnExit.Location = New System.Drawing.Point(12, 701)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(413, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(471, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 24
         Me.BtnExit.Text = "Exit"
@@ -176,16 +202,16 @@ Partial Class XtraFormAFABreEForm
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(429, 483)
+        Me.BtnSave.Location = New System.Drawing.Point(487, 701)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(414, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(473, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 23
         Me.BtnSave.Text = "Save"
         '
         'TextEditBalanceTarget
         '
-        Me.TextEditBalanceTarget.Location = New System.Drawing.Point(429, 411)
+        Me.TextEditBalanceTarget.Location = New System.Drawing.Point(490, 620)
         Me.TextEditBalanceTarget.Name = "TextEditBalanceTarget"
         Me.TextEditBalanceTarget.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditBalanceTarget.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -193,13 +219,13 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditBalanceTarget.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditBalanceTarget.Properties.ReadOnly = True
         Me.TextEditBalanceTarget.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditBalanceTarget.Size = New System.Drawing.Size(414, 20)
+        Me.TextEditBalanceTarget.Size = New System.Drawing.Size(467, 20)
         Me.TextEditBalanceTarget.StyleController = Me.LayoutControl1
         Me.TextEditBalanceTarget.TabIndex = 20
         '
         'TextEditShortageSource
         '
-        Me.TextEditShortageSource.Location = New System.Drawing.Point(12, 411)
+        Me.TextEditShortageSource.Location = New System.Drawing.Point(15, 620)
         Me.TextEditShortageSource.Name = "TextEditShortageSource"
         Me.TextEditShortageSource.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditShortageSource.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -207,13 +233,13 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditShortageSource.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditShortageSource.Properties.ReadOnly = True
         Me.TextEditShortageSource.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditShortageSource.Size = New System.Drawing.Size(413, 20)
+        Me.TextEditShortageSource.Size = New System.Drawing.Size(465, 20)
         Me.TextEditShortageSource.StyleController = Me.LayoutControl1
         Me.TextEditShortageSource.TabIndex = 19
         '
         'TextEditReclassAmount
         '
-        Me.TextEditReclassAmount.Location = New System.Drawing.Point(429, 371)
+        Me.TextEditReclassAmount.Location = New System.Drawing.Point(490, 574)
         Me.TextEditReclassAmount.Name = "TextEditReclassAmount"
         Me.TextEditReclassAmount.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditReclassAmount.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -221,26 +247,26 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditReclassAmount.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditReclassAmount.Properties.ReadOnly = True
         Me.TextEditReclassAmount.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditReclassAmount.Size = New System.Drawing.Size(414, 20)
+        Me.TextEditReclassAmount.Size = New System.Drawing.Size(467, 20)
         Me.TextEditReclassAmount.StyleController = Me.LayoutControl1
         Me.TextEditReclassAmount.TabIndex = 18
         '
         'TextEditEstimationSource
         '
-        Me.TextEditEstimationSource.Location = New System.Drawing.Point(12, 371)
+        Me.TextEditEstimationSource.Location = New System.Drawing.Point(15, 574)
         Me.TextEditEstimationSource.Name = "TextEditEstimationSource"
         Me.TextEditEstimationSource.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditEstimationSource.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
         Me.TextEditEstimationSource.Properties.MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
         Me.TextEditEstimationSource.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditEstimationSource.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditEstimationSource.Size = New System.Drawing.Size(413, 20)
+        Me.TextEditEstimationSource.Size = New System.Drawing.Size(465, 20)
         Me.TextEditEstimationSource.StyleController = Me.LayoutControl1
         Me.TextEditEstimationSource.TabIndex = 17
         '
         'TextEditActualUpTarget
         '
-        Me.TextEditActualUpTarget.Location = New System.Drawing.Point(429, 331)
+        Me.TextEditActualUpTarget.Location = New System.Drawing.Point(490, 528)
         Me.TextEditActualUpTarget.Name = "TextEditActualUpTarget"
         Me.TextEditActualUpTarget.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditActualUpTarget.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -248,13 +274,13 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditActualUpTarget.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditActualUpTarget.Properties.ReadOnly = True
         Me.TextEditActualUpTarget.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditActualUpTarget.Size = New System.Drawing.Size(414, 20)
+        Me.TextEditActualUpTarget.Size = New System.Drawing.Size(467, 20)
         Me.TextEditActualUpTarget.StyleController = Me.LayoutControl1
         Me.TextEditActualUpTarget.TabIndex = 16
         '
         'TextEditActualUpSource
         '
-        Me.TextEditActualUpSource.Location = New System.Drawing.Point(12, 331)
+        Me.TextEditActualUpSource.Location = New System.Drawing.Point(15, 528)
         Me.TextEditActualUpSource.Name = "TextEditActualUpSource"
         Me.TextEditActualUpSource.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditActualUpSource.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -262,13 +288,13 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditActualUpSource.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditActualUpSource.Properties.ReadOnly = True
         Me.TextEditActualUpSource.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditActualUpSource.Size = New System.Drawing.Size(413, 20)
+        Me.TextEditActualUpSource.Size = New System.Drawing.Size(465, 20)
         Me.TextEditActualUpSource.StyleController = Me.LayoutControl1
         Me.TextEditActualUpSource.TabIndex = 15
         '
         'TextEditBudgetAmtTarget
         '
-        Me.TextEditBudgetAmtTarget.Location = New System.Drawing.Point(429, 291)
+        Me.TextEditBudgetAmtTarget.Location = New System.Drawing.Point(490, 482)
         Me.TextEditBudgetAmtTarget.Name = "TextEditBudgetAmtTarget"
         Me.TextEditBudgetAmtTarget.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditBudgetAmtTarget.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -276,13 +302,13 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditBudgetAmtTarget.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditBudgetAmtTarget.Properties.ReadOnly = True
         Me.TextEditBudgetAmtTarget.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditBudgetAmtTarget.Size = New System.Drawing.Size(414, 20)
+        Me.TextEditBudgetAmtTarget.Size = New System.Drawing.Size(467, 20)
         Me.TextEditBudgetAmtTarget.StyleController = Me.LayoutControl1
         Me.TextEditBudgetAmtTarget.TabIndex = 14
         '
         'TextEditBudgetAmtSource
         '
-        Me.TextEditBudgetAmtSource.Location = New System.Drawing.Point(12, 291)
+        Me.TextEditBudgetAmtSource.Location = New System.Drawing.Point(15, 482)
         Me.TextEditBudgetAmtSource.Name = "TextEditBudgetAmtSource"
         Me.TextEditBudgetAmtSource.Properties.Appearance.Options.UseTextOptions = True
         Me.TextEditBudgetAmtSource.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
@@ -290,17 +316,17 @@ Partial Class XtraFormAFABreEForm
         Me.TextEditBudgetAmtSource.Properties.MaskSettings.Set("mask", "n0")
         Me.TextEditBudgetAmtSource.Properties.ReadOnly = True
         Me.TextEditBudgetAmtSource.Properties.UseMaskAsDisplayFormat = True
-        Me.TextEditBudgetAmtSource.Size = New System.Drawing.Size(413, 20)
+        Me.TextEditBudgetAmtSource.Size = New System.Drawing.Size(465, 20)
         Me.TextEditBudgetAmtSource.StyleController = Me.LayoutControl1
         Me.TextEditBudgetAmtSource.TabIndex = 13
         '
         'LookupBudgetItemTarget
         '
-        Me.LookupBudgetItemTarget.Location = New System.Drawing.Point(429, 251)
+        Me.LookupBudgetItemTarget.Location = New System.Drawing.Point(490, 436)
         Me.LookupBudgetItemTarget.Name = "LookupBudgetItemTarget"
         Me.LookupBudgetItemTarget.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookupBudgetItemTarget.Properties.PopupView = Me.LookupBudgetItemTargetView
-        Me.LookupBudgetItemTarget.Size = New System.Drawing.Size(414, 20)
+        Me.LookupBudgetItemTarget.Size = New System.Drawing.Size(467, 20)
         Me.LookupBudgetItemTarget.StyleController = Me.LayoutControl1
         Me.LookupBudgetItemTarget.TabIndex = 12
         '
@@ -313,11 +339,11 @@ Partial Class XtraFormAFABreEForm
         '
         'LookupBudgetItemSource
         '
-        Me.LookupBudgetItemSource.Location = New System.Drawing.Point(12, 251)
+        Me.LookupBudgetItemSource.Location = New System.Drawing.Point(15, 436)
         Me.LookupBudgetItemSource.Name = "LookupBudgetItemSource"
         Me.LookupBudgetItemSource.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookupBudgetItemSource.Properties.PopupView = Me.LookupBudgetItemSourceView
-        Me.LookupBudgetItemSource.Size = New System.Drawing.Size(413, 20)
+        Me.LookupBudgetItemSource.Size = New System.Drawing.Size(465, 20)
         Me.LookupBudgetItemSource.StyleController = Me.LayoutControl1
         Me.LookupBudgetItemSource.TabIndex = 11
         '
@@ -330,65 +356,69 @@ Partial Class XtraFormAFABreEForm
         '
         'MemoEditBgExp
         '
-        Me.MemoEditBgExp.Location = New System.Drawing.Point(429, 148)
+        Me.MemoEditBgExp.Location = New System.Drawing.Point(490, 169)
         Me.MemoEditBgExp.Name = "MemoEditBgExp"
-        Me.MemoEditBgExp.Size = New System.Drawing.Size(414, 83)
+        Me.MemoEditBgExp.Size = New System.Drawing.Size(467, 241)
         Me.MemoEditBgExp.StyleController = Me.LayoutControl1
         Me.MemoEditBgExp.TabIndex = 10
         '
         'MemoEditPurpose
         '
-        Me.MemoEditPurpose.Location = New System.Drawing.Point(12, 148)
+        Me.MemoEditPurpose.Location = New System.Drawing.Point(15, 169)
         Me.MemoEditPurpose.Name = "MemoEditPurpose"
-        Me.MemoEditPurpose.Size = New System.Drawing.Size(413, 83)
+        Me.MemoEditPurpose.Size = New System.Drawing.Size(465, 241)
         Me.MemoEditPurpose.StyleController = Me.LayoutControl1
         Me.MemoEditPurpose.TabIndex = 9
         '
         'TextEditSubject
         '
-        Me.TextEditSubject.Location = New System.Drawing.Point(12, 108)
+        Me.TextEditSubject.Location = New System.Drawing.Point(15, 123)
         Me.TextEditSubject.Name = "TextEditSubject"
-        Me.TextEditSubject.Size = New System.Drawing.Size(831, 20)
+        Me.TextEditSubject.Size = New System.Drawing.Size(592, 20)
         Me.TextEditSubject.StyleController = Me.LayoutControl1
         Me.TextEditSubject.TabIndex = 8
         '
         'DateEditScheduleTo
         '
         Me.DateEditScheduleTo.EditValue = Nothing
-        Me.DateEditScheduleTo.Location = New System.Drawing.Point(429, 68)
+        Me.DateEditScheduleTo.Location = New System.Drawing.Point(490, 77)
         Me.DateEditScheduleTo.Name = "DateEditScheduleTo"
         Me.DateEditScheduleTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEditScheduleTo.Size = New System.Drawing.Size(414, 20)
+        Me.DateEditScheduleTo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.DateEditScheduleTo.Size = New System.Drawing.Size(467, 20)
         Me.DateEditScheduleTo.StyleController = Me.LayoutControl1
         Me.DateEditScheduleTo.TabIndex = 7
         '
         'DateEditScheduleFrom
         '
         Me.DateEditScheduleFrom.EditValue = Nothing
-        Me.DateEditScheduleFrom.Location = New System.Drawing.Point(12, 68)
+        Me.DateEditScheduleFrom.Location = New System.Drawing.Point(15, 77)
         Me.DateEditScheduleFrom.Name = "DateEditScheduleFrom"
         Me.DateEditScheduleFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleFrom.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.DateEditScheduleFrom.Size = New System.Drawing.Size(413, 20)
+        Me.DateEditScheduleFrom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.DateEditScheduleFrom.Size = New System.Drawing.Size(465, 20)
         Me.DateEditScheduleFrom.StyleController = Me.LayoutControl1
         Me.DateEditScheduleFrom.TabIndex = 6
         '
         'SelectDepartment
         '
-        Me.SelectDepartment.Location = New System.Drawing.Point(12, 28)
+        Me.SelectDepartment.Location = New System.Drawing.Point(15, 31)
         Me.SelectDepartment.Name = "SelectDepartment"
         Me.SelectDepartment.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.SelectDepartment.Size = New System.Drawing.Size(413, 20)
+        Me.SelectDepartment.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.SelectDepartment.Size = New System.Drawing.Size(465, 20)
         Me.SelectDepartment.StyleController = Me.LayoutControl1
         Me.SelectDepartment.TabIndex = 5
         '
         'SelectLocation
         '
-        Me.SelectLocation.Location = New System.Drawing.Point(429, 28)
+        Me.SelectLocation.Location = New System.Drawing.Point(490, 31)
         Me.SelectLocation.Name = "SelectLocation"
         Me.SelectLocation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.SelectLocation.Size = New System.Drawing.Size(414, 20)
+        Me.SelectLocation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.SelectLocation.Size = New System.Drawing.Size(467, 20)
         Me.SelectLocation.StyleController = Me.LayoutControl1
         Me.SelectLocation.TabIndex = 4
         '
@@ -396,17 +426,18 @@ Partial Class XtraFormAFABreEForm
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear})
         Me.Root.Name = "Root"
-        Me.Root.Size = New System.Drawing.Size(855, 519)
+        Me.Root.Size = New System.Drawing.Size(972, 737)
         Me.Root.TextVisible = False
         '
         'LciLocation
         '
         Me.LciLocation.Control = Me.SelectLocation
-        Me.LciLocation.Location = New System.Drawing.Point(417, 0)
+        Me.LciLocation.Location = New System.Drawing.Point(475, 0)
         Me.LciLocation.Name = "LciLocation"
-        Me.LciLocation.Size = New System.Drawing.Size(418, 40)
+        Me.LciLocation.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciLocation.Size = New System.Drawing.Size(477, 46)
         Me.LciLocation.Text = "Location"
         Me.LciLocation.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciLocation.TextSize = New System.Drawing.Size(165, 13)
@@ -416,7 +447,8 @@ Partial Class XtraFormAFABreEForm
         Me.LciDepartment.Control = Me.SelectDepartment
         Me.LciDepartment.Location = New System.Drawing.Point(0, 0)
         Me.LciDepartment.Name = "LciDepartment"
-        Me.LciDepartment.Size = New System.Drawing.Size(417, 40)
+        Me.LciDepartment.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciDepartment.Size = New System.Drawing.Size(475, 46)
         Me.LciDepartment.Text = "Department"
         Me.LciDepartment.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciDepartment.TextSize = New System.Drawing.Size(165, 13)
@@ -424,9 +456,10 @@ Partial Class XtraFormAFABreEForm
         'LciScheduleFrom
         '
         Me.LciScheduleFrom.Control = Me.DateEditScheduleFrom
-        Me.LciScheduleFrom.Location = New System.Drawing.Point(0, 40)
+        Me.LciScheduleFrom.Location = New System.Drawing.Point(0, 46)
         Me.LciScheduleFrom.Name = "LciScheduleFrom"
-        Me.LciScheduleFrom.Size = New System.Drawing.Size(417, 40)
+        Me.LciScheduleFrom.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciScheduleFrom.Size = New System.Drawing.Size(475, 46)
         Me.LciScheduleFrom.Text = "Schedule From"
         Me.LciScheduleFrom.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciScheduleFrom.TextSize = New System.Drawing.Size(165, 13)
@@ -434,9 +467,10 @@ Partial Class XtraFormAFABreEForm
         'LciScheduleTo
         '
         Me.LciScheduleTo.Control = Me.DateEditScheduleTo
-        Me.LciScheduleTo.Location = New System.Drawing.Point(417, 40)
+        Me.LciScheduleTo.Location = New System.Drawing.Point(475, 46)
         Me.LciScheduleTo.Name = "LciScheduleTo"
-        Me.LciScheduleTo.Size = New System.Drawing.Size(418, 40)
+        Me.LciScheduleTo.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciScheduleTo.Size = New System.Drawing.Size(477, 46)
         Me.LciScheduleTo.Text = "Schedule To"
         Me.LciScheduleTo.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciScheduleTo.TextSize = New System.Drawing.Size(165, 13)
@@ -444,9 +478,10 @@ Partial Class XtraFormAFABreEForm
         'LciSubject
         '
         Me.LciSubject.Control = Me.TextEditSubject
-        Me.LciSubject.Location = New System.Drawing.Point(0, 80)
+        Me.LciSubject.Location = New System.Drawing.Point(0, 92)
         Me.LciSubject.Name = "LciSubject"
-        Me.LciSubject.Size = New System.Drawing.Size(835, 40)
+        Me.LciSubject.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciSubject.Size = New System.Drawing.Size(602, 46)
         Me.LciSubject.Text = "Subject"
         Me.LciSubject.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciSubject.TextSize = New System.Drawing.Size(165, 13)
@@ -454,9 +489,10 @@ Partial Class XtraFormAFABreEForm
         'LciPurpose
         '
         Me.LciPurpose.Control = Me.MemoEditPurpose
-        Me.LciPurpose.Location = New System.Drawing.Point(0, 120)
+        Me.LciPurpose.Location = New System.Drawing.Point(0, 138)
         Me.LciPurpose.Name = "LciPurpose"
-        Me.LciPurpose.Size = New System.Drawing.Size(417, 103)
+        Me.LciPurpose.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciPurpose.Size = New System.Drawing.Size(475, 267)
         Me.LciPurpose.Text = "Purpose"
         Me.LciPurpose.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciPurpose.TextSize = New System.Drawing.Size(165, 13)
@@ -464,9 +500,10 @@ Partial Class XtraFormAFABreEForm
         'LciBgExp
         '
         Me.LciBgExp.Control = Me.MemoEditBgExp
-        Me.LciBgExp.Location = New System.Drawing.Point(417, 120)
+        Me.LciBgExp.Location = New System.Drawing.Point(475, 138)
         Me.LciBgExp.Name = "LciBgExp"
-        Me.LciBgExp.Size = New System.Drawing.Size(418, 103)
+        Me.LciBgExp.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBgExp.Size = New System.Drawing.Size(477, 267)
         Me.LciBgExp.Text = "Background && Explanation"
         Me.LciBgExp.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBgExp.TextSize = New System.Drawing.Size(165, 13)
@@ -474,9 +511,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetItemSource
         '
         Me.LciBudgetItemSource.Control = Me.LookupBudgetItemSource
-        Me.LciBudgetItemSource.Location = New System.Drawing.Point(0, 223)
+        Me.LciBudgetItemSource.Location = New System.Drawing.Point(0, 405)
         Me.LciBudgetItemSource.Name = "LciBudgetItemSource"
-        Me.LciBudgetItemSource.Size = New System.Drawing.Size(417, 40)
+        Me.LciBudgetItemSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetItemSource.Size = New System.Drawing.Size(475, 46)
         Me.LciBudgetItemSource.Text = "Budget Item"
         Me.LciBudgetItemSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetItemSource.TextSize = New System.Drawing.Size(165, 13)
@@ -484,9 +522,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetItemTarget
         '
         Me.LciBudgetItemTarget.Control = Me.LookupBudgetItemTarget
-        Me.LciBudgetItemTarget.Location = New System.Drawing.Point(417, 223)
+        Me.LciBudgetItemTarget.Location = New System.Drawing.Point(475, 405)
         Me.LciBudgetItemTarget.Name = "LciBudgetItemTarget"
-        Me.LciBudgetItemTarget.Size = New System.Drawing.Size(418, 40)
+        Me.LciBudgetItemTarget.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetItemTarget.Size = New System.Drawing.Size(477, 46)
         Me.LciBudgetItemTarget.Text = "Budget Item"
         Me.LciBudgetItemTarget.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetItemTarget.TextSize = New System.Drawing.Size(165, 13)
@@ -494,9 +533,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetAmtSource
         '
         Me.LciBudgetAmtSource.Control = Me.TextEditBudgetAmtSource
-        Me.LciBudgetAmtSource.Location = New System.Drawing.Point(0, 263)
+        Me.LciBudgetAmtSource.Location = New System.Drawing.Point(0, 451)
         Me.LciBudgetAmtSource.Name = "LciBudgetAmtSource"
-        Me.LciBudgetAmtSource.Size = New System.Drawing.Size(417, 40)
+        Me.LciBudgetAmtSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetAmtSource.Size = New System.Drawing.Size(475, 46)
         Me.LciBudgetAmtSource.Text = "Budget Amount"
         Me.LciBudgetAmtSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetAmtSource.TextSize = New System.Drawing.Size(165, 13)
@@ -504,9 +544,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetAmtTarget
         '
         Me.LciBudgetAmtTarget.Control = Me.TextEditBudgetAmtTarget
-        Me.LciBudgetAmtTarget.Location = New System.Drawing.Point(417, 263)
+        Me.LciBudgetAmtTarget.Location = New System.Drawing.Point(475, 451)
         Me.LciBudgetAmtTarget.Name = "LciBudgetAmtTarget"
-        Me.LciBudgetAmtTarget.Size = New System.Drawing.Size(418, 40)
+        Me.LciBudgetAmtTarget.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetAmtTarget.Size = New System.Drawing.Size(477, 46)
         Me.LciBudgetAmtTarget.Text = "Budget Amount"
         Me.LciBudgetAmtTarget.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetAmtTarget.TextSize = New System.Drawing.Size(165, 13)
@@ -514,9 +555,10 @@ Partial Class XtraFormAFABreEForm
         'LciActualUpSource
         '
         Me.LciActualUpSource.Control = Me.TextEditActualUpSource
-        Me.LciActualUpSource.Location = New System.Drawing.Point(0, 303)
+        Me.LciActualUpSource.Location = New System.Drawing.Point(0, 497)
         Me.LciActualUpSource.Name = "LciActualUpSource"
-        Me.LciActualUpSource.Size = New System.Drawing.Size(417, 40)
+        Me.LciActualUpSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciActualUpSource.Size = New System.Drawing.Size(475, 46)
         Me.LciActualUpSource.Text = "Actual Up From This Application"
         Me.LciActualUpSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciActualUpSource.TextSize = New System.Drawing.Size(165, 13)
@@ -524,9 +566,10 @@ Partial Class XtraFormAFABreEForm
         'LciActualUpTarget
         '
         Me.LciActualUpTarget.Control = Me.TextEditActualUpTarget
-        Me.LciActualUpTarget.Location = New System.Drawing.Point(417, 303)
+        Me.LciActualUpTarget.Location = New System.Drawing.Point(475, 497)
         Me.LciActualUpTarget.Name = "LciActualUpTarget"
-        Me.LciActualUpTarget.Size = New System.Drawing.Size(418, 40)
+        Me.LciActualUpTarget.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciActualUpTarget.Size = New System.Drawing.Size(477, 46)
         Me.LciActualUpTarget.Text = "Actual Up To This Application"
         Me.LciActualUpTarget.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciActualUpTarget.TextSize = New System.Drawing.Size(165, 13)
@@ -535,9 +578,10 @@ Partial Class XtraFormAFABreEForm
         '
         Me.LciEstimationSource.Control = Me.TextEditEstimationSource
         Me.LciEstimationSource.CustomizationFormText = "LciEstimationSource"
-        Me.LciEstimationSource.Location = New System.Drawing.Point(0, 343)
+        Me.LciEstimationSource.Location = New System.Drawing.Point(0, 543)
         Me.LciEstimationSource.Name = "LciEstimationSource"
-        Me.LciEstimationSource.Size = New System.Drawing.Size(417, 40)
+        Me.LciEstimationSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciEstimationSource.Size = New System.Drawing.Size(475, 46)
         Me.LciEstimationSource.Text = "Estimation"
         Me.LciEstimationSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciEstimationSource.TextSize = New System.Drawing.Size(165, 13)
@@ -545,9 +589,10 @@ Partial Class XtraFormAFABreEForm
         'LciReclassAmount
         '
         Me.LciReclassAmount.Control = Me.TextEditReclassAmount
-        Me.LciReclassAmount.Location = New System.Drawing.Point(417, 343)
+        Me.LciReclassAmount.Location = New System.Drawing.Point(475, 543)
         Me.LciReclassAmount.Name = "LciReclassAmount"
-        Me.LciReclassAmount.Size = New System.Drawing.Size(418, 40)
+        Me.LciReclassAmount.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciReclassAmount.Size = New System.Drawing.Size(477, 46)
         Me.LciReclassAmount.Text = "Reclass To"
         Me.LciReclassAmount.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciReclassAmount.TextSize = New System.Drawing.Size(165, 13)
@@ -555,9 +600,10 @@ Partial Class XtraFormAFABreEForm
         'LciShortageSource
         '
         Me.LciShortageSource.Control = Me.TextEditShortageSource
-        Me.LciShortageSource.Location = New System.Drawing.Point(0, 383)
+        Me.LciShortageSource.Location = New System.Drawing.Point(0, 589)
         Me.LciShortageSource.Name = "LciShortageSource"
-        Me.LciShortageSource.Size = New System.Drawing.Size(417, 40)
+        Me.LciShortageSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciShortageSource.Size = New System.Drawing.Size(475, 46)
         Me.LciShortageSource.Text = "Shortage"
         Me.LciShortageSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciShortageSource.TextSize = New System.Drawing.Size(165, 13)
@@ -565,9 +611,10 @@ Partial Class XtraFormAFABreEForm
         'LciBalanceTarget
         '
         Me.LciBalanceTarget.Control = Me.TextEditBalanceTarget
-        Me.LciBalanceTarget.Location = New System.Drawing.Point(417, 383)
+        Me.LciBalanceTarget.Location = New System.Drawing.Point(475, 589)
         Me.LciBalanceTarget.Name = "LciBalanceTarget"
-        Me.LciBalanceTarget.Size = New System.Drawing.Size(418, 40)
+        Me.LciBalanceTarget.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBalanceTarget.Size = New System.Drawing.Size(477, 46)
         Me.LciBalanceTarget.Text = "Balance"
         Me.LciBalanceTarget.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBalanceTarget.TextSize = New System.Drawing.Size(165, 13)
@@ -575,17 +622,17 @@ Partial Class XtraFormAFABreEForm
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(417, 471)
+        Me.LciBtnSave.Location = New System.Drawing.Point(475, 689)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(418, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(477, 28)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnExit
         '
         Me.LciBtnExit.Control = Me.BtnExit
-        Me.LciBtnExit.Location = New System.Drawing.Point(0, 471)
+        Me.LciBtnExit.Location = New System.Drawing.Point(0, 689)
         Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(417, 28)
+        Me.LciBtnExit.Size = New System.Drawing.Size(475, 28)
         Me.LciBtnExit.TextVisible = False
         '
         'LciTotalReclass
@@ -593,24 +640,49 @@ Partial Class XtraFormAFABreEForm
         Me.LciTotalReclass.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LciTotalReclass.AppearanceItemCaption.Options.UseFont = True
         Me.LciTotalReclass.Control = Me.TextEditTotalReclass
-        Me.LciTotalReclass.Location = New System.Drawing.Point(0, 423)
+        Me.LciTotalReclass.Location = New System.Drawing.Point(0, 635)
         Me.LciTotalReclass.Name = "LciTotalReclass"
-        Me.LciTotalReclass.Size = New System.Drawing.Size(835, 48)
+        Me.LciTotalReclass.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciTotalReclass.Size = New System.Drawing.Size(952, 54)
         Me.LciTotalReclass.Text = "Total Reclass Budget"
         Me.LciTotalReclass.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciTotalReclass.TextSize = New System.Drawing.Size(165, 17)
+        '
+        'LciBudgetRev
+        '
+        Me.LciBudgetRev.Control = Me.TextEditBudgetRevision
+        Me.LciBudgetRev.Location = New System.Drawing.Point(777, 92)
+        Me.LciBudgetRev.Name = "LciBudgetRev"
+        Me.LciBudgetRev.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetRev.Size = New System.Drawing.Size(175, 46)
+        Me.LciBudgetRev.Text = "Budget Revision"
+        Me.LciBudgetRev.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciBudgetRev.TextSize = New System.Drawing.Size(165, 13)
+        '
+        'LciBudgetYear
+        '
+        Me.LciBudgetYear.Control = Me.TextEditBudgetYear
+        Me.LciBudgetYear.Location = New System.Drawing.Point(602, 92)
+        Me.LciBudgetYear.Name = "LciBudgetYear"
+        Me.LciBudgetYear.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBudgetYear.Size = New System.Drawing.Size(175, 46)
+        Me.LciBudgetYear.Text = "Budget Year"
+        Me.LciBudgetYear.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciBudgetYear.TextSize = New System.Drawing.Size(165, 13)
         '
         'XtraFormAFABreEForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(855, 519)
+        Me.ClientSize = New System.Drawing.Size(972, 737)
         Me.Controls.Add(Me.LayoutControl1)
         Me.IconOptions.Image = Global.AFASYSTEM.My.Resources.Resources.icondunlop
         Me.Name = "XtraFormAFABreEForm"
         Me.Text = "E-Form AFA Reclass Budget"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEditBudgetRevision.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditTotalReclass.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditBalanceTarget.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditShortageSource.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -654,6 +726,8 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciBtnSave, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciTotalReclass, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -702,4 +776,8 @@ Partial Class XtraFormAFABreEForm
     Friend WithEvents LciBtnExit As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents TextEditTotalReclass As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciTotalReclass As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents TextEditBudgetYear As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents TextEditBudgetRevision As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LciBudgetRev As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LciBudgetYear As DevExpress.XtraLayout.LayoutControlItem
 End Class

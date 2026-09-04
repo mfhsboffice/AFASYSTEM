@@ -113,4 +113,21 @@ Public Class AFAInformationService
         Return ExecuteStoredProcedureWithStatus("AFA_NonIFS_Submit_Proc", prm)
     End Function
 
+    Public Function ApplySRI(ByVal afaNo As String) As String
+        Dim prm As New Dictionary(Of String, Object) From {{"@AfaNo", afaNo}}
+
+        Dim status As String = ""
+        Dim message As String = ""
+
+        Dim dt As DataTable = ExecuteStoredProcedureQueryWithStatus(
+            "AFA_NonIFS_ApplySRI_Proc", prm, status, message)
+
+        LastErrorMessage = message
+
+        If status <> "SUCCESS" Then Return String.Empty
+        If dt Is Nothing OrElse dt.Rows.Count = 0 Then Return String.Empty
+
+        Return Convert.ToString(dt.Rows(0)("SRI_STS"))
+    End Function
+
 End Class

@@ -115,6 +115,8 @@ Partial Class FormFluMenu
         Me.AFAEformAddBudget = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AFASignatureAddBudget = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlSeparator5 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.AceUnconfiguredDocuments = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator11 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.Trans_App = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlSeparator6 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.Trans_Monitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
@@ -137,6 +139,10 @@ Partial Class FormFluMenu
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AceMonitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AceApproval = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator12 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.AccordionControlSeparator13 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -642,7 +648,7 @@ Partial Class FormFluMenu
         '
         'Trans
         '
-        Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA})
+        Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.AceUnconfiguredDocuments, Me.AccordionControlSeparator11, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA, Me.AccordionControlSeparator12, Me.AceMonitoring, Me.AccordionControlSeparator13, Me.AceApproval})
         Me.Trans.Expanded = True
         Me.Trans.Name = "Trans"
         Me.Trans.Text = "Transaction"
@@ -650,7 +656,6 @@ Partial Class FormFluMenu
         'Trans_AFAEntry
         '
         Me.Trans_AFAEntry.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.AccordionControlElement11, Me.AccordionControlElement12, Me.AccordionControlElement14, Me.AccordionControlElement15, Me.AccordionControlElement13})
-        Me.Trans_AFAEntry.Expanded = True
         Me.Trans_AFAEntry.ImageOptions.Image = CType(resources.GetObject("Trans_AFAEntry.ImageOptions.Image"), System.Drawing.Image)
         Me.Trans_AFAEntry.Name = "Trans_AFAEntry"
         Me.Trans_AFAEntry.Text = "AFA ENTRY"
@@ -695,7 +700,7 @@ Partial Class FormFluMenu
         Me.AFASignatureDonInf.ImageOptions.SvgImage = Global.AFASYSTEM.My.Resources.Resources.signature
         Me.AFASignatureDonInf.Name = "AFASignatureDonInf"
         Me.AFASignatureDonInf.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AFASignatureDonInf.Text = "Signature"
+        Me.AFASignatureDonInf.Text = "Setting Signature"
         '
         'AccordionControlElement14
         '
@@ -717,7 +722,7 @@ Partial Class FormFluMenu
         Me.AFASignatureDisposal.ImageOptions.SvgImage = Global.AFASYSTEM.My.Resources.Resources.signature
         Me.AFASignatureDisposal.Name = "AFASignatureDisposal"
         Me.AFASignatureDisposal.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AFASignatureDisposal.Text = "Signature"
+        Me.AFASignatureDisposal.Text = "Setting Signature"
         '
         'AccordionControlElement15
         '
@@ -739,7 +744,7 @@ Partial Class FormFluMenu
         Me.AFASignatureReclassBudget.ImageOptions.SvgImage = Global.AFASYSTEM.My.Resources.Resources.signature
         Me.AFASignatureReclassBudget.Name = "AFASignatureReclassBudget"
         Me.AFASignatureReclassBudget.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AFASignatureReclassBudget.Text = "Signature"
+        Me.AFASignatureReclassBudget.Text = "Setting Signature"
         '
         'AccordionControlElement13
         '
@@ -761,11 +766,22 @@ Partial Class FormFluMenu
         Me.AFASignatureAddBudget.ImageOptions.SvgImage = Global.AFASYSTEM.My.Resources.Resources.signature
         Me.AFASignatureAddBudget.Name = "AFASignatureAddBudget"
         Me.AFASignatureAddBudget.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AFASignatureAddBudget.Text = "Signature"
+        Me.AFASignatureAddBudget.Text = "Setting Signature"
         '
         'AccordionControlSeparator5
         '
         Me.AccordionControlSeparator5.Name = "AccordionControlSeparator5"
+        '
+        'AceUnconfiguredDocuments
+        '
+        Me.AceUnconfiguredDocuments.ImageOptions.SvgImage = CType(resources.GetObject("AceUnconfiguredDocuments.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.AceUnconfiguredDocuments.Name = "AceUnconfiguredDocuments"
+        Me.AceUnconfiguredDocuments.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceUnconfiguredDocuments.Text = "Unconfigured Documents"
+        '
+        'AccordionControlSeparator11
+        '
+        Me.AccordionControlSeparator11.Name = "AccordionControlSeparator11"
         '
         'Trans_App
         '
@@ -905,6 +921,26 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Name = "AccordionControlElement29"
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
+        '
+        'AceMonitoring
+        '
+        Me.AceMonitoring.Name = "AceMonitoring"
+        Me.AceMonitoring.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceMonitoring.Text = "Monitoring"
+        '
+        'AceApproval
+        '
+        Me.AceApproval.Name = "AceApproval"
+        Me.AceApproval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceApproval.Text = "Approval"
+        '
+        'AccordionControlSeparator12
+        '
+        Me.AccordionControlSeparator12.Name = "AccordionControlSeparator12"
+        '
+        'AccordionControlSeparator13
+        '
+        Me.AccordionControlSeparator13.Name = "AccordionControlSeparator13"
         '
         'FormFluMenu
         '
@@ -1054,4 +1090,10 @@ Partial Class FormFluMenu
     Friend WithEvents AccordionControlSeparator8 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
     Friend WithEvents AccordionControlSeparator9 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
     Friend WithEvents AccordionControlSeparator10 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents AceUnconfiguredDocuments As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents AccordionControlSeparator11 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents AccordionControlSeparator12 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents AceMonitoring As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents AccordionControlSeparator13 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents AceApproval As DevExpress.XtraBars.Navigation.AccordionControlElement
 End Class

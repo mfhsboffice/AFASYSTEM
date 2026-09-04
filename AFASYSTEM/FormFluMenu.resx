@@ -671,6 +671,30 @@
         QmCC
 </value>
   </data>
+  <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+  <data name="AceUnconfiguredDocuments.ImageOptions.SvgImage" type="DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v25.1" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAMAgAAAFlEZXZFeHByZXNzLkRhdGEudjI1LjEsIFZlcnNpb249MjUuMS41
+        LjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGljS2V5VG9rZW49Yjg4ZDE3NTRkNzAwZTQ5YQUBAAAAHURl
+        dkV4cHJlc3MuVXRpbHMuU3ZnLlN2Z0ltYWdlAQAAAAREYXRhBwICAAAACQMAAAAPAwAAAKwDAAAC77u/
+        PD94bWwgdmVyc2lvbj0nMS4wJyBlbmNvZGluZz0nVVRGLTgnPz4NCjxzdmcgd2lkdGg9IjgwMHB4IiBo
+        ZWlnaHQ9IjgwMHB4IiB2aWV3Qm94PSIwIDAgNDQuMTY2IDQ0LjE2NiIgdmVyc2lvbj0iMS4xIiB4bWxu
+        cz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9y
+        Zy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiBmaWxsPSIjRDk5QTAwIiBpZD0iQ2FwYV8x
+        Ij4NCiAgPGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjBweCIgLz4NCiAgPGcg
+        aWQ9IlNWR1JlcG9fdHJhY2VyQ2FycmllciIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGlu
+        ZWpvaW49InJvdW5kIiAvPg0KICA8ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+DQogICAgPGc+DQog
+        ICAgICA8ZyBpZD0iX3gzMV84M185M18iPg0KICAgICAgICA8Zz4NCiAgICAgICAgICA8cGF0aCBkPSJN
+        MTUuODMsMzMuNzQ0aDIuODY5di05LjI4NWgzLjIxNXYtOS44NzRoLTMuMzQ1di0zLjcwNGgtMi44NzF2
+        My43MDRoLTMuMjEzdjkuODc0aDMuMzQ1VjMzLjc0NHogTTEzLjU1NCwyMy4zOTN2LTcuNzQgaDcuMjky
+        djcuNzM4aC03LjI5MlYyMy4zOTN6IiAvPg0KICAgICAgICAgIDxwYXRoIGQ9Ik0yNi43MDgsMzMuOTUx
+        aDIuODcxdi0zLjcwNGgzLjIxM3YtOS44NzRoLTMuMzQ0di05LjI4NWgtMi44Njl2OS4yODVoLTMuMjE1
+        djkuODc0aDMuMzQ0VjMzLjk1MXogTTI0LjQzMywyOS4xOHYtNy43MzkgaDcuMjkzdjcuNzM5SDI0LjQz
+        M3oiIC8+DQogICAgICAgICAgPHBhdGggZD0iTTQuNTU2LDB2NDQuMTY2SDM5LjYxVjBINC41NTZ6IE0z
+        Ni42MDgsNDEuMTY2SDcuNTU2VjNIMzYuNjF2MzguMTY2SDM2LjYwOHoiIC8+DQogICAgICAgIDwvZz4N
+        CiAgICAgIDwvZz4NCiAgICA8L2c+DQogIDwvZz4NCjwvc3ZnPgs=
+</value>
+  </data>
   <data name="Trans_App.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAW9JREFUWEfN

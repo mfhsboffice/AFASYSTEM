@@ -233,10 +233,13 @@
     </Compile>
     <Compile Include="Services\AFAAdditionalBudgetService.vb" />
     <Compile Include="Services\AFADisposalService.vb" />
+    <Compile Include="Services\AFAMonitoringService.vb" />
     <Compile Include="Services\AFASignatureService.vb" />
+    <Compile Include="Services\BulkApproveResult.vb" />
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
+    <Compile Include="Services\UnconfiguredDocumentsService.vb" />
     <Compile Include="Services\UserDepartmentService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
       <DependentUpon>XtraFormAddInf.vb</DependentUpon>
@@ -260,6 +263,12 @@
       <DependentUpon>XtraFormAFAAddSign.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormAFAAddSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAApproval.Designer.vb">
+      <DependentUpon>XtraFormAFAApproval.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAApproval.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormAFABreEForm.Designer.vb">
@@ -308,6 +317,12 @@
       <DependentUpon>XtraFormAFAInfSign.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormAFAInfSign.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAMonitoring.Designer.vb">
+      <DependentUpon>XtraFormAFAMonitoring.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAMonitoring.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormAppOwner.Designer.vb">
@@ -424,6 +439,12 @@
     <Compile Include="XtraFormUnApp.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormUnconfiguredDocuments.Designer.vb">
+      <DependentUpon>XtraFormUnconfiguredDocuments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormUnconfiguredDocuments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormUserDepartments.Designer.vb">
       <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>
     </Compile>
@@ -496,6 +517,9 @@
     <EmbeddedResource Include="XtraFormAFAAddSign.resx">
       <DependentUpon>XtraFormAFAAddSign.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAApproval.resx">
+      <DependentUpon>XtraFormAFAApproval.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFABreEForm.resx">
       <DependentUpon>XtraFormAFABreEForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -519,6 +543,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFAInfSign.resx">
       <DependentUpon>XtraFormAFAInfSign.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAMonitoring.resx">
+      <DependentUpon>XtraFormAFAMonitoring.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAppOwner.resx">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
@@ -576,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUnApp.resx">
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormUnconfiguredDocuments.resx">
+      <DependentUpon>XtraFormUnconfiguredDocuments.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUserDepartments.resx">
       <DependentUpon>XtraFormUserDepartments.vb</DependentUpon>

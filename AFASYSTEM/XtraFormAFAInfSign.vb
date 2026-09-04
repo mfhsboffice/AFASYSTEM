@@ -324,10 +324,16 @@ Public Class XtraFormAFAInfSign
 
         Using ofd As New OpenFileDialog()
             ofd.Title = "Choose a supporting file"
-            ofd.Filter = "All supported files|*.pdf;*.jpg;*.jpeg;*.png;*.xlsx;*.xls;*.docx;*.doc|" &
-                         "PDF|*.pdf|Images|*.jpg;*.jpeg;*.png|Excel|*.xlsx;*.xls|Word|*.docx;*.doc"
+            ofd.Filter = "PDF files|*.pdf"
 
             If ofd.ShowDialog() <> DialogResult.OK Then Return
+
+            Dim ext As String = Path.GetExtension(ofd.FileName).ToLowerInvariant()
+            If ext <> ".pdf" Then
+                XtraMessageBox.Show("Attachment must be a PDF file.",
+                                    "Signature AFA Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
 
             target = ofd.FileName
             editor.Text = Path.GetFileName(ofd.FileName)

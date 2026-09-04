@@ -1,9 +1,5 @@
 ﻿Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraGrid.Columns
-Imports DevExpress.XtraGrid.Views.Base
-Imports System.Globalization
-Imports System.IO
-Imports DevExpress.XtraEditors
 Imports DevExpress.XtraEditors.Repository
 Imports DevExpress.Utils.Menu
 
@@ -133,11 +129,16 @@ Public Class XtraFormAddInf
 
         'AndAlso e.RowHandle = 0
     End Sub
-    Private Sub gridView1_ShowGridMenu(ByVal sender As Object, ByVal e As DevExpress.XtraGrid.Views.Grid.GridMenuEventArgs) Handles GridView1.ShowGridMenu
+    Private Sub gridView1_PopupMenuShowing(ByVal sender As Object, ByVal e As PopupMenuShowingEventArgs) Handles GridView1.PopupMenuShowing
         Dim view As GridView = TryCast(sender, GridView)
-        e.Menu.Items.Clear()
-        e.Menu.Items.Add(New DXMenuItem(view.GetRowCellValue(view.FocusedRowHandle, view.FocusedColumn).ToString()))
-
+        If e.Menu IsNot Nothing Then
+            e.Menu.Items.Clear()
+            If view.FocusedColumn IsNot Nothing AndAlso view.FocusedRowHandle >= 0 Then
+                Dim cellValue As Object = view.GetRowCellValue(view.FocusedRowHandle, view.FocusedColumn)
+                Dim menuText As String = If(cellValue IsNot Nothing, cellValue.ToString(), "")
+                e.Menu.Items.Add(New DXMenuItem(menuText))
+            End If
+        End If
     End Sub
     Sub data()
         Dim shostname As String
