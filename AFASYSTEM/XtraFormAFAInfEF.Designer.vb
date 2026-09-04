@@ -20,7 +20,6 @@ Partial Class XtraFormAFAInfEF
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
-        Me.TextEditBudgetYear = New DevExpress.XtraEditors.TextEdit()
         Me.SelectCurrency = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.DateEditScheduleTo = New DevExpress.XtraEditors.DateEdit()
         Me.DateEditScheduleFrom = New DevExpress.XtraEditors.DateEdit()
@@ -50,10 +49,8 @@ Partial Class XtraFormAFAInfEF
         Me.LciScheduleFrom = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciScheduleTo = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciCurrency = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
-        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.SelectCurrency.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DateEditScheduleTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -83,12 +80,10 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciCurrency, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.TextEditBudgetYear)
         Me.LayoutControl1.Controls.Add(Me.SelectCurrency)
         Me.LayoutControl1.Controls.Add(Me.DateEditScheduleTo)
         Me.LayoutControl1.Controls.Add(Me.DateEditScheduleFrom)
@@ -110,14 +105,6 @@ Partial Class XtraFormAFAInfEF
         Me.LayoutControl1.Size = New System.Drawing.Size(878, 544)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
-        '
-        'TextEditBudgetYear
-        '
-        Me.TextEditBudgetYear.Location = New System.Drawing.Point(444, 435)
-        Me.TextEditBudgetYear.Name = "TextEditBudgetYear"
-        Me.TextEditBudgetYear.Size = New System.Drawing.Size(419, 20)
-        Me.TextEditBudgetYear.StyleController = Me.LayoutControl1
-        Me.TextEditBudgetYear.TabIndex = 18
         '
         'SelectCurrency
         '
@@ -157,7 +144,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.TextEditCaptionCover.Location = New System.Drawing.Point(15, 435)
         Me.TextEditCaptionCover.Name = "TextEditCaptionCover"
-        Me.TextEditCaptionCover.Size = New System.Drawing.Size(419, 20)
+        Me.TextEditCaptionCover.Size = New System.Drawing.Size(848, 20)
         Me.TextEditCaptionCover.StyleController = Me.LayoutControl1
         Me.TextEditCaptionCover.TabIndex = 14
         '
@@ -262,7 +249,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciCaptionCover, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciCurrency, Me.LayoutControlItem1})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciCurrency, Me.LciCaptionCover})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(878, 544)
         Me.Root.TextVisible = False
@@ -366,7 +353,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciCaptionCover.Location = New System.Drawing.Point(0, 404)
         Me.LciCaptionCover.Name = "LciCaptionCover"
         Me.LciCaptionCover.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciCaptionCover.Size = New System.Drawing.Size(429, 46)
+        Me.LciCaptionCover.Size = New System.Drawing.Size(858, 46)
         Me.LciCaptionCover.Text = "Caption Cover"
         Me.LciCaptionCover.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciCaptionCover.TextSize = New System.Drawing.Size(138, 13)
@@ -415,17 +402,6 @@ Partial Class XtraFormAFAInfEF
         Me.LciCurrency.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciCurrency.TextSize = New System.Drawing.Size(138, 13)
         '
-        'LayoutControlItem1
-        '
-        Me.LayoutControlItem1.Control = Me.TextEditBudgetYear
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(429, 404)
-        Me.LayoutControlItem1.Name = "LayoutControlItem1"
-        Me.LayoutControlItem1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(429, 46)
-        Me.LayoutControlItem1.Text = "Budget Year"
-        Me.LayoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LayoutControlItem1.TextSize = New System.Drawing.Size(138, 13)
-        '
         'XtraFormAFAInfEF
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -437,7 +413,6 @@ Partial Class XtraFormAFAInfEF
         Me.Text = "E-Form AFA Information"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
-        CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.SelectCurrency.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEditScheduleTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DateEditScheduleTo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -467,7 +442,6 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciScheduleFrom, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciScheduleTo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciCurrency, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -501,6 +475,4 @@ Partial Class XtraFormAFAInfEF
     Friend WithEvents LciScheduleTo As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents SelectCurrency As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LciCurrency As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents TextEditBudgetYear As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
 End Class

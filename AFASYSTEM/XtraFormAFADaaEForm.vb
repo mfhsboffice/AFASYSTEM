@@ -42,12 +42,6 @@ Public Class XtraFormAFADaaEForm
         TextEditBookValue.Properties.ReadOnly = True
         TextEditProfitLoss.Properties.ReadOnly = True
 
-        With TextEditBudgetYear.Properties
-            .MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
-            .MaskSettings.Set("mask", "d")
-            .MaxLength = 4
-        End With
-
         PictureEditAttachCover.Properties.NullText = "Double-click to choose a file"
         PictureEditAttachCover.Properties.ShowMenu = False
     End Sub
@@ -61,8 +55,6 @@ Public Class XtraFormAFADaaEForm
         LoadLocation()
         LoadSubType()
         LoadCurrency()
-
-        TextEditBudgetYear.Text = Date.Today.Year.ToString()
     End Sub
 
     Private Sub LoadDepartment()
@@ -185,11 +177,6 @@ Public Class XtraFormAFADaaEForm
             Warn("Please select a Currency.", SelectCurrency) : Return False
         End If
 
-        Dim year As Integer
-        If Not Integer.TryParse(TextEditBudgetYear.Text.Trim(), year) OrElse year < 2000 OrElse year > 2999 Then
-            Warn("Budget Year must be a four-digit number.", TextEditBudgetYear) : Return False
-        End If
-
         If TextEditSubject.Text.Trim() = "" Then
             Warn("Subject is required.", TextEditSubject) : Return False
         End If
@@ -241,7 +228,7 @@ Public Class XtraFormAFADaaEForm
 
             Dim savedNo As String = _service.SaveHeader(
                 _afaNo, locCode, deptId,
-                TextEditBudgetYear.Text.Trim(), Nothing,
+                Now.Year.ToString(), Nothing,
                 TextEditSubject.Text.Trim(),
                 MemoEditPurpose.Text.Trim(),
                 MemoEditBgExp.Text.Trim(),
@@ -344,19 +331,19 @@ Public Class XtraFormAFADaaEForm
             Handles PictureEditAttachCover.DoubleClick
         Using ofd As New OpenFileDialog()
             ofd.Title = "Choose an attachment"
-            ofd.Filter = "All supported files|*.jpg;*.jpeg;*.png;*.bmp;*.pdf;*.xlsx;*.xls;*.docx;*.doc|" &
-                         "Images|*.jpg;*.jpeg;*.png;*.bmp|PDF|*.pdf|Excel|*.xlsx;*.xls|Word|*.docx;*.doc"
+            ofd.Filter = "Image files|*.jpg;*.jpeg;*.png;*.bmp"
 
             If ofd.ShowDialog() <> DialogResult.OK Then Return
 
-            _attachmentPath = ofd.FileName
             Dim ext As String = Path.GetExtension(ofd.FileName).ToLowerInvariant()
-            If ext = ".jpg" OrElse ext = ".jpeg" OrElse ext = ".png" OrElse ext = ".bmp" Then
-                PictureEditAttachCover.Image = Image.FromFile(ofd.FileName)
-            Else
-                PictureEditAttachCover.Image = Nothing
-                PictureEditAttachCover.Properties.NullText = Path.GetFileName(ofd.FileName)
+            If ext <> ".jpg" AndAlso ext <> ".jpeg" AndAlso ext <> ".png" AndAlso ext <> ".bmp" Then
+                XtraMessageBox.Show("Cover must be an image file (JPG, PNG or BMP).",
+                                    "E-Form AFA Disposal", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
             End If
+
+            _attachmentPath = ofd.FileName
+            PictureEditAttachCover.Image = Image.FromFile(ofd.FileName)
         End Using
     End Sub
 

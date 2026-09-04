@@ -19,6 +19,7 @@ Partial Public Class AfaMasterReport
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim XrWatermark1 As DevExpress.XtraReports.UI.XRWatermark = New DevExpress.XtraReports.UI.XRWatermark()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
@@ -26,10 +27,10 @@ Partial Public Class AfaMasterReport
         Me.ReportHeader = New DevExpress.XtraReports.UI.ReportHeaderBand()
         Me.XrTable1 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow1 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.AFA_NO = New DevExpress.XtraReports.UI.XRTableCell()
         Me.AFA_NO_APPROVAL = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell7 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.FINANCE_DEPT_DATE = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.APPROVED_DATE = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableRow2 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell4 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.DEPARTMENT_NAME = New DevExpress.XtraReports.UI.XRTableCell()
@@ -37,24 +38,40 @@ Partial Public Class AfaMasterReport
         Me.AFA_DATE = New DevExpress.XtraReports.UI.XRTableCell()
         Me.AFA_TYPE_NAME = New DevExpress.XtraReports.UI.XRLabel()
         Me.AFA_TYPE_COMPANY = New DevExpress.XtraReports.UI.XRLabel()
-        Me.DetailReport1 = New DevExpress.XtraReports.UI.DetailReportBand()
-        Me.Detail1 = New DevExpress.XtraReports.UI.DetailBand()
-        Me.DetailReport2 = New DevExpress.XtraReports.UI.DetailReportBand()
-        Me.Detail2 = New DevExpress.XtraReports.UI.DetailBand()
+        Me.DetailReportSignature = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.DetailSignature = New DevExpress.XtraReports.UI.DetailBand()
+        Me.XrTable3 = New DevExpress.XtraReports.UI.XRTable()
+        Me.XrTableRow4 = New DevExpress.XtraReports.UI.XRTableRow()
+        Me.XrTableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.GroupHeader1 = New DevExpress.XtraReports.UI.GroupHeaderBand()
         Me.XrTable2 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow3 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell2 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell5 = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell6 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTable3 = New DevExpress.XtraReports.UI.XRTable()
-        Me.XrTableRow4 = New DevExpress.XtraReports.UI.XRTableRow()
-        Me.XrTableCell8 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell9 = New DevExpress.XtraReports.UI.XRTableCell()
-        Me.XrTableCell10 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.DetailReportHeader = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.DetailHeader = New DevExpress.XtraReports.UI.DetailBand()
+        Me.XrLabel1 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrLabel2 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.SUBJECT = New DevExpress.XtraReports.UI.XRLabel()
+        Me.PURPOSE = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrLabel4 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.Background_AND_Explanation = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
+        Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.ReportFooter1 = New DevExpress.XtraReports.UI.ReportFooterBand()
+        Me.DetailReportAttachment = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.DetailAttachment = New DevExpress.XtraReports.UI.DetailBand()
+        Me.DetailReportSummary = New DevExpress.XtraReports.UI.DetailReportBand()
+        Me.DetailSummary = New DevExpress.XtraReports.UI.DetailBand()
+        Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
         'TopMargin
@@ -64,7 +81,7 @@ Partial Public Class AfaMasterReport
         '
         'BottomMargin
         '
-        Me.BottomMargin.HeightF = 50.0!
+        Me.BottomMargin.HeightF = 101.9096!
         Me.BottomMargin.Name = "BottomMargin"
         '
         'Detail
@@ -95,16 +112,18 @@ Partial Public Class AfaMasterReport
         '
         'XrTableRow1
         '
-        Me.XrTableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell1, Me.AFA_NO_APPROVAL, Me.XrTableCell3, Me.XrTableCell7})
+        Me.XrTableRow1.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.AFA_NO, Me.AFA_NO_APPROVAL, Me.FINANCE_DEPT_DATE, Me.APPROVED_DATE})
         Me.XrTableRow1.Name = "XrTableRow1"
         Me.XrTableRow1.Weight = 1.0R
         '
-        'XrTableCell1
+        'AFA_NO
         '
-        Me.XrTableCell1.Multiline = True
-        Me.XrTableCell1.Name = "XrTableCell1"
-        Me.XrTableCell1.Text = "Approval No"
-        Me.XrTableCell1.Weight = 0.99999966399647044R
+        Me.AFA_NO.Multiline = True
+        Me.AFA_NO.Name = "AFA_NO"
+        Me.AFA_NO.StylePriority.UseTextAlignment = False
+        Me.AFA_NO.Text = "[AFA_NO]"
+        Me.AFA_NO.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        Me.AFA_NO.Weight = 0.99999966399647044R
         '
         'AFA_NO_APPROVAL
         '
@@ -113,19 +132,19 @@ Partial Public Class AfaMasterReport
         Me.AFA_NO_APPROVAL.Text = "[AFA_NO_APPROVAL]"
         Me.AFA_NO_APPROVAL.Weight = 1.0000003360035294R
         '
-        'XrTableCell3
+        'FINANCE_DEPT_DATE
         '
-        Me.XrTableCell3.Multiline = True
-        Me.XrTableCell3.Name = "XrTableCell3"
-        Me.XrTableCell3.Text = ""
-        Me.XrTableCell3.Weight = 1.0R
+        Me.FINANCE_DEPT_DATE.Multiline = True
+        Me.FINANCE_DEPT_DATE.Name = "FINANCE_DEPT_DATE"
+        Me.FINANCE_DEPT_DATE.Text = "[FINANCE_DEPT_DATE]"
+        Me.FINANCE_DEPT_DATE.Weight = 1.0R
         '
-        'XrTableCell7
+        'APPROVED_DATE
         '
-        Me.XrTableCell7.Multiline = True
-        Me.XrTableCell7.Name = "XrTableCell7"
-        Me.XrTableCell7.Text = "Approved Date:"
-        Me.XrTableCell7.Weight = 1.0R
+        Me.APPROVED_DATE.Multiline = True
+        Me.APPROVED_DATE.Name = "APPROVED_DATE"
+        Me.APPROVED_DATE.Text = "[APPROVED_DATE]"
+        Me.APPROVED_DATE.Weight = 1.0R
         '
         'XrTableRow2
         '
@@ -144,21 +163,21 @@ Partial Public Class AfaMasterReport
         '
         Me.DEPARTMENT_NAME.Multiline = True
         Me.DEPARTMENT_NAME.Name = "DEPARTMENT_NAME"
-        Me.DEPARTMENT_NAME.Text = "Required by [DEPARTMENT_NAME]"
+        Me.DEPARTMENT_NAME.Text = "[DEPARTMENT_NAME]"
         Me.DEPARTMENT_NAME.Weight = 1.0R
         '
         'LOCATION_NAME
         '
         Me.LOCATION_NAME.Multiline = True
         Me.LOCATION_NAME.Name = "LOCATION_NAME"
-        Me.LOCATION_NAME.Text = "Location [LOCATION_NAME]"
+        Me.LOCATION_NAME.Text = "[LOCATION_NAME]"
         Me.LOCATION_NAME.Weight = 1.0R
         '
         'AFA_DATE
         '
         Me.AFA_DATE.Multiline = True
         Me.AFA_DATE.Name = "AFA_DATE"
-        Me.AFA_DATE.Text = "Date [AFA_DATE]"
+        Me.AFA_DATE.Text = "[AFA_DATE]"
         Me.AFA_DATE.Weight = 1.0R
         '
         'AFA_TYPE_NAME
@@ -183,29 +202,59 @@ Partial Public Class AfaMasterReport
         Me.AFA_TYPE_COMPANY.SizeF = New System.Drawing.SizeF(726.7717!, 23.0!)
         Me.AFA_TYPE_COMPANY.Text = "PT SUMI RUBBER INDONESIA"
         '
-        'DetailReport1
+        'DetailReportSignature
         '
-        Me.DetailReport1.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail1, Me.GroupHeader1})
-        Me.DetailReport1.DataMember = "Signature"
-        Me.DetailReport1.Level = 0
-        Me.DetailReport1.Name = "DetailReport1"
+        Me.DetailReportSignature.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.DetailSignature, Me.GroupHeader1})
+        Me.DetailReportSignature.DataMember = "Signature"
+        Me.DetailReportSignature.Level = 0
+        Me.DetailReportSignature.Name = "DetailReportSignature"
         '
-        'Detail1
+        'DetailSignature
         '
-        Me.Detail1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable3})
-        Me.Detail1.HeightF = 60.0!
-        Me.Detail1.Name = "Detail1"
+        Me.DetailSignature.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable3})
+        Me.DetailSignature.HeightF = 60.0!
+        Me.DetailSignature.Name = "DetailSignature"
         '
-        'DetailReport2
+        'XrTable3
         '
-        Me.DetailReport2.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.Detail2})
-        Me.DetailReport2.DataMember = "Detail"
-        Me.DetailReport2.Level = 1
-        Me.DetailReport2.Name = "DetailReport2"
+        Me.XrTable3.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+            Or DevExpress.XtraPrinting.BorderSide.Right) _
+            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable3.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
+        Me.XrTable3.Name = "XrTable3"
+        Me.XrTable3.Padding = New DevExpress.XtraPrinting.PaddingInfo(3.0!, 3.0!, 3.0!, 3.0!, 100.0!)
+        Me.XrTable3.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4})
+        Me.XrTable3.SizeF = New System.Drawing.SizeF(726.7718!, 60.0!)
+        Me.XrTable3.StylePriority.UseBorders = False
+        Me.XrTable3.StylePriority.UseTextAlignment = False
+        Me.XrTable3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
         '
-        'Detail2
+        'XrTableRow4
         '
-        Me.Detail2.Name = "Detail2"
+        Me.XrTableRow4.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell8, Me.XrTableCell9, Me.XrTableCell10})
+        Me.XrTableRow4.Name = "XrTableRow4"
+        Me.XrTableRow4.Weight = 1.0R
+        '
+        'XrTableCell8
+        '
+        Me.XrTableCell8.Multiline = True
+        Me.XrTableCell8.Name = "XrTableCell8"
+        Me.XrTableCell8.Text = "[JAB_AUTH]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[NAMA_AUTH]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[STS_AUTH] [DATE_AUTH]"
+        Me.XrTableCell8.Weight = 1.0R
+        '
+        'XrTableCell9
+        '
+        Me.XrTableCell9.Multiline = True
+        Me.XrTableCell9.Name = "XrTableCell9"
+        Me.XrTableCell9.Text = "[JAB_SUPP]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[NAMA_SUPP]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[STS_SUPP] [DATE_SUPP]"
+        Me.XrTableCell9.Weight = 1.0R
+        '
+        'XrTableCell10
+        '
+        Me.XrTableCell10.Multiline = True
+        Me.XrTableCell10.Name = "XrTableCell10"
+        Me.XrTableCell10.Text = "[JAB_DIR]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[NAMA_DIR]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[STS_DIR] [DATE_DIR]"
+        Me.XrTableCell10.Weight = 1.0R
         '
         'GroupHeader1
         '
@@ -254,52 +303,153 @@ Partial Public Class AfaMasterReport
         Me.XrTableCell6.Text = "Direct Signatures/Date"
         Me.XrTableCell6.Weight = 1.0R
         '
-        'XrTable3
+        'DetailReportHeader
         '
-        Me.XrTable3.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
+        Me.DetailReportHeader.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.DetailHeader})
+        Me.DetailReportHeader.DataMember = "Detail"
+        Me.DetailReportHeader.Level = 1
+        Me.DetailReportHeader.Name = "DetailReportHeader"
+        '
+        'DetailHeader
+        '
+        Me.DetailHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel5, Me.XrLabel3, Me.Background_AND_Explanation, Me.XrLabel4, Me.PURPOSE, Me.SUBJECT, Me.XrLabel2, Me.XrLabel1})
+        Me.DetailHeader.HeightF = 187.4931!
+        Me.DetailHeader.Name = "DetailHeader"
+        '
+        'XrLabel1
+        '
+        Me.XrLabel1.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
+        Me.XrLabel1.Multiline = True
+        Me.XrLabel1.Name = "XrLabel1"
+        Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(726.7717!, 18.65977!)
+        Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.Text = "Subject:"
+        '
+        'XrLabel2
+        '
+        Me.XrLabel2.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0.0001854367!, 37.3195!)
+        Me.XrLabel2.Multiline = True
+        Me.XrLabel2.Name = "XrLabel2"
+        Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel2.SizeF = New System.Drawing.SizeF(726.7717!, 16.92361!)
+        Me.XrLabel2.StylePriority.UseFont = False
+        Me.XrLabel2.Text = "Purpose:"
+        '
+        'SUBJECT
+        '
+        Me.SUBJECT.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.SUBJECT.LocationFloat = New DevExpress.Utils.PointFloat(0!, 18.65975!)
+        Me.SUBJECT.Multiline = True
+        Me.SUBJECT.Name = "SUBJECT"
+        Me.SUBJECT.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.SUBJECT.SizeF = New System.Drawing.SizeF(726.7717!, 18.65977!)
+        Me.SUBJECT.StylePriority.UseFont = False
+        Me.SUBJECT.Text = "[SUBJECT]"
+        '
+        'PURPOSE
+        '
+        Me.PURPOSE.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.PURPOSE.LocationFloat = New DevExpress.Utils.PointFloat(0!, 54.24308!)
+        Me.PURPOSE.Multiline = True
+        Me.PURPOSE.Name = "PURPOSE"
+        Me.PURPOSE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.PURPOSE.SizeF = New System.Drawing.SizeF(726.7716!, 43.83334!)
+        Me.PURPOSE.StylePriority.UseFont = False
+        Me.PURPOSE.Text = "[PURPOSE]"
+        '
+        'XrLabel4
+        '
+        Me.XrLabel4.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(0.0001854367!, 98.07639!)
+        Me.XrLabel4.Multiline = True
+        Me.XrLabel4.Name = "XrLabel4"
+        Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel4.SizeF = New System.Drawing.SizeF(726.7719!, 16.92361!)
+        Me.XrLabel4.StylePriority.UseFont = False
+        Me.XrLabel4.Text = "Background & Explanation:"
+        '
+        'Background_AND_Explanation
+        '
+        Me.Background_AND_Explanation.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.Background_AND_Explanation.LocationFloat = New DevExpress.Utils.PointFloat(0.0004238552!, 115.0!)
+        Me.Background_AND_Explanation.Multiline = True
+        Me.Background_AND_Explanation.Name = "Background_AND_Explanation"
+        Me.Background_AND_Explanation.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.Background_AND_Explanation.SizeF = New System.Drawing.SizeF(726.7716!, 53.83334!)
+        Me.Background_AND_Explanation.StylePriority.UseFont = False
+        Me.Background_AND_Explanation.Text = "[Background_AND_Explanation]"
+        '
+        'XrLabel6
+        '
+        Me.XrLabel6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrTable3.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
-        Me.XrTable3.Name = "XrTable3"
-        Me.XrTable3.Padding = New DevExpress.XtraPrinting.PaddingInfo(3.0!, 3.0!, 3.0!, 3.0!, 100.0!)
-        Me.XrTable3.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow4})
-        Me.XrTable3.SizeF = New System.Drawing.SizeF(726.7718!, 60.0!)
-        Me.XrTable3.StylePriority.UseBorders = False
-        Me.XrTable3.StylePriority.UseTextAlignment = False
-        Me.XrTable3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
+        Me.XrLabel6.Multiline = True
+        Me.XrLabel6.Name = "XrLabel6"
+        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel6.SizeF = New System.Drawing.SizeF(217.1876!, 101.5417!)
+        Me.XrLabel6.StylePriority.UseBorders = False
+        Me.XrLabel6.Text = "Checked By," & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Budget Control" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[BUDGET_STS]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[BUDGET_CHECK_DATE]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "[BUDGET_CHECK_B" &
+    "Y]" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(F & A)"
         '
-        'XrTableRow4
+        'ReportFooter1
         '
-        Me.XrTableRow4.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell8, Me.XrTableCell9, Me.XrTableCell10})
-        Me.XrTableRow4.Name = "XrTableRow4"
-        Me.XrTableRow4.Weight = 1.0R
+        Me.ReportFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6})
+        Me.ReportFooter1.HeightF = 101.5417!
+        Me.ReportFooter1.Name = "ReportFooter1"
         '
-        'XrTableCell8
+        'DetailReportAttachment
         '
-        Me.XrTableCell8.Multiline = True
-        Me.XrTableCell8.Name = "XrTableCell8"
-        Me.XrTableCell8.Text = "[JAB_AUTH]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[NAMA_AUTH]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[STS_AUTH] [DATE_AUTH]"
-        Me.XrTableCell8.Weight = 1.0R
+        Me.DetailReportAttachment.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.DetailAttachment, Me.DetailReportSummary})
+        Me.DetailReportAttachment.Level = 2
+        Me.DetailReportAttachment.Name = "DetailReportAttachment"
         '
-        'XrTableCell9
+        'DetailAttachment
         '
-        Me.XrTableCell9.Multiline = True
-        Me.XrTableCell9.Name = "XrTableCell9"
-        Me.XrTableCell9.Text = "[JAB_SUPP]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[NAMA_SUPP]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[STS_SUPP] [DATE_SUPP]"
-        Me.XrTableCell9.Weight = 1.0R
+        Me.DetailAttachment.HeightF = 106.4583!
+        Me.DetailAttachment.Name = "DetailAttachment"
         '
-        'XrTableCell10
+        'DetailReportSummary
         '
-        Me.XrTableCell10.Multiline = True
-        Me.XrTableCell10.Name = "XrTableCell10"
-        Me.XrTableCell10.Text = "[JAB_DIR]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[NAMA_DIR]" & Global.Microsoft.VisualBasic.Chr(13) & Global.Microsoft.VisualBasic.Chr(10) & "[STS_DIR] [DATE_DIR]"
-        Me.XrTableCell10.Weight = 1.0R
+        Me.DetailReportSummary.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.DetailSummary})
+        Me.DetailReportSummary.Level = 0
+        Me.DetailReportSummary.Name = "DetailReportSummary"
+        '
+        'DetailSummary
+        '
+        Me.DetailSummary.Name = "DetailSummary"
+        '
+        'XrLabel3
+        '
+        Me.XrLabel3.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(0.0004238552!, 168.8333!)
+        Me.XrLabel3.Multiline = True
+        Me.XrLabel3.Name = "XrLabel3"
+        Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel3.SizeF = New System.Drawing.SizeF(73.99402!, 18.65977!)
+        Me.XrLabel3.StylePriority.UseFont = False
+        Me.XrLabel3.Text = "Schedule:"
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(73.99445!, 168.8333!)
+        Me.XrLabel5.Multiline = True
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(652.7772!, 18.65977!)
+        Me.XrLabel5.StylePriority.UseFont = False
+        Me.XrLabel5.Text = "Schedule:"
         '
         'AfaMasterReport
         '
-        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.TopMargin, Me.BottomMargin, Me.Detail, Me.ReportHeader, Me.DetailReport1, Me.DetailReport2})
+        Me.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.TopMargin, Me.BottomMargin, Me.Detail, Me.ReportHeader, Me.DetailReportSignature, Me.DetailReportHeader, Me.ReportFooter1, Me.DetailReportAttachment})
         Me.Font = New DevExpress.Drawing.DXFont("Arial", 9.75!)
-        Me.Margins = New DevExpress.Drawing.DXMargins(50.0!, 50.0!, 50.0!, 50.0!)
+        Me.Margins = New DevExpress.Drawing.DXMargins(50.0!, 50.0!, 50.0!, 101.9096!)
         Me.PageHeightF = 1169.291!
         Me.PageWidthF = 826.7717!
         Me.PaperKind = DevExpress.Drawing.Printing.DXPaperKind.A4
@@ -307,8 +457,9 @@ Partial Public Class AfaMasterReport
         XrWatermark1.Id = "Watermark1"
         Me.Watermarks.AddRange(New DevExpress.XtraPrinting.Drawing.Watermark() {XrWatermark1})
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.XtraTabbedMdiManager1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me, System.ComponentModel.ISupportInitialize).EndInit()
 
     End Sub
@@ -317,18 +468,18 @@ Partial Public Class AfaMasterReport
     Friend WithEvents BottomMargin As DevExpress.XtraReports.UI.BottomMarginBand
     Friend WithEvents Detail As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents ReportHeader As DevExpress.XtraReports.UI.ReportHeaderBand
-    Friend WithEvents DetailReport1 As DevExpress.XtraReports.UI.DetailReportBand
-    Friend WithEvents Detail1 As DevExpress.XtraReports.UI.DetailBand
-    Friend WithEvents DetailReport2 As DevExpress.XtraReports.UI.DetailReportBand
-    Friend WithEvents Detail2 As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents DetailReportSignature As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents DetailSignature As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents DetailReportHeader As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents DetailHeader As DevExpress.XtraReports.UI.DetailBand
     Friend WithEvents AFA_TYPE_NAME As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents AFA_TYPE_COMPANY As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrTable1 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow1 As DevExpress.XtraReports.UI.XRTableRow
-    Friend WithEvents XrTableCell1 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents AFA_NO As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents AFA_NO_APPROVAL As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents XrTableCell3 As DevExpress.XtraReports.UI.XRTableCell
-    Friend WithEvents XrTableCell7 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents FINANCE_DEPT_DATE As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents APPROVED_DATE As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableRow2 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell4 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents DEPARTMENT_NAME As DevExpress.XtraReports.UI.XRTableCell
@@ -345,4 +496,19 @@ Partial Public Class AfaMasterReport
     Friend WithEvents XrTableCell8 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell9 As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell10 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrLabel1 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel2 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents SUBJECT As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents PURPOSE As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents Background_AND_Explanation As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
+    Friend WithEvents ReportFooter1 As DevExpress.XtraReports.UI.ReportFooterBand
+    Friend WithEvents DetailReportAttachment As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents DetailAttachment As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents DetailReportSummary As DevExpress.XtraReports.UI.DetailReportBand
+    Friend WithEvents DetailSummary As DevExpress.XtraReports.UI.DetailBand
+    Friend WithEvents XrLabel3 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
 End Class

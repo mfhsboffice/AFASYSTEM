@@ -34,13 +34,6 @@ Public Class XtraFormAFAInfEF
             .MaskSettings.Set("mask", "n0")
             .UseMaskAsDisplayFormat = True
         End With
-
-        With TextEditBudgetYear.Properties
-            .MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
-            .MaskSettings.Set("mask", "d")
-            .MaxLength = 4
-        End With
-
         PictureEditAttachmentCover.Properties.NullText = "Double-click to choose a file"
         PictureEditAttachmentCover.Properties.ShowMenu = False
     End Sub
@@ -54,8 +47,6 @@ Public Class XtraFormAFAInfEF
         LoadLocation()
         LoadSubType()
         LoadCurrency()
-
-        TextEditBudgetYear.Text = Date.Today.Year.ToString()
     End Sub
 
     Private Sub LoadDepartment()
@@ -139,10 +130,6 @@ Public Class XtraFormAFAInfEF
             Warn("Please select a Type.", SelectType) : Return False
         End If
 
-        Dim tahun As Integer
-        If Not Integer.TryParse(TextEditBudgetYear.Text.Trim(), tahun) OrElse tahun < 2000 OrElse tahun > 2999 Then
-            Warn("Budget Year must be a four-digit number.", TextEditBudgetYear) : Return False
-        End If
 
         If TextEditSubject.Text.Trim() = "" Then
             Warn("Subject is required.", TextEditSubject) : Return False
@@ -188,7 +175,7 @@ Public Class XtraFormAFAInfEF
 
             Dim savedNo As String = _service.SaveHeader(
                 _afaNo, locCode, deptId,
-                TextEditBudgetYear.Text.Trim(), Nothing,
+                Now.Year.ToString(), Nothing,
                 TextEditSubject.Text.Trim(),
                 MemoEditPurpose.Text.Trim(),
                 MemoEditBgExp.Text.Trim(),
@@ -230,8 +217,20 @@ Public Class XtraFormAFAInfEF
                 End If
             End If
 
-            XtraMessageBox.Show("Document saved." & vbCrLf & "AFA No: " & _afaNo,
-                                "E-Form AFA Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Dim sriStatus As String = _service.ApplySRI(_afaNo)
+
+            Try
+                Clipboard.SetText(_afaNo)
+            Catch
+
+            End Try
+
+            Dim summary As String = "Document saved." & vbCrLf & "AFA No: " & _afaNo & vbCrLf
+            If sriStatus <> "" Then summary &= "SRI: " & sriStatus & vbCrLf
+            summary &= vbCrLf & "The AFA number has been copied to the clipboard."
+
+            XtraMessageBox.Show(summary, "E-Form AFA Information",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Me.Text = "E-Form AFA Information - " & _afaNo
         Finally
@@ -280,20 +279,19 @@ Public Class XtraFormAFAInfEF
             Handles PictureEditAttachmentCover.DoubleClick
         Using ofd As New OpenFileDialog()
             ofd.Title = "Choose an attachment"
-            ofd.Filter = "All supported files|*.jpg;*.jpeg;*.png;*.bmp;*.pdf;*.xlsx;*.xls;*.docx;*.doc|" &
-                         "Images|*.jpg;*.jpeg;*.png;*.bmp|PDF|*.pdf|Excel|*.xlsx;*.xls|Word|*.docx;*.doc"
+            ofd.Filter = "Image files|*.jpg;*.jpeg;*.png;*.bmp"
 
             If ofd.ShowDialog() <> DialogResult.OK Then Return
 
-            _attachmentPath = ofd.FileName
             Dim ext As String = Path.GetExtension(ofd.FileName).ToLowerInvariant()
-            If ext = ".jpg" OrElse ext = ".jpeg" OrElse ext = ".png" OrElse ext = ".bmp" Then
-                PictureEditAttachmentCover.Image = Image.FromFile(ofd.FileName)
-            Else
-                PictureEditAttachmentCover.Image = Nothing
-                PictureEditAttachmentCover.Properties.NullText = Path.GetFileName(ofd.FileName)
+            If ext <> ".jpg" AndAlso ext <> ".jpeg" AndAlso ext <> ".png" AndAlso ext <> ".bmp" Then
+                XtraMessageBox.Show("Cover must be an image file (JPG, PNG or BMP).",
+                                    "E-Form AFA Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
             End If
 
+            _attachmentPath = ofd.FileName
+            PictureEditAttachmentCover.Image = Image.FromFile(ofd.FileName)
         End Using
     End Sub
 

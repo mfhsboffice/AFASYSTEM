@@ -538,6 +538,22 @@ Public Class FormFluMenu
         XtraFormUnconfiguredDocuments.BringToFront()
     End Sub
 
+    Private Sub AceMonitoring_Click(sender As Object, e As EventArgs) Handles AceMonitoring.Click
+        XtraFormAFAMonitoring.TopLevel = False
+        XtraFormAFAMonitoring.Parent = PanelControl1
+        XtraFormAFAMonitoring.Dock = DockStyle.Fill
+        XtraFormAFAMonitoring.Show()
+        XtraFormAFAMonitoring.BringToFront()
+    End Sub
+
+    Private Sub AceApproval_Click(sender As Object, e As EventArgs) Handles AceApproval.Click
+        XtraFormAFAApproval.TopLevel = False
+        XtraFormAFAApproval.Parent = PanelControl1
+        XtraFormAFAApproval.Dock = DockStyle.Fill
+        XtraFormAFAApproval.Show()
+        XtraFormAFAApproval.BringToFront()
+    End Sub
+
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
         tuutpkabeh()
         Me.Close()
