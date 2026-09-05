@@ -20,6 +20,8 @@ Partial Class XtraFormAFABreEForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnSyncBudgetItemTarget = New DevExpress.XtraEditors.SimpleButton()
+        Me.BtnSyncBudgetItemSource = New DevExpress.XtraEditors.SimpleButton()
         Me.TextEditBudgetYear = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditBudgetRevision = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditTotalReclass = New DevExpress.XtraEditors.TextEdit()
@@ -67,6 +69,8 @@ Partial Class XtraFormAFABreEForm
         Me.LciTotalReclass = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBudgetRev = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBudgetYear = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,10 +120,14 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciTotalReclass, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.BtnSyncBudgetItemTarget)
+        Me.LayoutControl1.Controls.Add(Me.BtnSyncBudgetItemSource)
         Me.LayoutControl1.Controls.Add(Me.TextEditBudgetYear)
         Me.LayoutControl1.Controls.Add(Me.TextEditBudgetRevision)
         Me.LayoutControl1.Controls.Add(Me.TextEditTotalReclass)
@@ -150,6 +158,34 @@ Partial Class XtraFormAFABreEForm
         Me.LayoutControl1.Size = New System.Drawing.Size(972, 737)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'BtnSyncBudgetItemTarget
+        '
+        Me.BtnSyncBudgetItemTarget.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
+        Me.BtnSyncBudgetItemTarget.Appearance.Options.UseBackColor = True
+        Me.BtnSyncBudgetItemTarget.AppearancePressed.Options.UseBackColor = True
+        Me.BtnSyncBudgetItemTarget.ImageOptions.Image = Global.AFASYSTEM.My.Resources.Resources.convert_32x32
+        Me.BtnSyncBudgetItemTarget.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter
+        Me.BtnSyncBudgetItemTarget.Location = New System.Drawing.Point(906, 418)
+        Me.BtnSyncBudgetItemTarget.Name = "BtnSyncBudgetItemTarget"
+        Me.BtnSyncBudgetItemTarget.Size = New System.Drawing.Size(51, 38)
+        Me.BtnSyncBudgetItemTarget.StyleController = Me.LayoutControl1
+        Me.BtnSyncBudgetItemTarget.TabIndex = 28
+        Me.BtnSyncBudgetItemTarget.ToolTip = "Sync From IFS"
+        '
+        'BtnSyncBudgetItemSource
+        '
+        Me.BtnSyncBudgetItemSource.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
+        Me.BtnSyncBudgetItemSource.Appearance.Options.UseBackColor = True
+        Me.BtnSyncBudgetItemSource.AppearancePressed.Options.UseBackColor = True
+        Me.BtnSyncBudgetItemSource.ImageOptions.Image = Global.AFASYSTEM.My.Resources.Resources.convert_32x32
+        Me.BtnSyncBudgetItemSource.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter
+        Me.BtnSyncBudgetItemSource.Location = New System.Drawing.Point(428, 418)
+        Me.BtnSyncBudgetItemSource.Name = "BtnSyncBudgetItemSource"
+        Me.BtnSyncBudgetItemSource.Size = New System.Drawing.Size(52, 38)
+        Me.BtnSyncBudgetItemSource.StyleController = Me.LayoutControl1
+        Me.BtnSyncBudgetItemSource.TabIndex = 28
+        Me.BtnSyncBudgetItemSource.ToolTip = "Sync From IFS"
         '
         'TextEditBudgetYear
         '
@@ -322,11 +358,11 @@ Partial Class XtraFormAFABreEForm
         '
         'LookupBudgetItemTarget
         '
-        Me.LookupBudgetItemTarget.Location = New System.Drawing.Point(490, 436)
+        Me.LookupBudgetItemTarget.Location = New System.Drawing.Point(490, 434)
         Me.LookupBudgetItemTarget.Name = "LookupBudgetItemTarget"
         Me.LookupBudgetItemTarget.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookupBudgetItemTarget.Properties.PopupView = Me.LookupBudgetItemTargetView
-        Me.LookupBudgetItemTarget.Size = New System.Drawing.Size(467, 20)
+        Me.LookupBudgetItemTarget.Size = New System.Drawing.Size(406, 20)
         Me.LookupBudgetItemTarget.StyleController = Me.LayoutControl1
         Me.LookupBudgetItemTarget.TabIndex = 12
         '
@@ -339,11 +375,11 @@ Partial Class XtraFormAFABreEForm
         '
         'LookupBudgetItemSource
         '
-        Me.LookupBudgetItemSource.Location = New System.Drawing.Point(15, 436)
+        Me.LookupBudgetItemSource.Location = New System.Drawing.Point(15, 434)
         Me.LookupBudgetItemSource.Name = "LookupBudgetItemSource"
         Me.LookupBudgetItemSource.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.LookupBudgetItemSource.Properties.PopupView = Me.LookupBudgetItemSourceView
-        Me.LookupBudgetItemSource.Size = New System.Drawing.Size(465, 20)
+        Me.LookupBudgetItemSource.Size = New System.Drawing.Size(403, 20)
         Me.LookupBudgetItemSource.StyleController = Me.LayoutControl1
         Me.LookupBudgetItemSource.TabIndex = 11
         '
@@ -358,7 +394,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.MemoEditBgExp.Location = New System.Drawing.Point(490, 169)
         Me.MemoEditBgExp.Name = "MemoEditBgExp"
-        Me.MemoEditBgExp.Size = New System.Drawing.Size(467, 241)
+        Me.MemoEditBgExp.Size = New System.Drawing.Size(467, 239)
         Me.MemoEditBgExp.StyleController = Me.LayoutControl1
         Me.MemoEditBgExp.TabIndex = 10
         '
@@ -366,7 +402,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.MemoEditPurpose.Location = New System.Drawing.Point(15, 169)
         Me.MemoEditPurpose.Name = "MemoEditPurpose"
-        Me.MemoEditPurpose.Size = New System.Drawing.Size(465, 241)
+        Me.MemoEditPurpose.Size = New System.Drawing.Size(465, 239)
         Me.MemoEditPurpose.StyleController = Me.LayoutControl1
         Me.MemoEditPurpose.TabIndex = 9
         '
@@ -426,7 +462,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear, Me.LayoutControlItem1, Me.LayoutControlItem2})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(972, 737)
         Me.Root.TextVisible = False
@@ -492,7 +528,7 @@ Partial Class XtraFormAFABreEForm
         Me.LciPurpose.Location = New System.Drawing.Point(0, 138)
         Me.LciPurpose.Name = "LciPurpose"
         Me.LciPurpose.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciPurpose.Size = New System.Drawing.Size(475, 267)
+        Me.LciPurpose.Size = New System.Drawing.Size(475, 265)
         Me.LciPurpose.Text = "Purpose"
         Me.LciPurpose.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciPurpose.TextSize = New System.Drawing.Size(165, 13)
@@ -503,7 +539,7 @@ Partial Class XtraFormAFABreEForm
         Me.LciBgExp.Location = New System.Drawing.Point(475, 138)
         Me.LciBgExp.Name = "LciBgExp"
         Me.LciBgExp.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBgExp.Size = New System.Drawing.Size(477, 267)
+        Me.LciBgExp.Size = New System.Drawing.Size(477, 265)
         Me.LciBgExp.Text = "Background && Explanation"
         Me.LciBgExp.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBgExp.TextSize = New System.Drawing.Size(165, 13)
@@ -511,10 +547,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetItemSource
         '
         Me.LciBudgetItemSource.Control = Me.LookupBudgetItemSource
-        Me.LciBudgetItemSource.Location = New System.Drawing.Point(0, 405)
+        Me.LciBudgetItemSource.Location = New System.Drawing.Point(0, 403)
         Me.LciBudgetItemSource.Name = "LciBudgetItemSource"
         Me.LciBudgetItemSource.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBudgetItemSource.Size = New System.Drawing.Size(475, 46)
+        Me.LciBudgetItemSource.Size = New System.Drawing.Size(413, 48)
         Me.LciBudgetItemSource.Text = "Budget Item"
         Me.LciBudgetItemSource.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetItemSource.TextSize = New System.Drawing.Size(165, 13)
@@ -522,10 +558,10 @@ Partial Class XtraFormAFABreEForm
         'LciBudgetItemTarget
         '
         Me.LciBudgetItemTarget.Control = Me.LookupBudgetItemTarget
-        Me.LciBudgetItemTarget.Location = New System.Drawing.Point(475, 405)
+        Me.LciBudgetItemTarget.Location = New System.Drawing.Point(475, 403)
         Me.LciBudgetItemTarget.Name = "LciBudgetItemTarget"
         Me.LciBudgetItemTarget.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBudgetItemTarget.Size = New System.Drawing.Size(477, 46)
+        Me.LciBudgetItemTarget.Size = New System.Drawing.Size(416, 48)
         Me.LciBudgetItemTarget.Text = "Budget Item"
         Me.LciBudgetItemTarget.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetItemTarget.TextSize = New System.Drawing.Size(165, 13)
@@ -670,6 +706,26 @@ Partial Class XtraFormAFABreEForm
         Me.LciBudgetYear.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetYear.TextSize = New System.Drawing.Size(165, 13)
         '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.ContentVertAlignment = DevExpress.Utils.VertAlignment.Bottom
+        Me.LayoutControlItem1.Control = Me.BtnSyncBudgetItemSource
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(413, 403)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(62, 48)
+        Me.LayoutControlItem1.TextVisible = False
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.ContentVertAlignment = DevExpress.Utils.VertAlignment.Bottom
+        Me.LayoutControlItem2.Control = Me.BtnSyncBudgetItemTarget
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(891, 403)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(61, 48)
+        Me.LayoutControlItem2.TextVisible = False
+        '
         'XtraFormAFABreEForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -728,6 +784,8 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciTotalReclass, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -748,12 +806,6 @@ Partial Class XtraFormAFABreEForm
     Friend WithEvents LciSubject As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciPurpose As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciBgExp As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LookupBudgetItemSource As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents LookupBudgetItemSourceView As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LciBudgetItemSource As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LookupBudgetItemTarget As DevExpress.XtraEditors.SearchLookUpEdit
-    Friend WithEvents LookupBudgetItemTargetView As DevExpress.XtraGrid.Views.Grid.GridView
-    Friend WithEvents LciBudgetItemTarget As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents TextEditBudgetAmtTarget As DevExpress.XtraEditors.TextEdit
     Friend WithEvents TextEditBudgetAmtSource As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciBudgetAmtSource As DevExpress.XtraLayout.LayoutControlItem
@@ -780,4 +832,14 @@ Partial Class XtraFormAFABreEForm
     Friend WithEvents TextEditBudgetRevision As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciBudgetRev As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciBudgetYear As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LookupBudgetItemTarget As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents LookupBudgetItemTargetView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LookupBudgetItemSource As DevExpress.XtraEditors.SearchLookUpEdit
+    Friend WithEvents LookupBudgetItemSourceView As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents LciBudgetItemSource As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LciBudgetItemTarget As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnSyncBudgetItemTarget As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnSyncBudgetItemSource As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
 End Class

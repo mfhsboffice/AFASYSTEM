@@ -51,11 +51,6 @@ Public Class AFAAdditionalBudgetService
         Return Convert.ToString(dt.Rows(0)("AFA_NO"))
     End Function
 
-    ''' <summary>
-    ''' Saves the (single) budget item row for an Additional Budget document.
-    ''' Pass seq = 0 for a new row; the procedure assigns the next SEQ and
-    ''' returns it.
-    ''' </summary>
     Public Function SaveDetail(ByVal afaNo As String,
                                ByVal seq As Integer,
                                ByVal budgetItemCode As String,
@@ -120,6 +115,31 @@ Public Class AFAAdditionalBudgetService
         Dim message As String = ""
 
         ExecuteStoredProcedureQueryWithStatus("AFA_NonIFS_SaveAttachment_Proc", prm, status, message)
+
+        LastErrorMessage = message
+        Return status = "SUCCESS"
+    End Function
+
+    Public Function GetBudgetAllocation(ByVal budgetYear As String, ByVal budgetRev As String) As DataTable
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@BudgetYear", budgetYear},
+            {"@BudgetRev", budgetRev}
+        }
+
+        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetBudgetAllocation_Proc", prm)
+    End Function
+
+    Public Function SyncBudget(ByVal budgetYear As String, ByVal budgetRev As String, ByVal allocation As String) As Boolean
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@BudgetYear", budgetYear},
+            {"@BudgetRev", budgetRev},
+            {"@Allocation", allocation}
+        }
+
+        Dim status As String = ""
+        Dim message As String = ""
+
+        ExecuteStoredProcedureQueryWithStatus("AFA_NonIFS_SyncBudget_Proc", prm, status, message)
 
         LastErrorMessage = message
         Return status = "SUCCESS"

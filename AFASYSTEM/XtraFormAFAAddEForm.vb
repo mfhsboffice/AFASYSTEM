@@ -9,9 +9,14 @@ Public Class XtraFormAFAAddEForm
 
     Private _dtDepartment As DataTable
     Private _dtLocation As DataTable
+    Private _dtBudgetAllocation As DataTable
 
     Private _afaNo As String = String.Empty
     Private _attachmentPath As String = String.Empty
+
+    Private _itemCc As String = String.Empty
+    Private _itemContract As String = String.Empty
+    Private _itemResolved As Boolean = False
 
     Private ReadOnly _nik As String = Trim(FormFluMenu.btnuserid.Caption)
     Private ReadOnly _pc As String = System.Net.Dns.GetHostName()
@@ -22,6 +27,7 @@ Public Class XtraFormAFAAddEForm
         SetupEditors()
         LoadCombos()
         ClearForm()
+        LoadBudgetAllocation()
     End Sub
 
     Private Sub SetupEditors()
@@ -32,7 +38,7 @@ Public Class XtraFormAFAAddEForm
                 .Appearance.Options.UseTextOptions = True
                 .Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
                 .MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
-                .MaskSettings.Set("mask", "n0")
+                .MaskSettings.Set("mask", "n2")
                 .UseMaskAsDisplayFormat = True
             End With
         Next
@@ -41,13 +47,10 @@ Public Class XtraFormAFAAddEForm
             .Appearance.Options.UseTextOptions = True
             .Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
             .MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
-            .MaskSettings.Set("mask", "n0")
+            .MaskSettings.Set("mask", "n2")
             .UseMaskAsDisplayFormat = True
         End With
 
-        ' TextEdit1 = Budget Year, TextEdit2 = Budget Rev (confirmed by
-        ' LciBudgetYear.Control / LciBudgetRev.Control in the Designer -
-        ' both were left with their DevExpress-generated default names)
         With TextEdit1.Properties
             .MaskSettings.Set("MaskManagerType", GetType(DevExpress.Data.Mask.NumericMaskManager))
             .MaskSettings.Set("mask", "d")
@@ -110,6 +113,156 @@ Public Class XtraFormAFAAddEForm
 
 #End Region
 
+#Region "Budget Item Lookup"
+
+    Private Sub LoadBudgetAllocation()
+        _dtBudgetAllocation = _service.GetBudgetAllocation(TextEdit1.Text.Trim(), TextEdit2.Text.Trim())
+
+        BindBudgetItemLookup(LookupBudgetItem)
+    End Sub
+
+    Private Sub BindBudgetItemLookup(ByVal lookup As SearchLookUpEdit)
+        lookup.Properties.DataSource = _dtBudgetAllocation
+        lookup.Properties.ValueMember = "BUDGET_ITEM_CODE"
+        lookup.Properties.DisplayMember = "BUDGET_ITEM_NAME"
+
+        If _dtBudgetAllocation IsNot Nothing Then
+            lookup.Properties.PopupView.PopulateColumns()
+            ConfigureBudgetItemColumns(TryCast(lookup.Properties.PopupView, DevExpress.XtraGrid.Views.Grid.GridView))
+        End If
+    End Sub
+
+
+    Private Sub ConfigureBudgetItemColumns(ByVal view As DevExpress.XtraGrid.Views.Grid.GridView)
+        If view Is Nothing OrElse view.Columns.Count = 0 Then Return
+
+        If view.Columns("BUDGET_ITEM_NAME") IsNot Nothing Then
+            view.Columns("BUDGET_ITEM_NAME").Visible = False
+        End If
+
+        SetLookupColumn(view, "BUDGET_ITEM_CODE", "Budget Item Code", 0, False)
+        SetLookupColumn(view, "CC", "Cost Center", 1, False)
+        SetLookupColumn(view, "CONTRACT", "Contract", 2, False)
+        SetLookupColumn(view, "BUDGET_AMOUNT", "Budget Amount", 3, True)
+        SetLookupColumn(view, "ACTUAL_UP", "Actual Up", 4, True)
+
+        view.OptionsView.ShowGroupPanel = False
+        view.BestFitColumns()
+    End Sub
+
+    Private Sub SetLookupColumn(ByVal view As DevExpress.XtraGrid.Views.Grid.GridView,
+                                ByVal fieldName As String,
+                                ByVal caption As String,
+                                ByVal visibleIndex As Integer,
+                                ByVal isAmount As Boolean)
+        Dim col = view.Columns(fieldName)
+        If col Is Nothing Then Return
+
+        col.Caption = caption
+        col.VisibleIndex = visibleIndex
+        col.OptionsColumn.AllowEdit = False
+
+        If isAmount Then
+            col.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric
+            col.DisplayFormat.FormatString = "n2"
+            col.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far
+        End If
+    End Sub
+
+    Private Sub TextEdit1_Leave(sender As Object, e As EventArgs) Handles TextEdit1.Leave
+        LoadBudgetAllocation()
+    End Sub
+
+    Private Sub TextEdit2_Leave(sender As Object, e As EventArgs) Handles TextEdit2.Leave
+        LoadBudgetAllocation()
+    End Sub
+
+    Private Sub LookupBudgetItem_EditValueChanged(sender As Object, e As EventArgs) Handles LookupBudgetItem.EditValueChanged
+        Dim row As DataRow = FindAllocationRow(LookupBudgetItem.EditValue)
+
+        If row Is Nothing Then
+            _itemResolved = False
+            TextEditBudgetAmt.Text = "0"
+            TextEditActualUp.Text = "0"
+            _itemCc = String.Empty
+            _itemContract = String.Empty
+        Else
+            _itemResolved = True
+            TextEditBudgetAmt.Text = FormatAmount(row("BUDGET_AMOUNT"))
+            TextEditActualUp.Text = FormatAmount(row("ACTUAL_UP"))
+            _itemCc = Convert.ToString(row("CC"))
+            _itemContract = Convert.ToString(row("CONTRACT"))
+        End If
+
+        Recalculate()
+    End Sub
+
+    Private Function FindAllocationRow(ByVal code As Object) As DataRow
+        If _dtBudgetAllocation Is Nothing Then Return Nothing
+        Dim key As String = Convert.ToString(code)
+        If key = "" Then Return Nothing
+
+        Dim rows() As DataRow = _dtBudgetAllocation.Select("BUDGET_ITEM_CODE = '" & key.Replace("'", "''") & "'")
+        If rows.Length = 0 Then Return Nothing
+        Return rows(0)
+    End Function
+
+    ''' <summary>
+    ''' Instructions for the Designer (not done here - see report): add a
+    ''' SimpleButton named BtnSyncBudgetItem next to LookupBudgetItem. It
+    ''' calls the placeholder sync procedure.
+    ''' </summary>
+    Private Sub BtnSyncBudgetItem_Click(sender As Object, e As EventArgs) Handles BtnSyncBudgetItem.Click
+        Dim allocation As String = LookupBudgetItem.Text.Trim()
+
+        If allocation = "" Then
+            XtraMessageBox.Show("Type or pick an Allocation code first.", "E-Form AFA Additional Budget",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            If _service.SyncBudget(TextEdit1.Text.Trim(), TextEdit2.Text.Trim(), allocation) Then
+                LoadBudgetAllocation()
+                XtraMessageBox.Show("Sync placeholder ran (no real IFS pull yet - see AFA_NonIFS_SyncBudget_Proc).",
+                                    "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                XtraMessageBox.Show(_service.LastErrorMessage, "Sync Failed",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
+    End Sub
+
+#End Region
+
+#Region "Calculation"
+
+    ''' <summary>Mirrors AFA_NonIFS_Recalc_Proc's ADD branch, for an immediate preview.</summary>
+    Private Sub Recalculate()
+        Dim budget As Decimal = ParseAmount(TextEditBudgetAmt.Text)
+        Dim actual As Decimal = ParseAmount(TextEditActualUp.Text)
+        Dim estimation As Decimal = ParseAmount(TextEditEstimation.Text)
+
+        Dim shortage As Decimal = budget - actual - estimation
+        TextEditShortage.Text = shortage.ToString("n2")
+        TextEditTotalAdditional.Text = Math.Abs(shortage).ToString("n2")
+    End Sub
+
+    Private Function ParseAmount(ByVal text As String) As Decimal
+        Dim value As Decimal
+        If Decimal.TryParse(text, value) Then Return value
+        Return 0D
+    End Function
+
+    Private Sub TextEditEstimation_EditValueChanged(sender As Object, e As EventArgs) Handles TextEditEstimation.EditValueChanged
+        Recalculate()
+    End Sub
+
+#End Region
+
 #Region "Validation"
 
     Private Function IsValid() As Boolean
@@ -138,6 +291,14 @@ Public Class XtraFormAFAAddEForm
             If DateEditScheduleTo.DateTime < DateEditScheduleFrom.DateTime Then
                 Warn("Schedule To cannot be earlier than Schedule From.", DateEditScheduleTo) : Return False
             End If
+        End If
+
+        If LookupBudgetItem.Text.Trim() = "" OrElse Not _itemResolved Then
+            Warn("Please pick a valid budget item from the list.", LookupBudgetItem) : Return False
+        End If
+
+        If ParseAmount(TextEditEstimation.Text) <= 0 Then
+            Warn("Estimation must be greater than zero.", TextEditEstimation) : Return False
         End If
 
         Return True
@@ -188,6 +349,20 @@ Public Class XtraFormAFAAddEForm
 
             _afaNo = savedNo
 
+            Dim itemCode As String = LookupBudgetItem.Text.Trim()
+            Dim savedSeq As Integer = 0
+
+            If Not _service.SaveDetail(_afaNo, 0, itemCode, itemCode, _itemCc, _itemContract,
+                                       ParseAmount(TextEditBudgetAmt.Text),
+                                       ParseAmount(TextEditActualUp.Text),
+                                       ParseAmount(TextEditEstimation.Text),
+                                       _nik, _pc, savedSeq) Then
+                XtraMessageBox.Show("The header was saved as " & _afaNo & "," & vbCrLf &
+                                    "but the detail could not be saved:" & vbCrLf & _service.LastErrorMessage,
+                                    "Failed to save detail", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
             If _attachmentPath <> "" Then
                 Dim storedName As String = UploadAttachment(_attachmentPath, "Cover")
 
@@ -203,23 +378,15 @@ Public Class XtraFormAFAAddEForm
                 End If
             End If
 
-            ' The budget-item lookup (LookupBudgetItem) has no data source wired
-            ' to it: there is no procedure in this module that can browse budget
-            ' items from IFS (AFA_NonIFS_GetBudgetFromIFS_Proc needs an exact
-            ' CC/Contract/Allocation key, which nothing on this form collects),
-            ' and TextEditBudgetAmt / TextEditActualUp are locked ReadOnly with
-            ' no way to populate them. Saving the detail row here would mean
-            ' writing BUDGET_AMOUNT = 0 and ACTUAL_UP = 0 into a financial
-            ' document, so this step is refused rather than done silently.
-            ' AFA_NonIFS_Submit_Proc already blocks Submit while the detail
-            ' rows are empty, so the document is safe to leave as a Draft
-            ' until the lookup is implemented.
-            XtraMessageBox.Show(
-                "Header saved as " & _afaNo & "." & vbCrLf & vbCrLf &
-                "The budget item lookup is not wired up yet, so the budget " &
-                "item detail could not be saved. This document will stay as " &
-                "Draft until that is implemented.",
-                "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Try
+                Clipboard.SetText(_afaNo)
+            Catch
+
+            End Try
+
+            XtraMessageBox.Show("Document saved." & vbCrLf & "AFA No: " & _afaNo & vbCrLf & vbCrLf &
+                                "The AFA number has been copied to the clipboard.",
+                                "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Me.Text = "E-Form AFA Additional Budget - " & _afaNo
         Finally
@@ -288,6 +455,11 @@ Public Class XtraFormAFAAddEForm
 
 #Region "Helpers"
 
+    Private Function FormatAmount(ByVal value As Object) As String
+        If value Is Nothing OrElse IsDBNull(value) Then Return "0"
+        Return Convert.ToDecimal(value).ToString("n2")
+    End Function
+
     Private Sub ClearForm()
         _afaNo = String.Empty
         _attachmentPath = String.Empty
@@ -298,6 +470,11 @@ Public Class XtraFormAFAAddEForm
         MemoEditBgExp.Text = ""
         TextEditCaptionCover.Text = ""
         TextEdit2.Text = ""
+
+        LookupBudgetItem.EditValue = Nothing
+        _itemResolved = False
+        _itemCc = String.Empty
+        _itemContract = String.Empty
 
         TextEditEstimation.Text = "0"
         TextEditBudgetAmt.Text = "0"

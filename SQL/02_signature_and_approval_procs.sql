@@ -747,6 +747,18 @@ BEGIN
     WHERE  s.NIK = @Nik
       AND  s.STS = 'Send'
       AND  h.STS = 'Planned'
+      -- Sequential routing: Dir -> Supp -> Budget -> Auth. A node is
+      -- offered for approval only once every node type ahead of it in
+      -- this order has been fully resolved (App or Skip) for the same
+      -- document - so a node out of turn never even reaches the inbox.
+      AND  NOT EXISTS (
+            SELECT 1 FROM dbo.AFA_SIGNATURE p
+            WHERE p.AFA_NO = s.AFA_NO
+              AND ISNULL(p.NIK,'') <> ''
+              AND p.STS NOT IN ('App','Skip')
+              AND CASE p.TYPE WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+                < CASE s.TYPE WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+          )
     ORDER  BY h.PRIORITY DESC, h.DATECREATE ASC;
 END;
 GO

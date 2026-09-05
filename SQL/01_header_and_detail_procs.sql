@@ -50,7 +50,7 @@ BEGIN
     SET NOCOUNT ON;
     SET @Status = 'FAILED'; SET @Message = '';
 
-    DECLARE @Prefix varchar(10), @Year int, @Month int, @Alias varchar(50),
+    DECLARE @Prefix varchar(10), @Year int, @Month int, @MonthText varchar(2),
             @YY varchar(2), @BYY varchar(2), @SeqText varchar(10),
             @Seq int, @OwnTran bit = 0, @AfaNo varchar(50);
 
@@ -68,11 +68,11 @@ BEGIN
         IF NOT EXISTS (SELECT 1 FROM dbo.AFA_TYPE WHERE CODE = @AfaType AND IS_ACTIVE = 1)
         BEGIN SET @Message = 'AFA type not found or inactive.'; RETURN; END
 
-        SELECT @Alias = Alias FROM dbo.AFA_Bulan_Alias
-        WHERE Bulan = CAST(@Month AS varchar(2));
-
-        IF @Alias IS NULL
-        BEGIN SET @Message = 'Month alias is missing from AFA_Bulan_Alias.'; RETURN; END
+        -- Zero-padded numeric month (01-12), not the Roman-numeral alias
+        -- from AFA_Bulan_Alias. That table is read-only/shared with the
+        -- legacy Expense/Investment module and stays untouched; this
+        -- module simply stops depending on it for month formatting.
+        SET @MonthText = RIGHT('0' + CAST(@Month AS varchar(2)), 2);
 
         IF @Commit = 0
         BEGIN
@@ -103,7 +103,7 @@ BEGIN
         SET @BYY     = RIGHT(CAST(@BudgetYear AS varchar(4)), 2);
         SET @SeqText = RIGHT('000' + CAST(@Seq AS varchar(10)), 3);
 
-        SET @AfaNo = @Prefix + '/' + @AfaType + '/' + @SeqText + '/' + @Alias + '/' + @YY  + '/' + @BYY;
+        SET @AfaNo = @Prefix + '/' + @AfaType + '/' + @SeqText + '/' + @MonthText + '/' + @YY  + '/' + @BYY;
 
         SELECT @AfaNo AS AFA_NO, @Seq AS SEQ;
 
@@ -144,7 +144,7 @@ BEGIN
     SET NOCOUNT ON;
     SET @Status = 'FAILED'; SET @Message = ''; SET @AfaNoApproval = NULL;
 
-    DECLARE @Year int, @Month int, @Alias varchar(50),
+    DECLARE @Year int, @Month int, @MonthText varchar(2),
             @YY varchar(2), @BYY varchar(2), @SeqText varchar(10),
             @Seq int, @OwnTran bit = 0;
 
@@ -153,11 +153,11 @@ BEGIN
         SET @Year  = YEAR(@RefDate);
         SET @Month = MONTH(@RefDate);
 
-        SELECT @Alias = Alias FROM dbo.AFA_Bulan_Alias
-        WHERE Bulan = CAST(@Month AS varchar(2));
-
-        IF @Alias IS NULL
-        BEGIN SET @Message = 'Month alias is missing from AFA_Bulan_Alias.'; RETURN; END
+        -- Zero-padded numeric month (01-12), matching
+        -- AFA_NonIFS_GenerateNumber_Proc - see the comment there for why
+        -- AFA_Bulan_Alias (read-only/shared with the legacy module) is no
+        -- longer used here.
+        SET @MonthText = RIGHT('0' + CAST(@Month AS varchar(2)), 2);
 
         IF @@TRANCOUNT = 0 BEGIN BEGIN TRANSACTION; SET @OwnTran = 1; END
 
@@ -179,7 +179,7 @@ BEGIN
         SET @BYY     = RIGHT(CAST(ISNULL(@BudgetYear, @Year) AS varchar(4)), 2);
         SET @SeqText = RIGHT('000' + CAST(@Seq AS varchar(10)), 3);
 
-        SET @AfaNoApproval = 'SRI/' + @AfaType + '/' + @SeqText + '/' + @Alias + '/' + @BYY + '/' + @YY;
+        SET @AfaNoApproval = 'SRI/' + @AfaType + '/' + @SeqText + '/' + @MonthText + '/' + @BYY + '/' + @YY;
 
         SET @Status  = 'SUCCESS';
         SET @Message = 'Approval number generated.';
@@ -1077,6 +1077,23 @@ BEGIN
                            WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND NIK = @Nik AND STS = 'Send')
             BEGIN SET @Message = 'Approve failed: this document is not waiting for you.'; RETURN; END
 
+            -- Sequential routing: Dir -> Supp -> Budget -> Auth. Reject the
+            -- approval outright if an earlier-in-sequence node type still
+            -- has an unresolved assigned node on this document - this is
+            -- the real gate; AFA_NonIFS_GetPendingApproval_Proc filtering
+            -- the inbox is what keeps the UI from offering it in the first
+            -- place, but this check holds even if this procedure is ever
+            -- called directly.
+            IF EXISTS (
+                SELECT 1 FROM dbo.AFA_SIGNATURE p
+                WHERE p.AFA_NO = @AfaNo
+                  AND ISNULL(p.NIK,'') <> ''
+                  AND p.STS NOT IN ('App','Skip')
+                  AND CASE p.TYPE WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+                    < CASE @Jenis WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+            )
+            BEGIN SET @Message = 'This node cannot be approved yet - an earlier approval stage (Dir / Supp / Budget) has not been completed.'; RETURN; END
+
             BEGIN TRANSACTION;
 
             UPDATE dbo.AFA_SIGNATURE
@@ -1190,6 +1207,19 @@ BEGIN
         IF NOT EXISTS (SELECT 1 FROM dbo.AFA_SIGNATURE
                        WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND ID = @Id AND STS = 'Send')
         BEGIN SET @Message = 'This node is not waiting for approval.'; RETURN; END
+
+        -- Same Dir -> Supp -> Budget -> Auth sequence enforced in
+        -- AFA_NonIFS_App_Proc: skipping out of turn would bypass the
+        -- routing order just as approving out of turn would.
+        IF EXISTS (
+            SELECT 1 FROM dbo.AFA_SIGNATURE p
+            WHERE p.AFA_NO = @AfaNo
+              AND ISNULL(p.NIK,'') <> ''
+              AND p.STS NOT IN ('App','Skip')
+              AND CASE p.TYPE WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+                < CASE @Jenis WHEN 'Dir' THEN 1 WHEN 'Supp' THEN 2 WHEN 'Budget' THEN 3 WHEN 'Auth' THEN 4 ELSE 99 END
+        )
+        BEGIN SET @Message = 'This node cannot be skipped yet - an earlier approval stage (Dir / Supp / Budget) has not been completed.'; RETURN; END
 
         BEGIN TRANSACTION;
 

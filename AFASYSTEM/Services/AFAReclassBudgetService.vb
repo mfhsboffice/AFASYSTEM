@@ -51,13 +51,6 @@ Public Class AFAReclassBudgetService
         Return Convert.ToString(dt.Rows(0)("AFA_NO"))
     End Function
 
-    ''' <summary>
-    ''' Saves one Source or Target budget item row. Pass seq = 0 for a new
-    ''' row (the procedure assigns the next SEQ and returns it); pass an
-    ''' existing SEQ to update that row. reclassFromSeq is required (and
-    ''' must reference an existing Source row) when itemRole = "Target",
-    ''' and must be Nothing when itemRole = "Source".
-    ''' </summary>
     Public Function SaveDetail(ByVal afaNo As String,
                                ByVal seq As Integer,
                                ByVal itemRole As String,
@@ -104,6 +97,35 @@ Public Class AFAReclassBudgetService
         End If
 
         Return True
+    End Function
+
+    Public Function GetBudgetAllocation(ByVal budgetYear As String, ByVal budgetRev As String) As DataTable
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@BudgetYear", budgetYear},
+            {"@BudgetRev", budgetRev}
+        }
+
+        Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetBudgetAllocation_Proc", prm)
+    End Function
+
+    ''' <summary>
+    ''' Placeholder call - AFA_NonIFS_SyncBudget_Proc does not touch IFS yet
+    ''' and always returns SUCCESS without changing IFS_budget_allocation.
+    ''' </summary>
+    Public Function SyncBudget(ByVal budgetYear As String, ByVal budgetRev As String, ByVal allocation As String) As Boolean
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@BudgetYear", budgetYear},
+            {"@BudgetRev", budgetRev},
+            {"@Allocation", allocation}
+        }
+
+        Dim status As String = ""
+        Dim message As String = ""
+
+        ExecuteStoredProcedureQueryWithStatus("AFA_NonIFS_SyncBudget_Proc", prm, status, message)
+
+        LastErrorMessage = message
+        Return status = "SUCCESS"
     End Function
 
 End Class

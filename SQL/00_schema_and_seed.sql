@@ -336,19 +336,19 @@ BEGIN
         AFA_APPROVAL_DATE   date          NULL,
         FINANCE_DATE        date          NULL,
 
-        CURCODE             varchar(10)   NOT NULL CONSTRAINT DF_ANI_CUR  DEFAULT ('USD'),   -- BUDGET_CURR_RATE is USD based (USD = 1)
+        CURCODE             varchar(10)   NOT NULL CONSTRAINT DF_ANI_CUR  DEFAULT ('USD'),
         AMT                 numeric(18,3) NULL,
-        AMT_JPY             numeric(18,3) NULL,   -- used by the SRI rule
-        CUR_RATE            numeric(18,9) NULL,   -- factor straight to JPY, kept for audit
+        AMT_JPY             numeric(18,3) NULL,
+        CUR_RATE            numeric(18,9) NULL,
         RATE_DATE           date          NULL,
 
         PRIORITY            tinyint       NOT NULL CONSTRAINT DF_ANI_PRIO DEFAULT (0),
         PRIORITY_REASON     varchar(500)  NULL,
         STS                 varchar(50)   NOT NULL CONSTRAINT DF_ANI_STS  DEFAULT ('Draft'),
-        SRI_STS             varchar(20)   NULL,   -- 'Need' / 'No Need'
+        SRI_STS             varchar(20)   NULL,
         REF_REG             varchar(100)  NULL,
 
-        BUDGET_STS          varchar(20)   NULL,   -- NULL / Checked / Unchecked
+        BUDGET_STS          varchar(20)   NULL,
         BUDGET_CHECK_BY     varchar(50)   NULL,
         BUDGET_CHECK_DATE   datetime      NULL,
 

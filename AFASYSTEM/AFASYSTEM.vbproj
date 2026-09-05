@@ -644,6 +644,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dunlopnew.ico" />
+    <None Include="Resources\convert_32x32.png" />
     <None Include="icondunlop.ico" />
     <None Include="Resources\AFASYS-2026-08-31-011326.png" />
     <None Include="Resources\book-guide-handbook-svgrepo-com.svg" />
