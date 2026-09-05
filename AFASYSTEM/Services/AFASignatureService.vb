@@ -192,6 +192,31 @@ Public Class AFASignatureService
         Return ExecuteQuery(sql, prm)
     End Function
 
+    Public Function GetReclassFigures(ByVal afaNo As String) As DataTable
+        Dim sql As String =
+            "SELECT SEQ, ITEM_ROLE, BUDGET_ITEM_CODE, BUDGET_ITEM_NAME, CC, CONTRACT, " &
+            "       BUDGET_AMOUNT, ACTUAL_UP, ESTIMATION, SHORTAGE, " &
+            "       RECLASS_AMOUNT, BALANCE, RECLASS_FROM_SEQ " &
+            "FROM   dbo.AFA_NON_IFS_BRE " &
+            "WHERE  AFA_NO = ? " &
+            "ORDER  BY ITEM_ROLE DESC, SEQ"
+
+        Dim prm As New List(Of Object) From {afaNo}
+        Return ExecuteQuery(sql, prm)
+    End Function
+
+    Public Function GetAdditionalFigures(ByVal afaNo As String) As DataTable
+        Dim sql As String =
+            "SELECT TOP 1 SEQ, BUDGET_ITEM_CODE, BUDGET_ITEM_NAME, CC, CONTRACT, " &
+            "       BUDGET_AMOUNT, ACTUAL_UP, ESTIMATION, SHORTAGE " &
+            "FROM   dbo.AFA_NON_IFS_ADD " &
+            "WHERE  AFA_NO = ? " &
+            "ORDER  BY SEQ"
+
+        Dim prm As New List(Of Object) From {afaNo}
+        Return ExecuteQuery(sql, prm)
+    End Function
+
     Public Function GetPendingApproval(ByVal nik As String) As DataTable
         Dim prm As New Dictionary(Of String, Object) From {{"@Nik", nik}}
         Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetPendingApproval_Proc", prm)
