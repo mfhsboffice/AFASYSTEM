@@ -102,6 +102,23 @@ Public Class AFASignatureService
         Return ExecuteStoredProcedureWithStatus("AFA_NonIFS_Skip_Proc", prm)
     End Function
 
+    Public Function BudgetCheck(ByVal afaNo As String,
+                                ByVal nik As String,
+                                ByVal pc As String,
+                                ByVal actionType As String,
+                                ByVal reason As String) As Boolean
+
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@AfaNo", afaNo},
+            {"@Nik", nik},
+            {"@Pc", pc},
+            {"@Type", actionType},
+            {"@Reason", reason}
+        }
+
+        Return ExecuteStoredProcedureWithStatus("AFA_NonIFS_BudgetCheck_Proc", prm)
+    End Function
+
     Public Function InitNodes(ByVal afaNo As String,
                               ByVal maxRow As Integer,
                               ByVal nik As String,

@@ -77,10 +77,6 @@ Partial Public Class AfaReportINF
         '
         Me.XrLabel4.StylePriority.UseFont = False
         '
-        'XrLabel6
-        '
-        Me.XrLabel6.StylePriority.UseBorders = False
-        '
         'ReportFooter1
         '
         Me.ReportFooter1.Expanded = False

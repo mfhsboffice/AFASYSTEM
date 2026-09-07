@@ -516,6 +516,12 @@
     <EmbeddedResource Include="AfaMasterReport.resx">
       <DependentUpon>AfaMasterReport.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AfaReportADD.resx">
+      <DependentUpon>AfaReportADD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfaReportBRE.resx">
+      <DependentUpon>AfaReportBRE.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AfaReportDAA.resx">
       <DependentUpon>AfaReportDAA.vb</DependentUpon>
     </EmbeddedResource>

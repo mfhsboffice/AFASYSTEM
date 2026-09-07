@@ -108,10 +108,6 @@ Public Class AFAReclassBudgetService
         Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetBudgetAllocation_Proc", prm)
     End Function
 
-    ''' <summary>
-    ''' Placeholder call - AFA_NonIFS_SyncBudget_Proc does not touch IFS yet
-    ''' and always returns SUCCESS without changing IFS_budget_allocation.
-    ''' </summary>
     Public Function SyncBudget(ByVal budgetYear As String, ByVal budgetRev As String, ByVal allocation As String) As Boolean
         Dim prm As New Dictionary(Of String, Object) From {
             {"@BudgetYear", budgetYear},
@@ -123,6 +119,31 @@ Public Class AFAReclassBudgetService
         Dim message As String = ""
 
         ExecuteStoredProcedureQueryWithStatus("AFA_NonIFS_SyncBudget_Proc", prm, status, message)
+
+        LastErrorMessage = message
+        Return status = "SUCCESS"
+    End Function
+
+    Public Function SaveAttachment(ByVal afaNo As String,
+                                   ByVal seq As Integer,
+                                   ByVal type As String,
+                                   ByVal fileName As String,
+                                   ByVal caption As String,
+                                   ByVal nik As String) As Boolean
+
+        Dim prm As New Dictionary(Of String, Object) From {
+            {"@AfaNo", afaNo},
+            {"@Seq", seq},
+            {"@Type", type},
+            {"@FilePath", fileName},
+            {"@Caption", caption},
+            {"@Nik", nik}
+        }
+
+        Dim status As String = ""
+        Dim message As String = ""
+
+        ExecuteStoredProcedureQueryWithStatus("AFA_NonIFS_SaveAttachment_Proc", prm, status, message)
 
         LastErrorMessage = message
         Return status = "SUCCESS"
