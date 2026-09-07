@@ -15,57 +15,49 @@ AS
 BEGIN
     SET NOCOUNT ON;
 
-    /* ========================================================================
-       1. HEADER
-       ======================================================================== */
     SELECT
          h.AFA_NO
-        ,ISNULL(h.AFA_NO_APPROVAL,'')                      AS AFA_NO_APPROVAL
+        ,ISNULL(h.AFA_NO_APPROVAL,'') AS AFA_NO_APPROVAL
         ,h.AFA_TYPE
-        ,ISNULL(t.NAME,'')                                 AS AFA_TYPE_NAME
-        ,ISNULL(sub.SUB_TYPE_NAME,'')                      AS SUB_TYPE_NAME
-        ,ISNULL(d.DEPT_NAME,'')                            AS DEPT_NAME
-        ,ISNULL(d.PREFIX,'')                               AS DEPT_PREFIX
-        ,ISNULL(l.NAME,'')                                 AS LOCATION_NAME
-        ,ISNULL(h.SUBJECT,'')                              AS SUBJECT
-        ,ISNULL(h.PURPOSES,'')                             AS PURPOSES
-        ,ISNULL(h.BG_EXPLANATION,'')                       AS BG_EXPLANATION
-        ,ISNULL(h.NOTETEXT,'')                             AS NOTETEXT
-
-        /* dates as text: the report should not have to know a locale */
-        ,ISNULL(CONVERT(varchar(12), h.AFA_DATE, 113),'')          AS AFA_DATE
+        ,ISNULL(t.NAME,'') AS AFA_TYPE_NAME
+        ,ISNULL(sub.SUB_TYPE_NAME,'') AS SUB_TYPE_NAME
+        ,ISNULL(d.DEPT_NAME,'') AS DEPT_NAME
+        ,ISNULL(d.PREFIX,'') AS DEPT_PREFIX
+        ,ISNULL(l.NAME,'') AS LOCATION_NAME
+        ,ISNULL(h.SUBJECT,'') AS SUBJECT
+        ,ISNULL(h.PURPOSES,'') AS PURPOSES
+        ,ISNULL(h.BG_EXPLANATION,'') AS BG_EXPLANATION
+        ,ISNULL(h.NOTETEXT,'') AS NOTETEXT
+        ,ISNULL(CONVERT(varchar(12), h.AFA_DATE, 113),'') AS AFA_DATE
         ,ISNULL(CONVERT(varchar(12), h.AFA_APPROVAL_DATE, 113),'') AS AFA_APPROVAL_DATE
-        ,ISNULL(CONVERT(varchar(12), h.FINANCE_DATE, 113),'')      AS FINANCE_DATE
-
-        /* one line, the way the printed form shows it */
+        ,ISNULL(CONVERT(varchar(12), h.FINANCE_DATE, 113),'') AS FINANCE_DATE
         ,CASE
             WHEN h.AFA_PER_FROM IS NULL AND h.AFA_PER_TO IS NULL THEN ''
             WHEN h.AFA_PER_TO IS NULL THEN CONVERT(varchar(12), h.AFA_PER_FROM, 113)
             WHEN h.AFA_PER_FROM IS NULL THEN CONVERT(varchar(12), h.AFA_PER_TO, 113)
             ELSE CONVERT(varchar(12), h.AFA_PER_FROM, 113) + ' s/d ' +
                  CONVERT(varchar(12), h.AFA_PER_TO, 113)
-         END                                               AS SCHEDULE
+         END AS SCHEDULE
 
-        ,ISNULL(h.CURCODE,'')                              AS CURCODE
-        ,ISNULL(h.AMT,0)                                   AS AMT
-        ,ISNULL(h.AMT_JPY,0)                               AS AMT_JPY
+        ,ISNULL(h.CURCODE,'') AS CURCODE
+        ,ISNULL(h.AMT,0) AS AMT
+        ,ISNULL(h.AMT_JPY,0) AS AMT_JPY
 
-        /* the legacy document prints this at the very top */
         ,'SRI AFA : ' + CASE WHEN ISNULL(h.SRI_STS,'') = 'Need'
                              THEN 'NEED' ELSE 'NO NEED' END AS SRI_LABEL
-        ,ISNULL(h.SRI_STS,'')                              AS SRI_STS
-        ,ISNULL(h.REF_REG,'')                              AS REF_REG
+        ,ISNULL(h.SRI_STS,'') AS SRI_STS
+        ,ISNULL(h.REF_REG,'') AS REF_REG
 
-        ,ISNULL(h.BUDGET_STS,'')                           AS BUDGET_STS
-        ,ISNULL(bc.Name, ISNULL(h.BUDGET_CHECK_BY,''))     AS BUDGET_CHECK_BY
+        ,ISNULL(h.BUDGET_STS,'') AS BUDGET_STS
+        ,ISNULL(bc.Name, ISNULL(h.BUDGET_CHECK_BY,'')) AS BUDGET_CHECK_BY
         ,CASE WHEN h.BUDGET_CHECK_DATE IS NULL THEN ''
               ELSE CONVERT(varchar(12), h.BUDGET_CHECK_DATE, 113) + ' ' +
                    SUBSTRING(CONVERT(varchar(20), h.BUDGET_CHECK_DATE, 100), 13, 8)
-         END                                               AS BUDGET_CHECK_DATE
+         END AS BUDGET_CHECK_DATE
 
         ,h.STS
-        ,ISNULL(cu.Name, ISNULL(h.USERID,''))              AS CREATED_BY
-        ,CONVERT(varchar(12), h.DATECREATE, 113)           AS CREATED_DATE
+        ,ISNULL(cu.Name, ISNULL(h.USERID,'')) AS CREATED_BY
+        ,CONVERT(varchar(12), h.DATECREATE, 113) AS CREATED_DATE
     FROM   dbo.AFA_NON_IFS h
     LEFT   JOIN dbo.AFA_TYPE       t  ON t.CODE    = h.AFA_TYPE
     LEFT   JOIN dbo.AFA_LOCATION   l  ON l.CODE    = h.AFA_LOCATION
@@ -85,17 +77,6 @@ BEGIN
     ) sub
     WHERE  h.AFA_NO = @AfaNo;
 
-
-    /* ========================================================================
-       2. SIGNATURE
-       One row per slot, Authorized / Supporting / Direct side by side, the
-       way the printed form lays them out. Slots where all three are empty
-       are dropped, so the document does not print blank rows.
-
-       The position and the name are already joined into one string, and
-       the approval line is already worded, because that wording differs
-       for Skip - it carries the reason with it.
-       ======================================================================== */
     ;WITH nums AS (
         SELECT TOP (10) ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS Urut
         FROM   sys.all_objects
@@ -129,22 +110,6 @@ BEGIN
     WHERE  ISNULL(a.NIK,'') <> '' OR ISNULL(s.NIK,'') <> '' OR ISNULL(dr.NIK,'') <> ''
     ORDER  BY n.Urut;
 
-
-    /* ========================================================================
-       3. DETAIL
-       Uniform shape for every AFA type:
-
-         GRP        groups the lines of one asset or one budget item
-         GRP_LABEL  the heading printed above that group
-         SEQ        line order inside the group
-         LABEL      what is printed on the left
-         AMOUNT     the figure printed on the right, NULL when there is none
-         IS_BOLD    totals and results, so the report does not have to
-                    guess which lines matter
-
-       A report that consumes this needs one detail band and one group
-       header - no conditional layout per AFA type.
-       ======================================================================== */
     DECLARE @type varchar(10);
     SELECT @type = AFA_TYPE FROM dbo.AFA_NON_IFS WHERE AFA_NO = @AfaNo;
 
@@ -163,11 +128,6 @@ BEGIN
 
     ELSE IF @type = 'DAA'
     BEGIN
-        /* A Disposal document holds exactly one row (no per-asset detail
-           columns - the asset is described in Background & Explanation
-           and the cover attachment instead), so the group label comes
-           from the sub-type name rather than an asset number/description
-           that no longer exists. */
         SELECT GRP, GRP_LABEL, SEQ, LABEL, AMOUNT, IS_BOLD
         FROM (
             SELECT 1 AS GRP, 'Disposal - ' + ISNULL(s.NAME,'') AS GRP_LABEL,
@@ -205,9 +165,6 @@ BEGIN
 
     ELSE IF @type = 'BRE'
     BEGIN
-        /* Source items print their shortage, target items print what they
-           receive and what is left. Source rows come first so the document
-           reads in the order the money moves. */
         SELECT GRP, GRP_LABEL, SEQ, LABEL, AMOUNT, IS_BOLD
         FROM (
             SELECT b.SEQ AS GRP,
@@ -281,8 +238,6 @@ BEGIN
 
     ELSE
     BEGIN
-        /* Unknown type: return the empty shape rather than nothing, so the
-           report still binds and prints the header and signatures. */
         SELECT CAST(NULL AS int)           AS GRP,
                CAST(NULL AS varchar(600))  AS GRP_LABEL,
                CAST(NULL AS int)           AS SEQ,
@@ -291,13 +246,6 @@ BEGIN
                CAST(NULL AS bit)           AS IS_BOLD
         WHERE  1 = 0;
     END
-
-
-    /* ========================================================================
-       4. ATTACHMENTS
-       Listed so the viewer can offer them; the printed document itself
-       does not include them.
-       ======================================================================== */
     SELECT SEQ, TYPE, FILE_PATH, ISNULL(CAPTION,'') AS CAPTION
     FROM   dbo.AFA_NON_IFS_ATTACHMENT
     WHERE  AFA_NO = @AfaNo

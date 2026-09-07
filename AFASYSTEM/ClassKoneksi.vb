@@ -559,4 +559,62 @@ Public Class ClassKoneksi
             CloseConn()
         End Try
     End Function
+    Public Function ExecuteStoredProcedureDataSet(
+        ByVal ProcName As String,
+        ByVal Parameters As Dictionary(Of String, Object)
+    ) As DataSet
+
+        Dim ds As New DataSet()
+        LastErrorMessage = ""
+
+        If Not OpenConn() Then
+            LastErrorMessage = "Connection failed."
+            Return ds
+        End If
+
+        Try
+            Cmd = New OleDb.OleDbCommand()
+            Cmd.Connection = Cn
+            Cmd.CommandType = CommandType.StoredProcedure
+            Cmd.CommandText = ProcName
+            Cmd.CommandTimeout = 1000
+
+            If Parameters IsNot Nothing Then
+                For Each Param In Parameters
+                    If Param.Value Is Nothing Then
+                        Cmd.Parameters.AddWithValue(Param.Key, DBNull.Value)
+                    Else
+                        Cmd.Parameters.AddWithValue(Param.Key, Param.Value)
+                    End If
+                Next
+            End If
+
+            Dim adapter As New OleDb.OleDbDataAdapter(Cmd)
+
+            adapter.Fill(ds)
+
+            Return ds
+
+        Catch ex As OleDb.OleDbException
+            Dim errorMessages As New List(Of String)
+
+            For Each err As OleDb.OleDbError In ex.Errors
+                errorMessages.Add(err.Message)
+            Next
+
+            LastErrorMessage = String.Join(" | ", errorMessages)
+
+            Return ds
+
+        Catch ex As Exception
+            LastErrorMessage = ex.Message
+            Return ds
+
+        Finally
+            Cmd = Nothing
+            CloseConn()
+        End Try
+
+    End Function
+
 End Class

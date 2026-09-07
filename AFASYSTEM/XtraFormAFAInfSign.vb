@@ -590,14 +590,76 @@ Public Class XtraFormAFAInfSign
     End Sub
 
     Private Sub BtnViewAFA_Click(sender As Object, e As EventArgs) Handles BtnViewAFA.Click
-        If _afaNo = "" Then
-            XtraMessageBox.Show("Please load a document first.", "Signature AFA Information",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+        If String.IsNullOrWhiteSpace(_afaNo) Then
+            XtraMessageBox.Show(
+            "Please load a document first.",
+            "Signature AFA Information",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
             Return
         End If
 
-        XtraMessageBox.Show("The document view is not available yet.", "Signature AFA Information",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Cursor.Current = Cursors.WaitCursor
+
+        Try
+            Dim service As New GeneralService()
+            Dim ds As DataSet = service.PrintAFA(_afaNo)
+
+            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
+                XtraMessageBox.Show(
+                "Print data is incomplete.",
+                "Signature AFA Information",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
+                Return
+            End If
+
+            ds.Tables(0).TableName = "Header"
+            ds.Tables(1).TableName = "Signature"
+            ds.Tables(2).TableName = "Detail"
+            ds.Tables(3).TableName = "Attachment"
+
+            Dim report As New AfaReportINF()
+
+            ' 1. Binding untuk laporan utama (Header)
+            report.DataSource = ds
+            report.DataMember = "Header"
+
+            ' 2. Binding eksplisit untuk masing-masing DetailReportBand
+            report.DetailReportSignature.DataSource = ds
+            report.DetailReportSignature.DataMember = "Signature"
+
+            report.DetailReportAttachment.DataSource = ds
+            report.DetailReportAttachment.DataMember = "Attachment"
+
+            ' Binding juga bagian Summary/Detail agar Estimate Cost ikut terisi
+            If report.DetailReportSummary IsNot Nothing Then
+                report.DetailReportSummary.DataSource = ds
+                report.DetailReportSummary.DataMember = "Detail"
+            End If
+
+            Dim printTool As New DevExpress.XtraReports.UI.ReportPrintTool(report)
+            printTool.ShowPreviewDialog()
+
+        Catch ex As Exception
+
+            XtraMessageBox.Show(
+            "The document could not be printed:" &
+            vbCrLf & ex.Message,
+            "Signature AFA Information",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
+
+        Finally
+
+            Cursor.Current = Cursors.Default
+
+        End Try
+
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click

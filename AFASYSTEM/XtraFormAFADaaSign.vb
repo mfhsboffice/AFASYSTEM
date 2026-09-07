@@ -503,14 +503,131 @@ Public Class XtraFormAFADaaSign
     End Sub
 
     Private Sub BtnViewAFA_Click(sender As Object, e As EventArgs) Handles BtnViewAFA.Click
-        If _afaNo = "" Then
-            XtraMessageBox.Show("Please load a document first.", "Signature AFA Disposal",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+
+        If String.IsNullOrWhiteSpace(_afaNo) Then
+            XtraMessageBox.Show(
+            "Please load a document first.",
+            "Signature AFA Disposal",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
             Return
         End If
 
-        XtraMessageBox.Show("The document view is not available yet.", "Signature AFA Disposal",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Cursor.Current = Cursors.WaitCursor
+
+        Try
+            Dim service As New GeneralService()
+            Dim ds As DataSet = service.PrintAFA(_afaNo)
+
+            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
+                XtraMessageBox.Show(
+                "Print data is incomplete.",
+                "Signature AFA Disposal",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Warning
+            )
+                Return
+            End If
+
+            ds.Tables(0).TableName = "Header"
+            ds.Tables(1).TableName = "Signature"
+            ds.Tables(2).TableName = "Detail"
+            ds.Tables(3).TableName = "Attachment"
+
+            ' --- HANYA PAKAI ATTACHMENT TIPE "Cover" UNTUK FOTO DI HALAMAN ---
+            ' Lampiran (mis. file .pdf) tidak bisa dirender oleh XRPictureBox
+            ' (ImageUrl cuma menerima format gambar) - itu sebabnya box-nya
+            ' selalu kosong walau FILE_PATH sudah benar. Sesuai keputusan,
+            ' section foto report memang hanya menampilkan Cover.
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(row("TYPE")) <> "Cover" Then nonCoverRows.Add(row)
+                Next
+                For Each row As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(row)
+                Next
+            End If
+
+            ' --- GABUNGKAN PATH LOKAL DENGAN NAMA FILE DI DATABASE ---
+            ' Pakai sumber yang sama persis dengan UploadAttachment (baris ~678),
+            ' bukan string literal terpisah - kalau tidak, print preview bisa
+            ' mencari file di folder yang berbeda dari folder tempat file
+            ' sebenarnya disimpan begitu konfigurasi btnlink.Caption berubah.
+            Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+            If serverPath = "" Then
+                XtraMessageBox.Show("The document server path is not configured.",
+                                    "Signature AFA Disposal",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    Dim fileName As String = Convert.ToString(row("FILE_PATH"))
+                    Dim isFullPath As Boolean = fileName.Length >= 2 AndAlso fileName(1) = ":"c OrElse fileName.StartsWith("\\")
+
+                    If Not String.IsNullOrEmpty(fileName) AndAlso Not isFullPath Then
+                        row("FILE_PATH") = Path.Combine(serverPath, fileName.TrimStart("\"c, "/"c))
+                    End If
+                Next
+            End If
+            ' ---------------------------------------------------------
+
+            ' === DEBUG SEMENTARA - hapus blok ini setelah masalah ketemu ===
+            Dim debugMsg As New System.Text.StringBuilder()
+            debugMsg.AppendLine("serverPath (btnlink.Caption): " & serverPath)
+            debugMsg.AppendLine()
+            If ds.Tables.Contains("Attachment") Then
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    Dim finalPath As String = Convert.ToString(row("FILE_PATH"))
+                    debugMsg.AppendLine("TYPE       : " & Convert.ToString(row("TYPE")))
+                    debugMsg.AppendLine("FILE_PATH  : " & finalPath)
+                    debugMsg.AppendLine("File.Exists: " & File.Exists(finalPath))
+                    debugMsg.AppendLine("-------------------------------------------")
+                Next
+            End If
+            XtraMessageBox.Show(debugMsg.ToString(), "DEBUG Attachment Path",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ' === AKHIR BLOK DEBUG ===
+
+            Dim report As New AfaReportDAA()
+
+            report.DataSource = ds
+            report.DataMember = "Header"
+
+            report.DetailReportSignature.DataSource = ds
+            report.DetailReportSignature.DataMember = "Signature"
+
+            report.DetailReportAttachment.DataSource = ds
+            report.DetailReportAttachment.DataMember = "Attachment"
+
+            If report.DetailReportSummary IsNot Nothing Then
+                report.DetailReportSummary.DataSource = ds
+                report.DetailReportSummary.DataMember = "Detail"
+            End If
+
+            Dim printTool As New DevExpress.XtraReports.UI.ReportPrintTool(report)
+
+            printTool.ShowPreviewDialog()
+
+        Catch ex As Exception
+
+            XtraMessageBox.Show(
+            "The document could not be printed:" &
+            vbCrLf & ex.Message,
+            "Signature AFA Disposal",
+            MessageBoxButtons.OK,
+            MessageBoxIcon.Warning
+        )
+
+        Finally
+
+            Cursor.Current = Cursors.Default
+
+        End Try
+
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
