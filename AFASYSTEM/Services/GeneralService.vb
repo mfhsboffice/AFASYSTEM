@@ -1,4 +1,5 @@
 ﻿Imports System.Data
+Imports System.Data.SqlClient
 
 Public Class GeneralService
     Inherits ClassKoneksi
@@ -220,18 +221,6 @@ Public Class GeneralService
 #End Region
 
 #Region "Application Users"
-    ''' <summary>
-    ''' Active application users, for pickers where a NIK must be chosen
-    ''' from a list rather than typed.
-    '''
-    ''' Goes through a stored procedure rather than inline SQL, like
-    ''' every other read in this module. The procedure also owns the
-    ''' collation handling needed to join User_H to master_employee -
-    ''' that used to live here and broke when the two tables turned out
-    ''' to have different default collations.
-    '''
-    ''' Columns: NIK, NAMA, JABATAN, DISPLAY_NAME ("Name - NIK - Position").
-    ''' </summary>
     Public Function GetActiveUsers() As DataTable
         Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetActiveUsers_Proc",
                                            New Dictionary(Of String, Object))
@@ -250,4 +239,12 @@ Public Class GeneralService
 
 #End Region
 
+#Region "Print Data"
+
+    Public Function PrintAFA(ByVal afaNo As String) As DataSet
+        Dim prm As New Dictionary(Of String, Object) From {{"@AfaNo", afaNo}}
+        Return ExecuteStoredProcedureDataSet("AFA_NonIFS_GetPrintData_Proc", prm)
+    End Function
+
+#End Region
 End Class

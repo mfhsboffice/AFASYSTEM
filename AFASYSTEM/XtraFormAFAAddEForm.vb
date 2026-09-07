@@ -207,11 +207,6 @@ Public Class XtraFormAFAAddEForm
         Return rows(0)
     End Function
 
-    ''' <summary>
-    ''' Instructions for the Designer (not done here - see report): add a
-    ''' SimpleButton named BtnSyncBudgetItem next to LookupBudgetItem. It
-    ''' calls the placeholder sync procedure.
-    ''' </summary>
     Private Sub BtnSyncBudgetItem_Click(sender As Object, e As EventArgs) Handles BtnSyncBudgetItem.Click
         Dim allocation As String = LookupBudgetItem.Text.Trim()
 
