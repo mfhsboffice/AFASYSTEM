@@ -535,11 +535,6 @@ Public Class XtraFormAFADaaSign
             ds.Tables(2).TableName = "Detail"
             ds.Tables(3).TableName = "Attachment"
 
-            ' --- HANYA PAKAI ATTACHMENT TIPE "Cover" UNTUK FOTO DI HALAMAN ---
-            ' Lampiran (mis. file .pdf) tidak bisa dirender oleh XRPictureBox
-            ' (ImageUrl cuma menerima format gambar) - itu sebabnya box-nya
-            ' selalu kosong walau FILE_PATH sudah benar. Sesuai keputusan,
-            ' section foto report memang hanya menampilkan Cover.
             If ds.Tables.Contains("Attachment") Then
                 Dim nonCoverRows As New List(Of DataRow)
                 For Each row As DataRow In ds.Tables("Attachment").Rows
@@ -550,11 +545,6 @@ Public Class XtraFormAFADaaSign
                 Next
             End If
 
-            ' --- GABUNGKAN PATH LOKAL DENGAN NAMA FILE DI DATABASE ---
-            ' Pakai sumber yang sama persis dengan UploadAttachment (baris ~678),
-            ' bukan string literal terpisah - kalau tidak, print preview bisa
-            ' mencari file di folder yang berbeda dari folder tempat file
-            ' sebenarnya disimpan begitu konfigurasi btnlink.Caption berubah.
             Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
             If serverPath = "" Then
                 XtraMessageBox.Show("The document server path is not configured.",
@@ -573,24 +563,6 @@ Public Class XtraFormAFADaaSign
                     End If
                 Next
             End If
-            ' ---------------------------------------------------------
-
-            ' === DEBUG SEMENTARA - hapus blok ini setelah masalah ketemu ===
-            Dim debugMsg As New System.Text.StringBuilder()
-            debugMsg.AppendLine("serverPath (btnlink.Caption): " & serverPath)
-            debugMsg.AppendLine()
-            If ds.Tables.Contains("Attachment") Then
-                For Each row As DataRow In ds.Tables("Attachment").Rows
-                    Dim finalPath As String = Convert.ToString(row("FILE_PATH"))
-                    debugMsg.AppendLine("TYPE       : " & Convert.ToString(row("TYPE")))
-                    debugMsg.AppendLine("FILE_PATH  : " & finalPath)
-                    debugMsg.AppendLine("File.Exists: " & File.Exists(finalPath))
-                    debugMsg.AppendLine("-------------------------------------------")
-                Next
-            End If
-            XtraMessageBox.Show(debugMsg.ToString(), "DEBUG Attachment Path",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information)
-            ' === AKHIR BLOK DEBUG ===
 
             Dim report As New AfaReportDAA()
 

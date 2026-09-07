@@ -622,20 +622,46 @@ Public Class XtraFormAFAInfSign
             ds.Tables(2).TableName = "Detail"
             ds.Tables(3).TableName = "Attachment"
 
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(row("TYPE")) <> "Cover" Then nonCoverRows.Add(row)
+                Next
+                For Each row As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(row)
+                Next
+            End If
+
+            Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+            If serverPath = "" Then
+                XtraMessageBox.Show("The document server path is not configured.",
+                                    "Signature AFA Information",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    Dim fileName As String = Convert.ToString(row("FILE_PATH"))
+                    Dim isFullPath As Boolean = fileName.Length >= 2 AndAlso fileName(1) = ":"c OrElse fileName.StartsWith("\\")
+
+                    If Not String.IsNullOrEmpty(fileName) AndAlso Not isFullPath Then
+                        row("FILE_PATH") = Path.Combine(serverPath, fileName.TrimStart("\"c, "/"c))
+                    End If
+                Next
+            End If
+
             Dim report As New AfaReportINF()
 
-            ' 1. Binding untuk laporan utama (Header)
             report.DataSource = ds
             report.DataMember = "Header"
 
-            ' 2. Binding eksplisit untuk masing-masing DetailReportBand
             report.DetailReportSignature.DataSource = ds
             report.DetailReportSignature.DataMember = "Signature"
 
             report.DetailReportAttachment.DataSource = ds
             report.DetailReportAttachment.DataMember = "Attachment"
 
-            ' Binding juga bagian Summary/Detail agar Estimate Cost ikut terisi
             If report.DetailReportSummary IsNot Nothing Then
                 report.DetailReportSummary.DataSource = ds
                 report.DetailReportSummary.DataMember = "Detail"
