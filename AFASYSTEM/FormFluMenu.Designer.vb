@@ -649,6 +649,7 @@ Partial Class FormFluMenu
         'Trans
         '
         Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.AceUnconfiguredDocuments, Me.AccordionControlSeparator11, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA, Me.AccordionControlSeparator12, Me.AceMonitoring, Me.AccordionControlSeparator13, Me.AceApproval})
+        Me.Trans.Expanded = True
         Me.Trans.Name = "Trans"
         Me.Trans.Text = "Transaction"
         '

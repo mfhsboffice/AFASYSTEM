@@ -107,7 +107,7 @@ Public Class XtraFormAFAMonitoring
                 "PRIORITY", "PRIORITY_REASON",
                 "BUDGET_CHECK_BY", "BUDGET_CHECK_DATE",
                 "CREATED_NIK", "LATEST_APPROVED_JAB", "PENDING_AT_JAB",
-                "TOTAL_NODE", "APPROVED_NODE"
+                "TOTAL_NODE", "APPROVED_NODE", "AFA_LOCATION"
             }
                 If .Columns(hidden) IsNot Nothing Then .Columns(hidden).Visible = False
             Next
@@ -117,6 +117,7 @@ Public Class XtraFormAFAMonitoring
             SetColumn("AFA_TYPE_NAME", "Type", 150)
             SetColumn("SUB_TYPE_NAME", "Sub Type", 180)
             SetColumn("DEPT_NAME", "Department", 200)
+            SetColumn("LOCATION_NAME", "Location", 100)
             SetColumn("SUBJECT", "Subject", 220)
             SetColumn("AMT", "Amount", 110)
             SetColumn("SRI_STS", "SRI", 80)
