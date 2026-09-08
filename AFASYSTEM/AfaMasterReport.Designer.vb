@@ -69,6 +69,7 @@ Partial Public Class AfaMasterReport
         Me.DetailAttachment = New DevExpress.XtraReports.UI.DetailBand()
         Me.CAPTION = New DevExpress.XtraReports.UI.XRLabel()
         Me.PictureBoxAttachment = New DevExpress.XtraReports.UI.XRPictureBox()
+        Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,8 +94,8 @@ Partial Public Class AfaMasterReport
         '
         'ReportHeader
         '
-        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable1, Me.AFA_TYPE_NAME, Me.AFA_TYPE_COMPANY})
-        Me.ReportHeader.HeightF = 98.0!
+        Me.ReportHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6, Me.XrTable1, Me.AFA_TYPE_COMPANY})
+        Me.ReportHeader.HeightF = 103.2083!
         Me.ReportHeader.Name = "ReportHeader"
         '
         'XrTable1
@@ -184,15 +185,15 @@ Partial Public Class AfaMasterReport
         'AFA_TYPE_NAME
         '
         Me.AFA_TYPE_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_TYPE_NAME]")})
-        Me.AFA_TYPE_NAME.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, CType((DevExpress.Drawing.DXFontStyle.Bold Or DevExpress.Drawing.DXFontStyle.Underline), DevExpress.Drawing.DXFontStyle))
-        Me.AFA_TYPE_NAME.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 23.0!)
+        Me.AFA_TYPE_NAME.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.AFA_TYPE_NAME.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.AFA_TYPE_NAME.Multiline = True
         Me.AFA_TYPE_NAME.Name = "AFA_TYPE_NAME"
         Me.AFA_TYPE_NAME.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.AFA_TYPE_NAME.SizeF = New System.Drawing.SizeF(726.7717!, 23.0!)
         Me.AFA_TYPE_NAME.StylePriority.UseFont = False
         Me.AFA_TYPE_NAME.StylePriority.UseTextAlignment = False
-        Me.AFA_TYPE_NAME.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
+        Me.AFA_TYPE_NAME.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'AFA_TYPE_COMPANY
         '
@@ -318,97 +319,113 @@ Partial Public Class AfaMasterReport
         '
         'DetailHeader
         '
-        Me.DetailHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1, Me.SUBJECT, Me.XrLabel2, Me.PURPOSE, Me.XrLabel4, Me.Background_AND_Explanation, Me.XrLabel3, Me.SCHEDULE})
-        Me.DetailHeader.HeightF = 191.9583!
+        Me.DetailHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.AFA_TYPE_NAME, Me.XrLabel1, Me.SUBJECT, Me.XrLabel2, Me.PURPOSE, Me.XrLabel4, Me.Background_AND_Explanation, Me.XrLabel3, Me.SCHEDULE})
+        Me.DetailHeader.HeightF = 175.6249!
         Me.DetailHeader.Name = "DetailHeader"
         '
         'XrLabel1
         '
         Me.XrLabel1.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
+        Me.XrLabel1.LocationFloat = New DevExpress.Utils.PointFloat(0!, 22.99999!)
         Me.XrLabel1.Multiline = True
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrLabel1.SizeF = New System.Drawing.SizeF(63.23001!, 18.65977!)
         Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
         Me.XrLabel1.Text = "Subject:"
+        Me.XrLabel1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'SUBJECT
         '
         Me.SUBJECT.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SUBJECT]")})
         Me.SUBJECT.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.SUBJECT.LocationFloat = New DevExpress.Utils.PointFloat(63.23001!, 0!)
+        Me.SUBJECT.LocationFloat = New DevExpress.Utils.PointFloat(63.23109!, 22.99999!)
         Me.SUBJECT.Multiline = True
         Me.SUBJECT.Name = "SUBJECT"
         Me.SUBJECT.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.SUBJECT.SizeF = New System.Drawing.SizeF(663.5411!, 18.65977!)
         Me.SUBJECT.StylePriority.UseFont = False
+        Me.SUBJECT.StylePriority.UseTextAlignment = False
+        Me.SUBJECT.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'XrLabel2
         '
         Me.XrLabel2.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 37.31944!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0!, 51.90274!)
         Me.XrLabel2.Multiline = True
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrLabel2.SizeF = New System.Drawing.SizeF(726.7717!, 16.92361!)
         Me.XrLabel2.StylePriority.UseFont = False
+        Me.XrLabel2.StylePriority.UseTextAlignment = False
         Me.XrLabel2.Text = "Purpose:"
+        Me.XrLabel2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'PURPOSE
         '
         Me.PURPOSE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PURPOSES]")})
         Me.PURPOSE.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.PURPOSE.LocationFloat = New DevExpress.Utils.PointFloat(0!, 54.24306!)
+        Me.PURPOSE.LocationFloat = New DevExpress.Utils.PointFloat(0.0005404155!, 68.82632!)
         Me.PURPOSE.Multiline = True
         Me.PURPOSE.Name = "PURPOSE"
         Me.PURPOSE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.PURPOSE.SizeF = New System.Drawing.SizeF(726.7716!, 18.83334!)
         Me.PURPOSE.StylePriority.UseFont = False
+        Me.PURPOSE.StylePriority.UseTextAlignment = False
+        Me.PURPOSE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'XrLabel4
         '
         Me.XrLabel4.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(0.0001854367!, 98.07638!)
+        Me.XrLabel4.LocationFloat = New DevExpress.Utils.PointFloat(0.0005404155!, 101.2013!)
         Me.XrLabel4.Multiline = True
         Me.XrLabel4.Name = "XrLabel4"
         Me.XrLabel4.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrLabel4.SizeF = New System.Drawing.SizeF(726.7719!, 16.92361!)
         Me.XrLabel4.StylePriority.UseFont = False
+        Me.XrLabel4.StylePriority.UseTextAlignment = False
         Me.XrLabel4.Text = "Background & Explanation:"
+        Me.XrLabel4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'Background_AND_Explanation
         '
         Me.Background_AND_Explanation.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[BG_EXPLANATION]")})
         Me.Background_AND_Explanation.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.Background_AND_Explanation.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 115.0!)
+        Me.Background_AND_Explanation.LocationFloat = New DevExpress.Utils.PointFloat(0!, 118.1249!)
         Me.Background_AND_Explanation.Multiline = True
         Me.Background_AND_Explanation.Name = "Background_AND_Explanation"
         Me.Background_AND_Explanation.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.Background_AND_Explanation.SizeF = New System.Drawing.SizeF(726.7716!, 20.50002!)
         Me.Background_AND_Explanation.StylePriority.UseFont = False
+        Me.Background_AND_Explanation.StylePriority.UseTextAlignment = False
+        Me.Background_AND_Explanation.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'XrLabel3
         '
         Me.XrLabel3.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(0.0004238552!, 168.8333!)
+        Me.XrLabel3.LocationFloat = New DevExpress.Utils.PointFloat(0.0005404155!, 150.1735!)
         Me.XrLabel3.Multiline = True
         Me.XrLabel3.Name = "XrLabel3"
         Me.XrLabel3.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrLabel3.SizeF = New System.Drawing.SizeF(73.99402!, 18.65977!)
         Me.XrLabel3.StylePriority.UseFont = False
+        Me.XrLabel3.StylePriority.UseTextAlignment = False
         Me.XrLabel3.Text = "Schedule:"
+        Me.XrLabel3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'SCHEDULE
         '
         Me.SCHEDULE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SCHEDULE]")})
         Me.SCHEDULE.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.SCHEDULE.LocationFloat = New DevExpress.Utils.PointFloat(73.99445!, 168.8333!)
+        Me.SCHEDULE.LocationFloat = New DevExpress.Utils.PointFloat(73.99527!, 150.1735!)
         Me.SCHEDULE.Multiline = True
         Me.SCHEDULE.Name = "SCHEDULE"
         Me.SCHEDULE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.SCHEDULE.SizeF = New System.Drawing.SizeF(652.7772!, 18.65977!)
         Me.SCHEDULE.StylePriority.UseFont = False
+        Me.SCHEDULE.StylePriority.UseTextAlignment = False
+        Me.SCHEDULE.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         '
         'ReportFooter1
         '
@@ -437,7 +454,9 @@ Partial Public Class AfaMasterReport
         Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrLabel5.SizeF = New System.Drawing.SizeF(87.5!, 23.0!)
         Me.XrLabel5.StylePriority.UseFont = False
+        Me.XrLabel5.StylePriority.UseTextAlignment = False
         Me.XrLabel5.Text = "Checked By,"
+        Me.XrLabel5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft
         '
         'DetailReportAttachment
         '
@@ -445,6 +464,7 @@ Partial Public Class AfaMasterReport
         Me.DetailReportAttachment.DataMember = "Attachment"
         Me.DetailReportAttachment.Level = 2
         Me.DetailReportAttachment.Name = "DetailReportAttachment"
+        Me.DetailReportAttachment.FilterString = "[TYPE] = 'Cover'"
         '
         'DetailAttachment
         '
@@ -472,6 +492,19 @@ Partial Public Class AfaMasterReport
         Me.PictureBoxAttachment.Name = "PictureBoxAttachment"
         Me.PictureBoxAttachment.SizeF = New System.Drawing.SizeF(726.7711!, 78.3333!)
         Me.PictureBoxAttachment.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage
+        '
+        'XrLabel6
+        '
+        Me.XrLabel6.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 23.0!)
+        Me.XrLabel6.Multiline = True
+        Me.XrLabel6.Name = "XrLabel6"
+        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel6.SizeF = New System.Drawing.SizeF(726.7708!, 23.0!)
+        Me.XrLabel6.StylePriority.UseFont = False
+        Me.XrLabel6.StylePriority.UseTextAlignment = False
+        Me.XrLabel6.Text = "APPLICATION FOR APPROVAL"
+        Me.XrLabel6.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
         'AfaMasterReport
         '
@@ -540,4 +573,5 @@ Partial Public Class AfaMasterReport
     Public WithEvents CAPTION As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
     Friend WithEvents LabelBudgetControll As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
 End Class

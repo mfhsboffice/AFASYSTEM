@@ -20,25 +20,23 @@ Partial Class XtraFormAFAApproval
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnCheckUncheck = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnViewAFA = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnLoad = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnExit = New DevExpress.XtraEditors.SimpleButton()
         Me.MemoEditReason = New DevExpress.XtraEditors.MemoEdit()
         Me.BtnSkip = New DevExpress.XtraEditors.SimpleButton()
-        Me.BtnUnapprove = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnApproveSelected = New DevExpress.XtraEditors.SimpleButton()
         Me.GridControlApproval = New DevExpress.XtraGrid.GridControl()
         Me.GridViewApproval = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciReason = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.BtnCheckUncheck = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -48,7 +46,6 @@ Partial Class XtraFormAFAApproval
         CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciReason, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -65,7 +62,6 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControl1.Controls.Add(Me.BtnExit)
         Me.LayoutControl1.Controls.Add(Me.MemoEditReason)
         Me.LayoutControl1.Controls.Add(Me.BtnSkip)
-        Me.LayoutControl1.Controls.Add(Me.BtnUnapprove)
         Me.LayoutControl1.Controls.Add(Me.BtnApproveSelected)
         Me.LayoutControl1.Controls.Add(Me.GridControlApproval)
         Me.LayoutControl1.Dock = System.Windows.Forms.DockStyle.Fill
@@ -75,6 +71,19 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControl1.Size = New System.Drawing.Size(988, 723)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'BtnCheckUncheck
+        '
+        Me.BtnCheckUncheck.Appearance.BackColor = System.Drawing.Color.Teal
+        Me.BtnCheckUncheck.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCheckUncheck.Appearance.Options.UseBackColor = True
+        Me.BtnCheckUncheck.Appearance.Options.UseFont = True
+        Me.BtnCheckUncheck.Location = New System.Drawing.Point(498, 687)
+        Me.BtnCheckUncheck.Name = "BtnCheckUncheck"
+        Me.BtnCheckUncheck.Size = New System.Drawing.Size(255, 24)
+        Me.BtnCheckUncheck.StyleController = Me.LayoutControl1
+        Me.BtnCheckUncheck.TabIndex = 12
+        Me.BtnCheckUncheck.Text = "Check"
         '
         'BtnViewAFA
         '
@@ -110,7 +119,7 @@ Partial Class XtraFormAFAApproval
         Me.BtnExit.Appearance.Options.UseFont = True
         Me.BtnExit.Location = New System.Drawing.Point(12, 687)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(141, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(208, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 9
         Me.BtnExit.Text = "Exit"
@@ -127,25 +136,12 @@ Partial Class XtraFormAFAApproval
         '
         Me.BtnSkip.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSkip.Appearance.Options.UseFont = True
-        Me.BtnSkip.Location = New System.Drawing.Point(157, 687)
+        Me.BtnSkip.Location = New System.Drawing.Point(224, 687)
         Me.BtnSkip.Name = "BtnSkip"
-        Me.BtnSkip.Size = New System.Drawing.Size(206, 24)
+        Me.BtnSkip.Size = New System.Drawing.Size(270, 24)
         Me.BtnSkip.StyleController = Me.LayoutControl1
         Me.BtnSkip.TabIndex = 7
         Me.BtnSkip.Text = "Skip Approval"
-        '
-        'BtnUnapprove
-        '
-        Me.BtnUnapprove.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Warning
-        Me.BtnUnapprove.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnUnapprove.Appearance.Options.UseBackColor = True
-        Me.BtnUnapprove.Appearance.Options.UseFont = True
-        Me.BtnUnapprove.Location = New System.Drawing.Point(367, 687)
-        Me.BtnUnapprove.Name = "BtnUnapprove"
-        Me.BtnUnapprove.Size = New System.Drawing.Size(203, 24)
-        Me.BtnUnapprove.StyleController = Me.LayoutControl1
-        Me.BtnUnapprove.TabIndex = 6
-        Me.BtnUnapprove.Text = "Unapprove"
         '
         'BtnApproveSelected
         '
@@ -153,9 +149,9 @@ Partial Class XtraFormAFAApproval
         Me.BtnApproveSelected.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnApproveSelected.Appearance.Options.UseBackColor = True
         Me.BtnApproveSelected.Appearance.Options.UseFont = True
-        Me.BtnApproveSelected.Location = New System.Drawing.Point(744, 687)
+        Me.BtnApproveSelected.Location = New System.Drawing.Point(757, 687)
         Me.BtnApproveSelected.Name = "BtnApproveSelected"
-        Me.BtnApproveSelected.Size = New System.Drawing.Size(232, 24)
+        Me.BtnApproveSelected.Size = New System.Drawing.Size(219, 24)
         Me.BtnApproveSelected.StyleController = Me.LayoutControl1
         Me.BtnApproveSelected.TabIndex = 5
         Me.BtnApproveSelected.Text = "Approve Selected"
@@ -180,7 +176,7 @@ Partial Class XtraFormAFAApproval
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LciReason, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem4, Me.LciReason, Me.LayoutControlItem5, Me.LayoutControlItem6, Me.LayoutControlItem7, Me.LayoutControlItem8})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(988, 723)
         Me.Root.TextVisible = False
@@ -196,25 +192,17 @@ Partial Class XtraFormAFAApproval
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.BtnApproveSelected
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(732, 675)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(745, 675)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(236, 28)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(223, 28)
         Me.LayoutControlItem2.TextVisible = False
-        '
-        'LayoutControlItem3
-        '
-        Me.LayoutControlItem3.Control = Me.BtnUnapprove
-        Me.LayoutControlItem3.Location = New System.Drawing.Point(355, 675)
-        Me.LayoutControlItem3.Name = "LayoutControlItem3"
-        Me.LayoutControlItem3.Size = New System.Drawing.Size(207, 28)
-        Me.LayoutControlItem3.TextVisible = False
         '
         'LayoutControlItem4
         '
         Me.LayoutControlItem4.Control = Me.BtnSkip
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(145, 675)
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(212, 675)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(210, 28)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(274, 28)
         Me.LayoutControlItem4.TextVisible = False
         '
         'LciReason
@@ -232,7 +220,7 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControlItem5.Control = Me.BtnExit
         Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 675)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(145, 28)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(212, 28)
         Me.LayoutControlItem5.TextVisible = False
         '
         'LayoutControlItem6
@@ -251,25 +239,12 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControlItem7.Size = New System.Drawing.Size(498, 28)
         Me.LayoutControlItem7.TextVisible = False
         '
-        'BtnCheckUncheck
-        '
-        Me.BtnCheckUncheck.Appearance.BackColor = System.Drawing.Color.Teal
-        Me.BtnCheckUncheck.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnCheckUncheck.Appearance.Options.UseBackColor = True
-        Me.BtnCheckUncheck.Appearance.Options.UseFont = True
-        Me.BtnCheckUncheck.Location = New System.Drawing.Point(574, 687)
-        Me.BtnCheckUncheck.Name = "BtnCheckUncheck"
-        Me.BtnCheckUncheck.Size = New System.Drawing.Size(166, 24)
-        Me.BtnCheckUncheck.StyleController = Me.LayoutControl1
-        Me.BtnCheckUncheck.TabIndex = 12
-        Me.BtnCheckUncheck.Text = "Check"
-        '
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.BtnCheckUncheck
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(562, 675)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(486, 675)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(170, 28)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(259, 28)
         Me.LayoutControlItem8.TextVisible = False
         '
         'XtraFormAFAApproval
@@ -289,7 +264,6 @@ Partial Class XtraFormAFAApproval
         CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciReason, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
@@ -305,10 +279,8 @@ Partial Class XtraFormAFAApproval
     Friend WithEvents GridViewApproval As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents BtnUnapprove As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents BtnApproveSelected As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents BtnSkip As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents MemoEditReason As DevExpress.XtraEditors.MemoEdit

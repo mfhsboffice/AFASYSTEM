@@ -75,6 +75,7 @@ Partial Class XtraFormAFAMonitoring
         Me.SelectType.Location = New System.Drawing.Point(454, 35)
         Me.SelectType.Name = "SelectType"
         Me.SelectType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.SelectType.Size = New System.Drawing.Size(430, 20)
         Me.SelectType.StyleController = Me.LayoutControl1
         Me.SelectType.TabIndex = 6
@@ -84,6 +85,7 @@ Partial Class XtraFormAFAMonitoring
         Me.SelectStatus.Location = New System.Drawing.Point(15, 35)
         Me.SelectStatus.Name = "SelectStatus"
         Me.SelectStatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.SelectStatus.Size = New System.Drawing.Size(429, 20)
         Me.SelectStatus.StyleController = Me.LayoutControl1
         Me.SelectStatus.TabIndex = 5

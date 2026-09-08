@@ -120,10 +120,6 @@ Public Class XtraFormAFAApproval
 #End Region
 
 #Region "Events"
-
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles BtnLoad.Click
-        LoadList()
-    End Sub
     Private Sub BtnApproveSelected_Click(sender As Object, e As EventArgs) Handles BtnApproveSelected.Click
         Dim rows = GetCheckedRows()
 
@@ -145,36 +141,6 @@ Public Class XtraFormAFAApproval
                                 If(result.TotalFailed = 0, MessageBoxIcon.Information, MessageBoxIcon.Warning))
 
             LoadList()
-        Finally
-            Cursor.Current = Cursors.Default
-        End Try
-    End Sub
-    Private Sub BtnUnapprove_Click(sender As Object, e As EventArgs) Handles BtnUnapprove.Click
-        Dim row As DataRowView = GetFocusedRow()
-
-        If row Is Nothing Then
-            XtraMessageBox.Show("Please select a document first.", "Approval AFA",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        Dim afaNo As String = Convert.ToString(row("AFA_NO"))
-        Dim jenis As String = Convert.ToString(row("JENIS"))
-        Dim reason As String = MemoEditReason.Text.Trim()
-
-        If XtraMessageBox.Show("Un-approve AFA " & afaNo & "?", "Confirmation",
-                               MessageBoxButtons.OKCancel, MessageBoxIcon.Question) <> DialogResult.OK Then Return
-
-        Cursor.Current = Cursors.WaitCursor
-        Try
-            If _service.Approve(afaNo, jenis, _nik, _pc, "UNAPP", If(reason = "", Nothing, reason)) Then
-                XtraMessageBox.Show(_service.LastErrorMessage, "Approval AFA",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
-                LoadList()
-            Else
-                XtraMessageBox.Show(_service.LastErrorMessage, "Un-approve Failed",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
         Finally
             Cursor.Current = Cursors.Default
         End Try
@@ -362,6 +328,36 @@ Public Class XtraFormAFAApproval
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Close()
+    End Sub
+
+    Private Sub BtnCheckUncheck_Click(sender As Object, e As EventArgs) Handles BtnCheckUncheck.Click
+        Dim row As DataRowView = GetFocusedRow()
+
+        If row Is Nothing Then
+            XtraMessageBox.Show("Please select a document first.", "Approval AFA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim afaNo As String = Convert.ToString(row("AFA_NO"))
+        Dim reason As String = MemoEditReason.Text.Trim()
+
+        If XtraMessageBox.Show("Mark AFA " & afaNo & " as Budget Checked?", "Confirmation",
+                               MessageBoxButtons.OKCancel, MessageBoxIcon.Question) <> DialogResult.OK Then Return
+
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            If _service.BudgetCheck(afaNo, _nik, _pc, "CHECK", If(reason = "", Nothing, reason)) Then
+                XtraMessageBox.Show(_service.LastErrorMessage, "Approval AFA",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadList()
+            Else
+                XtraMessageBox.Show(_service.LastErrorMessage, "Check Budget Failed",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
     End Sub
 
 #End Region
