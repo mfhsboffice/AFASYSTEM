@@ -55,6 +55,7 @@ Partial Public Class AfaReportDAA
         'XrTable2
         '
         Me.XrTable2.StylePriority.UseBorders = False
+        Me.XrTable2.StylePriority.UseFont = False
         Me.XrTable2.StylePriority.UseTextAlignment = False
         '
         'XrTable3
@@ -86,10 +87,6 @@ Partial Public Class AfaReportDAA
         '
         Me.XrLabel4.StylePriority.UseFont = False
         '
-        'XrLabel6
-        '
-        Me.XrLabel6.StylePriority.UseBorders = False
-        '
         'XrLabel3
         '
         Me.XrLabel3.StylePriority.UseFont = False
@@ -97,6 +94,13 @@ Partial Public Class AfaReportDAA
         'SCHEDULE
         '
         Me.SCHEDULE.StylePriority.UseFont = False
+        '
+        'CAPTION
+        '
+        Me.CAPTION.SizeF = New System.Drawing.SizeF(726.7711!, 23.0!)
+        Me.CAPTION.StylePriority.UseFont = False
+        Me.CAPTION.StylePriority.UseTextAlignment = False
+        Me.CAPTION.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel7
         '
@@ -152,7 +156,7 @@ Partial Public Class AfaReportDAA
         'DetailSummary
         '
         Me.DetailSummary.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTable4})
-        Me.DetailSummary.HeightF = 25.0!
+        Me.DetailSummary.HeightF = 20.0!
         Me.DetailSummary.Name = "DetailSummary"
         '
         'XrTable4
@@ -171,18 +175,20 @@ Partial Public Class AfaReportDAA
         '
         'XrTableCell1
         '
+        Me.XrTableCell1.CanGrow = False
+        Me.XrTableCell1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LABEL]")})
         Me.XrTableCell1.Multiline = True
         Me.XrTableCell1.Name = "XrTableCell1"
         Me.XrTableCell1.Weight = 1.0R
-        Me.XrTableCell1.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LABEL]"))
         '
         'XrTableCell3
         '
+        Me.XrTableCell3.CanGrow = False
+        Me.XrTableCell3.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AMOUNT]")})
         Me.XrTableCell3.Multiline = True
         Me.XrTableCell3.Name = "XrTableCell3"
-        Me.XrTableCell3.Weight = 1.0R
-        Me.XrTableCell3.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AMOUNT]"))
         Me.XrTableCell3.TextFormatString = "{0:n2}"
+        Me.XrTableCell3.Weight = 1.0R
         '
         'AfaReportDAA
         '

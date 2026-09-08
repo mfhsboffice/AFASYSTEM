@@ -122,6 +122,10 @@ Partial Class FormFluMenu
         Me.Trans_Monitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlSeparator7 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.AOViewAFA = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator12 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.AceMonitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator13 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.AceApproval = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Report = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Rpt_HistoryAFA = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Others = New DevExpress.XtraBars.Navigation.AccordionControlElement()
@@ -139,10 +143,6 @@ Partial Class FormFluMenu
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AceMonitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AceApproval = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AccordionControlSeparator12 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
-        Me.AccordionControlSeparator13 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -649,7 +649,6 @@ Partial Class FormFluMenu
         'Trans
         '
         Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.AceUnconfiguredDocuments, Me.AccordionControlSeparator11, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA, Me.AccordionControlSeparator12, Me.AceMonitoring, Me.AccordionControlSeparator13, Me.AceApproval})
-        Me.Trans.Expanded = True
         Me.Trans.Name = "Trans"
         Me.Trans.Text = "Transaction"
         '
@@ -812,6 +811,28 @@ Partial Class FormFluMenu
         Me.AOViewAFA.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AOViewAFA.Text = "View AFA"
         '
+        'AccordionControlSeparator12
+        '
+        Me.AccordionControlSeparator12.Name = "AccordionControlSeparator12"
+        '
+        'AceMonitoring
+        '
+        Me.AceMonitoring.ImageOptions.SvgImage = CType(resources.GetObject("AceMonitoring.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.AceMonitoring.Name = "AceMonitoring"
+        Me.AceMonitoring.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceMonitoring.Text = "Monitoring"
+        '
+        'AccordionControlSeparator13
+        '
+        Me.AccordionControlSeparator13.Name = "AccordionControlSeparator13"
+        '
+        'AceApproval
+        '
+        Me.AceApproval.ImageOptions.SvgImage = CType(resources.GetObject("AceApproval.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.AceApproval.Name = "AceApproval"
+        Me.AceApproval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceApproval.Text = "Approval"
+        '
         'Report
         '
         Me.Report.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Rpt_HistoryAFA})
@@ -921,26 +942,6 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Name = "AccordionControlElement29"
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
-        '
-        'AceMonitoring
-        '
-        Me.AceMonitoring.Name = "AceMonitoring"
-        Me.AceMonitoring.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AceMonitoring.Text = "Monitoring"
-        '
-        'AceApproval
-        '
-        Me.AceApproval.Name = "AceApproval"
-        Me.AceApproval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AceApproval.Text = "Approval"
-        '
-        'AccordionControlSeparator12
-        '
-        Me.AccordionControlSeparator12.Name = "AccordionControlSeparator12"
-        '
-        'AccordionControlSeparator13
-        '
-        Me.AccordionControlSeparator13.Name = "AccordionControlSeparator13"
         '
         'FormFluMenu
         '

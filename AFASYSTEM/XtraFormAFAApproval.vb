@@ -1,4 +1,5 @@
-﻿Imports DevExpress.XtraEditors
+﻿Imports System.IO
+Imports DevExpress.XtraEditors
 Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class XtraFormAFAApproval
@@ -8,7 +9,7 @@ Public Class XtraFormAFAApproval
     Private _dtList As DataTable
 
     Private ReadOnly _nik As String = Trim(FormFluMenu.btnuserid.Caption)
-    Private ReadOnly _pc As String = System.Net.Dns.GetHostName()
+    Private ReadOnly _pc As String = Net.Dns.GetHostName()
 
 #Region "Form Lifecycle"
 
@@ -227,8 +228,136 @@ Public Class XtraFormAFAApproval
                                 MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
-        XtraMessageBox.Show("The document view is not available yet. AFA No: " & Convert.ToString(row("AFA_NO")),
-                            "Approval AFA", MessageBoxButtons.OK, MessageBoxIcon.Information)
+
+        Dim afaNo As String = Convert.ToString(row("AFA_NO"))
+        Dim afaType As String = Convert.ToString(row("AFA_TYPE"))
+
+        ViewAfaDocument(afaNo, afaType)
+    End Sub
+
+    Private Sub BindMasterBands(ByVal report As AfaMasterReport, ByVal ds As DataSet)
+        report.DataSource = ds
+        report.DataMember = "Header"
+
+        report.DetailReportSignature.DataSource = ds
+        report.DetailReportSignature.DataMember = "Signature"
+
+        report.DetailReportAttachment.DataSource = ds
+        report.DetailReportAttachment.DataMember = "Attachment"
+    End Sub
+
+    Private Sub ViewAfaDocument(ByVal afaNo As String, ByVal afaType As String)
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            Dim service As New GeneralService()
+            Dim ds As DataSet = service.PrintAFA(afaNo)
+
+            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
+                XtraMessageBox.Show("Print data is incomplete.", "Approval AFA",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ds.Tables(0).TableName = "Header"
+            ds.Tables(1).TableName = "Signature"
+            ds.Tables(2).TableName = "Detail"
+            ds.Tables(3).TableName = "Attachment"
+
+            Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+            If serverPath = "" Then
+                XtraMessageBox.Show("The document server path is not configured.",
+                                    "Approval AFA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    Dim fileName As String = Convert.ToString(r("FILE_PATH"))
+                    Dim isFullPath As Boolean = fileName.Length >= 2 AndAlso fileName(1) = ":"c OrElse fileName.StartsWith("\\")
+
+                    If Not String.IsNullOrEmpty(fileName) AndAlso Not isFullPath Then
+                        r("FILE_PATH") = Path.Combine(serverPath, fileName.TrimStart("\"c, "/"c))
+                    End If
+                Next
+            End If
+
+            Dim lampiranPaths As New List(Of String)
+            If ds.Tables.Contains("Attachment") Then
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    Dim fp As String = Convert.ToString(r("FILE_PATH"))
+                    If Not String.IsNullOrEmpty(fp) AndAlso fp.ToLower().EndsWith(".pdf") AndAlso File.Exists(fp) Then
+                        lampiranPaths.Add(fp)
+                    End If
+                Next
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(r("TYPE")) <> "Cover" Then nonCoverRows.Add(r)
+                Next
+                For Each r As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(r)
+                Next
+            End If
+
+            Select Case afaType
+                Case "INF"
+                    Dim report As New AfaReportINF()
+                    BindMasterBands(report, ds)
+                    report.DetailReportSummary.DataSource = ds
+                    report.DetailReportSummary.DataMember = "Detail"
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
+
+                Case "DAA"
+                    Dim report As New AfaReportDAA()
+                    BindMasterBands(report, ds)
+                    report.DetailReportSummary.DataSource = ds
+                    report.DetailReportSummary.DataMember = "Detail"
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
+
+                Case "BRE"
+                    Dim report As New AfaReportBRE()
+                    BindMasterBands(report, ds)
+                    report.DetailReportSummary.DataSource = ds
+                    report.DetailReportSummary.DataMember = "Detail"
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
+
+                Case "ADD"
+                    Dim report As New AfaReportADD()
+                    BindMasterBands(report, ds)
+                    report.DetailReportSummary.DataSource = ds
+                    report.DetailReportSummary.DataMember = "Detail"
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
+
+                Case Else
+                    XtraMessageBox.Show("No report layout is defined for AFA type '" & afaType & "'.",
+                                        "Approval AFA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return
+            End Select
+
+        Catch ex As Exception
+            XtraMessageBox.Show("The document could not be printed:" & vbCrLf & ex.Message,
+                                "Approval AFA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click

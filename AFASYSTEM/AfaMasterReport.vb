@@ -10,17 +10,17 @@ Public Class AfaMasterReport
         Try
             Dim pic As DevExpress.XtraReports.UI.XRPictureBox = DirectCast(sender, DevExpress.XtraReports.UI.XRPictureBox)
             Dim filePath As String = Convert.ToString(pic.Tag)
+            If pic.Image IsNot Nothing Then
+                pic.Image.Dispose()
+                pic.Image = Nothing
+            End If
 
             If Not String.IsNullOrEmpty(filePath) AndAlso System.IO.File.Exists(filePath) Then
                 Using tempImg As Image = Image.FromFile(filePath)
                     pic.Image = New Bitmap(tempImg)
                 End Using
-            Else
-                pic.Image = Nothing
             End If
         Catch ex As Exception
-            XtraMessageBox.Show("DEBUG - gagal load gambar attachment: " & ex.Message,
-                                "DEBUG PictureBoxAttachment")
             PictureBoxAttachment.Image = Nothing
         End Try
     End Sub

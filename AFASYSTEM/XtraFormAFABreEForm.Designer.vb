@@ -71,6 +71,10 @@ Partial Class XtraFormAFABreEForm
         Me.LciBudgetYear = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.PictureEditAttachCover = New DevExpress.XtraEditors.PictureEdit()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.TextEditCaptionCover = New DevExpress.XtraEditors.TextEdit()
+        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.TextEditBudgetYear.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -122,10 +126,16 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureEditAttachCover.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEditCaptionCover.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.TextEditCaptionCover)
+        Me.LayoutControl1.Controls.Add(Me.PictureEditAttachCover)
         Me.LayoutControl1.Controls.Add(Me.BtnSyncBudgetItemTarget)
         Me.LayoutControl1.Controls.Add(Me.BtnSyncBudgetItemSource)
         Me.LayoutControl1.Controls.Add(Me.TextEditBudgetYear)
@@ -394,7 +404,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.MemoEditBgExp.Location = New System.Drawing.Point(490, 169)
         Me.MemoEditBgExp.Name = "MemoEditBgExp"
-        Me.MemoEditBgExp.Size = New System.Drawing.Size(467, 239)
+        Me.MemoEditBgExp.Size = New System.Drawing.Size(467, 157)
         Me.MemoEditBgExp.StyleController = Me.LayoutControl1
         Me.MemoEditBgExp.TabIndex = 10
         '
@@ -402,7 +412,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.MemoEditPurpose.Location = New System.Drawing.Point(15, 169)
         Me.MemoEditPurpose.Name = "MemoEditPurpose"
-        Me.MemoEditPurpose.Size = New System.Drawing.Size(465, 239)
+        Me.MemoEditPurpose.Size = New System.Drawing.Size(465, 157)
         Me.MemoEditPurpose.StyleController = Me.LayoutControl1
         Me.MemoEditPurpose.TabIndex = 9
         '
@@ -462,7 +472,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear, Me.LayoutControlItem1, Me.LayoutControlItem2})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(972, 737)
         Me.Root.TextVisible = False
@@ -528,7 +538,7 @@ Partial Class XtraFormAFABreEForm
         Me.LciPurpose.Location = New System.Drawing.Point(0, 138)
         Me.LciPurpose.Name = "LciPurpose"
         Me.LciPurpose.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciPurpose.Size = New System.Drawing.Size(475, 265)
+        Me.LciPurpose.Size = New System.Drawing.Size(475, 183)
         Me.LciPurpose.Text = "Purpose"
         Me.LciPurpose.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciPurpose.TextSize = New System.Drawing.Size(165, 13)
@@ -539,7 +549,7 @@ Partial Class XtraFormAFABreEForm
         Me.LciBgExp.Location = New System.Drawing.Point(475, 138)
         Me.LciBgExp.Name = "LciBgExp"
         Me.LciBgExp.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBgExp.Size = New System.Drawing.Size(477, 265)
+        Me.LciBgExp.Size = New System.Drawing.Size(477, 183)
         Me.LciBgExp.Text = "Background && Explanation"
         Me.LciBgExp.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBgExp.TextSize = New System.Drawing.Size(165, 13)
@@ -726,6 +736,43 @@ Partial Class XtraFormAFABreEForm
         Me.LayoutControlItem2.Size = New System.Drawing.Size(61, 48)
         Me.LayoutControlItem2.TextVisible = False
         '
+        'PictureEditAttachCover
+        '
+        Me.PictureEditAttachCover.Location = New System.Drawing.Point(12, 350)
+        Me.PictureEditAttachCover.Name = "PictureEditAttachCover"
+        Me.PictureEditAttachCover.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
+        Me.PictureEditAttachCover.Size = New System.Drawing.Size(948, 20)
+        Me.PictureEditAttachCover.StyleController = Me.LayoutControl1
+        Me.PictureEditAttachCover.TabIndex = 29
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.PictureEditAttachCover
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 321)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(952, 41)
+        Me.LayoutControlItem3.Text = "Attachment Cover"
+        Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(165, 13)
+        '
+        'TextEditCaptionCover
+        '
+        Me.TextEditCaptionCover.Location = New System.Drawing.Point(12, 391)
+        Me.TextEditCaptionCover.Name = "TextEditCaptionCover"
+        Me.TextEditCaptionCover.Size = New System.Drawing.Size(948, 20)
+        Me.TextEditCaptionCover.StyleController = Me.LayoutControl1
+        Me.TextEditCaptionCover.TabIndex = 30
+        '
+        'LayoutControlItem4
+        '
+        Me.LayoutControlItem4.Control = Me.TextEditCaptionCover
+        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 362)
+        Me.LayoutControlItem4.Name = "LayoutControlItem4"
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(952, 41)
+        Me.LayoutControlItem4.Text = "Caption Cover"
+        Me.LayoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(165, 13)
+        '
         'XtraFormAFABreEForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -786,6 +833,10 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureEditAttachCover.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEditCaptionCover.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -842,4 +893,8 @@ Partial Class XtraFormAFABreEForm
     Friend WithEvents BtnSyncBudgetItemSource As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents TextEditCaptionCover As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents PictureEditAttachCover As DevExpress.XtraEditors.PictureEdit
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
 End Class

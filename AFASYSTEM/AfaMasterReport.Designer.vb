@@ -20,7 +20,6 @@ Partial Public Class AfaMasterReport
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(AfaMasterReport))
         Dim XrWatermark1 As DevExpress.XtraReports.UI.XRWatermark = New DevExpress.XtraReports.UI.XRWatermark()
         Me.TopMargin = New DevExpress.XtraReports.UI.TopMarginBand()
         Me.BottomMargin = New DevExpress.XtraReports.UI.BottomMarginBand()
@@ -63,8 +62,9 @@ Partial Public Class AfaMasterReport
         Me.XrLabel3 = New DevExpress.XtraReports.UI.XRLabel()
         Me.SCHEDULE = New DevExpress.XtraReports.UI.XRLabel()
         Me.XtraTabbedMdiManager1 = New DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(Me.components)
-        Me.XrLabel6 = New DevExpress.XtraReports.UI.XRLabel()
         Me.ReportFooter1 = New DevExpress.XtraReports.UI.ReportFooterBand()
+        Me.LabelBudgetControll = New DevExpress.XtraReports.UI.XRLabel()
+        Me.XrLabel5 = New DevExpress.XtraReports.UI.XRLabel()
         Me.DetailReportAttachment = New DevExpress.XtraReports.UI.DetailReportBand()
         Me.DetailAttachment = New DevExpress.XtraReports.UI.DetailBand()
         Me.CAPTION = New DevExpress.XtraReports.UI.XRLabel()
@@ -185,11 +185,11 @@ Partial Public Class AfaMasterReport
         '
         Me.AFA_TYPE_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_TYPE_NAME]")})
         Me.AFA_TYPE_NAME.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, CType((DevExpress.Drawing.DXFontStyle.Bold Or DevExpress.Drawing.DXFontStyle.Underline), DevExpress.Drawing.DXFontStyle))
-        Me.AFA_TYPE_NAME.LocationFloat = New DevExpress.Utils.PointFloat(283.3333!, 23.0!)
+        Me.AFA_TYPE_NAME.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 23.0!)
         Me.AFA_TYPE_NAME.Multiline = True
         Me.AFA_TYPE_NAME.Name = "AFA_TYPE_NAME"
         Me.AFA_TYPE_NAME.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.AFA_TYPE_NAME.SizeF = New System.Drawing.SizeF(152.0833!, 23.0!)
+        Me.AFA_TYPE_NAME.SizeF = New System.Drawing.SizeF(726.7717!, 23.0!)
         Me.AFA_TYPE_NAME.StylePriority.UseFont = False
         Me.AFA_TYPE_NAME.StylePriority.UseTextAlignment = False
         Me.AFA_TYPE_NAME.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
@@ -238,21 +238,24 @@ Partial Public Class AfaMasterReport
         '
         'XrTableCell8
         '
-        Me.XrTableCell8.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Auth], ''), NewLine(), IsNull([Auth_App], ''))"))
+        Me.XrTableCell8.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Auth], ''), NewLine(), IsNull([Auth_App], ''), ' ', IsNull([Auth_D" &
+                    "ate], ''))")})
         Me.XrTableCell8.Multiline = True
         Me.XrTableCell8.Name = "XrTableCell8"
         Me.XrTableCell8.Weight = 1.0R
         '
         'XrTableCell9
         '
-        Me.XrTableCell9.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Supp], ''), NewLine(), IsNull([Supp_App], ''))"))
+        Me.XrTableCell9.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Supp], ''), NewLine(), IsNull([Supp_App], ''), ' ', IsNull([Supp_D" &
+                    "ate], ''))")})
         Me.XrTableCell9.Multiline = True
         Me.XrTableCell9.Name = "XrTableCell9"
         Me.XrTableCell9.Weight = 1.0R
         '
         'XrTableCell10
         '
-        Me.XrTableCell10.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Dir], ''), NewLine(), IsNull([Dir_App], ''))"))
+        Me.XrTableCell10.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([Dir], ''), NewLine(), IsNull([Dir_App], ''), ' ', IsNull([Dir_Date" &
+                    "], ''))")})
         Me.XrTableCell10.Multiline = True
         Me.XrTableCell10.Name = "XrTableCell10"
         Me.XrTableCell10.Weight = 1.0R
@@ -268,12 +271,14 @@ Partial Public Class AfaMasterReport
         Me.XrTable2.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
             Or DevExpress.XtraPrinting.BorderSide.Right) _
             Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
+        Me.XrTable2.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
         Me.XrTable2.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrTable2.Name = "XrTable2"
         Me.XrTable2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrTable2.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow3})
         Me.XrTable2.SizeF = New System.Drawing.SizeF(726.7718!, 25.0!)
         Me.XrTable2.StylePriority.UseBorders = False
+        Me.XrTable2.StylePriority.UseFont = False
         Me.XrTable2.StylePriority.UseTextAlignment = False
         Me.XrTable2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter
         '
@@ -314,7 +319,7 @@ Partial Public Class AfaMasterReport
         'DetailHeader
         '
         Me.DetailHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1, Me.SUBJECT, Me.XrLabel2, Me.PURPOSE, Me.XrLabel4, Me.Background_AND_Explanation, Me.XrLabel3, Me.SCHEDULE})
-        Me.DetailHeader.HeightF = 195.125!
+        Me.DetailHeader.HeightF = 191.9583!
         Me.DetailHeader.Name = "DetailHeader"
         '
         'XrLabel1
@@ -324,7 +329,7 @@ Partial Public Class AfaMasterReport
         Me.XrLabel1.Multiline = True
         Me.XrLabel1.Name = "XrLabel1"
         Me.XrLabel1.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.XrLabel1.SizeF = New System.Drawing.SizeF(726.7717!, 18.65977!)
+        Me.XrLabel1.SizeF = New System.Drawing.SizeF(63.23001!, 18.65977!)
         Me.XrLabel1.StylePriority.UseFont = False
         Me.XrLabel1.Text = "Subject:"
         '
@@ -332,17 +337,17 @@ Partial Public Class AfaMasterReport
         '
         Me.SUBJECT.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[SUBJECT]")})
         Me.SUBJECT.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.SUBJECT.LocationFloat = New DevExpress.Utils.PointFloat(0!, 18.65975!)
+        Me.SUBJECT.LocationFloat = New DevExpress.Utils.PointFloat(63.23001!, 0!)
         Me.SUBJECT.Multiline = True
         Me.SUBJECT.Name = "SUBJECT"
         Me.SUBJECT.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.SUBJECT.SizeF = New System.Drawing.SizeF(726.7717!, 18.65977!)
+        Me.SUBJECT.SizeF = New System.Drawing.SizeF(663.5411!, 18.65977!)
         Me.SUBJECT.StylePriority.UseFont = False
         '
         'XrLabel2
         '
         Me.XrLabel2.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0.0001854367!, 37.3195!)
+        Me.XrLabel2.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 37.31944!)
         Me.XrLabel2.Multiline = True
         Me.XrLabel2.Name = "XrLabel2"
         Me.XrLabel2.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
@@ -354,11 +359,11 @@ Partial Public Class AfaMasterReport
         '
         Me.PURPOSE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[PURPOSES]")})
         Me.PURPOSE.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.PURPOSE.LocationFloat = New DevExpress.Utils.PointFloat(0!, 54.24307!)
+        Me.PURPOSE.LocationFloat = New DevExpress.Utils.PointFloat(0!, 54.24306!)
         Me.PURPOSE.Multiline = True
         Me.PURPOSE.Name = "PURPOSE"
         Me.PURPOSE.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.PURPOSE.SizeF = New System.Drawing.SizeF(726.7716!, 43.83334!)
+        Me.PURPOSE.SizeF = New System.Drawing.SizeF(726.7716!, 18.83334!)
         Me.PURPOSE.StylePriority.UseFont = False
         '
         'XrLabel4
@@ -376,11 +381,11 @@ Partial Public Class AfaMasterReport
         '
         Me.Background_AND_Explanation.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[BG_EXPLANATION]")})
         Me.Background_AND_Explanation.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
-        Me.Background_AND_Explanation.LocationFloat = New DevExpress.Utils.PointFloat(0.0004238552!, 115.0!)
+        Me.Background_AND_Explanation.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 115.0!)
         Me.Background_AND_Explanation.Multiline = True
         Me.Background_AND_Explanation.Name = "Background_AND_Explanation"
         Me.Background_AND_Explanation.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.Background_AND_Explanation.SizeF = New System.Drawing.SizeF(726.7716!, 53.83334!)
+        Me.Background_AND_Explanation.SizeF = New System.Drawing.SizeF(726.7716!, 20.50002!)
         Me.Background_AND_Explanation.StylePriority.UseFont = False
         '
         'XrLabel3
@@ -405,24 +410,34 @@ Partial Public Class AfaMasterReport
         Me.SCHEDULE.SizeF = New System.Drawing.SizeF(652.7772!, 18.65977!)
         Me.SCHEDULE.StylePriority.UseFont = False
         '
-        'XrLabel6
-        '
-        Me.XrLabel6.Borders = CType((((DevExpress.XtraPrinting.BorderSide.Left Or DevExpress.XtraPrinting.BorderSide.Top) _
-            Or DevExpress.XtraPrinting.BorderSide.Right) _
-            Or DevExpress.XtraPrinting.BorderSide.Bottom), DevExpress.XtraPrinting.BorderSide)
-        Me.XrLabel6.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", resources.GetString("XrLabel6.ExpressionBindings"))})
-        Me.XrLabel6.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
-        Me.XrLabel6.Multiline = True
-        Me.XrLabel6.Name = "XrLabel6"
-        Me.XrLabel6.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.XrLabel6.SizeF = New System.Drawing.SizeF(217.1876!, 140.0!)
-        Me.XrLabel6.StylePriority.UseBorders = False
-        '
         'ReportFooter1
         '
-        Me.ReportFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel6})
-        Me.ReportFooter1.HeightF = 140.0!
+        Me.ReportFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.LabelBudgetControll, Me.XrLabel5})
+        Me.ReportFooter1.HeightF = 83.87508!
         Me.ReportFooter1.Name = "ReportFooter1"
+        '
+        'LabelBudgetControll
+        '
+        Me.LabelBudgetControll.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([BUDGET_CHECK_BY], ''), NewLine(), IsNull([BUDGET_STS], ''), ' ', I" &
+                    "sNull([BUDGET_CHECK_DATE], ''))")})
+        Me.LabelBudgetControll.LocationFloat = New DevExpress.Utils.PointFloat(0.00006357829!, 23.00002!)
+        Me.LabelBudgetControll.Multiline = True
+        Me.LabelBudgetControll.Name = "LabelBudgetControll"
+        Me.LabelBudgetControll.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.LabelBudgetControll.SizeF = New System.Drawing.SizeF(726.7711!, 55.95837!)
+        Me.LabelBudgetControll.StylePriority.UseTextAlignment = False
+        Me.LabelBudgetControll.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft
+        '
+        'XrLabel5
+        '
+        Me.XrLabel5.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrLabel5.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 0!)
+        Me.XrLabel5.Multiline = True
+        Me.XrLabel5.Name = "XrLabel5"
+        Me.XrLabel5.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
+        Me.XrLabel5.SizeF = New System.Drawing.SizeF(87.5!, 23.0!)
+        Me.XrLabel5.StylePriority.UseFont = False
+        Me.XrLabel5.Text = "Checked By,"
         '
         'DetailReportAttachment
         '
@@ -434,28 +449,25 @@ Partial Public Class AfaMasterReport
         'DetailAttachment
         '
         Me.DetailAttachment.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.CAPTION, Me.PictureBoxAttachment})
-        Me.DetailAttachment.HeightF = 106.4583!
+        Me.DetailAttachment.HeightF = 101.9999!
         Me.DetailAttachment.Name = "DetailAttachment"
         '
         'CAPTION
         '
         Me.CAPTION.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CAPTION]")})
+        Me.CAPTION.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
         Me.CAPTION.LocationFloat = New DevExpress.Utils.PointFloat(0!, 78.33328!)
         Me.CAPTION.Multiline = True
         Me.CAPTION.Name = "CAPTION"
         Me.CAPTION.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.CAPTION.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.CAPTION.SizeF = New System.Drawing.SizeF(726.7711!, 23.0!)
+        Me.CAPTION.StylePriority.UseFont = False
+        Me.CAPTION.StylePriority.UseTextAlignment = False
+        Me.CAPTION.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'PictureBoxAttachment
         '
-        ' FILE_PATH di-bind ke Tag (bukan ImageSource langsung, dan bukan
-        ' dibaca lewat GetCurrentColumnValue di code-behind - keduanya
-        ' terbukti tidak reliable di struktur report ini). Tag pakai
-        ' ExpressionBinding biasa (mekanisme sama seperti CAPTION.[CAPTION]
-        ' yang sudah terbukti tampil benar), lalu di-baca di
-        ' PictureBoxAttachment_BeforePrint (AfaMasterReport.vb) buat load
-        ' Image manual.
-        Me.PictureBoxAttachment.ExpressionBindings.Add(New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Tag", "[FILE_PATH]"))
+        Me.PictureBoxAttachment.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Tag", "[FILE_PATH]")})
         Me.PictureBoxAttachment.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.PictureBoxAttachment.Name = "PictureBoxAttachment"
         Me.PictureBoxAttachment.SizeF = New System.Drawing.SizeF(726.7711!, 78.3333!)
@@ -518,7 +530,6 @@ Partial Public Class AfaMasterReport
     Public WithEvents PURPOSE As DevExpress.XtraReports.UI.XRLabel
     Public WithEvents Background_AND_Explanation As DevExpress.XtraReports.UI.XRLabel
     Public WithEvents XrLabel4 As DevExpress.XtraReports.UI.XRLabel
-    Public WithEvents XrLabel6 As DevExpress.XtraReports.UI.XRLabel
     Public WithEvents XtraTabbedMdiManager1 As DevExpress.XtraTabbedMdi.XtraTabbedMdiManager
     Public WithEvents ReportFooter1 As DevExpress.XtraReports.UI.ReportFooterBand
     Public WithEvents DetailReportAttachment As DevExpress.XtraReports.UI.DetailReportBand
@@ -527,4 +538,6 @@ Partial Public Class AfaMasterReport
     Public WithEvents SCHEDULE As DevExpress.XtraReports.UI.XRLabel
     Public WithEvents PictureBoxAttachment As DevExpress.XtraReports.UI.XRPictureBox
     Public WithEvents CAPTION As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents XrLabel5 As DevExpress.XtraReports.UI.XRLabel
+    Friend WithEvents LabelBudgetControll As DevExpress.XtraReports.UI.XRLabel
 End Class

@@ -653,8 +653,100 @@ Public Class XtraFormAFABreSign
             Return
         End If
 
-        XtraMessageBox.Show("The document view is not available yet.", "Signature AFA Reclass Budget",
-                            MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Cursor.Current = Cursors.WaitCursor
+
+        Try
+            Dim service As New GeneralService()
+            Dim ds As DataSet = service.PrintAFA(_afaNo)
+
+            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
+                XtraMessageBox.Show("Print data is incomplete.", "Signature AFA Reclass Budget",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            ds.Tables(0).TableName = "Header"
+            ds.Tables(1).TableName = "Signature"
+            ds.Tables(2).TableName = "Detail"
+            ds.Tables(3).TableName = "Attachment"
+
+            ' --- GABUNGKAN PATH LOKAL DENGAN NAMA FILE DI DATABASE ---
+            Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+            If serverPath = "" Then
+                XtraMessageBox.Show("The document server path is not configured.",
+                                    "Signature AFA Reclass Budget",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                For Each row As DataRow In ds.Tables("Attachment").Rows
+                    Dim fileName As String = Convert.ToString(row("FILE_PATH"))
+                    Dim isFullPath As Boolean = fileName.Length >= 2 AndAlso fileName(1) = ":"c OrElse fileName.StartsWith("\\")
+
+                    If Not String.IsNullOrEmpty(fileName) AndAlso Not isFullPath Then
+                        row("FILE_PATH") = Path.Combine(serverPath, fileName.TrimStart("\"c, "/"c))
+                    End If
+                Next
+            End If
+            ' ---------------------------------------------------------
+
+            ' --- AMBIL PATH LAMPIRAN (.pdf) DULU, SEBELUM TABEL DIPANGKAS ---
+            ' Diambil dari tabel yang masih utuh (Cover + Lampiran) supaya
+            ' PdfViewer di XtraFormAfaPreview tetap dapat semua Lampiran-nya,
+            ' meski di bawah ini tabel Attachment dipangkas jadi Cover-only
+            ' untuk report (menjaga spacing/layout report tetap sama seperti
+            ' sebelum fitur Lampiran ditambahkan).
+            Dim lampiranPaths As New List(Of String)
+            If ds.Tables.Contains("Attachment") Then
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    Dim fp As String = Convert.ToString(r("FILE_PATH"))
+                    If Not String.IsNullOrEmpty(fp) AndAlso fp.ToLower().EndsWith(".pdf") AndAlso File.Exists(fp) Then
+                        lampiranPaths.Add(fp)
+                    End If
+                Next
+            End If
+
+            ' --- PANGKAS TABEL ATTACHMENT JADI COVER-ONLY UNTUK REPORT ---
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(r("TYPE")) <> "Cover" Then nonCoverRows.Add(r)
+                Next
+                For Each r As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(r)
+                Next
+            End If
+
+            Dim report As New AfaReportBRE()
+
+            report.DataSource = ds
+            report.DataMember = "Header"
+
+            report.DetailReportSignature.DataSource = ds
+            report.DetailReportSignature.DataMember = "Signature"
+
+            report.DetailReportAttachment.DataSource = ds
+            report.DetailReportAttachment.DataMember = "Attachment"
+
+            If report.DetailReportSummary IsNot Nothing Then
+                report.DetailReportSummary.DataSource = ds
+                report.DetailReportSummary.DataMember = "Detail"
+            End If
+
+            Using previewForm As New XtraFormAfaPreview()
+                previewForm.LoadPreview(report, lampiranPaths)
+                previewForm.ShowDialog()
+            End Using
+            report.Dispose()
+
+        Catch ex As Exception
+            XtraMessageBox.Show("The document could not be printed:" & vbCrLf & ex.Message,
+                                "Signature AFA Reclass Budget",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
     End Sub
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click

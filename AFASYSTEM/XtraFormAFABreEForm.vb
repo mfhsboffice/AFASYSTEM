@@ -1,4 +1,5 @@
 Imports System.Data
+Imports System.IO
 Imports DevExpress.XtraEditors
 
 Public Class XtraFormAFABreEForm
@@ -11,6 +12,7 @@ Public Class XtraFormAFABreEForm
     Private _dtBudgetAllocation As DataTable
 
     Private _afaNo As String = String.Empty
+    Private _attachmentPath As String = String.Empty
 
     Private _sourceCc As String = String.Empty
     Private _sourceContract As String = String.Empty
@@ -60,6 +62,9 @@ Public Class XtraFormAFABreEForm
             .MaskSettings.Set("mask", "d")
             .MaxLength = 4
         End With
+
+        PictureEditAttachCover.Properties.NullText = "Double-click to choose a file"
+        PictureEditAttachCover.Properties.ShowMenu = False
     End Sub
 
 #End Region
@@ -116,11 +121,6 @@ Public Class XtraFormAFABreEForm
 
 #Region "Budget Item Lookup"
 
-    ''' <summary>
-    ''' (Re)binds both Source and Target lookups to the allocations for the
-    ''' currently typed Budget Year / Budget Revision. Both lookups share the
-    ''' same list - a row picked as Source is just as pickable as Target.
-    ''' </summary>
     Private Sub LoadBudgetAllocation()
         _dtBudgetAllocation = _service.GetBudgetAllocation(TextEditBudgetYear.Text.Trim(), TextEditBudgetRevision.Text.Trim())
 
@@ -139,11 +139,6 @@ Public Class XtraFormAFABreEForm
         End If
     End Sub
 
-    ''' <summary>
-    ''' BUDGET_ITEM_CODE and BUDGET_ITEM_NAME both come from ALLOCATION in
-    ''' AFA_NonIFS_GetBudgetAllocation_Proc, so the popup only needs to show
-    ''' one of them.
-    ''' </summary>
     Private Sub ConfigureBudgetItemColumns(ByVal view As DevExpress.XtraGrid.Views.Grid.GridView)
         If view Is Nothing OrElse view.Columns.Count = 0 Then Return
 
@@ -273,8 +268,6 @@ Public Class XtraFormAFABreEForm
 #End Region
 
 #Region "Calculation"
-
-    ''' <summary>Mirrors AFA_NonIFS_Recalc_Proc's BRE branch, for an immediate preview.</summary>
     Private Sub Recalculate()
         Dim budgetSource As Decimal = ParseAmount(TextEditBudgetAmtSource.Text)
         Dim actualSource As Decimal = ParseAmount(TextEditActualUpSource.Text)
@@ -373,9 +366,6 @@ Public Class XtraFormAFABreEForm
             Dim deptId As Integer = Convert.ToInt32(GetSelectedValue(SelectDepartment, _dtDepartment, "DEPT_ID"))
             Dim locCode As String = Convert.ToString(GetSelectedValue(SelectLocation, _dtLocation, "CODE"))
 
-            ' BRE has no currency selector on this form: budget reclass figures
-            ' come straight from IFS in USD, matching AFA_NON_IFS.CURCODE's
-            ' default and BUDGET_CURR_RATE being USD-based.
             Dim curCode As String = "USD"
 
             Dim perFrom As Object = If(DateEditScheduleFrom.EditValue Is Nothing, Nothing, DateEditScheduleFrom.DateTime.Date)
@@ -426,6 +416,21 @@ Public Class XtraFormAFABreEForm
                 Return
             End If
 
+            If _attachmentPath <> "" Then
+                Dim storedName As String = UploadAttachment(_attachmentPath, "Cover")
+
+                If storedName <> "" Then
+                    If Not _service.SaveAttachment(_afaNo, 0, "Cover", storedName,
+                                                   TextEditCaptionCover.Text.Trim(), _nik) Then
+                        XtraMessageBox.Show("The document was saved, but the attachment could not be recorded:" & vbCrLf &
+                                            _service.LastErrorMessage,
+                                            "Attachment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Else
+                        _attachmentPath = String.Empty
+                    End If
+                End If
+            End If
+
             Try
                 Clipboard.SetText(_afaNo)
             Catch
@@ -444,6 +449,62 @@ Public Class XtraFormAFABreEForm
 
 #End Region
 
+#Region "Attachment"
+    Private Function BuildStoredFileName(ByVal afaNo As String,
+                                         ByVal attachmentType As String,
+                                         ByVal sourcePath As String) As String
+        Dim safeAfa As String = afaNo.Replace("/", "-").Replace("\", "-")
+        Dim stamp As String = DateTime.Now.ToString("yyyyMMddHHmmssfff")
+
+        Return String.Format("{0}_{1}_{2}_{3}{4}", safeAfa, attachmentType, stamp, _nik,
+                             Path.GetExtension(sourcePath))
+    End Function
+
+    Private Function UploadAttachment(ByVal sourcePath As String,
+                                      ByVal attachmentType As String) As String
+        Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+
+        If serverPath = "" Then
+            XtraMessageBox.Show("The document server path is not configured.",
+                                "Attachment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return String.Empty
+        End If
+
+        Dim storedName As String = BuildStoredFileName(_afaNo, attachmentType, sourcePath)
+
+        Try
+            File.Copy(sourcePath, Path.Combine(serverPath, storedName), True)
+            Return storedName
+        Catch ex As Exception
+            XtraMessageBox.Show("The file could not be copied to the document server:" & vbCrLf &
+                                ex.Message,
+                                "Attachment", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return String.Empty
+        End Try
+    End Function
+
+    Private Sub PictureEditAttachCover_DoubleClick(sender As Object, e As EventArgs) _
+            Handles PictureEditAttachCover.DoubleClick
+        Using ofd As New OpenFileDialog()
+            ofd.Title = "Choose an attachment"
+            ofd.Filter = "Image files|*.jpg;*.jpeg;*.png;*.bmp"
+
+            If ofd.ShowDialog() <> DialogResult.OK Then Return
+
+            Dim ext As String = Path.GetExtension(ofd.FileName).ToLowerInvariant()
+            If ext <> ".jpg" AndAlso ext <> ".jpeg" AndAlso ext <> ".png" AndAlso ext <> ".bmp" Then
+                XtraMessageBox.Show("Cover must be an image file (JPG, PNG or BMP).",
+                                    "E-Form AFA Reclass Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return
+            End If
+
+            _attachmentPath = ofd.FileName
+            PictureEditAttachCover.Image = Image.FromFile(ofd.FileName)
+        End Using
+    End Sub
+
+#End Region
+
 #Region "Helpers"
 
     Private Function FormatAmount(ByVal value As Object) As String
@@ -453,12 +514,14 @@ Public Class XtraFormAFABreEForm
 
     Private Sub ClearForm()
         _afaNo = String.Empty
+        _attachmentPath = String.Empty
 
         SelectLocation.SelectedIndex = -1
         TextEditSubject.Text = ""
         MemoEditPurpose.Text = ""
         MemoEditBgExp.Text = ""
         TextEditBudgetRevision.Text = ""
+        TextEditCaptionCover.Text = ""
 
         LookupBudgetItemSource.EditValue = Nothing
         LookupBudgetItemTarget.EditValue = Nothing
@@ -481,6 +544,9 @@ Public Class XtraFormAFABreEForm
 
         DateEditScheduleFrom.EditValue = Nothing
         DateEditScheduleTo.EditValue = Nothing
+
+        PictureEditAttachCover.Image = Nothing
+        PictureEditAttachCover.Properties.NullText = "Double-click to choose a file"
 
         Me.Text = "E-Form AFA Reclass Budget"
     End Sub

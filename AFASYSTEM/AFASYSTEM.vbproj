@@ -349,6 +349,12 @@
     <Compile Include="XtraFormAFAMonitoring.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormAfaPreview.Designer.vb">
+      <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAfaPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAppOwner.Designer.vb">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
     </Compile>
@@ -516,6 +522,12 @@
     <EmbeddedResource Include="AfaMasterReport.resx">
       <DependentUpon>AfaMasterReport.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AfaReportADD.resx">
+      <DependentUpon>AfaReportADD.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AfaReportBRE.resx">
+      <DependentUpon>AfaReportBRE.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AfaReportDAA.resx">
       <DependentUpon>AfaReportDAA.vb</DependentUpon>
     </EmbeddedResource>
@@ -576,6 +588,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFAMonitoring.resx">
       <DependentUpon>XtraFormAFAMonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAfaPreview.resx">
+      <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAppOwner.resx">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
