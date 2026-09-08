@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Public Class AfaReportADD
     Inherits AFASYSTEM.AfaMasterReport
 
     'XtraReport overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,7 +17,7 @@ Partial Public Class AfaReportADD
     'NOTE: The following procedure is required by the Designer
     'It can be modified using the Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim XrWatermark1 As DevExpress.XtraReports.UI.XRWatermark = New DevExpress.XtraReports.UI.XRWatermark()
         Me.DetailReportSummary = New DevExpress.XtraReports.UI.DetailReportBand()
@@ -33,10 +33,12 @@ Partial Public Class AfaReportADD
         CType(Me.XrTableSummary, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me, System.ComponentModel.ISupportInitialize).BeginInit()
         '
+        'DetailHeader
+        '
+        Me.DetailHeader.HeightF = 205.8333!
+        '
         'AFA_TYPE_NAME
         '
-        Me.AFA_TYPE_NAME.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 23.0!)
-        Me.AFA_TYPE_NAME.SizeF = New System.Drawing.SizeF(726.7706!, 23.0!)
         Me.AFA_TYPE_NAME.StylePriority.UseFont = False
         Me.AFA_TYPE_NAME.StylePriority.UseTextAlignment = False
         '
@@ -84,9 +86,9 @@ Partial Public Class AfaReportADD
         '
         Me.XrLabel4.StylePriority.UseFont = False
         '
-        'DetailReportAttachment
+        'DetailAttachment
         '
-        Me.DetailReportAttachment.Expanded = False
+        Me.DetailAttachment.HeightF = 116.2916!
         '
         'XrLabel3
         '
@@ -99,6 +101,7 @@ Partial Public Class AfaReportADD
         'CAPTION
         '
         Me.CAPTION.StylePriority.UseFont = False
+        Me.CAPTION.StylePriority.UseTextAlignment = False
         '
         'DetailReportSummary
         '
@@ -109,15 +112,16 @@ Partial Public Class AfaReportADD
         'DetailSummary
         '
         Me.DetailSummary.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrTableSummary})
+        Me.DetailSummary.HeightF = 20.0!
         Me.DetailSummary.Name = "DetailSummary"
         '
         'XrTableSummary
         '
-        Me.XrTableSummary.LocationFloat = New DevExpress.Utils.PointFloat(0.0004132589!, 0!)
+        Me.XrTableSummary.LocationFloat = New DevExpress.Utils.PointFloat(0!, 0!)
         Me.XrTableSummary.Name = "XrTableSummary"
         Me.XrTableSummary.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
         Me.XrTableSummary.Rows.AddRange(New DevExpress.XtraReports.UI.XRTableRow() {Me.XrTableRow5})
-        Me.XrTableSummary.SizeF = New System.Drawing.SizeF(726.7706!, 25.0!)
+        Me.XrTableSummary.SizeF = New System.Drawing.SizeF(726.772!, 20.0!)
         '
         'XrTableRow5
         '
@@ -127,6 +131,7 @@ Partial Public Class AfaReportADD
         '
         'XrTableCell1
         '
+        Me.XrTableCell1.CanGrow = False
         Me.XrTableCell1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LABEL]")})
         Me.XrTableCell1.Multiline = True
         Me.XrTableCell1.Name = "XrTableCell1"
@@ -134,6 +139,7 @@ Partial Public Class AfaReportADD
         '
         'XrTableCell3
         '
+        Me.XrTableCell3.CanGrow = False
         Me.XrTableCell3.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AMOUNT]")})
         Me.XrTableCell3.Multiline = True
         Me.XrTableCell3.Name = "XrTableCell3"

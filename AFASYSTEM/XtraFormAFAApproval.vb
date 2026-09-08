@@ -80,7 +80,6 @@ Public Class XtraFormAFAApproval
             SetColumn("CREATED_BY", "Drafter", 150)
             SetColumn("CREATED_DATE", "Created", 90)
             SetColumn("DAYS_WAITING", "Days Waiting", 90)
-            SetColumn("BUDGET_STS", "Budget Status", 100)
         End With
     End Sub
 
@@ -264,16 +263,6 @@ Public Class XtraFormAFAApproval
             ds.Tables(2).TableName = "Detail"
             ds.Tables(3).TableName = "Attachment"
 
-            If ds.Tables.Contains("Attachment") Then
-                Dim nonCoverRows As New List(Of DataRow)
-                For Each r As DataRow In ds.Tables("Attachment").Rows
-                    If Convert.ToString(r("TYPE")) <> "Cover" Then nonCoverRows.Add(r)
-                Next
-                For Each r As DataRow In nonCoverRows
-                    ds.Tables("Attachment").Rows.Remove(r)
-                Next
-            End If
-
             Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
             If serverPath = "" Then
                 XtraMessageBox.Show("The document server path is not configured.",
@@ -292,7 +281,25 @@ Public Class XtraFormAFAApproval
                 Next
             End If
 
-            Dim printTool As DevExpress.XtraReports.UI.ReportPrintTool
+            Dim lampiranPaths As New List(Of String)
+            If ds.Tables.Contains("Attachment") Then
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    Dim fp As String = Convert.ToString(r("FILE_PATH"))
+                    If Not String.IsNullOrEmpty(fp) AndAlso fp.ToLower().EndsWith(".pdf") AndAlso File.Exists(fp) Then
+                        lampiranPaths.Add(fp)
+                    End If
+                Next
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(r("TYPE")) <> "Cover" Then nonCoverRows.Add(r)
+                Next
+                For Each r As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(r)
+                Next
+            End If
 
             Select Case afaType
                 Case "INF"
@@ -300,36 +307,50 @@ Public Class XtraFormAFAApproval
                     BindMasterBands(report, ds)
                     report.DetailReportSummary.DataSource = ds
                     report.DetailReportSummary.DataMember = "Detail"
-                    printTool = New DevExpress.XtraReports.UI.ReportPrintTool(report)
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
 
                 Case "DAA"
                     Dim report As New AfaReportDAA()
                     BindMasterBands(report, ds)
                     report.DetailReportSummary.DataSource = ds
                     report.DetailReportSummary.DataMember = "Detail"
-                    printTool = New DevExpress.XtraReports.UI.ReportPrintTool(report)
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
 
                 Case "BRE"
                     Dim report As New AfaReportBRE()
                     BindMasterBands(report, ds)
                     report.DetailReportSummary.DataSource = ds
                     report.DetailReportSummary.DataMember = "Detail"
-                    printTool = New DevExpress.XtraReports.UI.ReportPrintTool(report)
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
 
                 Case "ADD"
                     Dim report As New AfaReportADD()
                     BindMasterBands(report, ds)
                     report.DetailReportSummary.DataSource = ds
                     report.DetailReportSummary.DataMember = "Detail"
-                    printTool = New DevExpress.XtraReports.UI.ReportPrintTool(report)
+                    Using previewForm As New XtraFormAfaPreview()
+                        previewForm.LoadPreview(report, lampiranPaths)
+                        previewForm.ShowDialog()
+                    End Using
+                    report.Dispose()
 
                 Case Else
                     XtraMessageBox.Show("No report layout is defined for AFA type '" & afaType & "'.",
                                         "Approval AFA", MessageBoxButtons.OK, MessageBoxIcon.Warning)
                     Return
             End Select
-
-            printTool.ShowPreviewDialog()
 
         Catch ex As Exception
             XtraMessageBox.Show("The document could not be printed:" & vbCrLf & ex.Message,
@@ -341,49 +362,6 @@ Public Class XtraFormAFAApproval
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Close()
-    End Sub
-
-    Private Sub BtnCheckUncheck_Click(sender As Object, e As EventArgs) Handles BtnCheckUncheck.Click
-        Dim row As DataRowView = GetFocusedRow()
-
-        If row Is Nothing Then
-            XtraMessageBox.Show("Please select a document first.", "Budget Control",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            Return
-        End If
-
-        Dim afaNo As String = Convert.ToString(row("AFA_NO"))
-        Dim currentSts As String = Convert.ToString(row("BUDGET_STS"))
-        Dim reason As String = MemoEditReason.Text.Trim()
-
-        Dim actionType As String = If(currentSts = "Checked", "UNCHECK", "CHECK")
-        Dim confirmText As String = If(actionType = "CHECK",
-                                   "Mark AFA " & afaNo & " as Budget Checked?",
-                                   "Un-check budget for AFA " & afaNo & "?")
-
-        If actionType = "UNCHECK" AndAlso reason = "" Then
-            XtraMessageBox.Show("A reason is required to un-check.", "Budget Control",
-                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            MemoEditReason.Focus()
-            Return
-        End If
-
-        If XtraMessageBox.Show(confirmText, "Confirmation",
-                           MessageBoxButtons.OKCancel, MessageBoxIcon.Question) <> DialogResult.OK Then Return
-
-        Cursor.Current = Cursors.WaitCursor
-        Try
-            If _service.BudgetCheck(afaNo, _nik, _pc, actionType, If(reason = "", Nothing, reason)) Then
-                XtraMessageBox.Show(_service.LastErrorMessage, "Budget Control",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information)
-                LoadList()
-            Else
-                XtraMessageBox.Show(_service.LastErrorMessage, "Budget Control Failed",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
-            End If
-        Finally
-            Cursor.Current = Cursors.Default
-        End Try
     End Sub
 
 #End Region

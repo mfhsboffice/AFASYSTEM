@@ -186,7 +186,7 @@ Partial Class XtraFormAFAAddEForm
         '
         'BtnExit
         '
-        Me.BtnExit.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnExit.Appearance.BackColor = System.Drawing.Color.Gray
         Me.BtnExit.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnExit.Appearance.Options.UseBackColor = True
         Me.BtnExit.Appearance.Options.UseFont = True
@@ -329,6 +329,7 @@ Partial Class XtraFormAFAAddEForm
         Me.DateEditScheduleTo.Name = "DateEditScheduleTo"
         Me.DateEditScheduleTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleTo.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEditScheduleTo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEditScheduleTo.Size = New System.Drawing.Size(461, 20)
         Me.DateEditScheduleTo.StyleController = Me.LayoutControl1
         Me.DateEditScheduleTo.TabIndex = 7
@@ -340,6 +341,7 @@ Partial Class XtraFormAFAAddEForm
         Me.DateEditScheduleFrom.Name = "DateEditScheduleFrom"
         Me.DateEditScheduleFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.DateEditScheduleFrom.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.DateEditScheduleFrom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEditScheduleFrom.Size = New System.Drawing.Size(460, 20)
         Me.DateEditScheduleFrom.StyleController = Me.LayoutControl1
         Me.DateEditScheduleFrom.TabIndex = 6
@@ -349,6 +351,7 @@ Partial Class XtraFormAFAAddEForm
         Me.SelectLocation.Location = New System.Drawing.Point(476, 28)
         Me.SelectLocation.Name = "SelectLocation"
         Me.SelectLocation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectLocation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.SelectLocation.Size = New System.Drawing.Size(461, 20)
         Me.SelectLocation.StyleController = Me.LayoutControl1
         Me.SelectLocation.TabIndex = 5

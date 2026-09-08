@@ -636,16 +636,6 @@ Public Class XtraFormAFAAddSign
             ds.Tables(2).TableName = "Detail"
             ds.Tables(3).TableName = "Attachment"
 
-            If ds.Tables.Contains("Attachment") Then
-                Dim nonCoverRows As New List(Of DataRow)
-                For Each row As DataRow In ds.Tables("Attachment").Rows
-                    If Convert.ToString(row("TYPE")) <> "Cover" Then nonCoverRows.Add(row)
-                Next
-                For Each row As DataRow In nonCoverRows
-                    ds.Tables("Attachment").Rows.Remove(row)
-                Next
-            End If
-
             Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
             If serverPath = "" Then
                 XtraMessageBox.Show("The document server path is not configured.",
@@ -665,6 +655,26 @@ Public Class XtraFormAFAAddSign
                 Next
             End If
 
+            Dim lampiranPaths As New List(Of String)
+            If ds.Tables.Contains("Attachment") Then
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    Dim fp As String = Convert.ToString(r("FILE_PATH"))
+                    If Not String.IsNullOrEmpty(fp) AndAlso fp.ToLower().EndsWith(".pdf") AndAlso File.Exists(fp) Then
+                        lampiranPaths.Add(fp)
+                    End If
+                Next
+            End If
+
+            If ds.Tables.Contains("Attachment") Then
+                Dim nonCoverRows As New List(Of DataRow)
+                For Each r As DataRow In ds.Tables("Attachment").Rows
+                    If Convert.ToString(r("TYPE")) <> "Cover" Then nonCoverRows.Add(r)
+                Next
+                For Each r As DataRow In nonCoverRows
+                    ds.Tables("Attachment").Rows.Remove(r)
+                Next
+            End If
+
             Dim report As New AfaReportADD()
 
             report.DataSource = ds
@@ -681,8 +691,11 @@ Public Class XtraFormAFAAddSign
                 report.DetailReportSummary.DataMember = "Detail"
             End If
 
-            Dim printTool As New DevExpress.XtraReports.UI.ReportPrintTool(report)
-            printTool.ShowPreviewDialog()
+            Using previewForm As New XtraFormAfaPreview()
+                previewForm.LoadPreview(report, lampiranPaths)
+                previewForm.ShowDialog()
+            End Using
+            report.Dispose()
 
         Catch ex As Exception
             XtraMessageBox.Show("The document could not be printed:" & vbCrLf & ex.Message,

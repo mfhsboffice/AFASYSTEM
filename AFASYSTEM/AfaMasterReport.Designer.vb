@@ -319,7 +319,7 @@ Partial Public Class AfaMasterReport
         'DetailHeader
         '
         Me.DetailHeader.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.XrLabel1, Me.SUBJECT, Me.XrLabel2, Me.PURPOSE, Me.XrLabel4, Me.Background_AND_Explanation, Me.XrLabel3, Me.SCHEDULE})
-        Me.DetailHeader.HeightF = 207.25!
+        Me.DetailHeader.HeightF = 191.9583!
         Me.DetailHeader.Name = "DetailHeader"
         '
         'XrLabel1
@@ -413,18 +413,18 @@ Partial Public Class AfaMasterReport
         'ReportFooter1
         '
         Me.ReportFooter1.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.LabelBudgetControll, Me.XrLabel5})
-        Me.ReportFooter1.HeightF = 122.2917!
+        Me.ReportFooter1.HeightF = 83.87508!
         Me.ReportFooter1.Name = "ReportFooter1"
         '
         'LabelBudgetControll
         '
         Me.LabelBudgetControll.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat(IsNull([BUDGET_CHECK_BY], ''), NewLine(), IsNull([BUDGET_STS], ''), ' ', I" &
                     "sNull([BUDGET_CHECK_DATE], ''))")})
-        Me.LabelBudgetControll.LocationFloat = New DevExpress.Utils.PointFloat(0.00006357829!, 22.99999!)
+        Me.LabelBudgetControll.LocationFloat = New DevExpress.Utils.PointFloat(0.00006357829!, 23.00002!)
         Me.LabelBudgetControll.Multiline = True
         Me.LabelBudgetControll.Name = "LabelBudgetControll"
         Me.LabelBudgetControll.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.LabelBudgetControll.SizeF = New System.Drawing.SizeF(726.7711!, 99.29173!)
+        Me.LabelBudgetControll.SizeF = New System.Drawing.SizeF(726.7711!, 55.95837!)
         Me.LabelBudgetControll.StylePriority.UseTextAlignment = False
         Me.LabelBudgetControll.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft
         '
@@ -449,7 +449,7 @@ Partial Public Class AfaMasterReport
         'DetailAttachment
         '
         Me.DetailAttachment.Controls.AddRange(New DevExpress.XtraReports.UI.XRControl() {Me.CAPTION, Me.PictureBoxAttachment})
-        Me.DetailAttachment.HeightF = 136.6666!
+        Me.DetailAttachment.HeightF = 101.9999!
         Me.DetailAttachment.Name = "DetailAttachment"
         '
         'CAPTION
@@ -460,8 +460,10 @@ Partial Public Class AfaMasterReport
         Me.CAPTION.Multiline = True
         Me.CAPTION.Name = "CAPTION"
         Me.CAPTION.Padding = New DevExpress.XtraPrinting.PaddingInfo(2.0!, 2.0!, 0!, 0!, 100.0!)
-        Me.CAPTION.SizeF = New System.Drawing.SizeF(100.0!, 23.0!)
+        Me.CAPTION.SizeF = New System.Drawing.SizeF(726.7711!, 23.0!)
         Me.CAPTION.StylePriority.UseFont = False
+        Me.CAPTION.StylePriority.UseTextAlignment = False
+        Me.CAPTION.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'PictureBoxAttachment
         '
