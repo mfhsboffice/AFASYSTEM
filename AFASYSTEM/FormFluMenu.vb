@@ -192,7 +192,6 @@ Public Class FormFluMenu
 
             Trans.Visible = True
             Trans_AFAEntry.Visible = True
-            AceApproval.Visible = False
             Trans_App.Visible = False
             Trans_Monitoring.Visible = True
 

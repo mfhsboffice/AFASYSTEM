@@ -147,7 +147,7 @@ Partial Public Class AfaMasterReport
         '
         'AFA_NO
         '
-        Me.AFA_NO.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_NO]")})
+        Me.AFA_NO.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Ref. Reg:', NewLine(), IsNull([AFA_NO], ''))")})
         Me.AFA_NO.Multiline = True
         Me.AFA_NO.Name = "AFA_NO"
         Me.AFA_NO.StylePriority.UseTextAlignment = False
@@ -156,21 +156,21 @@ Partial Public Class AfaMasterReport
         '
         'AFA_NO_APPROVAL
         '
-        Me.AFA_NO_APPROVAL.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_NO_APPROVAL]")})
+        Me.AFA_NO_APPROVAL.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Approval No:', NewLine(), IsNull([AFA_NO_APPROVAL], ''))")})
         Me.AFA_NO_APPROVAL.Multiline = True
         Me.AFA_NO_APPROVAL.Name = "AFA_NO_APPROVAL"
         Me.AFA_NO_APPROVAL.Weight = 1.0000003360035294R
         '
         'FINANCE_DEPT_DATE
         '
-        Me.FINANCE_DEPT_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[FINANCE_DATE]")})
+        Me.FINANCE_DEPT_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Dept. Finance:', NewLine(), IsNull([FINANCE_DATE], ''))")})
         Me.FINANCE_DEPT_DATE.Multiline = True
         Me.FINANCE_DEPT_DATE.Name = "FINANCE_DEPT_DATE"
         Me.FINANCE_DEPT_DATE.Weight = 1.0R
         '
         'APPROVED_DATE
         '
-        Me.APPROVED_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_APPROVAL_DATE]")})
+        Me.APPROVED_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Approved Date:', NewLine(), IsNull([AFA_APPROVAL_DATE], ''))")})
         Me.APPROVED_DATE.Multiline = True
         Me.APPROVED_DATE.Name = "APPROVED_DATE"
         Me.APPROVED_DATE.Weight = 1.0R
@@ -190,21 +190,21 @@ Partial Public Class AfaMasterReport
         '
         'DEPARTMENT_NAME
         '
-        Me.DEPARTMENT_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[DEPT_NAME]")})
+        Me.DEPARTMENT_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Required By', NewLine(), IsNull([DEPT_NAME], ''))")})
         Me.DEPARTMENT_NAME.Multiline = True
         Me.DEPARTMENT_NAME.Name = "DEPARTMENT_NAME"
         Me.DEPARTMENT_NAME.Weight = 1.0R
         '
         'LOCATION_NAME
         '
-        Me.LOCATION_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LOCATION_NAME]")})
+        Me.LOCATION_NAME.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Location:', NewLine(), IsNull([LOCATION_NAME], ''))")})
         Me.LOCATION_NAME.Multiline = True
         Me.LOCATION_NAME.Name = "LOCATION_NAME"
         Me.LOCATION_NAME.Weight = 1.0R
         '
         'AFA_DATE
         '
-        Me.AFA_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AFA_DATE]")})
+        Me.AFA_DATE.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "Concat('Date:', NewLine(), IsNull([AFA_DATE], ''))")})
         Me.AFA_DATE.Multiline = True
         Me.AFA_DATE.Name = "AFA_DATE"
         Me.AFA_DATE.Weight = 1.0R
@@ -489,7 +489,6 @@ Partial Public Class AfaMasterReport
         '
         Me.DetailReportAttachment.Bands.AddRange(New DevExpress.XtraReports.UI.Band() {Me.DetailAttachment})
         Me.DetailReportAttachment.DataMember = "Attachment"
-        Me.DetailReportAttachment.FilterString = "[TYPE] = 'Cover'"
         Me.DetailReportAttachment.Level = 2
         Me.DetailReportAttachment.Name = "DetailReportAttachment"
         '

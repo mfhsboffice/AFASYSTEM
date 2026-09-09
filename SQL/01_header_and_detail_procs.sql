@@ -1077,13 +1077,6 @@ BEGIN
                            WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND NIK = @Nik AND STS = 'Send')
             BEGIN SET @Message = 'Approve failed: this document is not waiting for you.'; RETURN; END
 
-            -- Sequential routing: Dir -> Supp -> Budget -> Auth. Reject the
-            -- approval outright if an earlier-in-sequence node type still
-            -- has an unresolved assigned node on this document - this is
-            -- the real gate; AFA_NonIFS_GetPendingApproval_Proc filtering
-            -- the inbox is what keeps the UI from offering it in the first
-            -- place, but this check holds even if this procedure is ever
-            -- called directly.
             IF EXISTS (
                 SELECT 1 FROM dbo.AFA_SIGNATURE p
                 WHERE p.AFA_NO = @AfaNo
@@ -1100,14 +1093,18 @@ BEGIN
             SET STS = 'App', PCAPP = @Pc, DATEAPP = @tglnow, ttdApp = 'Y', Reason = @Reason
             WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND NIK = @Nik AND STS = 'Send';
 
+            IF EXISTS (SELECT 1 FROM dbo.V_Finnance_Dir WHERE UserID = @Nik)
+            BEGIN
+                UPDATE dbo.AFA_NON_IFS
+                SET FINANCE_DATE = CAST(@tglnow AS date)
+                WHERE AFA_NO = @AfaNo;
+            END
+
             SELECT @remaining = COUNT(*) FROM dbo.AFA_SIGNATURE
             WHERE AFA_NO = @AfaNo AND ISNULL(NIK,'') <> '' AND STS NOT IN ('App','Skip');
 
             IF @remaining = 0
             BEGIN
-                -- the approval number is a sequence: it is only ever
-                -- minted here, at the instant the document becomes fully
-                -- approved, never at creation and never reused afterwards
                 EXEC dbo.AFA_NonIFS_GenerateApprovalNumber_Proc
                      @AfaType = @headerType, @BudgetYear = @headerBudgetYear, @RefDate = NULL,
                      @Status = @st OUTPUT, @Message = @msg OUTPUT,
@@ -1134,6 +1131,47 @@ BEGIN
                                 THEN 'Approved. AFA ' + @AfaNo + ' is now fully approved (' + ISNULL(@afaNoApproval,'') + ').'
                                 ELSE 'Approved. AFA ' + @AfaNo END;
         END
+        ELSE IF @Type = 'DISAPP'
+        BEGIN
+            IF @headerSts <> 'Planned'
+            BEGIN SET @Message = 'This document has not been sent for approval yet.'; RETURN; END
+
+            IF ISNULL(@Reason,'') = ''
+            BEGIN SET @Message = 'A reason is required to disapprove.'; RETURN; END
+
+            IF NOT EXISTS (SELECT 1 FROM dbo.AFA_SIGNATURE
+                           WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND NIK = @Nik AND STS = 'Send')
+            BEGIN SET @Message = 'Disapprove failed: this document is not waiting for you.'; RETURN; END
+
+            BEGIN TRANSACTION;
+
+            UPDATE dbo.AFA_SIGNATURE
+            SET STS = 'Send', PCAPP = NULL, DATEAPP = NULL, ttdApp = 'T'
+            WHERE AFA_NO = @AfaNo AND ISNULL(NIK,'') <> '' AND STS IN ('App','Skip');
+
+            UPDATE dbo.AFA_NON_IFS
+            SET BUDGET_STS = 'Unchecked', BUDGET_CHECK_BY = NULL, BUDGET_CHECK_DATE = NULL
+            WHERE AFA_NO = @AfaNo;
+
+            UPDATE dbo.AFA_NON_IFS
+            SET FINANCE_DATE = NULL
+            WHERE AFA_NO = @AfaNo;
+
+            UPDATE dbo.AFA_NON_IFS
+            SET NOTETEXT = ISNULL(NOTETEXT + CHAR(13) + CHAR(10), '') +
+                            'Disapproved by ' + @Nik + ': ' + @Reason,
+                DATEUPDATE = @tglnow
+            WHERE AFA_NO = @AfaNo;
+
+            INSERT INTO dbo.AFA_Log (ID, Type, NIK, PC, DateCreate, AFA)
+            VALUES (@tglnow, 'Disapprove', @Nik, @Pc, @tglnow, @AfaNo);
+
+            COMMIT TRANSACTION;
+
+            SET @Status  = 'SUCCESS';
+            SET @Message = 'AFA ' + @AfaNo + ' has been disapproved. All approvals have been reset. ' +
+                           'The drafter must cancel this document and revise it.';
+        END
         ELSE IF @Type = 'UNAPP'
         BEGIN
             IF @headerSts NOT IN ('Planned','Approved')
@@ -1151,12 +1189,16 @@ BEGIN
 
             UPDATE dbo.AFA_SIGNATURE
             SET STS = 'Send', PCAPP = NULL, DATEAPP = NULL, ttdApp = 'T', Reason = @Reason
-            WHERE AFA_NO = @AfaNo AND TYPE = @Jenis AND NIK = @Nik AND STS IN ('App','Skip');
+            WHERE AFA_NO = @AfaNo AND ISNULL(NIK,'') <> '' AND STS IN ('App','Skip');
 
-            -- releasing the approval: the number is cleared, not kept for
-            -- reuse. If this document reaches final approval again later,
-            -- AFA_NonIFS_GenerateApprovalNumber_Proc hands out the next
-            -- value in the counter - never this one again.
+            UPDATE dbo.AFA_NON_IFS
+            SET BUDGET_STS = 'Unchecked', BUDGET_CHECK_BY = NULL, BUDGET_CHECK_DATE = NULL
+            WHERE AFA_NO = @AfaNo;
+
+            UPDATE dbo.AFA_NON_IFS
+            SET FINANCE_DATE = NULL
+            WHERE AFA_NO = @AfaNo;
+
             UPDATE dbo.AFA_NON_IFS
             SET STS = 'Planned', AFA_APPROVAL_DATE = NULL, AFA_NO_APPROVAL = NULL, DATEUPDATE = @tglnow
             WHERE AFA_NO = @AfaNo AND STS = 'Approved';
@@ -1167,7 +1209,7 @@ BEGIN
             COMMIT TRANSACTION;
 
             SET @Status  = 'SUCCESS';
-            SET @Message = 'Un-approved. AFA ' + @AfaNo + '. The approval number has been released.';
+            SET @Message = 'Un-approved. AFA ' + @AfaNo + '. All approvals have been reset to the beginning.';
         END
         ELSE
             SET @Message = 'Unknown action type.';
