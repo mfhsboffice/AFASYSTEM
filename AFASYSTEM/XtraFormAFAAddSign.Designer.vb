@@ -171,19 +171,19 @@ Partial Class XtraFormAFAAddSign
         '
         'ButtonEditAttachment2
         '
-        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(454, 476)
+        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(457, 473)
         Me.ButtonEditAttachment2.Name = "ButtonEditAttachment2"
         Me.ButtonEditAttachment2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(439, 20)
+        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(433, 20)
         Me.ButtonEditAttachment2.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment2.TabIndex = 15
         '
         'ButtonEditAttachment1
         '
-        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(12, 476)
+        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(15, 473)
         Me.ButtonEditAttachment1.Name = "ButtonEditAttachment1"
         Me.ButtonEditAttachment1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(438, 20)
+        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(432, 20)
         Me.ButtonEditAttachment1.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment1.TabIndex = 14
         '
@@ -192,7 +192,7 @@ Partial Class XtraFormAFAAddSign
         Me.GridControlSignature.Location = New System.Drawing.Point(12, 196)
         Me.GridControlSignature.MainView = Me.GridViewSignature
         Me.GridControlSignature.Name = "GridControlSignature"
-        Me.GridControlSignature.Size = New System.Drawing.Size(881, 260)
+        Me.GridControlSignature.Size = New System.Drawing.Size(881, 254)
         Me.GridControlSignature.TabIndex = 13
         Me.GridControlSignature.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewSignature})
         '
@@ -379,15 +379,16 @@ Partial Class XtraFormAFAAddSign
         Me.LciGridSignature.Control = Me.GridControlSignature
         Me.LciGridSignature.Location = New System.Drawing.Point(0, 184)
         Me.LciGridSignature.Name = "LciGridSignature"
-        Me.LciGridSignature.Size = New System.Drawing.Size(885, 264)
+        Me.LciGridSignature.Size = New System.Drawing.Size(885, 258)
         Me.LciGridSignature.TextVisible = False
         '
         'LciAttachment1
         '
         Me.LciAttachment1.Control = Me.ButtonEditAttachment1
-        Me.LciAttachment1.Location = New System.Drawing.Point(0, 448)
+        Me.LciAttachment1.Location = New System.Drawing.Point(0, 442)
         Me.LciAttachment1.Name = "LciAttachment1"
-        Me.LciAttachment1.Size = New System.Drawing.Size(442, 40)
+        Me.LciAttachment1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAttachment1.Size = New System.Drawing.Size(442, 46)
         Me.LciAttachment1.Text = "Attachment 1"
         Me.LciAttachment1.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAttachment1.TextSize = New System.Drawing.Size(167, 13)
@@ -395,9 +396,10 @@ Partial Class XtraFormAFAAddSign
         'LciAttachment2
         '
         Me.LciAttachment2.Control = Me.ButtonEditAttachment2
-        Me.LciAttachment2.Location = New System.Drawing.Point(442, 448)
+        Me.LciAttachment2.Location = New System.Drawing.Point(442, 442)
         Me.LciAttachment2.Name = "LciAttachment2"
-        Me.LciAttachment2.Size = New System.Drawing.Size(443, 40)
+        Me.LciAttachment2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAttachment2.Size = New System.Drawing.Size(443, 46)
         Me.LciAttachment2.Text = "Attachment 2"
         Me.LciAttachment2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAttachment2.TextSize = New System.Drawing.Size(167, 13)

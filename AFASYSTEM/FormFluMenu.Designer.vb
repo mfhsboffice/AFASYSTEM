@@ -143,6 +143,8 @@ Partial Class FormFluMenu
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AceMyDocuments = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator14 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -648,7 +650,7 @@ Partial Class FormFluMenu
         '
         'Trans
         '
-        Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.AceUnconfiguredDocuments, Me.AccordionControlSeparator11, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA, Me.AccordionControlSeparator12, Me.AceMonitoring, Me.AccordionControlSeparator13, Me.AceApproval})
+        Me.Trans.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Trans_AFAEntry, Me.AccordionControlSeparator5, Me.AceUnconfiguredDocuments, Me.AccordionControlSeparator11, Me.Trans_App, Me.AccordionControlSeparator6, Me.Trans_Monitoring, Me.AccordionControlSeparator7, Me.AOViewAFA, Me.AccordionControlSeparator12, Me.AceMonitoring, Me.AccordionControlSeparator13, Me.AceApproval, Me.AccordionControlSeparator14, Me.AceMyDocuments})
         Me.Trans.Expanded = True
         Me.Trans.Name = "Trans"
         Me.Trans.Text = "Transaction"
@@ -944,6 +946,16 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
         '
+        'AceMyDocuments
+        '
+        Me.AceMyDocuments.Name = "AceMyDocuments"
+        Me.AceMyDocuments.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceMyDocuments.Text = "My AFA Records"
+        '
+        'AccordionControlSeparator14
+        '
+        Me.AccordionControlSeparator14.Name = "AccordionControlSeparator14"
+        '
         'FormFluMenu
         '
         Me.Appearance.ForeColor = System.Drawing.Color.White
@@ -1098,4 +1110,6 @@ Partial Class FormFluMenu
     Friend WithEvents AceMonitoring As DevExpress.XtraBars.Navigation.AccordionControlElement
     Friend WithEvents AccordionControlSeparator13 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
     Friend WithEvents AceApproval As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents AccordionControlSeparator14 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
+    Friend WithEvents AceMyDocuments As DevExpress.XtraBars.Navigation.AccordionControlElement
 End Class

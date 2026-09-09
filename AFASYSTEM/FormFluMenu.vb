@@ -554,6 +554,14 @@ Public Class FormFluMenu
         XtraFormAFAApproval.BringToFront()
     End Sub
 
+    Private Sub AceMyDocuments_Click(sender As Object, e As EventArgs) Handles AceMyDocuments.Click
+        XtraFormAFAMyRecords.TopLevel = False
+        XtraFormAFAMyRecords.Parent = PanelControl1
+        XtraFormAFAMyRecords.Dock = DockStyle.Fill
+        XtraFormAFAMyRecords.Show()
+        XtraFormAFAMyRecords.BringToFront()
+    End Sub
+
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
         tuutpkabeh()
         Me.Close()

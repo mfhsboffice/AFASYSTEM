@@ -258,6 +258,7 @@
     <Compile Include="Services\AFAAdditionalBudgetService.vb" />
     <Compile Include="Services\AFADisposalService.vb" />
     <Compile Include="Services\AFAMonitoringService.vb" />
+    <Compile Include="Services\AFAMyRecordsService.vb" />
     <Compile Include="Services\AFASignatureService.vb" />
     <Compile Include="Services\BulkApproveResult.vb" />
     <Compile Include="Services\GeneralService.vb" />
@@ -347,6 +348,12 @@
       <DependentUpon>XtraFormAFAMonitoring.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormAFAMonitoring.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAFAMyRecords.Designer.vb">
+      <DependentUpon>XtraFormAFAMyRecords.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAFAMyRecords.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormAfaPreview.Designer.vb">
@@ -588,6 +595,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAFAMonitoring.resx">
       <DependentUpon>XtraFormAFAMonitoring.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAFAMyRecords.resx">
+      <DependentUpon>XtraFormAFAMyRecords.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAfaPreview.resx">
       <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>

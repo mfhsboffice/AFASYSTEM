@@ -160,7 +160,7 @@ Public Class XtraFormAFADaaEForm
         LoadDocument(afaNo)
     End Sub
 
-    Private Sub LoadDocument(ByVal afaNo As String)
+    Public Sub LoadDocument(ByVal afaNo As String)
         Cursor.Current = Cursors.WaitCursor
         Try
             Dim ds As DataSet = _service.GetHeaderForEdit(afaNo)
@@ -198,8 +198,8 @@ Public Class XtraFormAFADaaEForm
                 Return
             End If
 
-            ' --- Mulai isi ulang form dari data existing ---
             _afaNo = afaNo
+            TextEditAFANo.Text = afaNo
 
             SetComboByValue(SelectLocation, _dtLocation, "CODE", header("AFA_LOCATION"))
             SetComboByValue(SelectDepartment, _dtDepartment, "DEPT_ID", header("DEPT_ID"))
@@ -245,7 +245,6 @@ Public Class XtraFormAFADaaEForm
                 TextEditCaptionCover.Text = Convert.ToString(attRow("CAPTION"))
             End If
 
-            ' --- Detail spesifik DAA (Table 2) ---
             If ds.Tables.Count > 2 AndAlso ds.Tables(2).Rows.Count > 0 Then
                 Dim detailRow As DataRow = ds.Tables(2).Rows(0)
 
@@ -254,9 +253,6 @@ Public Class XtraFormAFADaaEForm
                 TextEditAcquisition.Text = Convert.ToDecimal(detailRow("ACQUISITION")).ToString("n0")
                 TextEditAccumDep.Text = Convert.ToDecimal(detailRow("ACCUM_DEPRECIATION")).ToString("n0")
                 TextEditResellValue.Text = Convert.ToDecimal(detailRow("RESELL_VALUE")).ToString("n0")
-                ' BookValue/ProfitLoss tidak perlu di-set manual - otomatis
-                ' terhitung ulang via Recalculate() yang ke-trigger oleh
-                ' EditValueChanged tiga field di atas.
             End If
 
             Me.Text = "E-Form AFA Disposal Asset / Non Asset - " & afaNo & " (Edit)"

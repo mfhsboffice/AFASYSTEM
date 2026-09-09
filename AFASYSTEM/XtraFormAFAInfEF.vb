@@ -1,4 +1,5 @@
-﻿Imports System.IO
+﻿Imports System.Data
+Imports System.IO
 Imports DevExpress.XtraEditors
 
 Public Class XtraFormAFAInfEF
@@ -15,7 +16,7 @@ Public Class XtraFormAFAInfEF
     Private _attachmentPath As String = String.Empty
 
     Private ReadOnly _nik As String = Trim(FormFluMenu.btnuserid.Caption)
-    Private ReadOnly _pc As String = Net.Dns.GetHostName()
+    Private ReadOnly _pc As String = System.Net.Dns.GetHostName()
 
 #Region "Form"
 
@@ -112,6 +113,11 @@ Public Class XtraFormAFAInfEF
         Return dt.Rows(combo.SelectedIndex)(columnName)
     End Function
 
+    ''' <summary>
+    ''' Kebalikan dari GetSelectedValue - cari baris di dt yang columnName-nya
+    ''' cocok dengan value, lalu pilih index itu di combo. Dipakai waktu
+    ''' LoadDocument mengisi ulang combo dari data existing.
+    ''' </summary>
     Private Sub SetComboByValue(ByVal combo As ComboBoxEdit,
                                 ByVal dt As DataTable,
                                 ByVal columnName As String,
@@ -135,17 +141,21 @@ Public Class XtraFormAFAInfEF
     Private Sub TextEditAFANo_Leave(sender As Object, e As EventArgs) Handles TextEditAFANo.Leave
         Dim afaNo As String = TextEditAFANo.Text.Trim()
 
+        ' Kalau field dikosongkan lagi (misal user hapus manual), balik ke
+        ' mode Create bersih.
         If afaNo = "" Then
             If _afaNo <> "" Then ClearForm()
             Return
         End If
 
+        ' Sudah di posisi yang sama (misal Leave terpicu 2x tanpa perubahan
+        ' teks) - tidak perlu query ulang.
         If afaNo = _afaNo Then Return
 
         LoadDocument(afaNo)
     End Sub
 
-    Private Sub LoadDocument(ByVal afaNo As String)
+    Public Sub LoadDocument(ByVal afaNo As String)
         Cursor.Current = Cursors.WaitCursor
         Try
             Dim ds As DataSet = _service.GetHeaderForEdit(afaNo)
@@ -183,7 +193,9 @@ Public Class XtraFormAFAInfEF
                 Return
             End If
 
+            ' --- Mulai isi ulang form dari data existing ---
             _afaNo = afaNo
+            TextEditAFANo.Text = afaNo
 
             SetComboByValue(SelectLocation, _dtLocation, "CODE", header("AFA_LOCATION"))
             SetComboByValue(SelectDepartment, _dtDepartment, "DEPT_ID", header("DEPT_ID"))

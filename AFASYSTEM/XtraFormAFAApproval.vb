@@ -360,6 +360,47 @@ Public Class XtraFormAFAApproval
         End Try
     End Sub
 
+    Private Sub BtnDisapprove_Click(sender As Object, e As EventArgs) Handles BtnDisapprove.Click
+        Dim row As DataRowView = GetFocusedRow()
+
+        If row Is Nothing Then
+            XtraMessageBox.Show("Please select a document first.", "Approval AFA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Dim reason As String = MemoEditReason.Text.Trim()
+
+        If reason = "" Then
+            XtraMessageBox.Show("A reason is required to disapprove.", "Approval AFA",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MemoEditReason.Focus()
+            Return
+        End If
+
+        Dim afaNo As String = Convert.ToString(row("AFA_NO"))
+        Dim jenis As String = Convert.ToString(row("JENIS"))
+
+        If XtraMessageBox.Show("Disapprove AFA " & afaNo & "?" & vbCrLf &
+                               "This will reset ALL approvals on this document back to the beginning. " &
+                               "The drafter will need to cancel and revise it.",
+                               "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) <> DialogResult.OK Then Return
+
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            If _service.Approve(afaNo, jenis, _nik, _pc, "DISAPP", reason) Then
+                XtraMessageBox.Show(_service.LastErrorMessage, "Approval AFA",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
+                LoadList()
+            Else
+                XtraMessageBox.Show(_service.LastErrorMessage, "Disapprove Failed",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
+    End Sub
+
 #End Region
 
 End Class
