@@ -113,11 +113,6 @@ Public Class XtraFormAFAInfEF
         Return dt.Rows(combo.SelectedIndex)(columnName)
     End Function
 
-    ''' <summary>
-    ''' Kebalikan dari GetSelectedValue - cari baris di dt yang columnName-nya
-    ''' cocok dengan value, lalu pilih index itu di combo. Dipakai waktu
-    ''' LoadDocument mengisi ulang combo dari data existing.
-    ''' </summary>
     Private Sub SetComboByValue(ByVal combo As ComboBoxEdit,
                                 ByVal dt As DataTable,
                                 ByVal columnName As String,
@@ -141,15 +136,11 @@ Public Class XtraFormAFAInfEF
     Private Sub TextEditAFANo_Leave(sender As Object, e As EventArgs) Handles TextEditAFANo.Leave
         Dim afaNo As String = TextEditAFANo.Text.Trim()
 
-        ' Kalau field dikosongkan lagi (misal user hapus manual), balik ke
-        ' mode Create bersih.
         If afaNo = "" Then
             If _afaNo <> "" Then ClearForm()
             Return
         End If
 
-        ' Sudah di posisi yang sama (misal Leave terpicu 2x tanpa perubahan
-        ' teks) - tidak perlu query ulang.
         If afaNo = _afaNo Then Return
 
         LoadDocument(afaNo)
@@ -193,7 +184,6 @@ Public Class XtraFormAFAInfEF
                 Return
             End If
 
-            ' --- Mulai isi ulang form dari data existing ---
             _afaNo = afaNo
             TextEditAFANo.Text = afaNo
 
@@ -213,7 +203,6 @@ Public Class XtraFormAFAInfEF
             TextEditAFADate.Text = If(header("AFA_DATE") Is DBNull.Value, "",
                                       Convert.ToDateTime(header("AFA_DATE")).ToString("dd MMM yyyy"))
 
-            ' --- Attachment Cover existing (Table 1) ---
             PictureEditAttachmentCover.Image = Nothing
             TextEditCaptionCover.Text = ""
             _attachmentPath = String.Empty
@@ -233,7 +222,6 @@ Public Class XtraFormAFAInfEF
                                 PictureEditAttachmentCover.Image = New Bitmap(tempImg)
                             End Using
                         Catch
-                            ' abaikan - kalau file cover lama gagal dibuka, biarkan kosong
                         End Try
                     End If
                 End If

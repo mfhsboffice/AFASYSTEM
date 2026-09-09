@@ -20,6 +20,8 @@ Partial Class XtraFormAFAAddEForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.TextEditAFADate = New DevExpress.XtraEditors.TextEdit()
+        Me.TextEditAFANo = New DevExpress.XtraEditors.TextEdit()
         Me.BtnSyncBudgetItem = New DevExpress.XtraEditors.SimpleButton()
         Me.TextEdit2 = New DevExpress.XtraEditors.TextEdit()
         Me.TextEdit1 = New DevExpress.XtraEditors.TextEdit()
@@ -50,7 +52,6 @@ Partial Class XtraFormAFAAddEForm
         Me.LciPurpose = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBgExp = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBudgetItem = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.LciBudgetAmt = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciActualUp = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciEstimation = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciShortage = New DevExpress.XtraLayout.LayoutControlItem()
@@ -62,12 +63,13 @@ Partial Class XtraFormAFAAddEForm
         Me.LciBudgetYear = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBudgetRev = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.TextEditAFANo = New DevExpress.XtraEditors.TextEdit()
         Me.LciNoAFA = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.TextEditAFADate = New DevExpress.XtraEditors.TextEdit()
         Me.LciAFADate = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciBudgetAmt = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.TextEditAFANo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditCaptionCover.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,7 +99,6 @@ Partial Class XtraFormAFAAddEForm
         CType(Me.LciPurpose, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBgExp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBudgetItem, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LciBudgetAmt, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciActualUp, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciEstimation, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciShortage, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -109,10 +110,9 @@ Partial Class XtraFormAFAAddEForm
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEditAFANo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciNoAFA, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciAFADate, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciBudgetAmt, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -146,6 +146,23 @@ Partial Class XtraFormAFAAddEForm
         Me.LayoutControl1.Size = New System.Drawing.Size(1012, 771)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'TextEditAFADate
+        '
+        Me.TextEditAFADate.Location = New System.Drawing.Point(477, 28)
+        Me.TextEditAFADate.Name = "TextEditAFADate"
+        Me.TextEditAFADate.Properties.ReadOnly = True
+        Me.TextEditAFADate.Size = New System.Drawing.Size(523, 20)
+        Me.TextEditAFADate.StyleController = Me.LayoutControl1
+        Me.TextEditAFADate.TabIndex = 25
+        '
+        'TextEditAFANo
+        '
+        Me.TextEditAFANo.Location = New System.Drawing.Point(12, 28)
+        Me.TextEditAFANo.Name = "TextEditAFANo"
+        Me.TextEditAFANo.Size = New System.Drawing.Size(461, 20)
+        Me.TextEditAFANo.StyleController = Me.LayoutControl1
+        Me.TextEditAFANo.TabIndex = 24
         '
         'BtnSyncBudgetItem
         '
@@ -202,7 +219,7 @@ Partial Class XtraFormAFAAddEForm
         Me.BtnExit.Appearance.Options.UseFont = True
         Me.BtnExit.Location = New System.Drawing.Point(12, 735)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(656, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(492, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 18
         Me.BtnExit.Text = "Exit"
@@ -213,9 +230,9 @@ Partial Class XtraFormAFAAddEForm
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(672, 735)
+        Me.BtnSave.Location = New System.Drawing.Point(508, 735)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(328, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(492, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 17
         Me.BtnSave.Text = "Save"
@@ -465,16 +482,6 @@ Partial Class XtraFormAFAAddEForm
         Me.LciBudgetItem.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciBudgetItem.TextSize = New System.Drawing.Size(203, 13)
         '
-        'LciBudgetAmt
-        '
-        Me.LciBudgetAmt.Control = Me.TextEditBudgetAmt
-        Me.LciBudgetAmt.Location = New System.Drawing.Point(0, 595)
-        Me.LciBudgetAmt.Name = "LciBudgetAmt"
-        Me.LciBudgetAmt.Size = New System.Drawing.Size(496, 40)
-        Me.LciBudgetAmt.Text = "Budget Amount"
-        Me.LciBudgetAmt.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciBudgetAmt.TextSize = New System.Drawing.Size(203, 13)
-        '
         'LciActualUp
         '
         Me.LciActualUp.Control = Me.TextEditActualUp
@@ -520,9 +527,9 @@ Partial Class XtraFormAFAAddEForm
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(660, 723)
+        Me.LciBtnSave.Location = New System.Drawing.Point(496, 723)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(332, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(496, 28)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnExit
@@ -530,7 +537,7 @@ Partial Class XtraFormAFAAddEForm
         Me.LciBtnExit.Control = Me.BtnExit
         Me.LciBtnExit.Location = New System.Drawing.Point(0, 723)
         Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(660, 28)
+        Me.LciBtnExit.Size = New System.Drawing.Size(496, 28)
         Me.LciBtnExit.TextVisible = False
         '
         'LciAttachCover
@@ -581,14 +588,6 @@ Partial Class XtraFormAFAAddEForm
         Me.LayoutControlItem1.Size = New System.Drawing.Size(47, 42)
         Me.LayoutControlItem1.TextVisible = False
         '
-        'TextEditAFANo
-        '
-        Me.TextEditAFANo.Location = New System.Drawing.Point(12, 28)
-        Me.TextEditAFANo.Name = "TextEditAFANo"
-        Me.TextEditAFANo.Size = New System.Drawing.Size(461, 20)
-        Me.TextEditAFANo.StyleController = Me.LayoutControl1
-        Me.TextEditAFANo.TabIndex = 24
-        '
         'LciNoAFA
         '
         Me.LciNoAFA.Control = Me.TextEditAFANo
@@ -599,15 +598,6 @@ Partial Class XtraFormAFAAddEForm
         Me.LciNoAFA.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciNoAFA.TextSize = New System.Drawing.Size(203, 13)
         '
-        'TextEditAFADate
-        '
-        Me.TextEditAFADate.Location = New System.Drawing.Point(477, 28)
-        Me.TextEditAFADate.Name = "TextEditAFADate"
-        Me.TextEditAFADate.Properties.ReadOnly = True
-        Me.TextEditAFADate.Size = New System.Drawing.Size(523, 20)
-        Me.TextEditAFADate.StyleController = Me.LayoutControl1
-        Me.TextEditAFADate.TabIndex = 25
-        '
         'LciAFADate
         '
         Me.LciAFADate.Control = Me.TextEditAFADate
@@ -617,6 +607,16 @@ Partial Class XtraFormAFAAddEForm
         Me.LciAFADate.Text = "AFA Date"
         Me.LciAFADate.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAFADate.TextSize = New System.Drawing.Size(203, 13)
+        '
+        'LciBudgetAmt
+        '
+        Me.LciBudgetAmt.Control = Me.TextEditBudgetAmt
+        Me.LciBudgetAmt.Location = New System.Drawing.Point(0, 595)
+        Me.LciBudgetAmt.Name = "LciBudgetAmt"
+        Me.LciBudgetAmt.Size = New System.Drawing.Size(496, 40)
+        Me.LciBudgetAmt.Text = "Budget Amount"
+        Me.LciBudgetAmt.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciBudgetAmt.TextSize = New System.Drawing.Size(203, 13)
         '
         'XtraFormAFAAddEForm
         '
@@ -629,6 +629,8 @@ Partial Class XtraFormAFAAddEForm
         Me.Text = "E-Form AFA Additional Budget"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.TextEditAFANo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditCaptionCover.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -658,7 +660,6 @@ Partial Class XtraFormAFAAddEForm
         CType(Me.LciPurpose, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBgExp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBudgetItem, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LciBudgetAmt, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciActualUp, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciEstimation, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciShortage, System.ComponentModel.ISupportInitialize).EndInit()
@@ -670,10 +671,9 @@ Partial Class XtraFormAFAAddEForm
         CType(Me.LciBudgetYear, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBudgetRev, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEditAFANo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciNoAFA, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciAFADate, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciBudgetAmt, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

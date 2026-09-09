@@ -202,6 +202,7 @@ Public Class FormFluMenu
             Other_Guidance.Visible = True
             Others_AppOwner.Visible = False
             Tools_Admin.Visible = False
+
         ElseIf Trim(btnlvl.Caption) = "FINANCE" Then
 
             Sys.Visible = True

@@ -59,4 +59,33 @@ Public Class XtraFormAfaPreview
         End If
     End Sub
 
+    Private Sub BtnExportPdf_Click(sender As Object, e As EventArgs) Handles BtnExportPdf.Click
+        Dim report As AfaMasterReport = TryCast(DocumentViewer1.DocumentSource, AfaMasterReport)
+
+        If report Is Nothing Then
+            XtraMessageBox.Show("No report is loaded.", "Export to PDF",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Return
+        End If
+
+        Using sfd As New SaveFileDialog()
+            sfd.Filter = "PDF file|*.pdf"
+            sfd.FileName = "AFA_Report.pdf"
+
+            If sfd.ShowDialog() <> DialogResult.OK Then Return
+
+            Try
+                Cursor.Current = Cursors.WaitCursor
+                report.ExportToPdf(sfd.FileName)
+                XtraMessageBox.Show("Exported successfully.", "Export to PDF",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Catch ex As Exception
+                XtraMessageBox.Show("Export failed:" & vbCrLf & ex.Message, "Export to PDF",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            Finally
+                Cursor.Current = Cursors.Default
+            End Try
+        End Using
+    End Sub
+
 End Class

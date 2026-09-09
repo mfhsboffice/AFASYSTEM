@@ -192,7 +192,7 @@ Partial Class XtraFormAFAAddSign
         Me.GridControlSignature.Location = New System.Drawing.Point(12, 196)
         Me.GridControlSignature.MainView = Me.GridViewSignature
         Me.GridControlSignature.Name = "GridControlSignature"
-        Me.GridControlSignature.Size = New System.Drawing.Size(881, 254)
+        Me.GridControlSignature.Size = New System.Drawing.Size(881, 250)
         Me.GridControlSignature.TabIndex = 13
         Me.GridControlSignature.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewSignature})
         '
@@ -379,30 +379,34 @@ Partial Class XtraFormAFAAddSign
         Me.LciGridSignature.Control = Me.GridControlSignature
         Me.LciGridSignature.Location = New System.Drawing.Point(0, 184)
         Me.LciGridSignature.Name = "LciGridSignature"
-        Me.LciGridSignature.Size = New System.Drawing.Size(885, 258)
+        Me.LciGridSignature.Size = New System.Drawing.Size(885, 254)
         Me.LciGridSignature.TextVisible = False
         '
         'LciAttachment1
         '
+        Me.LciAttachment1.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAttachment1.AppearanceItemCaption.Options.UseFont = True
         Me.LciAttachment1.Control = Me.ButtonEditAttachment1
-        Me.LciAttachment1.Location = New System.Drawing.Point(0, 442)
+        Me.LciAttachment1.Location = New System.Drawing.Point(0, 438)
         Me.LciAttachment1.Name = "LciAttachment1"
         Me.LciAttachment1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciAttachment1.Size = New System.Drawing.Size(442, 46)
+        Me.LciAttachment1.Size = New System.Drawing.Size(442, 50)
         Me.LciAttachment1.Text = "Attachment 1"
         Me.LciAttachment1.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAttachment1.TextSize = New System.Drawing.Size(167, 13)
+        Me.LciAttachment1.TextSize = New System.Drawing.Size(167, 17)
         '
         'LciAttachment2
         '
+        Me.LciAttachment2.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAttachment2.AppearanceItemCaption.Options.UseFont = True
         Me.LciAttachment2.Control = Me.ButtonEditAttachment2
-        Me.LciAttachment2.Location = New System.Drawing.Point(442, 442)
+        Me.LciAttachment2.Location = New System.Drawing.Point(442, 438)
         Me.LciAttachment2.Name = "LciAttachment2"
         Me.LciAttachment2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciAttachment2.Size = New System.Drawing.Size(443, 46)
+        Me.LciAttachment2.Size = New System.Drawing.Size(443, 50)
         Me.LciAttachment2.Text = "Attachment 2"
         Me.LciAttachment2.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAttachment2.TextSize = New System.Drawing.Size(167, 13)
+        Me.LciAttachment2.TextSize = New System.Drawing.Size(167, 17)
         '
         'LciBtnSave
         '
