@@ -114,4 +114,15 @@ Public Class AFADisposalService
         Return Convert.ToString(dt.Rows(0)("SRI_STS"))
     End Function
 
+    Public Function GetHeaderForEdit(ByVal afaNo As String) As DataSet
+        Dim prm As New Dictionary(Of String, Object) From {{"@AfaNo", afaNo}}
+        Dim ds As DataSet = ExecuteStoredProcedureDataSet("AFA_NonIFS_GetHeaderForEdit_Proc", prm)
+
+        If ds Is Nothing OrElse ds.Tables.Count = 0 OrElse ds.Tables(0).Rows.Count = 0 Then
+            Return Nothing
+        End If
+
+        Return ds
+    End Function
+
 End Class

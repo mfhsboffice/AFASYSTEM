@@ -129,6 +129,17 @@ Public Class AFAAdditionalBudgetService
         Return ExecuteStoredProcedureQuery("AFA_NonIFS_GetBudgetAllocation_Proc", prm)
     End Function
 
+    Public Function GetHeaderForEdit(ByVal afaNo As String) As DataSet
+        Dim prm As New Dictionary(Of String, Object) From {{"@AfaNo", afaNo}}
+        Dim ds As DataSet = ExecuteStoredProcedureDataSet("AFA_NonIFS_GetHeaderForEdit_Proc", prm)
+
+        If ds Is Nothing OrElse ds.Tables.Count = 0 OrElse ds.Tables(0).Rows.Count = 0 Then
+            Return Nothing
+        End If
+
+        Return ds
+    End Function
+
     Public Function SyncBudget(ByVal budgetYear As String, ByVal budgetRev As String, ByVal allocation As String) As Boolean
         Dim prm As New Dictionary(Of String, Object) From {
             {"@BudgetYear", budgetYear},

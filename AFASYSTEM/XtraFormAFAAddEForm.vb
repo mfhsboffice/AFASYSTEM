@@ -111,6 +111,22 @@ Public Class XtraFormAFAAddEForm
         Return dt.Rows(combo.SelectedIndex)(columnName)
     End Function
 
+    Private Sub SetComboByValue(ByVal combo As ComboBoxEdit,
+                                ByVal dt As DataTable,
+                                ByVal columnName As String,
+                                ByVal value As Object)
+        combo.SelectedIndex = -1
+
+        If dt Is Nothing OrElse value Is Nothing OrElse value Is DBNull.Value Then Return
+
+        For i As Integer = 0 To dt.Rows.Count - 1
+            If Convert.ToString(dt.Rows(i)(columnName)) = Convert.ToString(value) Then
+                combo.SelectedIndex = i
+                Return
+            End If
+        Next
+    End Sub
+
 #End Region
 
 #Region "Budget Item Lookup"
@@ -233,6 +249,123 @@ Public Class XtraFormAFAAddEForm
 
 #End Region
 
+#Region "Load For Edit"
+
+    Private Sub TextEditAFANo_Leave(sender As Object, e As EventArgs) Handles TextEditAFANo.Leave
+        Dim afaNo As String = TextEditAFANo.Text.Trim()
+
+        If afaNo = "" Then
+            If _afaNo <> "" Then ClearForm()
+            Return
+        End If
+
+        If afaNo = _afaNo Then Return
+
+        LoadDocument(afaNo)
+    End Sub
+
+    Private Sub LoadDocument(ByVal afaNo As String)
+        Cursor.Current = Cursors.WaitCursor
+        Try
+            Dim ds As DataSet = _service.GetHeaderForEdit(afaNo)
+
+            If ds Is Nothing Then
+                XtraMessageBox.Show("AFA " & afaNo & " was not found.", "E-Form AFA Additional Budget",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextEditAFANo.Text = ""
+                Return
+            End If
+
+            Dim header As DataRow = ds.Tables(0).Rows(0)
+
+            If Convert.ToString(header("AFA_TYPE")) <> "ADD" Then
+                XtraMessageBox.Show("AFA " & afaNo & " is not an Additional Budget type document.",
+                                    "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextEditAFANo.Text = ""
+                Return
+            End If
+
+            Dim sts As String = Convert.ToString(header("STS"))
+            If sts <> "Draft" AndAlso sts <> "Cancelled" Then
+                XtraMessageBox.Show("This AFA is in circulation (" & sts & ") and cannot be edited directly." & vbCrLf &
+                                    "Please cancel it first if it needs revision.",
+                                    "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextEditAFANo.Text = ""
+                Return
+            End If
+
+            Dim ownerNik As String = Convert.ToString(header("USERID"))
+            If ownerNik <> _nik Then
+                XtraMessageBox.Show("Only the drafter who created this AFA can edit it.",
+                                    "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextEditAFANo.Text = ""
+                Return
+            End If
+
+            ' --- Mulai isi ulang form dari data existing ---
+            _afaNo = afaNo
+
+            SetComboByValue(SelectLocation, _dtLocation, "CODE", header("AFA_LOCATION"))
+            SetComboByValue(SelectDepartment, _dtDepartment, "DEPT_ID", header("DEPT_ID"))
+
+            TextEditSubject.Text = Convert.ToString(header("SUBJECT"))
+            MemoEditPurpose.Text = Convert.ToString(header("PURPOSES"))
+            MemoEditBgExp.Text = Convert.ToString(header("BG_EXPLANATION"))
+
+            DateEditScheduleFrom.EditValue = If(header("AFA_PER_FROM") Is DBNull.Value, Nothing, header("AFA_PER_FROM"))
+            DateEditScheduleTo.EditValue = If(header("AFA_PER_TO") Is DBNull.Value, Nothing, header("AFA_PER_TO"))
+
+            TextEditAFADate.Text = If(header("AFA_DATE") Is DBNull.Value, "",
+                                      Convert.ToDateTime(header("AFA_DATE")).ToString("dd MMM yyyy"))
+
+            TextEdit1.Text = Convert.ToString(header("BUDGET_YEAR"))
+            TextEdit2.Text = Convert.ToString(header("BUDGET_REV"))
+            LoadBudgetAllocation()
+
+            PictureEditAttachCover.Image = Nothing
+            TextEditCaptionCover.Text = ""
+            _attachmentPath = String.Empty
+
+            If ds.Tables.Count > 1 AndAlso ds.Tables(1).Rows.Count > 0 Then
+                Dim attRow As DataRow = ds.Tables(1).Rows(0)
+                Dim existingPath As String = Convert.ToString(attRow("FILE_PATH"))
+                Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
+
+                If Not String.IsNullOrEmpty(existingPath) AndAlso serverPath <> "" Then
+                    Dim isFullPath As Boolean = existingPath.Length >= 2 AndAlso existingPath(1) = ":"c OrElse existingPath.StartsWith("\\")
+                    Dim fullPath As String = If(isFullPath, existingPath, Path.Combine(serverPath, existingPath.TrimStart("\"c, "/"c)))
+
+                    If File.Exists(fullPath) Then
+                        Try
+                            Using tempImg As Image = Image.FromFile(fullPath)
+                                PictureEditAttachCover.Image = New Bitmap(tempImg)
+                            End Using
+                        Catch
+                            ' abaikan - kalau file cover lama gagal dibuka, biarkan kosong
+                        End Try
+                    End If
+                End If
+
+                TextEditCaptionCover.Text = Convert.ToString(attRow("CAPTION"))
+            End If
+
+            If ds.Tables.Count > 2 AndAlso ds.Tables(2).Rows.Count > 0 Then
+                Dim detailRow As DataRow = ds.Tables(2).Rows(0)
+
+                LookupBudgetItem.EditValue = Convert.ToString(detailRow("BUDGET_ITEM_CODE"))
+
+                TextEditEstimation.Text = Convert.ToDecimal(detailRow("ESTIMATION")).ToString("n2")
+            End If
+
+            Me.Text = "E-Form AFA Additional Budget - " & afaNo & " (Edit)"
+            BtnSave.Text = "Update"
+        Finally
+            Cursor.Current = Cursors.Default
+        End Try
+    End Sub
+
+#End Region
+
 #Region "Calculation"
 
     ''' <summary>Mirrors AFA_NonIFS_Recalc_Proc's ADD branch, for an immediate preview.</summary>
@@ -320,9 +453,6 @@ Public Class XtraFormAFAAddEForm
             Dim deptId As Integer = Convert.ToInt32(GetSelectedValue(SelectDepartment, _dtDepartment, "DEPT_ID"))
             Dim locCode As String = Convert.ToString(GetSelectedValue(SelectLocation, _dtLocation, "CODE"))
 
-            ' ADD has no currency selector on this form either: additional
-            ' budget figures come from IFS in USD, matching AFA_NON_IFS.CURCODE's
-            ' default and BUDGET_CURR_RATE being USD-based.
             Dim curCode As String = "USD"
 
             Dim perFrom As Object = If(DateEditScheduleFrom.EditValue Is Nothing, Nothing, DateEditScheduleFrom.DateTime.Date)
@@ -384,6 +514,8 @@ Public Class XtraFormAFAAddEForm
                                 "E-Form AFA Additional Budget", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
             Me.Text = "E-Form AFA Additional Budget - " & _afaNo
+            TextEditAFANo.Text = _afaNo
+            BtnSave.Text = "Update"
         Finally
             Cursor.Current = Cursors.Default
         End Try
@@ -459,6 +591,8 @@ Public Class XtraFormAFAAddEForm
         _afaNo = String.Empty
         _attachmentPath = String.Empty
 
+        TextEditAFANo.Text = ""
+        TextEditAFADate.Text = ""
         SelectLocation.SelectedIndex = -1
         TextEditSubject.Text = ""
         MemoEditPurpose.Text = ""
@@ -482,6 +616,7 @@ Public Class XtraFormAFAAddEForm
         PictureEditAttachCover.Image = Nothing
         PictureEditAttachCover.Properties.NullText = "Double-click to choose a file"
 
+        BtnSave.Text = "Save"
         Me.Text = "E-Form AFA Additional Budget"
     End Sub
 
