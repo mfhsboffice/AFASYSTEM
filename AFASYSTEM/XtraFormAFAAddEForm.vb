@@ -264,7 +264,7 @@ Public Class XtraFormAFAAddEForm
         LoadDocument(afaNo)
     End Sub
 
-    Private Sub LoadDocument(ByVal afaNo As String)
+    Public Sub LoadDocument(ByVal afaNo As String)
         Cursor.Current = Cursors.WaitCursor
         Try
             Dim ds As DataSet = _service.GetHeaderForEdit(afaNo)
@@ -302,8 +302,8 @@ Public Class XtraFormAFAAddEForm
                 Return
             End If
 
-            ' --- Mulai isi ulang form dari data existing ---
             _afaNo = afaNo
+            TextEditAFANo.Text = afaNo
 
             SetComboByValue(SelectLocation, _dtLocation, "CODE", header("AFA_LOCATION"))
             SetComboByValue(SelectDepartment, _dtDepartment, "DEPT_ID", header("DEPT_ID"))
@@ -341,7 +341,6 @@ Public Class XtraFormAFAAddEForm
                                 PictureEditAttachCover.Image = New Bitmap(tempImg)
                             End Using
                         Catch
-                            ' abaikan - kalau file cover lama gagal dibuka, biarkan kosong
                         End Try
                     End If
                 End If
@@ -368,7 +367,6 @@ Public Class XtraFormAFAAddEForm
 
 #Region "Calculation"
 
-    ''' <summary>Mirrors AFA_NonIFS_Recalc_Proc's ADD branch, for an immediate preview.</summary>
     Private Sub Recalculate()
         Dim budget As Decimal = ParseAmount(TextEditBudgetAmt.Text)
         Dim actual As Decimal = ParseAmount(TextEditActualUp.Text)

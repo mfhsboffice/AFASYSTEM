@@ -298,7 +298,7 @@ Public Class XtraFormAFABreEForm
         LoadDocument(afaNo)
     End Sub
 
-    Private Sub LoadDocument(ByVal afaNo As String)
+    Public Sub LoadDocument(ByVal afaNo As String)
         Cursor.Current = Cursors.WaitCursor
         Try
             Dim ds As DataSet = _service.GetHeaderForEdit(afaNo)
@@ -336,8 +336,8 @@ Public Class XtraFormAFABreEForm
                 Return
             End If
 
-            ' --- Mulai isi ulang form dari data existing ---
             _afaNo = afaNo
+            TextEditAFANo.Text = afaNo
 
             SetComboByValue(SelectLocation, _dtLocation, "CODE", header("AFA_LOCATION"))
             SetComboByValue(SelectDepartment, _dtDepartment, "DEPT_ID", header("DEPT_ID"))
@@ -375,6 +375,7 @@ Public Class XtraFormAFABreEForm
                                 PictureEditAttachCover.Image = New Bitmap(tempImg)
                             End Using
                         Catch
+                            ' abaikan - kalau file cover lama gagal dibuka, biarkan kosong
                         End Try
                     End If
                 End If
@@ -382,6 +383,7 @@ Public Class XtraFormAFABreEForm
                 TextEditCaptionCover.Text = Convert.ToString(attRow("CAPTION"))
             End If
 
+            ' --- Detail spesifik BRE (Table 2) - 1 baris Source, 1 baris Target ---
             If ds.Tables.Count > 2 Then
                 For Each detailRow As DataRow In ds.Tables(2).Rows
                     Dim itemRole As String = Convert.ToString(detailRow("ITEM_ROLE"))

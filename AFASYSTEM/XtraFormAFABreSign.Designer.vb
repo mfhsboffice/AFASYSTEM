@@ -20,6 +20,7 @@ Partial Class XtraFormAFABreSign
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.SelectPriority = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ButtonEditAttachment2 = New DevExpress.XtraEditors.ButtonEdit()
         Me.ButtonEditAttachment1 = New DevExpress.XtraEditors.ButtonEdit()
         Me.BtnExit = New DevExpress.XtraEditors.SimpleButton()
@@ -64,10 +65,10 @@ Partial Class XtraFormAFABreSign
         Me.LciAttachment2 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.SelectPriority = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ButtonEditAttachment2.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ButtonEditAttachment1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControlSignature, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,7 +109,6 @@ Partial Class XtraFormAFABreSign
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -144,21 +144,31 @@ Partial Class XtraFormAFABreSign
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'SelectPriority
+        '
+        Me.SelectPriority.Location = New System.Drawing.Point(482, 31)
+        Me.SelectPriority.Name = "SelectPriority"
+        Me.SelectPriority.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.SelectPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.SelectPriority.Size = New System.Drawing.Size(458, 20)
+        Me.SelectPriority.StyleController = Me.LayoutControl1
+        Me.SelectPriority.TabIndex = 26
+        '
         'ButtonEditAttachment2
         '
-        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(651, 602)
+        Me.ButtonEditAttachment2.Location = New System.Drawing.Point(482, 602)
         Me.ButtonEditAttachment2.Name = "ButtonEditAttachment2"
         Me.ButtonEditAttachment2.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(289, 20)
+        Me.ButtonEditAttachment2.Size = New System.Drawing.Size(458, 20)
         Me.ButtonEditAttachment2.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment2.TabIndex = 24
         '
         'ButtonEditAttachment1
         '
-        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(184, 602)
+        Me.ButtonEditAttachment1.Location = New System.Drawing.Point(15, 601)
         Me.ButtonEditAttachment1.Name = "ButtonEditAttachment1"
         Me.ButtonEditAttachment1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(288, 20)
+        Me.ButtonEditAttachment1.Size = New System.Drawing.Size(457, 20)
         Me.ButtonEditAttachment1.StyleController = Me.LayoutControl1
         Me.ButtonEditAttachment1.TabIndex = 23
         '
@@ -217,7 +227,7 @@ Partial Class XtraFormAFABreSign
         Me.GridControlSignature.Location = New System.Drawing.Point(12, 388)
         Me.GridControlSignature.MainView = Me.GridViewSignature
         Me.GridControlSignature.Name = "GridControlSignature"
-        Me.GridControlSignature.Size = New System.Drawing.Size(931, 207)
+        Me.GridControlSignature.Size = New System.Drawing.Size(931, 190)
         Me.GridControlSignature.TabIndex = 18
         Me.GridControlSignature.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewSignature})
         '
@@ -568,7 +578,7 @@ Partial Class XtraFormAFABreSign
         Me.LciGridSignature.Control = Me.GridControlSignature
         Me.LciGridSignature.Location = New System.Drawing.Point(0, 376)
         Me.LciGridSignature.Name = "LciGridSignature"
-        Me.LciGridSignature.Size = New System.Drawing.Size(935, 211)
+        Me.LciGridSignature.Size = New System.Drawing.Size(935, 194)
         Me.LciGridSignature.TextVisible = False
         '
         'LciBtnSave
@@ -592,21 +602,23 @@ Partial Class XtraFormAFABreSign
         'LciAttachment1
         '
         Me.LciAttachment1.Control = Me.ButtonEditAttachment1
-        Me.LciAttachment1.Location = New System.Drawing.Point(0, 587)
+        Me.LciAttachment1.Location = New System.Drawing.Point(0, 570)
         Me.LciAttachment1.Name = "LciAttachment1"
         Me.LciAttachment1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciAttachment1.Size = New System.Drawing.Size(467, 30)
+        Me.LciAttachment1.Size = New System.Drawing.Size(467, 47)
         Me.LciAttachment1.Text = "Attachment 1"
+        Me.LciAttachment1.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAttachment1.TextSize = New System.Drawing.Size(165, 13)
         '
         'LciAttachment2
         '
         Me.LciAttachment2.Control = Me.ButtonEditAttachment2
-        Me.LciAttachment2.Location = New System.Drawing.Point(467, 587)
+        Me.LciAttachment2.Location = New System.Drawing.Point(467, 570)
         Me.LciAttachment2.Name = "LciAttachment2"
         Me.LciAttachment2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciAttachment2.Size = New System.Drawing.Size(468, 30)
+        Me.LciAttachment2.Size = New System.Drawing.Size(468, 47)
         Me.LciAttachment2.Text = "Attachment 2"
+        Me.LciAttachment2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciAttachment2.TextSize = New System.Drawing.Size(165, 13)
         '
         'LciBtnExit
@@ -626,16 +638,6 @@ Partial Class XtraFormAFABreSign
         Me.LciBtnViewAFA.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
         Me.LciBtnViewAFA.Size = New System.Drawing.Size(233, 34)
         Me.LciBtnViewAFA.TextVisible = False
-        '
-        'SelectPriority
-        '
-        Me.SelectPriority.Location = New System.Drawing.Point(482, 31)
-        Me.SelectPriority.Name = "SelectPriority"
-        Me.SelectPriority.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.SelectPriority.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.SelectPriority.Size = New System.Drawing.Size(458, 20)
-        Me.SelectPriority.StyleController = Me.LayoutControl1
-        Me.SelectPriority.TabIndex = 26
         '
         'LayoutControlItem2
         '
@@ -659,6 +661,7 @@ Partial Class XtraFormAFABreSign
         Me.Text = "Signature AFA Reclass Budget"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ButtonEditAttachment2.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ButtonEditAttachment1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControlSignature, System.ComponentModel.ISupportInitialize).EndInit()
@@ -699,7 +702,6 @@ Partial Class XtraFormAFABreSign
         CType(Me.LciAttachment2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 

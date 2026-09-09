@@ -20,6 +20,7 @@ Partial Class XtraFormAFAApproval
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnDisapprove = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnCheckUncheck = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnViewAFA = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnLoad = New DevExpress.XtraEditors.SimpleButton()
@@ -38,7 +39,6 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
@@ -59,7 +59,7 @@ Partial Class XtraFormAFAApproval
         '
         'LayoutControl1
         '
-        Me.LayoutControl1.Controls.Add(Me.SimpleButton1)
+        Me.LayoutControl1.Controls.Add(Me.BtnDisapprove)
         Me.LayoutControl1.Controls.Add(Me.BtnCheckUncheck)
         Me.LayoutControl1.Controls.Add(Me.BtnViewAFA)
         Me.LayoutControl1.Controls.Add(Me.BtnLoad)
@@ -75,6 +75,19 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControl1.Size = New System.Drawing.Size(988, 723)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'BtnDisapprove
+        '
+        Me.BtnDisapprove.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnDisapprove.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnDisapprove.Appearance.Options.UseBackColor = True
+        Me.BtnDisapprove.Appearance.Options.UseFont = True
+        Me.BtnDisapprove.Location = New System.Drawing.Point(566, 687)
+        Me.BtnDisapprove.Name = "BtnDisapprove"
+        Me.BtnDisapprove.Size = New System.Drawing.Size(187, 24)
+        Me.BtnDisapprove.StyleController = Me.LayoutControl1
+        Me.BtnDisapprove.TabIndex = 13
+        Me.BtnDisapprove.Text = "Disapprove"
         '
         'BtnCheckUncheck
         '
@@ -251,22 +264,9 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControlItem8.Size = New System.Drawing.Size(221, 28)
         Me.LayoutControlItem8.TextVisible = False
         '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
-        Me.SimpleButton1.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SimpleButton1.Appearance.Options.UseBackColor = True
-        Me.SimpleButton1.Appearance.Options.UseFont = True
-        Me.SimpleButton1.Location = New System.Drawing.Point(566, 687)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(187, 24)
-        Me.SimpleButton1.StyleController = Me.LayoutControl1
-        Me.SimpleButton1.TabIndex = 13
-        Me.SimpleButton1.Text = "Disapprove"
-        '
         'LayoutControlItem3
         '
-        Me.LayoutControlItem3.Control = Me.SimpleButton1
+        Me.LayoutControlItem3.Control = Me.BtnDisapprove
         Me.LayoutControlItem3.Location = New System.Drawing.Point(554, 675)
         Me.LayoutControlItem3.Name = "LayoutControlItem3"
         Me.LayoutControlItem3.Size = New System.Drawing.Size(191, 28)
@@ -319,6 +319,6 @@ Partial Class XtraFormAFAApproval
     Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents BtnCheckUncheck As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents BtnDisapprove As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
 End Class
