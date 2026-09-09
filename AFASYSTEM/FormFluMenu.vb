@@ -192,6 +192,7 @@ Public Class FormFluMenu
 
             Trans.Visible = True
             Trans_AFAEntry.Visible = True
+            AceApproval.Visible = False
             Trans_App.Visible = False
             Trans_Monitoring.Visible = True
 
@@ -202,6 +203,7 @@ Public Class FormFluMenu
             Other_Guidance.Visible = True
             Others_AppOwner.Visible = False
             Tools_Admin.Visible = False
+
         ElseIf Trim(btnlvl.Caption) = "FINANCE" Then
 
             Sys.Visible = True

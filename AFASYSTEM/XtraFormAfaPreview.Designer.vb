@@ -19,6 +19,8 @@ Partial Public Class XtraFormAfaPreview
     Private Sub InitializeComponent()
         Me.SplitContainerControl1 = New DevExpress.XtraEditors.SplitContainerControl()
         Me.DocumentViewer1 = New DevExpress.XtraPrinting.Preview.DocumentViewer()
+        Me.PanelReportActions = New DevExpress.XtraEditors.PanelControl()
+        Me.BtnExportPdf = New DevExpress.XtraEditors.SimpleButton()
         Me.PdfViewer1 = New DevExpress.XtraPdfViewer.PdfViewer()
         Me.PanelNav = New DevExpress.XtraEditors.PanelControl()
         Me.LabelLampiranInfo = New DevExpress.XtraEditors.LabelControl()
@@ -30,6 +32,8 @@ Partial Public Class XtraFormAfaPreview
         CType(Me.SplitContainerControl1.Panel2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainerControl1.Panel2.SuspendLayout()
         Me.SplitContainerControl1.SuspendLayout()
+        CType(Me.PanelReportActions, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanelReportActions.SuspendLayout()
         CType(Me.PanelNav, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelNav.SuspendLayout()
         Me.SuspendLayout()
@@ -43,6 +47,7 @@ Partial Public Class XtraFormAfaPreview
         'SplitContainerControl1.Panel1
         '
         Me.SplitContainerControl1.Panel1.Controls.Add(Me.DocumentViewer1)
+        Me.SplitContainerControl1.Panel1.Controls.Add(Me.PanelReportActions)
         Me.SplitContainerControl1.Panel1.Text = "Panel1"
         '
         'SplitContainerControl1.Panel2
@@ -51,24 +56,41 @@ Partial Public Class XtraFormAfaPreview
         Me.SplitContainerControl1.Panel2.Controls.Add(Me.PanelNav)
         Me.SplitContainerControl1.Panel2.Text = "Panel2"
         Me.SplitContainerControl1.Size = New System.Drawing.Size(1300, 750)
-        Me.SplitContainerControl1.SplitterPosition = 750
+        Me.SplitContainerControl1.SplitterPosition = 708
         Me.SplitContainerControl1.TabIndex = 0
         '
         'DocumentViewer1
         '
         Me.DocumentViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DocumentViewer1.IsMetric = False
-        Me.DocumentViewer1.Location = New System.Drawing.Point(0, 0)
+        Me.DocumentViewer1.Location = New System.Drawing.Point(0, 40)
         Me.DocumentViewer1.Name = "DocumentViewer1"
-        Me.DocumentViewer1.Size = New System.Drawing.Size(750, 750)
+        Me.DocumentViewer1.Size = New System.Drawing.Size(708, 710)
         Me.DocumentViewer1.TabIndex = 0
+        '
+        'PanelReportActions
+        '
+        Me.PanelReportActions.Controls.Add(Me.BtnExportPdf)
+        Me.PanelReportActions.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanelReportActions.Location = New System.Drawing.Point(0, 0)
+        Me.PanelReportActions.Name = "PanelReportActions"
+        Me.PanelReportActions.Size = New System.Drawing.Size(708, 40)
+        Me.PanelReportActions.TabIndex = 1
+        '
+        'BtnExportPdf
+        '
+        Me.BtnExportPdf.Location = New System.Drawing.Point(14, 7)
+        Me.BtnExportPdf.Name = "BtnExportPdf"
+        Me.BtnExportPdf.Size = New System.Drawing.Size(140, 24)
+        Me.BtnExportPdf.TabIndex = 0
+        Me.BtnExportPdf.Text = "Export to PDF"
         '
         'PdfViewer1
         '
         Me.PdfViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.PdfViewer1.Location = New System.Drawing.Point(0, 40)
         Me.PdfViewer1.Name = "PdfViewer1"
-        Me.PdfViewer1.Size = New System.Drawing.Size(542, 710)
+        Me.PdfViewer1.Size = New System.Drawing.Size(584, 710)
         Me.PdfViewer1.TabIndex = 0
         '
         'PanelNav
@@ -79,7 +101,7 @@ Partial Public Class XtraFormAfaPreview
         Me.PanelNav.Dock = System.Windows.Forms.DockStyle.Top
         Me.PanelNav.Location = New System.Drawing.Point(0, 0)
         Me.PanelNav.Name = "PanelNav"
-        Me.PanelNav.Size = New System.Drawing.Size(542, 40)
+        Me.PanelNav.Size = New System.Drawing.Size(584, 40)
         Me.PanelNav.TabIndex = 1
         Me.PanelNav.Visible = False
         '
@@ -115,6 +137,7 @@ Partial Public Class XtraFormAfaPreview
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1300, 750)
         Me.Controls.Add(Me.SplitContainerControl1)
+        Me.IconOptions.Image = Global.AFASYSTEM.My.Resources.Resources.icondunlop
         Me.Name = "XtraFormAfaPreview"
         Me.Text = "AFA Preview"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
@@ -124,6 +147,8 @@ Partial Public Class XtraFormAfaPreview
         Me.SplitContainerControl1.Panel2.ResumeLayout(False)
         CType(Me.SplitContainerControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainerControl1.ResumeLayout(False)
+        CType(Me.PanelReportActions, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanelReportActions.ResumeLayout(False)
         CType(Me.PanelNav, System.ComponentModel.ISupportInitialize).EndInit()
         Me.PanelNav.ResumeLayout(False)
         Me.PanelNav.PerformLayout()
@@ -133,6 +158,8 @@ Partial Public Class XtraFormAfaPreview
 
     Friend WithEvents SplitContainerControl1 As DevExpress.XtraEditors.SplitContainerControl
     Friend WithEvents DocumentViewer1 As DevExpress.XtraPrinting.Preview.DocumentViewer
+    Friend WithEvents PanelReportActions As DevExpress.XtraEditors.PanelControl
+    Friend WithEvents BtnExportPdf As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents PdfViewer1 As DevExpress.XtraPdfViewer.PdfViewer
     Friend WithEvents PanelNav As DevExpress.XtraEditors.PanelControl
     Friend WithEvents LabelLampiranInfo As DevExpress.XtraEditors.LabelControl

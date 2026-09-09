@@ -59,7 +59,7 @@ Partial Class XtraFormAFAMonitoring
         '
         'BtnReload
         '
-        Me.BtnReload.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Primary
+        Me.BtnReload.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
         Me.BtnReload.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnReload.Appearance.Options.UseBackColor = True
         Me.BtnReload.Appearance.Options.UseFont = True

@@ -94,18 +94,26 @@ Partial Class XtraFormAFAMyRecords
         '
         'BtnLoadMyDocuments
         '
-        Me.BtnLoadMyDocuments.Location = New System.Drawing.Point(12, 562)
+        Me.BtnLoadMyDocuments.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
+        Me.BtnLoadMyDocuments.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLoadMyDocuments.Appearance.Options.UseBackColor = True
+        Me.BtnLoadMyDocuments.Appearance.Options.UseFont = True
+        Me.BtnLoadMyDocuments.Location = New System.Drawing.Point(12, 560)
         Me.BtnLoadMyDocuments.Name = "BtnLoadMyDocuments"
-        Me.BtnLoadMyDocuments.Size = New System.Drawing.Size(516, 22)
+        Me.BtnLoadMyDocuments.Size = New System.Drawing.Size(516, 24)
         Me.BtnLoadMyDocuments.StyleController = Me.LayoutControlMyDocuments
         Me.BtnLoadMyDocuments.TabIndex = 6
         Me.BtnLoadMyDocuments.Text = "Load"
         '
         'BtnCancel
         '
-        Me.BtnCancel.Location = New System.Drawing.Point(532, 562)
+        Me.BtnCancel.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnCancel.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnCancel.Appearance.Options.UseBackColor = True
+        Me.BtnCancel.Appearance.Options.UseFont = True
+        Me.BtnCancel.Location = New System.Drawing.Point(532, 560)
         Me.BtnCancel.Name = "BtnCancel"
-        Me.BtnCancel.Size = New System.Drawing.Size(398, 22)
+        Me.BtnCancel.Size = New System.Drawing.Size(398, 24)
         Me.BtnCancel.StyleController = Me.LayoutControlMyDocuments
         Me.BtnCancel.TabIndex = 5
         Me.BtnCancel.Text = "Cancel AFA"
@@ -115,7 +123,7 @@ Partial Class XtraFormAFAMyRecords
         Me.GridControlMyDocuments.Location = New System.Drawing.Point(12, 12)
         Me.GridControlMyDocuments.MainView = Me.GridViewMyDocuments
         Me.GridControlMyDocuments.Name = "GridControlMyDocuments"
-        Me.GridControlMyDocuments.Size = New System.Drawing.Size(918, 546)
+        Me.GridControlMyDocuments.Size = New System.Drawing.Size(918, 544)
         Me.GridControlMyDocuments.TabIndex = 4
         Me.GridControlMyDocuments.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewMyDocuments})
         '
@@ -138,23 +146,23 @@ Partial Class XtraFormAFAMyRecords
         Me.LayoutItemGridMyDocuments.Control = Me.GridControlMyDocuments
         Me.LayoutItemGridMyDocuments.Location = New System.Drawing.Point(0, 0)
         Me.LayoutItemGridMyDocuments.Name = "LayoutItemGridMyDocuments"
-        Me.LayoutItemGridMyDocuments.Size = New System.Drawing.Size(922, 550)
+        Me.LayoutItemGridMyDocuments.Size = New System.Drawing.Size(922, 548)
         Me.LayoutItemGridMyDocuments.TextVisible = False
         '
         'LayoutItemBtnCancel
         '
         Me.LayoutItemBtnCancel.Control = Me.BtnCancel
-        Me.LayoutItemBtnCancel.Location = New System.Drawing.Point(520, 550)
+        Me.LayoutItemBtnCancel.Location = New System.Drawing.Point(520, 548)
         Me.LayoutItemBtnCancel.Name = "LayoutItemBtnCancel"
-        Me.LayoutItemBtnCancel.Size = New System.Drawing.Size(402, 26)
+        Me.LayoutItemBtnCancel.Size = New System.Drawing.Size(402, 28)
         Me.LayoutItemBtnCancel.TextVisible = False
         '
         'LayoutItemBtnLoadMyDocuments
         '
         Me.LayoutItemBtnLoadMyDocuments.Control = Me.BtnLoadMyDocuments
-        Me.LayoutItemBtnLoadMyDocuments.Location = New System.Drawing.Point(0, 550)
+        Me.LayoutItemBtnLoadMyDocuments.Location = New System.Drawing.Point(0, 548)
         Me.LayoutItemBtnLoadMyDocuments.Name = "LayoutItemBtnLoadMyDocuments"
-        Me.LayoutItemBtnLoadMyDocuments.Size = New System.Drawing.Size(520, 26)
+        Me.LayoutItemBtnLoadMyDocuments.Size = New System.Drawing.Size(520, 28)
         Me.LayoutItemBtnLoadMyDocuments.TextVisible = False
         '
         'TabPageMyApprovalHistory
@@ -179,18 +187,26 @@ Partial Class XtraFormAFAMyRecords
         '
         'BtnLoadMyApprovals
         '
-        Me.BtnLoadMyApprovals.Location = New System.Drawing.Point(12, 562)
+        Me.BtnLoadMyApprovals.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
+        Me.BtnLoadMyApprovals.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnLoadMyApprovals.Appearance.Options.UseBackColor = True
+        Me.BtnLoadMyApprovals.Appearance.Options.UseFont = True
+        Me.BtnLoadMyApprovals.Location = New System.Drawing.Point(12, 560)
         Me.BtnLoadMyApprovals.Name = "BtnLoadMyApprovals"
-        Me.BtnLoadMyApprovals.Size = New System.Drawing.Size(496, 22)
+        Me.BtnLoadMyApprovals.Size = New System.Drawing.Size(496, 24)
         Me.BtnLoadMyApprovals.StyleController = Me.LayoutControl2
         Me.BtnLoadMyApprovals.TabIndex = 6
         Me.BtnLoadMyApprovals.Text = "Load"
         '
         'BtnUnapprovedAFA
         '
-        Me.BtnUnapprovedAFA.Location = New System.Drawing.Point(512, 562)
+        Me.BtnUnapprovedAFA.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnUnapprovedAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnUnapprovedAFA.Appearance.Options.UseBackColor = True
+        Me.BtnUnapprovedAFA.Appearance.Options.UseFont = True
+        Me.BtnUnapprovedAFA.Location = New System.Drawing.Point(512, 560)
         Me.BtnUnapprovedAFA.Name = "BtnUnapprovedAFA"
-        Me.BtnUnapprovedAFA.Size = New System.Drawing.Size(418, 22)
+        Me.BtnUnapprovedAFA.Size = New System.Drawing.Size(418, 24)
         Me.BtnUnapprovedAFA.StyleController = Me.LayoutControl2
         Me.BtnUnapprovedAFA.TabIndex = 5
         Me.BtnUnapprovedAFA.Text = "Unapproved"
@@ -200,7 +216,7 @@ Partial Class XtraFormAFAMyRecords
         Me.GridControlMyApprovals.Location = New System.Drawing.Point(12, 12)
         Me.GridControlMyApprovals.MainView = Me.GridViewMyApprovals
         Me.GridControlMyApprovals.Name = "GridControlMyApprovals"
-        Me.GridControlMyApprovals.Size = New System.Drawing.Size(918, 546)
+        Me.GridControlMyApprovals.Size = New System.Drawing.Size(918, 544)
         Me.GridControlMyApprovals.TabIndex = 4
         Me.GridControlMyApprovals.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewMyApprovals})
         '
@@ -223,23 +239,23 @@ Partial Class XtraFormAFAMyRecords
         Me.LayoutItemGridMyApprovals.Control = Me.GridControlMyApprovals
         Me.LayoutItemGridMyApprovals.Location = New System.Drawing.Point(0, 0)
         Me.LayoutItemGridMyApprovals.Name = "LayoutItemGridMyApprovals"
-        Me.LayoutItemGridMyApprovals.Size = New System.Drawing.Size(922, 550)
+        Me.LayoutItemGridMyApprovals.Size = New System.Drawing.Size(922, 548)
         Me.LayoutItemGridMyApprovals.TextVisible = False
         '
         'LayoutItemBtnUnapprovedAFA
         '
         Me.LayoutItemBtnUnapprovedAFA.Control = Me.BtnUnapprovedAFA
-        Me.LayoutItemBtnUnapprovedAFA.Location = New System.Drawing.Point(500, 550)
+        Me.LayoutItemBtnUnapprovedAFA.Location = New System.Drawing.Point(500, 548)
         Me.LayoutItemBtnUnapprovedAFA.Name = "LayoutItemBtnUnapprovedAFA"
-        Me.LayoutItemBtnUnapprovedAFA.Size = New System.Drawing.Size(422, 26)
+        Me.LayoutItemBtnUnapprovedAFA.Size = New System.Drawing.Size(422, 28)
         Me.LayoutItemBtnUnapprovedAFA.TextVisible = False
         '
         'LayoutItemBtnLoadMyApprovals
         '
         Me.LayoutItemBtnLoadMyApprovals.Control = Me.BtnLoadMyApprovals
-        Me.LayoutItemBtnLoadMyApprovals.Location = New System.Drawing.Point(0, 550)
+        Me.LayoutItemBtnLoadMyApprovals.Location = New System.Drawing.Point(0, 548)
         Me.LayoutItemBtnLoadMyApprovals.Name = "LayoutItemBtnLoadMyApprovals"
-        Me.LayoutItemBtnLoadMyApprovals.Size = New System.Drawing.Size(500, 26)
+        Me.LayoutItemBtnLoadMyApprovals.Size = New System.Drawing.Size(500, 28)
         Me.LayoutItemBtnLoadMyApprovals.TextVisible = False
         '
         'XtraFormAFAMyRecords
@@ -248,6 +264,7 @@ Partial Class XtraFormAFAMyRecords
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(950, 625)
         Me.Controls.Add(Me.TabControlAFARecords)
+        Me.IconOptions.Image = Global.AFASYSTEM.My.Resources.Resources.icondunlop
         Me.Name = "XtraFormAFAMyRecords"
         Me.Text = "My AFA History"
         CType(Me.TabControlAFARecords, System.ComponentModel.ISupportInitialize).EndInit()
