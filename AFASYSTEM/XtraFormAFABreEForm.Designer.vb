@@ -183,6 +183,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.TextEditAFADate.Location = New System.Drawing.Point(491, 31)
         Me.TextEditAFADate.Name = "TextEditAFADate"
+        Me.TextEditAFADate.Properties.ReadOnly = True
         Me.TextEditAFADate.Size = New System.Drawing.Size(466, 20)
         Me.TextEditAFADate.StyleController = Me.LayoutControl1
         Me.TextEditAFADate.TabIndex = 32

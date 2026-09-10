@@ -376,7 +376,7 @@ Public Class XtraFormAFADaaEForm
             End If
 
             _afaNo = savedNo
-
+            LoadDocument(_afaNo)
             Dim subType As String = Convert.ToString(GetSelectedValue(SelectAssetFlag, _dtSubType, "CODE"))
 
             If Not _service.SaveDetail(_afaNo, subType,

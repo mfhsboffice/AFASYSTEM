@@ -526,7 +526,7 @@ Public Class XtraFormAFABreEForm
             End If
 
             _afaNo = savedNo
-
+            LoadDocument(_afaNo)
             Dim sourceCode As String = LookupBudgetItemSource.Text.Trim()
             Dim sourceSeq As Integer = 0
 

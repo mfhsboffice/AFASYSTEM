@@ -35,7 +35,6 @@ Partial Class XtraFormAFAInfSign
         Me.TextEditEstimateCost = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditAfaNo = New DevExpress.XtraEditors.TextEdit()
         Me.Root = New DevExpress.XtraLayout.LayoutControlGroup()
-        Me.LciAfaNo = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciEstimateCost = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciGridSignature = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciAttachment1 = New DevExpress.XtraLayout.LayoutControlItem()
@@ -48,6 +47,7 @@ Partial Class XtraFormAFAInfSign
         Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.XtraOpenFileDialogFile = New DevExpress.XtraEditors.XtraOpenFileDialog(Me.components)
+        Me.LciAfaNo = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -60,7 +60,6 @@ Partial Class XtraFormAFAInfSign
         CType(Me.TextEditEstimateCost.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TextEditAfaNo.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Root, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LciAfaNo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciEstimateCost, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciGridSignature, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciAttachment1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -72,6 +71,7 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciAfaNo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
@@ -232,23 +232,10 @@ Partial Class XtraFormAFAInfSign
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnSend, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority, Me.LciBtnViewAFA, Me.LciBtnExit})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciEstimateCost, Me.LciGridSignature, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnSave, Me.LciBtnSend, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciPriority, Me.LciBtnViewAFA, Me.LciBtnExit, Me.LciAfaNo})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(897, 546)
         Me.Root.TextVisible = False
-        '
-        'LciAfaNo
-        '
-        Me.LciAfaNo.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LciAfaNo.AppearanceItemCaption.Options.UseFont = True
-        Me.LciAfaNo.Control = Me.TextEditAfaNo
-        Me.LciAfaNo.Location = New System.Drawing.Point(0, 0)
-        Me.LciAfaNo.Name = "LciAfaNo"
-        Me.LciAfaNo.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciAfaNo.Size = New System.Drawing.Size(438, 50)
-        Me.LciAfaNo.Text = "No.AFA"
-        Me.LciAfaNo.TextLocation = DevExpress.Utils.Locations.Top
-        Me.LciAfaNo.TextSize = New System.Drawing.Size(91, 17)
         '
         'LciEstimateCost
         '
@@ -372,6 +359,19 @@ Partial Class XtraFormAFAInfSign
         '
         Me.XtraOpenFileDialogFile.FileName = "XtraOpenFileDialog1"
         '
+        'LciAfaNo
+        '
+        Me.LciAfaNo.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LciAfaNo.AppearanceItemCaption.Options.UseFont = True
+        Me.LciAfaNo.Control = Me.TextEditAfaNo
+        Me.LciAfaNo.Location = New System.Drawing.Point(0, 0)
+        Me.LciAfaNo.Name = "LciAfaNo"
+        Me.LciAfaNo.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciAfaNo.Size = New System.Drawing.Size(438, 50)
+        Me.LciAfaNo.Text = "No.AFA"
+        Me.LciAfaNo.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LciAfaNo.TextSize = New System.Drawing.Size(91, 17)
+        '
         'XtraFormAFAInfSign
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -393,7 +393,6 @@ Partial Class XtraFormAFAInfSign
         CType(Me.TextEditEstimateCost.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TextEditAfaNo.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Root, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LciAfaNo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciEstimateCost, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciGridSignature, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciAttachment1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -405,6 +404,7 @@ Partial Class XtraFormAFAInfSign
         CType(Me.LciPriority, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciAfaNo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -412,7 +412,6 @@ Partial Class XtraFormAFAInfSign
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents Root As DevExpress.XtraLayout.LayoutControlGroup
     Friend WithEvents TextEditAfaNo As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LciAfaNo As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents TextEditEstimateCost As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciEstimateCost As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GridControlSignature As DevExpress.XtraGrid.GridControl
@@ -437,4 +436,5 @@ Partial Class XtraFormAFAInfSign
     Friend WithEvents LciScheduleTo As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LciPriority As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LciAfaNo As DevExpress.XtraLayout.LayoutControlItem
 End Class

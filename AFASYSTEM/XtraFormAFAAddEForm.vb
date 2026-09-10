@@ -471,7 +471,7 @@ Public Class XtraFormAFAAddEForm
             End If
 
             _afaNo = savedNo
-
+            LoadDocument(_afaNo)
             Dim itemCode As String = LookupBudgetItem.Text.Trim()
             Dim savedSeq As Integer = 0
 

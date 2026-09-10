@@ -30,6 +30,7 @@ Partial Public Class AfaReportDAA
         Me.XrTable4 = New DevExpress.XtraReports.UI.XRTable()
         Me.XrTableRow5 = New DevExpress.XtraReports.UI.XRTableRow()
         Me.XrTableCell1 = New DevExpress.XtraReports.UI.XRTableCell()
+        Me.XrTableCellCurCode = New DevExpress.XtraReports.UI.XRTableCell()
         Me.XrTableCell3 = New DevExpress.XtraReports.UI.XRTableCell()
         CType(Me.XrTable1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.XrTable2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -66,41 +67,47 @@ Partial Public Class AfaReportDAA
         'XrLabel1
         '
         Me.XrLabel1.StylePriority.UseFont = False
+        Me.XrLabel1.StylePriority.UseTextAlignment = False
         '
         'XrLabel2
         '
         Me.XrLabel2.StylePriority.UseFont = False
+        Me.XrLabel2.StylePriority.UseTextAlignment = False
         '
         'SUBJECT
         '
         Me.SUBJECT.StylePriority.UseFont = False
+        Me.SUBJECT.StylePriority.UseTextAlignment = False
         '
         'PURPOSE
         '
         Me.PURPOSE.StylePriority.UseFont = False
+        Me.PURPOSE.StylePriority.UseTextAlignment = False
         '
         'Background_AND_Explanation
         '
         Me.Background_AND_Explanation.StylePriority.UseFont = False
+        Me.Background_AND_Explanation.StylePriority.UseTextAlignment = False
         '
         'XrLabel4
         '
         Me.XrLabel4.StylePriority.UseFont = False
+        Me.XrLabel4.StylePriority.UseTextAlignment = False
         '
         'XrLabel3
         '
         Me.XrLabel3.StylePriority.UseFont = False
+        Me.XrLabel3.StylePriority.UseTextAlignment = False
         '
         'SCHEDULE
         '
         Me.SCHEDULE.StylePriority.UseFont = False
+        Me.SCHEDULE.StylePriority.UseTextAlignment = False
         '
         'CAPTION
         '
-        Me.CAPTION.SizeF = New System.Drawing.SizeF(726.7711!, 23.0!)
         Me.CAPTION.StylePriority.UseFont = False
         Me.CAPTION.StylePriority.UseTextAlignment = False
-        Me.CAPTION.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter
         '
         'XrLabel7
         '
@@ -169,7 +176,7 @@ Partial Public Class AfaReportDAA
         '
         'XrTableRow5
         '
-        Me.XrTableRow5.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell1, Me.XrTableCell3})
+        Me.XrTableRow5.Cells.AddRange(New DevExpress.XtraReports.UI.XRTableCell() {Me.XrTableCell1, Me.XrTableCellCurCode, Me.XrTableCell3})
         Me.XrTableRow5.Name = "XrTableRow5"
         Me.XrTableRow5.Weight = 1.0R
         '
@@ -177,9 +184,25 @@ Partial Public Class AfaReportDAA
         '
         Me.XrTableCell1.CanGrow = False
         Me.XrTableCell1.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[LABEL]")})
+        Me.XrTableCell1.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!)
         Me.XrTableCell1.Multiline = True
         Me.XrTableCell1.Name = "XrTableCell1"
-        Me.XrTableCell1.Weight = 1.0R
+        Me.XrTableCell1.StylePriority.UseFont = False
+        Me.XrTableCell1.StylePriority.UseTextAlignment = False
+        Me.XrTableCell1.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.XrTableCell1.Weight = 1.182629000106824R
+        '
+        'XrTableCellCurCode
+        '
+        Me.XrTableCellCurCode.CanGrow = False
+        Me.XrTableCellCurCode.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[CURCODE]")})
+        Me.XrTableCellCurCode.Font = New DevExpress.Drawing.DXFont("Arial", 10.0!, DevExpress.Drawing.DXFontStyle.Bold)
+        Me.XrTableCellCurCode.Multiline = True
+        Me.XrTableCellCurCode.Name = "XrTableCellCurCode"
+        Me.XrTableCellCurCode.StylePriority.UseFont = False
+        Me.XrTableCellCurCode.StylePriority.UseTextAlignment = False
+        Me.XrTableCellCurCode.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
+        Me.XrTableCellCurCode.Weight = 0.48992434304894616R
         '
         'XrTableCell3
         '
@@ -187,8 +210,10 @@ Partial Public Class AfaReportDAA
         Me.XrTableCell3.ExpressionBindings.AddRange(New DevExpress.XtraReports.UI.ExpressionBinding() {New DevExpress.XtraReports.UI.ExpressionBinding("BeforePrint", "Text", "[AMOUNT]")})
         Me.XrTableCell3.Multiline = True
         Me.XrTableCell3.Name = "XrTableCell3"
+        Me.XrTableCell3.StylePriority.UseTextAlignment = False
+        Me.XrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft
         Me.XrTableCell3.TextFormatString = "{0:n2}"
-        Me.XrTableCell3.Weight = 1.0R
+        Me.XrTableCell3.Weight = 1.5274466568442298R
         '
         'AfaReportDAA
         '
@@ -224,5 +249,6 @@ Partial Public Class AfaReportDAA
     Friend WithEvents XrTable4 As DevExpress.XtraReports.UI.XRTable
     Friend WithEvents XrTableRow5 As DevExpress.XtraReports.UI.XRTableRow
     Friend WithEvents XrTableCell1 As DevExpress.XtraReports.UI.XRTableCell
+    Friend WithEvents XrTableCellCurCode As DevExpress.XtraReports.UI.XRTableCell
     Friend WithEvents XrTableCell3 As DevExpress.XtraReports.UI.XRTableCell
 End Class
