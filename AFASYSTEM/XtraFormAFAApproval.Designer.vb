@@ -95,9 +95,9 @@ Partial Class XtraFormAFAApproval
         Me.BtnCheckUncheck.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnCheckUncheck.Appearance.Options.UseBackColor = True
         Me.BtnCheckUncheck.Appearance.Options.UseFont = True
-        Me.BtnCheckUncheck.Location = New System.Drawing.Point(345, 687)
+        Me.BtnCheckUncheck.Location = New System.Drawing.Point(377, 687)
         Me.BtnCheckUncheck.Name = "BtnCheckUncheck"
-        Me.BtnCheckUncheck.Size = New System.Drawing.Size(217, 24)
+        Me.BtnCheckUncheck.Size = New System.Drawing.Size(185, 24)
         Me.BtnCheckUncheck.StyleController = Me.LayoutControl1
         Me.BtnCheckUncheck.TabIndex = 12
         Me.BtnCheckUncheck.Text = "Check"
@@ -155,7 +155,7 @@ Partial Class XtraFormAFAApproval
         Me.BtnSkip.Appearance.Options.UseFont = True
         Me.BtnSkip.Location = New System.Drawing.Point(156, 687)
         Me.BtnSkip.Name = "BtnSkip"
-        Me.BtnSkip.Size = New System.Drawing.Size(185, 24)
+        Me.BtnSkip.Size = New System.Drawing.Size(217, 24)
         Me.BtnSkip.StyleController = Me.LayoutControl1
         Me.BtnSkip.TabIndex = 7
         Me.BtnSkip.Text = "Skip Approval"
@@ -219,7 +219,7 @@ Partial Class XtraFormAFAApproval
         Me.LayoutControlItem4.Control = Me.BtnSkip
         Me.LayoutControlItem4.Location = New System.Drawing.Point(144, 675)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(189, 28)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(221, 28)
         Me.LayoutControlItem4.TextVisible = False
         '
         'LciReason
@@ -259,9 +259,9 @@ Partial Class XtraFormAFAApproval
         'LayoutControlItem8
         '
         Me.LayoutControlItem8.Control = Me.BtnCheckUncheck
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(333, 675)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(365, 675)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(221, 28)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(189, 28)
         Me.LayoutControlItem8.TextVisible = False
         '
         'LayoutControlItem3
