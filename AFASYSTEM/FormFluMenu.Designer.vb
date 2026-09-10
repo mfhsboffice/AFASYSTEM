@@ -126,6 +126,8 @@ Partial Class FormFluMenu
         Me.AceMonitoring = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlSeparator13 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         Me.AceApproval = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AccordionControlSeparator14 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
+        Me.AceMyDocuments = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Report = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Rpt_HistoryAFA = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.Others = New DevExpress.XtraBars.Navigation.AccordionControlElement()
@@ -143,8 +145,6 @@ Partial Class FormFluMenu
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AceMyDocuments = New DevExpress.XtraBars.Navigation.AccordionControlElement()
-        Me.AccordionControlSeparator14 = New DevExpress.XtraBars.Navigation.AccordionControlSeparator()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -836,6 +836,17 @@ Partial Class FormFluMenu
         Me.AceApproval.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AceApproval.Text = "Approval"
         '
+        'AccordionControlSeparator14
+        '
+        Me.AccordionControlSeparator14.Name = "AccordionControlSeparator14"
+        '
+        'AceMyDocuments
+        '
+        Me.AceMyDocuments.ImageOptions.SvgImage = CType(resources.GetObject("AceMyDocuments.ImageOptions.SvgImage"), DevExpress.Utils.Svg.SvgImage)
+        Me.AceMyDocuments.Name = "AceMyDocuments"
+        Me.AceMyDocuments.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceMyDocuments.Text = "My AFA Records"
+        '
         'Report
         '
         Me.Report.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Rpt_HistoryAFA})
@@ -945,16 +956,6 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Name = "AccordionControlElement29"
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
-        '
-        'AceMyDocuments
-        '
-        Me.AceMyDocuments.Name = "AceMyDocuments"
-        Me.AceMyDocuments.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
-        Me.AceMyDocuments.Text = "My AFA Records"
-        '
-        'AccordionControlSeparator14
-        '
-        Me.AccordionControlSeparator14.Name = "AccordionControlSeparator14"
         '
         'FormFluMenu
         '

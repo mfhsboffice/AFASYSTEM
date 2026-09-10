@@ -67,10 +67,10 @@ Partial Class XtraFormUserDepartments
         '
         'ComboBoxEdit1
         '
-        Me.ComboBoxEdit1.Location = New System.Drawing.Point(12, 32)
+        Me.ComboBoxEdit1.Location = New System.Drawing.Point(15, 35)
         Me.ComboBoxEdit1.Name = "ComboBoxEdit1"
         Me.ComboBoxEdit1.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.ComboBoxEdit1.Size = New System.Drawing.Size(734, 20)
+        Me.ComboBoxEdit1.Size = New System.Drawing.Size(728, 20)
         Me.ComboBoxEdit1.StyleController = Me.LayoutControl1
         Me.ComboBoxEdit1.TabIndex = 11
         '
@@ -80,9 +80,9 @@ Partial Class XtraFormUserDepartments
         Me.BtnRefresh.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnRefresh.Appearance.Options.UseBackColor = True
         Me.BtnRefresh.Appearance.Options.UseFont = True
-        Me.BtnRefresh.Location = New System.Drawing.Point(12, 501)
+        Me.BtnRefresh.Location = New System.Drawing.Point(15, 498)
         Me.BtnRefresh.Name = "BtnRefresh"
-        Me.BtnRefresh.Size = New System.Drawing.Size(734, 24)
+        Me.BtnRefresh.Size = New System.Drawing.Size(728, 24)
         Me.BtnRefresh.StyleController = Me.LayoutControl1
         Me.BtnRefresh.TabIndex = 10
         Me.BtnRefresh.Text = "Load"
@@ -93,9 +93,9 @@ Partial Class XtraFormUserDepartments
         Me.BtnSaveUpdate.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSaveUpdate.Appearance.Options.UseBackColor = True
         Me.BtnSaveUpdate.Appearance.Options.UseFont = True
-        Me.BtnSaveUpdate.Location = New System.Drawing.Point(381, 100)
+        Me.BtnSaveUpdate.Location = New System.Drawing.Point(384, 115)
         Me.BtnSaveUpdate.Name = "BtnSaveUpdate"
-        Me.BtnSaveUpdate.Size = New System.Drawing.Size(365, 24)
+        Me.BtnSaveUpdate.Size = New System.Drawing.Size(359, 24)
         Me.BtnSaveUpdate.StyleController = Me.LayoutControl1
         Me.BtnSaveUpdate.TabIndex = 9
         Me.BtnSaveUpdate.Text = "Save"
@@ -106,28 +106,28 @@ Partial Class XtraFormUserDepartments
         Me.BtnClear.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnClear.Appearance.Options.UseBackColor = True
         Me.BtnClear.Appearance.Options.UseFont = True
-        Me.BtnClear.Location = New System.Drawing.Point(12, 100)
+        Me.BtnClear.Location = New System.Drawing.Point(15, 115)
         Me.BtnClear.Name = "BtnClear"
-        Me.BtnClear.Size = New System.Drawing.Size(365, 24)
+        Me.BtnClear.Size = New System.Drawing.Size(359, 24)
         Me.BtnClear.StyleController = Me.LayoutControl1
         Me.BtnClear.TabIndex = 8
         Me.BtnClear.Text = "Clear"
         '
         'CheckedComboDepartments
         '
-        Me.CheckedComboDepartments.Location = New System.Drawing.Point(12, 76)
+        Me.CheckedComboDepartments.Location = New System.Drawing.Point(15, 85)
         Me.CheckedComboDepartments.Name = "CheckedComboDepartments"
         Me.CheckedComboDepartments.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.CheckedComboDepartments.Size = New System.Drawing.Size(734, 20)
+        Me.CheckedComboDepartments.Size = New System.Drawing.Size(728, 20)
         Me.CheckedComboDepartments.StyleController = Me.LayoutControl1
         Me.CheckedComboDepartments.TabIndex = 7
         '
         'GridControlUserDepartments
         '
-        Me.GridControlUserDepartments.Location = New System.Drawing.Point(12, 128)
+        Me.GridControlUserDepartments.Location = New System.Drawing.Point(12, 146)
         Me.GridControlUserDepartments.MainView = Me.GridViewUserDepartments
         Me.GridControlUserDepartments.Name = "GridControlUserDepartments"
-        Me.GridControlUserDepartments.Size = New System.Drawing.Size(734, 369)
+        Me.GridControlUserDepartments.Size = New System.Drawing.Size(734, 345)
         Me.GridControlUserDepartments.TabIndex = 4
         Me.GridControlUserDepartments.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridViewUserDepartments})
         '
@@ -150,9 +150,9 @@ Partial Class XtraFormUserDepartments
         'LciGrid
         '
         Me.LciGrid.Control = Me.GridControlUserDepartments
-        Me.LciGrid.Location = New System.Drawing.Point(0, 116)
+        Me.LciGrid.Location = New System.Drawing.Point(0, 134)
         Me.LciGrid.Name = "LciGrid"
-        Me.LciGrid.Size = New System.Drawing.Size(738, 373)
+        Me.LciGrid.Size = New System.Drawing.Size(738, 349)
         Me.LciGrid.TextVisible = False
         '
         'LciDepartments
@@ -160,9 +160,10 @@ Partial Class XtraFormUserDepartments
         Me.LciDepartments.AppearanceItemCaption.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LciDepartments.AppearanceItemCaption.Options.UseFont = True
         Me.LciDepartments.Control = Me.CheckedComboDepartments
-        Me.LciDepartments.Location = New System.Drawing.Point(0, 44)
+        Me.LciDepartments.Location = New System.Drawing.Point(0, 50)
         Me.LciDepartments.Name = "LciDepartments"
-        Me.LciDepartments.Size = New System.Drawing.Size(738, 44)
+        Me.LciDepartments.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciDepartments.Size = New System.Drawing.Size(738, 50)
         Me.LciDepartments.Text = "Departments"
         Me.LciDepartments.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciDepartments.TextSize = New System.Drawing.Size(80, 17)
@@ -170,25 +171,28 @@ Partial Class XtraFormUserDepartments
         'LciBtnClear
         '
         Me.LciBtnClear.Control = Me.BtnClear
-        Me.LciBtnClear.Location = New System.Drawing.Point(0, 88)
+        Me.LciBtnClear.Location = New System.Drawing.Point(0, 100)
         Me.LciBtnClear.Name = "LciBtnClear"
-        Me.LciBtnClear.Size = New System.Drawing.Size(369, 28)
+        Me.LciBtnClear.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBtnClear.Size = New System.Drawing.Size(369, 34)
         Me.LciBtnClear.TextVisible = False
         '
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSaveUpdate
-        Me.LciBtnSave.Location = New System.Drawing.Point(369, 88)
+        Me.LciBtnSave.Location = New System.Drawing.Point(369, 100)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(369, 28)
+        Me.LciBtnSave.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBtnSave.Size = New System.Drawing.Size(369, 34)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnRefresh
         '
         Me.LciBtnRefresh.Control = Me.BtnRefresh
-        Me.LciBtnRefresh.Location = New System.Drawing.Point(0, 489)
+        Me.LciBtnRefresh.Location = New System.Drawing.Point(0, 483)
         Me.LciBtnRefresh.Name = "LciBtnRefresh"
-        Me.LciBtnRefresh.Size = New System.Drawing.Size(738, 28)
+        Me.LciBtnRefresh.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciBtnRefresh.Size = New System.Drawing.Size(738, 34)
         Me.LciBtnRefresh.TextVisible = False
         '
         'LciEmployee
@@ -198,7 +202,8 @@ Partial Class XtraFormUserDepartments
         Me.LciEmployee.Control = Me.ComboBoxEdit1
         Me.LciEmployee.Location = New System.Drawing.Point(0, 0)
         Me.LciEmployee.Name = "LciEmployee"
-        Me.LciEmployee.Size = New System.Drawing.Size(738, 44)
+        Me.LciEmployee.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LciEmployee.Size = New System.Drawing.Size(738, 50)
         Me.LciEmployee.Text = "Employee"
         Me.LciEmployee.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciEmployee.TextSize = New System.Drawing.Size(80, 17)
