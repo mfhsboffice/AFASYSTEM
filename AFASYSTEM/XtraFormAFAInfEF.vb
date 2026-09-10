@@ -318,7 +318,7 @@ Public Class XtraFormAFAInfEF
             End If
 
             _afaNo = savedNo
-
+            LoadDocument(_afaNo)
             Dim subType As String = Convert.ToString(GetSelectedValue(SelectType, _dtSubType, "CODE"))
             Dim estimate As Decimal = 0D
             Decimal.TryParse(TextEditEstimateCost.Text, estimate)
