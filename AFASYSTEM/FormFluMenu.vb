@@ -563,6 +563,22 @@ Public Class FormFluMenu
         XtraFormAFAMyRecords.BringToFront()
     End Sub
 
+    Private Sub AceAFAType_Click(sender As Object, e As EventArgs) Handles AceAFAType.Click
+        XtraFormAfaType.TopLevel = False
+        XtraFormAfaType.Parent = PanelControl1
+        XtraFormAfaType.Dock = DockStyle.Fill
+        XtraFormAfaType.Show()
+        XtraFormAfaType.BringToFront()
+    End Sub
+
+    Private Sub AceSriRules_Click(sender As Object, e As EventArgs) Handles AceSriRules.Click
+        XtraFormSriRule.TopLevel = False
+        XtraFormSriRule.Parent = PanelControl1
+        XtraFormSriRule.Dock = DockStyle.Fill
+        XtraFormSriRule.Show()
+        XtraFormSriRule.BringToFront()
+    End Sub
+
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
         tuutpkabeh()
         Me.Close()

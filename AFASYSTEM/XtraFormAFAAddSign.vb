@@ -214,20 +214,14 @@ Public Class XtraFormAFAAddSign
 
     Private Sub LoadNodes()
         GridControlSignature.DataSource = Nothing
-
-        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-        If _dtNodes Is Nothing OrElse _dtNodes.Rows.Count = 0 Then
-            If _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
-                _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-            Else
-                XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
-                                    _signature.LastErrorMessage,
-                                    "Signature AFA Additional Budget",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
+        If Not _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
+            XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
+                                _signature.LastErrorMessage,
+                                "Signature AFA Additional Budget",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
+        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
         If _dtNodes Is Nothing Then Return
 
         GridControlSignature.DataSource = _dtNodes

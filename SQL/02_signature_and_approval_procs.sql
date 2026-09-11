@@ -415,7 +415,6 @@ BEGIN
 
         IF ISNULL(@MaxRow,0) <= 0 SET @MaxRow = 10;
 
-        /* sub-type exists for INF and DAA only */
         IF @type = 'INF'
             SELECT @sub = SUB_TYPE FROM dbo.AFA_NON_IFS_INF WHERE AFA_NO = @AfaNo;
         ELSE IF @type = 'DAA'
@@ -432,8 +431,6 @@ BEGIN
         SET @nik1 = dbo.AFA_NonIFS_ResolveJab_Fn(@jab1);
         SET @nik2 = dbo.AFA_NonIFS_ResolveJab_Fn(@jab2);
 
-        -- Budget Control is resolved the same way as the authorised
-        -- approvers, from the position master
         SET @nikBudget = dbo.AFA_NonIFS_ResolveJab_Fn('Budget Controler');
 
         IF @nikBudget IS NULL

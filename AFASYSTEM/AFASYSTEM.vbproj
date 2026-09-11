@@ -289,10 +289,12 @@
     <Compile Include="Services\AFAMonitoringService.vb" />
     <Compile Include="Services\AFAMyRecordsService.vb" />
     <Compile Include="Services\AFASignatureService.vb" />
+    <Compile Include="Services\AfaTypeService.vb" />
     <Compile Include="Services\BulkApproveResult.vb" />
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
+    <Compile Include="Services\SriRuleService.vb" />
     <Compile Include="Services\UnconfiguredDocumentsService.vb" />
     <Compile Include="Services\UserDepartmentService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
@@ -389,6 +391,12 @@
       <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormAfaPreview.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormAfaType.Designer.vb">
+      <DependentUpon>XtraFormAfaType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAfaType.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormAppOwner.Designer.vb">
@@ -497,6 +505,12 @@
       <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormSkipAfa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormSriRule.Designer.vb">
+      <DependentUpon>XtraFormSriRule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSriRule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormUnApp.Designer.vb">
@@ -631,6 +645,9 @@
     <EmbeddedResource Include="XtraFormAfaPreview.resx">
       <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAfaType.resx">
+      <DependentUpon>XtraFormAfaType.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAppOwner.resx">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
     </EmbeddedResource>
@@ -684,6 +701,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormSkipAfa.resx">
       <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSriRule.resx">
+      <DependentUpon>XtraFormSriRule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUnApp.resx">
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>
