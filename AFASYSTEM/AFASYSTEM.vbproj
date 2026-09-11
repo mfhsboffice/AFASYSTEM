@@ -289,10 +289,12 @@
     <Compile Include="Services\AFAMonitoringService.vb" />
     <Compile Include="Services\AFAMyRecordsService.vb" />
     <Compile Include="Services\AFASignatureService.vb" />
+    <Compile Include="Services\AfaTypeService.vb" />
     <Compile Include="Services\BulkApproveResult.vb" />
     <Compile Include="Services\GeneralService.vb" />
     <Compile Include="Services\AFAInformationService.vb" />
     <Compile Include="Services\AFAReclassBudgetService.vb" />
+    <Compile Include="Services\SriRuleService.vb" />
     <Compile Include="Services\UnconfiguredDocumentsService.vb" />
     <Compile Include="Services\UserDepartmentService.vb" />
     <Compile Include="XtraFormAddInf.Designer.vb">
