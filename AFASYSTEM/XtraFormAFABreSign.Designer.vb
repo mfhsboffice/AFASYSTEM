@@ -20,6 +20,7 @@ Partial Class XtraFormAFABreSign
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnClearForm = New DevExpress.XtraEditors.SimpleButton()
         Me.SelectPriority = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.ButtonEditAttachment2 = New DevExpress.XtraEditors.ButtonEdit()
         Me.ButtonEditAttachment1 = New DevExpress.XtraEditors.ButtonEdit()
@@ -66,6 +67,7 @@ Partial Class XtraFormAFABreSign
         Me.LciBtnExit = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciBtnViewAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.SelectPriority.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -110,10 +112,12 @@ Partial Class XtraFormAFABreSign
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.BtnClearForm)
         Me.LayoutControl1.Controls.Add(Me.SelectPriority)
         Me.LayoutControl1.Controls.Add(Me.ButtonEditAttachment2)
         Me.LayoutControl1.Controls.Add(Me.ButtonEditAttachment1)
@@ -143,6 +147,19 @@ Partial Class XtraFormAFABreSign
         Me.LayoutControl1.Size = New System.Drawing.Size(955, 671)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'BtnClearForm
+        '
+        Me.BtnClearForm.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnClearForm.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearForm.Appearance.Options.UseBackColor = True
+        Me.BtnClearForm.Appearance.Options.UseFont = True
+        Me.BtnClearForm.Location = New System.Drawing.Point(211, 632)
+        Me.BtnClearForm.Name = "BtnClearForm"
+        Me.BtnClearForm.Size = New System.Drawing.Size(178, 24)
+        Me.BtnClearForm.StyleController = Me.LayoutControl1
+        Me.BtnClearForm.TabIndex = 27
+        Me.BtnClearForm.Text = "Clear"
         '
         'SelectPriority
         '
@@ -180,7 +197,7 @@ Partial Class XtraFormAFABreSign
         Me.BtnExit.Appearance.Options.UseFont = True
         Me.BtnExit.Location = New System.Drawing.Point(15, 632)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(221, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(186, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 22
         Me.BtnExit.Text = "Exit"
@@ -191,9 +208,9 @@ Partial Class XtraFormAFABreSign
         Me.BtnViewAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnViewAFA.Appearance.Options.UseBackColor = True
         Me.BtnViewAFA.Appearance.Options.UseFont = True
-        Me.BtnViewAFA.Location = New System.Drawing.Point(483, 632)
+        Me.BtnViewAFA.Location = New System.Drawing.Point(561, 632)
         Me.BtnViewAFA.Name = "BtnViewAFA"
-        Me.BtnViewAFA.Size = New System.Drawing.Size(223, 24)
+        Me.BtnViewAFA.Size = New System.Drawing.Size(201, 24)
         Me.BtnViewAFA.StyleController = Me.LayoutControl1
         Me.BtnViewAFA.TabIndex = 21
         Me.BtnViewAFA.Text = "View AFA"
@@ -202,9 +219,9 @@ Partial Class XtraFormAFABreSign
         '
         Me.BtnSend.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSend.Appearance.Options.UseFont = True
-        Me.BtnSend.Location = New System.Drawing.Point(246, 632)
+        Me.BtnSend.Location = New System.Drawing.Point(399, 632)
         Me.BtnSend.Name = "BtnSend"
-        Me.BtnSend.Size = New System.Drawing.Size(227, 24)
+        Me.BtnSend.Size = New System.Drawing.Size(152, 24)
         Me.BtnSend.StyleController = Me.LayoutControl1
         Me.BtnSend.TabIndex = 20
         Me.BtnSend.Text = "Send to Email"
@@ -215,9 +232,9 @@ Partial Class XtraFormAFABreSign
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(716, 632)
+        Me.BtnSave.Location = New System.Drawing.Point(772, 632)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(224, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(168, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 19
         Me.BtnSave.Text = "Save"
@@ -412,7 +429,7 @@ Partial Class XtraFormAFABreSign
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciTotalReclass, Me.LciGridSignature, Me.LciBtnSave, Me.LciBtnSend, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnExit, Me.LciBtnViewAFA, Me.LayoutControlItem2})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciAfaNo, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciTotalReclass, Me.LciGridSignature, Me.LciBtnSave, Me.LciBtnSend, Me.LciAttachment1, Me.LciAttachment2, Me.LciBtnExit, Me.LciBtnViewAFA, Me.LayoutControlItem2, Me.LayoutControlItem1})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(955, 671)
         Me.Root.TextVisible = False
@@ -584,19 +601,19 @@ Partial Class XtraFormAFABreSign
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(701, 617)
+        Me.LciBtnSave.Location = New System.Drawing.Point(757, 617)
         Me.LciBtnSave.Name = "LciBtnSave"
         Me.LciBtnSave.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBtnSave.Size = New System.Drawing.Size(234, 34)
+        Me.LciBtnSave.Size = New System.Drawing.Size(178, 34)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnSend
         '
         Me.LciBtnSend.Control = Me.BtnSend
-        Me.LciBtnSend.Location = New System.Drawing.Point(231, 617)
+        Me.LciBtnSend.Location = New System.Drawing.Point(384, 617)
         Me.LciBtnSend.Name = "LciBtnSend"
         Me.LciBtnSend.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBtnSend.Size = New System.Drawing.Size(237, 34)
+        Me.LciBtnSend.Size = New System.Drawing.Size(162, 34)
         Me.LciBtnSend.TextVisible = False
         '
         'LciAttachment1
@@ -631,16 +648,16 @@ Partial Class XtraFormAFABreSign
         Me.LciBtnExit.Location = New System.Drawing.Point(0, 617)
         Me.LciBtnExit.Name = "LciBtnExit"
         Me.LciBtnExit.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBtnExit.Size = New System.Drawing.Size(231, 34)
+        Me.LciBtnExit.Size = New System.Drawing.Size(196, 34)
         Me.LciBtnExit.TextVisible = False
         '
         'LciBtnViewAFA
         '
         Me.LciBtnViewAFA.Control = Me.BtnViewAFA
-        Me.LciBtnViewAFA.Location = New System.Drawing.Point(468, 617)
+        Me.LciBtnViewAFA.Location = New System.Drawing.Point(546, 617)
         Me.LciBtnViewAFA.Name = "LciBtnViewAFA"
         Me.LciBtnViewAFA.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciBtnViewAFA.Size = New System.Drawing.Size(233, 34)
+        Me.LciBtnViewAFA.Size = New System.Drawing.Size(211, 34)
         Me.LciBtnViewAFA.TextVisible = False
         '
         'LayoutControlItem2
@@ -653,6 +670,15 @@ Partial Class XtraFormAFABreSign
         Me.LayoutControlItem2.Text = "Priority"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(165, 13)
+        '
+        'LayoutControlItem1
+        '
+        Me.LayoutControlItem1.Control = Me.BtnClearForm
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(196, 617)
+        Me.LayoutControlItem1.Name = "LayoutControlItem1"
+        Me.LayoutControlItem1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(188, 34)
+        Me.LayoutControlItem1.TextVisible = False
         '
         'XtraFormAFABreSign
         '
@@ -707,6 +733,7 @@ Partial Class XtraFormAFABreSign
         CType(Me.LciBtnExit, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciBtnViewAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -758,4 +785,6 @@ Partial Class XtraFormAFABreSign
     Friend WithEvents LciAttachment2 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents SelectPriority As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnClearForm As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
 End Class

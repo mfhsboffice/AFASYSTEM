@@ -374,9 +374,11 @@ Public Class XtraFormAFABreSign
             Return
         End If
 
-        If _headerStatus <> "Draft" Then
-            XtraMessageBox.Show("Attachments can only be added while the document is a Draft.",
-                                "Signature AFA Reclass Budget", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If _headerStatus <> "Draft" AndAlso _headerStatus <> "Cancelled" Then
+            XtraMessageBox.Show("Attachments can only be added while the document is a Draft or Cancelled.",
+                                "Signature AFA Information",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
             Return
         End If
 
@@ -793,6 +795,11 @@ Public Class XtraFormAFABreSign
         BtnSave.Enabled = loaded
         BtnSend.Enabled = loaded
         BtnViewAFA.Enabled = loaded
+    End Sub
+
+    Private Sub BtnClearForm_Click(sender As Object, e As EventArgs) Handles BtnClearForm.Click
+        ClearForm()
+        TextEditAfaNo.Focus()
     End Sub
 
 #End Region
