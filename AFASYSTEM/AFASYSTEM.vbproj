@@ -391,6 +391,12 @@
     <Compile Include="XtraFormAfaPreview.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="XtraFormAfaType.Designer.vb">
+      <DependentUpon>XtraFormAfaType.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormAfaType.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="XtraFormAppOwner.Designer.vb">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
     </Compile>
@@ -497,6 +503,12 @@
       <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
     </Compile>
     <Compile Include="XtraFormSkipAfa.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="XtraFormSriRule.Designer.vb">
+      <DependentUpon>XtraFormSriRule.vb</DependentUpon>
+    </Compile>
+    <Compile Include="XtraFormSriRule.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="XtraFormUnApp.Designer.vb">
@@ -631,6 +643,9 @@
     <EmbeddedResource Include="XtraFormAfaPreview.resx">
       <DependentUpon>XtraFormAfaPreview.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormAfaType.resx">
+      <DependentUpon>XtraFormAfaType.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="XtraFormAppOwner.resx">
       <DependentUpon>XtraFormAppOwner.vb</DependentUpon>
     </EmbeddedResource>
@@ -684,6 +699,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormSkipAfa.resx">
       <DependentUpon>XtraFormSkipAfa.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XtraFormSriRule.resx">
+      <DependentUpon>XtraFormSriRule.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="XtraFormUnApp.resx">
       <DependentUpon>XtraFormUnApp.vb</DependentUpon>

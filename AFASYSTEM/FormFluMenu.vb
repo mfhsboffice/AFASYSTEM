@@ -563,6 +563,14 @@ Public Class FormFluMenu
         XtraFormAFAMyRecords.BringToFront()
     End Sub
 
+    Private Sub AceAFAType_Click(sender As Object, e As EventArgs) Handles AceAFAType.Click
+
+    End Sub
+
+    Private Sub AceSriRules_Click(sender As Object, e As EventArgs) Handles AceSriRules.Click
+
+    End Sub
+
     Private Sub btnexit_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles btnexit.ItemClick
         tuutpkabeh()
         Me.Close()

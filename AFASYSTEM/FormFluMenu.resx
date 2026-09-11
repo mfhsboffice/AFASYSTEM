@@ -562,6 +562,14 @@
         /KUJ9jsFBBlQ573MfAAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="AccordionControlElement5.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAG5JREFUWEft
+        kEEKwDAIBPPBfqr4qF59maXQFGINJaAJll2YgyK4TBGRpZjLmbwWRCSR6H/NcHEfhQQFhgswsws1MAAD
+        MPB/A1/JZ8A7wwW2/XjQs0XvpgYGYAAGYCCfAe/kKRCJ/tcMKzCX85ByAhEFUBgzxrVVAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <data name="AccordionControlElement6.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAgEBLAEsAAD/7gAOQWRvYmUAZAAAAAAB/+ED5kV4aWYAAE1NACoAAAAIAAgBEgAD
@@ -629,14 +637,6 @@
         ucnZ6fkqOkpaanqKmqq6ytrq+v/dAAQAAv/aAAwDAQACEQMRAD8A9Iahr7211cwrGpW2ERZnJUH1a036
         dslWya2VtP1W5uZkSWJYw4alCSdt8Cv/0PTt9pdtcrI/pIbggcGkBK8l+zyAI6YkmtmUSL35MR/KrWLX
         WdPvZ47y2vvqN09orW0gk9LioJRiu3f4a/FxzF0nicJE+9zu0ZYTMHF1Hr/rP//Z
-</value>
-  </data>
-  <data name="AccordionControlElement5.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAG5JREFUWEft
-        kEEKwDAIBPPBfqr4qF59maXQFGINJaAJll2YgyK4TBGRpZjLmbwWRCSR6H/NcHEfhQQFhgswsws1MAAD
-        MPB/A1/JZ8A7wwW2/XjQs0XvpgYGYAAGYCCfAe/kKRCJ/tcMKzCX85ByAhEFUBgzxrVVAAAAAElFTkSu
-        QmCC
 </value>
   </data>
   <data name="AccordionControlElement8.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -783,6 +783,14 @@
         nTfialc2dMUS/Zej7/x6yixXu7LhkGw4JBsOp1v4Cw34OMFg0r5hAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="Trans_AFAEntry.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAG5JREFUWEft
+        kEEKwDAIBPPBfqr4qF59maXQFGINJaAJll2YgyK4TBGRpZjLmbwWRCSR6H/NcHEfhQQFhgswsws1MAAD
+        MPB/A1/JZ8A7wwW2/XjQs0XvpgYGYAAGYCCfAe/kKRCJ/tcMKzCX85ByAhEFUBgzxrVVAAAAAElFTkSu
+        QmCC
+</value>
+  </data>
   <data name="Afa_Download.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAgEBLAEsAAD/7gAOQWRvYmUAZAAAAAAB/+ED5kV4aWYAAE1NACoAAAAIAAgBEgAD
@@ -850,14 +858,6 @@
         ucnZ6fkqOkpaanqKmqq6ytrq+v/dAAQAAv/aAAwDAQACEQMRAD8A9Iahr7211cwrGpW2ERZnJUH1a036
         dslWya2VtP1W5uZkSWJYw4alCSdt8Cv/0PTt9pdtcrI/pIbggcGkBK8l+zyAI6YkmtmUSL35MR/KrWLX
         WdPvZ47y2vvqN09orW0gk9LioJRiu3f4a/FxzF0nicJE+9zu0ZYTMHF1Hr/rP//Z
-</value>
-  </data>
-  <data name="Trans_AFAEntry.ImageOptions.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAG5JREFUWEft
-        kEEKwDAIBPPBfqr4qF59maXQFGINJaAJll2YgyK4TBGRpZjLmbwWRCSR6H/NcHEfhQQFhgswsws1MAAD
-        MPB/A1/JZ8A7wwW2/XjQs0XvpgYGYAAGYCCfAe/kKRCJ/tcMKzCX85ByAhEFUBgzxrVVAAAAAElFTkSu
-        QmCC
 </value>
   </data>
   <assembly alias="DevExpress.Data.v25.1" name="DevExpress.Data.v25.1, Version=25.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />

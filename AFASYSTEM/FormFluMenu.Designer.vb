@@ -145,6 +145,8 @@ Partial Class FormFluMenu
         Me.FluentDesignFormContainer1 = New DevExpress.XtraBars.FluentDesignSystem.FluentDesignFormContainer()
         Me.AccordionControlElement24 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         Me.AccordionControlElement29 = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AceAFAType = New DevExpress.XtraBars.Navigation.AccordionControlElement()
+        Me.AceSriRules = New DevExpress.XtraBars.Navigation.AccordionControlElement()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemHypertextLabel1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -574,7 +576,8 @@ Partial Class FormFluMenu
         '
         'Sys
         '
-        Me.Sys.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Sys_User, Me.AccordionControlSeparator1, Me.Sys_Changepwd, Me.AccordionControlSeparator2, Me.Sys_AddUser, Me.AccordionControlSeparator3, Me.Sys_Configure, Me.AccordionControlSeparator4, Me.DepartmentElementControll})
+        Me.Sys.Elements.AddRange(New DevExpress.XtraBars.Navigation.AccordionControlElement() {Me.Sys_User, Me.AccordionControlSeparator1, Me.Sys_Changepwd, Me.AccordionControlSeparator2, Me.Sys_AddUser, Me.AccordionControlSeparator3, Me.Sys_Configure, Me.AccordionControlSeparator4, Me.DepartmentElementControll, Me.AceAFAType, Me.AceSriRules})
+        Me.Sys.Expanded = True
         Me.Sys.HeaderTemplate.AddRange(New DevExpress.XtraBars.Navigation.HeaderElementInfo() {New DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Text), New DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.Image), New DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.HeaderControl), New DevExpress.XtraBars.Navigation.HeaderElementInfo(DevExpress.XtraBars.Navigation.HeaderElementType.ContextButtons)})
         Me.Sys.Name = "Sys"
         Me.Sys.Text = "System"
@@ -957,6 +960,18 @@ Partial Class FormFluMenu
         Me.AccordionControlElement29.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
         Me.AccordionControlElement29.Text = "E-Form"
         '
+        'AceAFAType
+        '
+        Me.AceAFAType.Name = "AceAFAType"
+        Me.AceAFAType.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceAFAType.Text = "AFA Type"
+        '
+        'AceSriRules
+        '
+        Me.AceSriRules.Name = "AceSriRules"
+        Me.AceSriRules.Style = DevExpress.XtraBars.Navigation.ElementStyle.Item
+        Me.AceSriRules.Text = "SRI Rules"
+        '
         'FormFluMenu
         '
         Me.Appearance.ForeColor = System.Drawing.Color.White
@@ -1113,4 +1128,6 @@ Partial Class FormFluMenu
     Friend WithEvents AceApproval As DevExpress.XtraBars.Navigation.AccordionControlElement
     Friend WithEvents AccordionControlSeparator14 As DevExpress.XtraBars.Navigation.AccordionControlSeparator
     Friend WithEvents AceMyDocuments As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents AceAFAType As DevExpress.XtraBars.Navigation.AccordionControlElement
+    Friend WithEvents AceSriRules As DevExpress.XtraBars.Navigation.AccordionControlElement
 End Class

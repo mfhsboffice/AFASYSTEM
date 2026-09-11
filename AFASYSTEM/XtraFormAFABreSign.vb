@@ -221,20 +221,14 @@ Public Class XtraFormAFABreSign
 
     Private Sub LoadNodes()
         GridControlSignature.DataSource = Nothing
-
-        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-        If _dtNodes Is Nothing OrElse _dtNodes.Rows.Count = 0 Then
-            If _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
-                _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-            Else
-                XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
-                                    _signature.LastErrorMessage,
-                                    "Signature AFA Reclass Budget",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
+        If Not _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
+            XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
+                                _signature.LastErrorMessage,
+                                "Signature AFA Reclass Budget",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
+        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
         If _dtNodes Is Nothing Then Return
 
         GridControlSignature.DataSource = _dtNodes
@@ -672,7 +666,6 @@ Public Class XtraFormAFABreSign
             ds.Tables(2).TableName = "Detail"
             ds.Tables(3).TableName = "Attachment"
 
-            ' --- GABUNGKAN PATH LOKAL DENGAN NAMA FILE DI DATABASE ---
             Dim serverPath As String = Trim(FormFluMenu.btnlink.Caption)
             If serverPath = "" Then
                 XtraMessageBox.Show("The document server path is not configured.",
@@ -691,14 +684,7 @@ Public Class XtraFormAFABreSign
                     End If
                 Next
             End If
-            ' ---------------------------------------------------------
 
-            ' --- AMBIL PATH LAMPIRAN (.pdf) DULU, SEBELUM TABEL DIPANGKAS ---
-            ' Diambil dari tabel yang masih utuh (Cover + Lampiran) supaya
-            ' PdfViewer di XtraFormAfaPreview tetap dapat semua Lampiran-nya,
-            ' meski di bawah ini tabel Attachment dipangkas jadi Cover-only
-            ' untuk report (menjaga spacing/layout report tetap sama seperti
-            ' sebelum fitur Lampiran ditambahkan).
             Dim lampiranPaths As New List(Of String)
             If ds.Tables.Contains("Attachment") Then
                 For Each r As DataRow In ds.Tables("Attachment").Rows
@@ -709,7 +695,6 @@ Public Class XtraFormAFABreSign
                 Next
             End If
 
-            ' --- PANGKAS TABEL ATTACHMENT JADI COVER-ONLY UNTUK REPORT ---
             If ds.Tables.Contains("Attachment") Then
                 Dim nonCoverRows As New List(Of DataRow)
                 For Each r As DataRow In ds.Tables("Attachment").Rows

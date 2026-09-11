@@ -215,20 +215,19 @@ Public Class XtraFormAFAInfSign
     Private Sub LoadNodes()
         GridControlSignature.DataSource = Nothing
 
-        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-
-        If _dtNodes Is Nothing OrElse _dtNodes.Rows.Count = 0 Then
-            If _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
-                _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
-            Else
-                XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
-                                    _signature.LastErrorMessage,
-                                    "Signature AFA Information",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                Return
-            End If
+        ' AFA_NonIFS_GetSignatureGrid_Proc always returns MaxSlot rows (it LEFT
+        ' JOINs a generated number sequence onto AFA_SIGNATURE), so it can never
+        ' come back with zero rows even when no signature has been prepared yet.
+        ' InitNodes has to run unconditionally here - it's idempotent (existing
+        ' nodes are left untouched), so calling it on every load is harmless.
+        If Not _signature.InitNodes(_afaNo, MaxSlot, _nik, _pc) Then
+            XtraMessageBox.Show("The approval nodes could not be prepared:" & vbCrLf &
+                                _signature.LastErrorMessage,
+                                "Signature AFA Information",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
 
+        _dtNodes = _signature.GetNodesGrid(_afaNo, MaxSlot)
         If _dtNodes Is Nothing Then Return
 
         GridControlSignature.DataSource = _dtNodes
@@ -609,7 +608,7 @@ Public Class XtraFormAFAInfSign
             Dim service As New GeneralService()
             Dim ds As DataSet = service.PrintAFA(_afaNo)
 
-            If ds Is Nothing OrElse ds.Tables.Count <4 Then
+            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
                 XtraMessageBox.Show(
                 "Print data is incomplete.",
                 "Signature AFA Information",
