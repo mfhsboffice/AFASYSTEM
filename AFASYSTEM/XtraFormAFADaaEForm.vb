@@ -519,6 +519,11 @@ Public Class XtraFormAFADaaEForm
         Me.Close()
     End Sub
 
+    Private Sub BtnClearForm_Click(sender As Object, e As EventArgs) Handles BtnClearForm.Click
+        ClearForm()
+        TextEditAFANo.Focus()
+    End Sub
+
 #End Region
 
 End Class

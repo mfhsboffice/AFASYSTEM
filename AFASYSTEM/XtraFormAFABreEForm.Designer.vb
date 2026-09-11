@@ -20,6 +20,7 @@ Partial Class XtraFormAFABreEForm
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnClearForm = New DevExpress.XtraEditors.SimpleButton()
         Me.TextEditAFADate = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditAFANo = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditCaptionCover = New DevExpress.XtraEditors.TextEdit()
@@ -79,6 +80,7 @@ Partial Class XtraFormAFABreEForm
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciNoAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciDateAFA = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciClearForm = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -138,10 +140,12 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciNoAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciDateAFA, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciClearForm, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.BtnClearForm)
         Me.LayoutControl1.Controls.Add(Me.TextEditAFADate)
         Me.LayoutControl1.Controls.Add(Me.TextEditAFANo)
         Me.LayoutControl1.Controls.Add(Me.TextEditCaptionCover)
@@ -178,6 +182,19 @@ Partial Class XtraFormAFABreEForm
         Me.LayoutControl1.Size = New System.Drawing.Size(972, 737)
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
+        '
+        'BtnClearForm
+        '
+        Me.BtnClearForm.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnClearForm.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearForm.Appearance.Options.UseBackColor = True
+        Me.BtnClearForm.Appearance.Options.UseFont = True
+        Me.BtnClearForm.Location = New System.Drawing.Point(286, 701)
+        Me.BtnClearForm.Name = "BtnClearForm"
+        Me.BtnClearForm.Size = New System.Drawing.Size(346, 24)
+        Me.BtnClearForm.StyleController = Me.LayoutControl1
+        Me.BtnClearForm.TabIndex = 33
+        Me.BtnClearForm.Text = "Clear"
         '
         'TextEditAFADate
         '
@@ -281,7 +298,7 @@ Partial Class XtraFormAFABreEForm
         Me.BtnExit.Appearance.Options.UseFont = True
         Me.BtnExit.Location = New System.Drawing.Point(12, 701)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(471, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(270, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 24
         Me.BtnExit.Text = "Exit"
@@ -292,9 +309,9 @@ Partial Class XtraFormAFABreEForm
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(487, 701)
+        Me.BtnSave.Location = New System.Drawing.Point(636, 701)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(473, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(324, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 23
         Me.BtnSave.Text = "Save"
@@ -516,7 +533,7 @@ Partial Class XtraFormAFABreEForm
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LciNoAFA, Me.LciDateAFA})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciSubject, Me.LciPurpose, Me.LciBgExp, Me.LciBudgetItemSource, Me.LciBudgetItemTarget, Me.LciBudgetAmtSource, Me.LciBudgetAmtTarget, Me.LciActualUpSource, Me.LciActualUpTarget, Me.LciEstimationSource, Me.LciReclassAmount, Me.LciShortageSource, Me.LciBalanceTarget, Me.LciBtnSave, Me.LciBtnExit, Me.LciTotalReclass, Me.LciBudgetRev, Me.LciBudgetYear, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LayoutControlItem3, Me.LayoutControlItem4, Me.LciNoAFA, Me.LciDateAFA, Me.LciClearForm})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(972, 737)
         Me.Root.TextVisible = False
@@ -712,9 +729,9 @@ Partial Class XtraFormAFABreEForm
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(475, 689)
+        Me.LciBtnSave.Location = New System.Drawing.Point(624, 689)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(477, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(328, 28)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnExit
@@ -722,7 +739,7 @@ Partial Class XtraFormAFABreEForm
         Me.LciBtnExit.Control = Me.BtnExit
         Me.LciBtnExit.Location = New System.Drawing.Point(0, 689)
         Me.LciBtnExit.Name = "LciBtnExit"
-        Me.LciBtnExit.Size = New System.Drawing.Size(475, 28)
+        Me.LciBtnExit.Size = New System.Drawing.Size(274, 28)
         Me.LciBtnExit.TextVisible = False
         '
         'LciTotalReclass
@@ -822,6 +839,14 @@ Partial Class XtraFormAFABreEForm
         Me.LciDateAFA.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciDateAFA.TextSize = New System.Drawing.Size(165, 13)
         '
+        'LciClearForm
+        '
+        Me.LciClearForm.Control = Me.BtnClearForm
+        Me.LciClearForm.Location = New System.Drawing.Point(274, 689)
+        Me.LciClearForm.Name = "LciClearForm"
+        Me.LciClearForm.Size = New System.Drawing.Size(350, 28)
+        Me.LciClearForm.TextVisible = False
+        '
         'XtraFormAFABreEForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -890,6 +915,7 @@ Partial Class XtraFormAFABreEForm
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciNoAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciDateAFA, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciClearForm, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -954,4 +980,6 @@ Partial Class XtraFormAFABreEForm
     Friend WithEvents TextEditAFANo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LciNoAFA As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LciDateAFA As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnClearForm As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LciClearForm As DevExpress.XtraLayout.LayoutControlItem
 End Class

@@ -20,6 +20,7 @@ Partial Class XtraFormAFAInfEF
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnClearForm = New DevExpress.XtraEditors.SimpleButton()
         Me.TextEditAFADate = New DevExpress.XtraEditors.TextEdit()
         Me.TextEditAFANo = New DevExpress.XtraEditors.TextEdit()
         Me.SelectCurrency = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -53,6 +54,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciCaptionCover = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LciClearForm = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.TextEditAFADate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,10 +90,12 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciCaptionCover, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LciClearForm, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.BtnClearForm)
         Me.LayoutControl1.Controls.Add(Me.TextEditAFADate)
         Me.LayoutControl1.Controls.Add(Me.TextEditAFANo)
         Me.LayoutControl1.Controls.Add(Me.SelectCurrency)
@@ -116,6 +120,19 @@ Partial Class XtraFormAFAInfEF
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'BtnClearForm
+        '
+        Me.BtnClearForm.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Danger
+        Me.BtnClearForm.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnClearForm.Appearance.Options.UseBackColor = True
+        Me.BtnClearForm.Appearance.Options.UseFont = True
+        Me.BtnClearForm.Location = New System.Drawing.Point(286, 711)
+        Me.BtnClearForm.Name = "BtnClearForm"
+        Me.BtnClearForm.Size = New System.Drawing.Size(303, 24)
+        Me.BtnClearForm.StyleController = Me.LayoutControl1
+        Me.BtnClearForm.TabIndex = 20
+        Me.BtnClearForm.Text = "Clear"
+        '
         'TextEditAFADate
         '
         Me.TextEditAFADate.Location = New System.Drawing.Point(428, 28)
@@ -135,11 +152,11 @@ Partial Class XtraFormAFAInfEF
         '
         'SelectCurrency
         '
-        Me.SelectCurrency.Location = New System.Drawing.Point(431, 684)
+        Me.SelectCurrency.Location = New System.Drawing.Point(448, 684)
         Me.SelectCurrency.Name = "SelectCurrency"
         Me.SelectCurrency.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.SelectCurrency.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
-        Me.SelectCurrency.Size = New System.Drawing.Size(406, 20)
+        Me.SelectCurrency.Size = New System.Drawing.Size(389, 20)
         Me.SelectCurrency.StyleController = Me.LayoutControl1
         Me.SelectCurrency.TabIndex = 17
         '
@@ -183,7 +200,7 @@ Partial Class XtraFormAFAInfEF
         Me.BtnExit.Appearance.Options.UseFont = True
         Me.BtnExit.Location = New System.Drawing.Point(12, 711)
         Me.BtnExit.Name = "BtnExit"
-        Me.BtnExit.Size = New System.Drawing.Size(412, 24)
+        Me.BtnExit.Size = New System.Drawing.Size(270, 24)
         Me.BtnExit.StyleController = Me.LayoutControl1
         Me.BtnExit.TabIndex = 13
         Me.BtnExit.Text = "Exit"
@@ -194,9 +211,9 @@ Partial Class XtraFormAFAInfEF
         Me.BtnSave.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnSave.Appearance.Options.UseBackColor = True
         Me.BtnSave.Appearance.Options.UseFont = True
-        Me.BtnSave.Location = New System.Drawing.Point(428, 711)
+        Me.BtnSave.Location = New System.Drawing.Point(593, 711)
         Me.BtnSave.Name = "BtnSave"
-        Me.BtnSave.Size = New System.Drawing.Size(412, 24)
+        Me.BtnSave.Size = New System.Drawing.Size(247, 24)
         Me.BtnSave.StyleController = Me.LayoutControl1
         Me.BtnSave.TabIndex = 12
         Me.BtnSave.Text = "Save"
@@ -205,7 +222,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.TextEditEstimateCost.Location = New System.Drawing.Point(15, 684)
         Me.TextEditEstimateCost.Name = "TextEditEstimateCost"
-        Me.TextEditEstimateCost.Size = New System.Drawing.Size(406, 20)
+        Me.TextEditEstimateCost.Size = New System.Drawing.Size(423, 20)
         Me.TextEditEstimateCost.StyleController = Me.LayoutControl1
         Me.TextEditEstimateCost.TabIndex = 11
         '
@@ -276,7 +293,7 @@ Partial Class XtraFormAFAInfEF
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciCurrency, Me.LciCaptionCover, Me.LayoutControlItem1, Me.LayoutControlItem2})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LciLocation, Me.LciDepartment, Me.LciType, Me.LciSubject, Me.LciPurpose, Me.LciAttachCover, Me.LciEstimateCost, Me.LciBtnSave, Me.LciBtnClear, Me.LciBgExp, Me.LciScheduleFrom, Me.LciScheduleTo, Me.LciCurrency, Me.LciCaptionCover, Me.LayoutControlItem1, Me.LayoutControlItem2, Me.LciClearForm})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(852, 747)
         Me.Root.TextVisible = False
@@ -353,7 +370,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciEstimateCost.Location = New System.Drawing.Point(0, 653)
         Me.LciEstimateCost.Name = "LciEstimateCost"
         Me.LciEstimateCost.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciEstimateCost.Size = New System.Drawing.Size(416, 46)
+        Me.LciEstimateCost.Size = New System.Drawing.Size(433, 46)
         Me.LciEstimateCost.Text = "Estimate Cost"
         Me.LciEstimateCost.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciEstimateCost.TextSize = New System.Drawing.Size(138, 13)
@@ -361,9 +378,9 @@ Partial Class XtraFormAFAInfEF
         'LciBtnSave
         '
         Me.LciBtnSave.Control = Me.BtnSave
-        Me.LciBtnSave.Location = New System.Drawing.Point(416, 699)
+        Me.LciBtnSave.Location = New System.Drawing.Point(581, 699)
         Me.LciBtnSave.Name = "LciBtnSave"
-        Me.LciBtnSave.Size = New System.Drawing.Size(416, 28)
+        Me.LciBtnSave.Size = New System.Drawing.Size(251, 28)
         Me.LciBtnSave.TextVisible = False
         '
         'LciBtnClear
@@ -371,7 +388,7 @@ Partial Class XtraFormAFAInfEF
         Me.LciBtnClear.Control = Me.BtnExit
         Me.LciBtnClear.Location = New System.Drawing.Point(0, 699)
         Me.LciBtnClear.Name = "LciBtnClear"
-        Me.LciBtnClear.Size = New System.Drawing.Size(416, 28)
+        Me.LciBtnClear.Size = New System.Drawing.Size(274, 28)
         Me.LciBtnClear.TextVisible = False
         '
         'LciBgExp
@@ -410,10 +427,10 @@ Partial Class XtraFormAFAInfEF
         'LciCurrency
         '
         Me.LciCurrency.Control = Me.SelectCurrency
-        Me.LciCurrency.Location = New System.Drawing.Point(416, 653)
+        Me.LciCurrency.Location = New System.Drawing.Point(433, 653)
         Me.LciCurrency.Name = "LciCurrency"
         Me.LciCurrency.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LciCurrency.Size = New System.Drawing.Size(416, 46)
+        Me.LciCurrency.Size = New System.Drawing.Size(399, 46)
         Me.LciCurrency.Text = "Currency"
         Me.LciCurrency.TextLocation = DevExpress.Utils.Locations.Top
         Me.LciCurrency.TextSize = New System.Drawing.Size(138, 13)
@@ -448,6 +465,14 @@ Partial Class XtraFormAFAInfEF
         Me.LayoutControlItem2.Text = "AFA Date"
         Me.LayoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top
         Me.LayoutControlItem2.TextSize = New System.Drawing.Size(138, 13)
+        '
+        'LciClearForm
+        '
+        Me.LciClearForm.Control = Me.BtnClearForm
+        Me.LciClearForm.Location = New System.Drawing.Point(274, 699)
+        Me.LciClearForm.Name = "LciClearForm"
+        Me.LciClearForm.Size = New System.Drawing.Size(307, 28)
+        Me.LciClearForm.TextVisible = False
         '
         'XtraFormAFAInfEF
         '
@@ -493,6 +518,7 @@ Partial Class XtraFormAFAInfEF
         CType(Me.LciCaptionCover, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LciClearForm, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -530,4 +556,6 @@ Partial Class XtraFormAFAInfEF
     Friend WithEvents TextEditAFANo As DevExpress.XtraEditors.TextEdit
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnClearForm As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LciClearForm As DevExpress.XtraLayout.LayoutControlItem
 End Class

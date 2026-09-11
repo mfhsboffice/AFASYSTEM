@@ -316,9 +316,11 @@ Public Class XtraFormAFAInfSign
             Return
         End If
 
-        If _headerStatus <> "Draft" Then
-            XtraMessageBox.Show("Attachments can only be added while the document is a Draft.",
-                                "Signature AFA Information", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        If _headerStatus <> "Draft" AndAlso _headerStatus <> "Cancelled" Then
+            XtraMessageBox.Show("Attachments can only be added while the document is a Draft or Cancelled.",
+                                "Signature AFA Information",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning)
             Return
         End If
 
@@ -607,7 +609,7 @@ Public Class XtraFormAFAInfSign
             Dim service As New GeneralService()
             Dim ds As DataSet = service.PrintAFA(_afaNo)
 
-            If ds Is Nothing OrElse ds.Tables.Count < 4 Then
+            If ds Is Nothing OrElse ds.Tables.Count <4 Then
                 XtraMessageBox.Show(
                 "Print data is incomplete.",
                 "Signature AFA Information",
@@ -762,6 +764,11 @@ Public Class XtraFormAFAInfSign
         BtnSave.Enabled = loaded
         BtnSend.Enabled = loaded
         BtnViewAFA.Enabled = loaded
+    End Sub
+
+    Private Sub BtnClearForm_Click(sender As Object, e As EventArgs) Handles BtnClearForm.Click
+        ClearForm()
+        TextEditAfaNo.Focus()
     End Sub
 
 #End Region

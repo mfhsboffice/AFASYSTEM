@@ -592,10 +592,12 @@ Public Class XtraFormAFAAddEForm
         TextEditAFANo.Text = ""
         TextEditAFADate.Text = ""
         SelectLocation.SelectedIndex = -1
+        SelectDepartment.SelectedIndex = If(SelectDepartment.Properties.Items.Count = 1, 0, -1)
         TextEditSubject.Text = ""
         MemoEditPurpose.Text = ""
         MemoEditBgExp.Text = ""
         TextEditCaptionCover.Text = ""
+        TextEdit1.Text = Date.Today.Year.ToString()
         TextEdit2.Text = ""
 
         LookupBudgetItem.EditValue = Nothing
@@ -620,6 +622,12 @@ Public Class XtraFormAFAAddEForm
 
     Private Sub BtnExit_Click(sender As Object, e As EventArgs) Handles BtnExit.Click
         Me.Close()
+    End Sub
+
+    Private Sub BtnClearForm_Click(sender As Object, e As EventArgs) Handles BtnClearForm.Click
+        ClearForm()
+        LoadBudgetAllocation()
+        TextEditAFANo.Focus()
     End Sub
 
 #End Region

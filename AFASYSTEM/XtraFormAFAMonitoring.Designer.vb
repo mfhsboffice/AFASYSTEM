@@ -20,6 +20,7 @@ Partial Class XtraFormAFAMonitoring
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl()
+        Me.BtnViewAFA = New DevExpress.XtraEditors.SimpleButton()
         Me.BtnReload = New DevExpress.XtraEditors.SimpleButton()
         Me.SelectType = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.SelectStatus = New DevExpress.XtraEditors.ComboBoxEdit()
@@ -30,6 +31,7 @@ Partial Class XtraFormAFAMonitoring
         Me.LciStatusAFA = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LciType = New DevExpress.XtraLayout.LayoutControlItem()
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem()
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.SelectType.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -41,10 +43,12 @@ Partial Class XtraFormAFAMonitoring
         CType(Me.LciStatusAFA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LciType, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.BtnViewAFA)
         Me.LayoutControl1.Controls.Add(Me.BtnReload)
         Me.LayoutControl1.Controls.Add(Me.SelectType)
         Me.LayoutControl1.Controls.Add(Me.SelectStatus)
@@ -57,15 +61,28 @@ Partial Class XtraFormAFAMonitoring
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'BtnViewAFA
+        '
+        Me.BtnViewAFA.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Question
+        Me.BtnViewAFA.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BtnViewAFA.Appearance.Options.UseBackColor = True
+        Me.BtnViewAFA.Appearance.Options.UseFont = True
+        Me.BtnViewAFA.Location = New System.Drawing.Point(12, 450)
+        Me.BtnViewAFA.Name = "BtnViewAFA"
+        Me.BtnViewAFA.Size = New System.Drawing.Size(435, 24)
+        Me.BtnViewAFA.StyleController = Me.LayoutControl1
+        Me.BtnViewAFA.TabIndex = 8
+        Me.BtnViewAFA.Text = "View AFA"
+        '
         'BtnReload
         '
         Me.BtnReload.Appearance.BackColor = DevExpress.LookAndFeel.DXSkinColors.FillColors.Success
         Me.BtnReload.Appearance.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnReload.Appearance.Options.UseBackColor = True
         Me.BtnReload.Appearance.Options.UseFont = True
-        Me.BtnReload.Location = New System.Drawing.Point(12, 450)
+        Me.BtnReload.Location = New System.Drawing.Point(451, 450)
         Me.BtnReload.Name = "BtnReload"
-        Me.BtnReload.Size = New System.Drawing.Size(875, 24)
+        Me.BtnReload.Size = New System.Drawing.Size(436, 24)
         Me.BtnReload.StyleController = Me.LayoutControl1
         Me.BtnReload.TabIndex = 7
         Me.BtnReload.Text = "Load"
@@ -110,7 +127,7 @@ Partial Class XtraFormAFAMonitoring
         '
         Me.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.[True]
         Me.Root.GroupBordersVisible = False
-        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LciStatusAFA, Me.LciType, Me.LayoutControlItem2})
+        Me.Root.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LciStatusAFA, Me.LciType, Me.LayoutControlItem2, Me.LayoutControlItem3})
         Me.Root.Name = "Root"
         Me.Root.Size = New System.Drawing.Size(899, 486)
         Me.Root.TextVisible = False
@@ -152,10 +169,18 @@ Partial Class XtraFormAFAMonitoring
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.BtnReload
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 438)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(439, 438)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(879, 28)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(440, 28)
         Me.LayoutControlItem2.TextVisible = False
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.BtnViewAFA
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 438)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(439, 28)
+        Me.LayoutControlItem3.TextVisible = False
         '
         'XtraFormAFAMonitoring
         '
@@ -177,6 +202,7 @@ Partial Class XtraFormAFAMonitoring
         CType(Me.LciStatusAFA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LciType, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -192,4 +218,6 @@ Partial Class XtraFormAFAMonitoring
     Friend WithEvents LciType As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents BtnReload As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents BtnViewAFA As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
 End Class
